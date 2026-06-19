@@ -1,0 +1,6 @@
+body{font-family:Arial,sans-serif;margin:0;line-height:1.6}
+.hero{padding:60px 20px;text-align:center;background:#1f4f3a;color:white}
+section{padding:30px 20px;max-width:1000px;margin:auto}
+.card{border:1px solid #ccc;padding:15px;margin:10px 0;border-radius:8px}
+.btn{background:white;color:#1f4f3a;padding:10px 18px;text-decoration:none;border-radius:5px}
+footer{text-align:center;padding:20px;background:#eee}
