@@ -49,5 +49,42 @@
 </section>
 
 <footer>© Broker Inmobiliario G&R</footer>
+
+<div style="font-size:30px; text-align:center; margin-top:20px;">
+  👀 Visitas: <span id="visitas">0</span>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getDatabase, ref, runTransaction, onValue } 
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAKDczyyUwdxTn1QP1jkQks8SL91PwZawQ",
+    authDomain: "contador-web-gyr.firebaseapp.com",
+    databaseURL: "https://contador-web-gyr-default-rtdb.firebaseio.com",
+    projectId: "contador-web-gyr",
+    storageBucket: "contador-web-gyr.firebasestorage.app",
+    messagingSenderId: "960149119215",
+    appId: "1:960149119215:web:b857b8cc57d5064da2fb1a"
+  };
+
+  // 🔥 iniciar Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  const visitasRef = ref(db, "visitas");
+
+  // ➕ sumar visita cada vez que alguien entra
+  runTransaction(visitasRef, (actual) => {
+    return (actual || 0) + 1;
+  });
+
+  // 👀 mostrar en tiempo real
+  onValue(visitasRef, (snapshot) => {
+    document.getElementById("visitas").innerText = snapshot.val();
+  });
+</script>
+  
 </body>
 </html>
