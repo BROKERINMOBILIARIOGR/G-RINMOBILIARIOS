@@ -1,6 +1,49 @@
-body{font-family:Arial,sans-serif;margin:0;line-height:1.6}
-.hero{padding:60px 20px;text-align:center;background:#1f4f3a;color:white}
-section{padding:30px 20px;max-width:1000px;margin:auto}
-.card{border:1px solid #ccc;padding:15px;margin:10px 0;border-radius:8px}
-.btn{background:white;color:#1f4f3a;padding:10px 18px;text-decoration:none;border-radius:5px}
-footer{text-align:center;padding:20px;background:#eee}
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    line-height:1.6;
+    background:#f8f8f8;
+    color:#222;
+}
+
+.hero{
+    padding:60px 20px;
+    text-align:center;
+    background:#111111;
+    color:#D4AF37;
+}
+
+section{
+    padding:30px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    border:1px solid #D4AF37;
+    background:white;
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn{
+    background:#D4AF37;
+    color:#111111;
+    padding:10px 18px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#c89c2c;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111111;
+    color:#D4AF37;
+}
