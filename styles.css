@@ -157,7 +157,7 @@ footer{
 .hero-content{
     position: relative;
     z-index: 2;
-    color: black;
+    color: white;
 }
 
 /* LOGO + TITULO */
@@ -197,7 +197,7 @@ footer{
 
 /* 👇 IMPORTANTE: visible en cualquier fondo */
 .menu-hero a{
-    color: #111;
+    color: #222;
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
