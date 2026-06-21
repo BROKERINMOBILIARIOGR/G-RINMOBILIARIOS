@@ -28,7 +28,7 @@ section{
     text-align: center;
 }
 
-/* IMAGEN PRINCIPAL */
+/* imagen principal del proyecto */
 .card > img{
     width: 100%;
     max-width: 320px;
@@ -39,7 +39,7 @@ section{
     margin: 0 auto 15px auto;
 }
 
-/* GALERÍA */
+/* galería */
 .galeria-proyecto{
     display: flex;
     justify-content: center;
@@ -55,7 +55,7 @@ section{
     border-radius: 10px;
 }
 
-/* BOTONES */
+/* botones */
 .btn{
     background: #D4AF37;
     color: #111;
@@ -134,7 +134,7 @@ footer{
     text-align: center;
 }
 
-/* VIDEO */
+/* video fondo */
 .video-fondo{
     position: absolute;
     inset: 0;
@@ -145,7 +145,7 @@ footer{
     z-index: 0;
 }
 
-/* OSCURECER VIDEO */
+/* overlay oscuro */
 .overlay{
     position: absolute;
     inset: 0;
@@ -153,14 +153,14 @@ footer{
     z-index: 1;
 }
 
-/* CONTENIDO HERO */
+/* contenido del hero */
 .hero-content{
     position: relative;
     z-index: 2;
     color: white;
 }
 
-/* LOGO + TITULO */
+/* logo + título */
 .logo-titulo{
     display: flex;
     align-items: center;
@@ -185,7 +185,7 @@ footer{
 }
 
 /* =========================
-   MENÚ GLOBAL (SOLUCIÓN FINAL)
+   MENÚ (ARREGLADO)
    ========================= */
 .menu-hero{
     display: flex;
@@ -195,9 +195,8 @@ footer{
     flex-wrap: wrap;
 }
 
-/* 👇 IMPORTANTE: visible en cualquier fondo */
 .menu-hero a{
-    color: #222;
+    color: #000; /* 👈 NEGRO (lo que pediste) */
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
@@ -205,19 +204,19 @@ footer{
     padding: 8px 14px;
     border-radius: 8px;
 
-    background: #D4AF37;
-    border: 1px solid #c89c2c;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(0,0,0,0.2);
 
-    transition: 0.3s ease;
+    transition: 0.3s;
 }
 
 .menu-hero a:hover{
-    background: #111;
-    color: #D4AF37;
+    background: #D4AF37;
+    color: #111;
 }
 
 /* =========================
-   PROYECTOS (PÁGINAS INTERNAS)
+   PÁGINA PROYECTOS GRID
    ========================= */
 .proyectos-grid{
     display: grid;
