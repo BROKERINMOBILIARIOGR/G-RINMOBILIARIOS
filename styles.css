@@ -47,3 +47,42 @@ footer{
     background:#111111;
     color:#D4AF37;
 }
+
+.asesores {
+  text-align: center;
+  padding: 50px 20px;
+  color: white; /* útil si tu fondo es oscuro */
+}
+
+.asesores h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.card {
+  display: inline-block;
+  margin: 20px;
+  width: 200px;
+  padding: 15px;
+  background: #1f1f1f;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.card h3 {
+  margin-top: 12px;
+  font-size: 18px;
+}
