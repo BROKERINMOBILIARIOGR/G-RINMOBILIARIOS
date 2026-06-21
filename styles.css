@@ -6,6 +6,7 @@ body{
     color:#222;
 }
 
+/* HERO */
 .hero{
     padding:60px 20px;
     text-align:center;
@@ -13,12 +14,16 @@ body{
     color:#D4AF37;
 }
 
+/* SECCIONES GENERALES */
 section{
     padding:30px 20px;
     max-width:1000px;
     margin:auto;
 }
 
+/* =========================
+   🏡 PROYECTOS (CARDS)
+   ========================= */
 .card{
     border:1px solid #D4AF37;
     background:white;
@@ -28,6 +33,7 @@ section{
     box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
+/* BOTÓN */
 .btn{
     background:#D4AF37;
     color:#111111;
@@ -35,12 +41,14 @@ section{
     text-decoration:none;
     border-radius:5px;
     font-weight:bold;
+    display:inline-block;
 }
 
 .btn:hover{
     background:#c89c2c;
 }
 
+/* FOOTER */
 footer{
     text-align:center;
     padding:20px;
@@ -48,10 +56,12 @@ footer{
     color:#D4AF37;
 }
 
+/* =========================
+   👥 ASESORES (NUEVO ESTILO)
+   ========================= */
 .asesores {
   text-align: center;
   padding: 50px 20px;
-  color: white; /* útil si tu fondo es oscuro */
 }
 
 .asesores h2 {
@@ -59,7 +69,8 @@ footer{
   margin-bottom: 30px;
 }
 
-.card {
+/* TARJETA ASESORES */
+.card-asesor {
   display: inline-block;
   margin: 20px;
   width: 200px;
@@ -68,13 +79,16 @@ footer{
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   transition: transform 0.3s ease;
+  text-align: center;
+  color: white;
 }
 
-.card:hover {
+.card-asesor:hover {
   transform: scale(1.05);
 }
 
-.card img {
+/* FOTO CIRCULAR */
+.card-asesor img {
   width: 160px;
   height: 160px;
   object-fit: cover;
@@ -84,8 +98,7 @@ footer{
   margin: 0 auto;
 }
 
-
-.card h3 {
+.card-asesor h3 {
   margin-top: 12px;
   font-size: 18px;
 }
