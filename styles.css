@@ -28,8 +28,10 @@ section{
     text-align: center;
 }
 
-.card img{
-    width: 300px;
+/* IMAGEN PRINCIPAL (IMPORTANTE: SOLO HIJA DIRECTA) */
+.card > img{
+    width: 100%;
+    max-width: 320px;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
@@ -109,7 +111,9 @@ section{
     font-size: 18px;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+   ========================= */
 footer{
     text-align: center;
     padding: 20px;
