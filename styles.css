@@ -128,3 +128,51 @@ footer{
     background: #111111;
     color: #D4AF37;
 }
+
+
+/* =========================
+   HERO CON VIDEO
+   ========================= */
+
+.hero-video{
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.video-fondo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-video::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.contenido-hero{
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.contenido-hero h1{
+    margin: 15px 0;
+    font-size: 38px;
+    color: #ffffff;
+}
+
+.contenido-hero p{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
