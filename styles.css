@@ -179,36 +179,3 @@ footer{
     font-size: 16px;
 }
 
-/* =========================
-   BARRA DORADA DEL MENÚ
-   ========================= */
-
-.menu-bar{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-
-    background-color: #D4AF37 !important;
-
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-
-    padding: 12px 10px;
-    z-index: 9999;
-}
-
-.menu-bar a{
-    color: #111;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 6px 10px;
-    border-radius: 5px;
-}
-
-.menu-bar a:hover{
-    background: rgba(0,0,0,0.2);
-    color: white;
-}
