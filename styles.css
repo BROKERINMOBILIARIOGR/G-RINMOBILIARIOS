@@ -129,12 +129,11 @@ footer{
     color: #D4AF37;
 }
 
-
 /* =========================
-   HERO CON VIDEO
+   HERO CON VIDEO (CORREGIDO)
    ========================= */
 
-.hero-video{
+.hero{
     position: relative;
     height: 500px;
     overflow: hidden;
@@ -144,6 +143,7 @@ footer{
     text-align: center;
 }
 
+/* VIDEO DE FONDO */
 .video-fondo{
     position: absolute;
     top: 0;
@@ -151,28 +151,48 @@ footer{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 0;
 }
 
-.hero-video::before{
-    content: "";
+/* CAPA OSCURA */
+.overlay{
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0,0,0,0.45);
+    z-index: 1;
 }
 
-.contenido-hero{
+/* CONTENIDO ENCIMA */
+.hero-content{
     position: relative;
     z-index: 2;
     color: white;
 }
 
-.contenido-hero h1{
-    margin: 15px 0;
-    font-size: 38px;
-    color: #ffffff;
+/* LOGO + TITULO EN LA MISMA LINEA */
+.logo-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 10px;
 }
 
-.contenido-hero p{
+/* LOGO */
+.logo{
+    height: 70px;
+}
+
+/* TEXTO */
+.hero-content h1{
+    margin: 0;
+    font-size: 30px;
+}
+
+.hero-content p{
+    margin-top: 10px;
     font-size: 18px;
-    margin-bottom: 20px;
 }
