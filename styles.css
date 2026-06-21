@@ -195,3 +195,30 @@ footer{
     margin-top: 10px;
     font-size: 18px;
 }
+
+/* =========================
+   MENÚ DENTRO DEL HERO
+   ========================= */
+
+.menu-hero{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:10px;
+    flex-wrap:wrap;
+}
+
+.menu-hero a{
+    color:#D4AF37;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:14px;
+    padding:5px 10px;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.menu-hero a:hover{
+    background:#D4AF37;
+    color:#111;
+}
