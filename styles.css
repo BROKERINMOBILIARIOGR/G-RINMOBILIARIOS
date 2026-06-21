@@ -118,14 +118,28 @@ footer{
    HERO CON VIDEO
    ========================= */
 
-.hero{
-    position: relative;
-    height: 260px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.menu-hero a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+
+    padding: 8px 14px;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    transition: 0.3s ease;
+}
+
+.menu-hero a:hover{
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* VIDEO */
