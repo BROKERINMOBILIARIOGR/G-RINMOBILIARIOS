@@ -16,7 +16,7 @@ section{
 }
 
 /* =========================
-   🏡 PROYECTOS (INDEX)
+   🏡 PROYECTOS
    ========================= */
 .card{
     border: 1px solid #D4AF37;
@@ -28,7 +28,7 @@ section{
     text-align: center;
 }
 
-/* IMAGEN PRINCIPAL (IMPORTANTE: SOLO HIJA DIRECTA) */
+/* IMAGEN PRINCIPAL */
 .card > img{
     width: 100%;
     max-width: 320px;
@@ -185,39 +185,39 @@ footer{
 }
 
 /* =========================
-   MENÚ
+   MENÚ GLOBAL (SOLUCIÓN FINAL)
    ========================= */
 .menu-hero{
     display: flex;
     justify-content: center;
-    gap: 18px;
-    margin-top: 10px;
+    gap: 15px;
+    margin-top: 12px;
     flex-wrap: wrap;
 }
 
+/* 👇 IMPORTANTE: visible en cualquier fondo */
 .menu-hero a{
-    color: #fff;
+    color: #111;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 14px;
 
     padding: 8px 14px;
-    border-radius: 12px;
+    border-radius: 8px;
 
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
+    background: #D4AF37;
+    border: 1px solid #c89c2c;
 
-    backdrop-filter: blur(6px);
     transition: 0.3s ease;
 }
 
 .menu-hero a:hover{
-    transform: translateY(-2px);
-    background: rgba(255,255,255,0.25);
+    background: #111;
+    color: #D4AF37;
 }
 
 /* =========================
-   PROYECTOS (PÁGINA INTERNA)
+   PROYECTOS (PÁGINAS INTERNAS)
    ========================= */
 .proyectos-grid{
     display: grid;
