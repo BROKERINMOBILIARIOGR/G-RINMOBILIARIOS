@@ -268,38 +268,58 @@ footer{
 }
 
 /* =========================
-   BUSCADOR (PRO LIMPIO)
+   BUSCADOR PREMIUM (DISEÑO)
    ========================= */
 
 .buscador{
     max-width:1100px;
-    margin:60px auto;
+    margin:70px auto;
     text-align:center;
+    padding:20px;
 }
 
+/* TÍTULO */
 .buscador h2{
-    color:#1f4f3a !important;
-    font-size:28px;
-    font-weight:bold;
+    color:#1f4f3a;
+    font-size:30px;
+    font-weight:800;
     margin-bottom:25px;
+    letter-spacing:0.5px;
 }
 
+/* TARJETA PRINCIPAL */
 .buscador-card{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(0,0,0,0.1);
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #ffffff, #f3f3f3);
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.15);
+    border:1px solid rgba(0,0,0,0.08);
+    position:relative;
+    overflow:hidden;
 }
 
+/* efecto decorativo suave */
+.buscador-card::before{
+    content:"";
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background: radial-gradient(circle, rgba(37,211,102,0.08), transparent 60%);
+    transform:rotate(25deg);
+}
+
+/* GRID */
 .grid-filtros{
+    position:relative;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     gap:15px;
     margin-bottom:20px;
 }
 
+/* INPUTS */
 .grid-filtros select,
 .grid-filtros input{
     padding:14px;
@@ -307,27 +327,42 @@ footer{
     border:1px solid #ddd;
     font-size:14px;
     background:white;
+    transition:0.25s ease;
+    outline:none;
 }
 
+/* hover bonito */
+.grid-filtros select:hover,
+.grid-filtros input:hover{
+    border-color:#25D366;
+    box-shadow:0 5px 15px rgba(37,211,102,0.15);
+}
+
+/* focus moderno */
 .grid-filtros select:focus,
 .grid-filtros input:focus{
     transform:scale(1.03);
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-color:#25D366;
+    box-shadow:0 8px 20px rgba(37,211,102,0.25);
 }
 
+/* BOTÓN PRO */
 .buscador-card button{
     width:100%;
-    padding:15px;
+    padding:16px;
     border:none;
-    border-radius:12px;
+    border-radius:14px;
     font-size:18px;
-    font-weight:bold;
+    font-weight:700;
     color:white;
     background:linear-gradient(135deg,#25D366,#128C7E);
     cursor:pointer;
-    transition:0.3s;
+    transition:0.3s ease;
+    position:relative;
+    z-index:2;
 }
 
 .buscador-card button:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
+    box-shadow:0 15px 30px rgba(37,211,102,0.35);
 }
