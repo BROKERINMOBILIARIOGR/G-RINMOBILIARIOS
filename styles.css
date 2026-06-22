@@ -120,45 +120,41 @@ section{
    PROYECTOS (MEJORADO)
    ========================= */
 
+.grid-proyectos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
 .card{
-    background: #fff;
+    background: white;
     border-radius: 14px;
-    padding: 18px;
-    margin: 18px 0;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    text-align: center;
+    overflow: hidden;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
     transition: 0.3s;
 }
 
 .card:hover{
-    transform: translateY(-6px);
-    box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
 }
 
-.card > img{
+.card img{
     width: 100%;
-    max-width: 340px;
-    height: 210px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 12px;
-    margin: 0 auto 15px;
-    display: block;
 }
 
-.galeria-proyecto{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+.card h3{
+    padding: 10px 15px 0;
 }
 
-.galeria-proyecto img{
-    width: 170px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 10px;
+.card p{
+    padding: 0 15px 15px;
 }
-
 /* =========================
    PROPIEDADES
    ========================= */
