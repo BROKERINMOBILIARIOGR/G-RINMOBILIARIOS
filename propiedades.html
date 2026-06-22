@@ -1,3 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propiedades en venta</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- =========================
+     HERO / MENU IGUAL AL INDEX
+========================= -->
+<header class="hero">
+
+    <video autoplay muted loop playsinline class="video-fondo">
+        <source src="video/videoplayback.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="logo-titulo">
+            <img src="logo.jpeg" class="logo" alt="Logo">
+            <h1>Propiedades en venta</h1>
+        </div>
+
+        <p>Encuentra tu próximo hogar o inversión</p>
+
+        <nav class="menu-hero">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="propiedades.html">Propiedades</a>
+            <a href="vende.html">Vende</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- =========================
+     BUSCADOR PREMIUM
+========================= -->
 <section class="buscador">
 
     <h2>Encuentra tu propiedad ideal</h2>
@@ -10,10 +57,8 @@
 
         <div class="grid-filtros">
 
-            <!-- DEPARTAMENTO (COLOMBIA COMPLETO) -->
             <select>
                 <option value="">Departamento</option>
-
                 <option>Amazonas</option>
                 <option>Antioquia</option>
                 <option>Arauca</option>
@@ -48,10 +93,8 @@
                 <option>Vichada</option>
             </select>
 
-            <!-- CIUDAD -->
             <input type="text" placeholder="Ciudad o municipio">
 
-            <!-- TIPO DE INMUEBLE -->
             <select>
                 <option value="">Tipo de inmueble</option>
                 <option>Casa</option>
@@ -62,9 +105,8 @@
                 <option>Local comercial</option>
             </select>
 
-            <!-- PRECIO -->
-            <input type="number" placeholder="Precio mínimo (ej: 10000000)">
-            <input type="number" placeholder="Precio máximo (ej: 2000000000)">
+            <input type="number" placeholder="Precio mínimo (10000000)">
+            <input type="number" placeholder="Precio máximo (2000000000)">
 
         </div>
 
@@ -73,3 +115,31 @@
     </div>
 
 </section>
+
+<!-- =========================
+     PROPIEDADES (CARDS)
+========================= -->
+<section>
+
+    <div class="grid-propiedades">
+
+        <!-- PROPIEDAD 1 -->
+        <a href="propiedad1.html" class="propiedad-card">
+            <img src="Images/propiedad1.jpg" alt="">
+            <h3>Casa en Ibagué</h3>
+            <p>$180.000.000</p>
+        </a>
+
+        <!-- PROPIEDAD 2 -->
+        <a href="propiedad2.html" class="propiedad-card">
+            <img src="Images/propiedad2.jpg" alt="">
+            <h3>Apartamento moderno</h3>
+            <p>$250.000.000</p>
+        </a>
+
+    </div>
+
+</section>
+
+</body>
+</html>
