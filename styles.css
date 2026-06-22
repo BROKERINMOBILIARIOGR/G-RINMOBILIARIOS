@@ -224,3 +224,72 @@ footer{
     gap: 20px;
     padding: 30px 20px;
 }
+
+
+```css
+/* ===== PAGINA VENDE ===== */
+
+.hero-vende{
+    background:#000;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero-vende h1{
+    font-size:3rem;
+    margin-top:40px;
+    margin-bottom:20px;
+}
+
+.hero-vende p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.2rem;
+    line-height:1.8;
+    color:#d9d9d9;
+}
+
+.btn-whatsapp{
+    display:inline-block;
+    margin-top:30px;
+    background:#25D366;
+    color:white;
+    padding:15px 30px;
+    text-decoration:none;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.btn-whatsapp:hover{
+    transform:scale(1.05);
+}
+
+.beneficios{
+    max-width:1000px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.beneficios h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.beneficios .card{
+    background:white;
+    border-radius:10px;
+    padding:25px;
+}
+
+.beneficios .card p{
+    margin:15px 0;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+}
+```
+
