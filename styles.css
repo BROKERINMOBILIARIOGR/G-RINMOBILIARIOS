@@ -252,18 +252,26 @@ footer{
 
 .btn-whatsapp{
     display:inline-block;
-    margin-top:30px;
-    background:#25D366;
+    margin-top:35px;
+    padding:18px 40px;
+    background:linear-gradient(135deg,#25D366,#128C7E);
     color:white;
-    padding:15px 30px;
     text-decoration:none;
+    font-size:20px;
+    font-weight:700;
     border-radius:50px;
-    font-size:18px;
-    font-weight:bold;
+    box-shadow:0 8px 25px rgba(37,211,102,0.35);
+    transition:all 0.3s ease;
+    letter-spacing:0.5px;
 }
 
 .btn-whatsapp:hover{
-    transform:scale(1.05);
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(37,211,102,0.5);
+}
+
+.btn-whatsapp:active{
+    transform:translateY(0);
 }
 
 .beneficios{
