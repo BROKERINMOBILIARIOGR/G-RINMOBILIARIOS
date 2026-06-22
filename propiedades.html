@@ -30,6 +30,40 @@
 
 </header>
 
+    <section class="buscador">
+
+    <h2>Encuentra tu propiedad ideal</h2>
+
+    <div class="filtros">
+
+        <select id="departamento">
+            <option value="">Departamento</option>
+            <option value="Tolima">Tolima</option>
+            <option value="Cundinamarca">Cundinamarca</option>
+            <option value="Antioquia">Antioquia</option>
+        </select>
+
+        <input type="text" id="ciudad" placeholder="Ciudad">
+
+        <select id="tipo">
+            <option value="">Tipo de inmueble</option>
+            <option value="Casa">Casa</option>
+            <option value="Apartamento">Apartamento</option>
+            <option value="Lote">Lote</option>
+            <option value="Finca">Finca</option>
+            <option value="Bodega">Bodega</option>
+            <option value="Local">Local comercial</option>
+        </select>
+
+        <input type="number" id="min" placeholder="Precio mínimo (10.000.000)">
+        <input type="number" id="max" placeholder="Precio máximo (2.000.000.000)">
+
+        <button onclick="filtrar()">🔍 Buscar</button>
+
+    </div>
+
+</section>
+
 <section class="grid-propiedades">
 
     <!-- PROPIEDAD 1 -->
@@ -74,5 +108,38 @@
 © Broker Inmobiliario G&R
 </footer>
 
+    <script>
+function filtrar() {
+
+    let departamento = document.getElementById("departamento").value.toLowerCase();
+    let ciudad = document.getElementById("ciudad").value.toLowerCase();
+    let tipo = document.getElementById("tipo").value.toLowerCase();
+
+    let min = parseInt(document.getElementById("min").value);
+    let max = parseInt(document.getElementById("max").value);
+
+    // 🔥 rango por defecto si está vacío
+    if (isNaN(min)) min = 10000000;
+    if (isNaN(max)) max = 2000000000;
+
+    let propiedades = document.querySelectorAll(".propiedad-card");
+
+    propiedades.forEach(card => {
+
+        let dep = card.getAttribute("data-departamento").toLowerCase();
+        let ciu = card.getAttribute("data-ciudad").toLowerCase();
+        let tip = card.getAttribute("data-tipo").toLowerCase();
+        let precio = parseInt(card.getAttribute("data-precio"));
+
+        let mostrar =
+            (departamento === "" || dep.includes(departamento)) &&
+            (ciudad === "" || ciu.includes(ciudad)) &&
+            (tipo === "" || tip.includes(tipo)) &&
+            (precio >= min && precio <= max);
+
+        card.style.display = mostrar ? "block" : "none";
+    });
+}
+</script>
 </body>
 </html>
