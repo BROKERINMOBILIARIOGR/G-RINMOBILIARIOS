@@ -296,29 +296,30 @@ footer{
 }
 
 
-/* ===== PROPIEDADES ===== */
+/* ===== PROPIEDADES EN VENTA ===== */
 
 .grid-propiedades{
     max-width:1200px;
     margin:auto;
     padding:40px 20px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
 }
 
 .propiedad-card{
-    background:white;
+    background:#fff;
     border-radius:12px;
     overflow:hidden;
     text-decoration:none;
     color:black;
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
-    transition:0.3s;
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+    transition:0.3s ease;
 }
 
 .propiedad-card:hover{
     transform:translateY(-8px);
+    box-shadow:0 12px 25px rgba(0,0,0,0.25);
 }
 
 .propiedad-card img{
@@ -329,12 +330,12 @@ footer{
 
 .propiedad-card h3{
     padding:15px;
+    font-size:18px;
 }
 
 .propiedad-card p{
     padding:0 15px 20px;
     font-weight:bold;
     color:#1f4f3a;
+    font-size:16px;
 }
-
-
