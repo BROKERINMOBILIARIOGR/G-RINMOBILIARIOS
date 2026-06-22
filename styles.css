@@ -6,7 +6,7 @@ body{
     font-family: Arial, sans-serif;
     margin: 0;
     line-height: 1.6;
-    background: #f8f8f8;
+    background: #f6f7f9;
     color: #222;
 }
 
@@ -15,13 +15,13 @@ body{
    ========================= */
 
 section{
-    padding: 30px 20px;
-    max-width: 1000px;
+    padding: 40px 20px;
+    max-width: 1100px;
     margin: auto;
 }
 
 /* =========================
-   HERO (INICIO)
+   HERO
    ========================= */
 
 .hero{
@@ -62,11 +62,10 @@ section{
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 8px;
 }
 
 .logo{
-    height: 40px;
+    height: 42px;
 }
 
 /* =========================
@@ -76,9 +75,9 @@ section{
 .menu-hero{
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 12px;
     flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
 }
 
 .menu-hero a{
@@ -87,51 +86,15 @@ section{
     font-weight: bold;
     font-size: 14px;
     padding: 8px 14px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.7);
-    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(0,0,0,0.15);
     transition: 0.3s;
 }
 
 .menu-hero a:hover{
     background: #D4AF37;
-}
-
-/* =========================
-   PROYECTOS
-   ========================= */
-
-.card{
-    border: 1px solid #D4AF37;
-    background: white;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.card > img{
-    width: 100%;
-    max-width: 320px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 0 auto 15px auto;
-    display: block;
-}
-
-.galeria-proyecto{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.galeria-proyecto img{
-    width: 180px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 10px;
+    transform: translateY(-2px);
 }
 
 /* =========================
@@ -143,9 +106,202 @@ section{
     color: #111;
     padding: 10px 18px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: bold;
     display: inline-block;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    transform: translateY(-2px);
+}
+
+/* =========================
+   PROYECTOS (MEJORADO)
+   ========================= */
+
+.card{
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    margin: 18px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+
+.card > img{
+    width: 100%;
+    max-width: 340px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+.galeria-proyecto{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.galeria-proyecto img{
+    width: 170px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* =========================
+   PROPIEDADES
+   ========================= */
+
+.grid-propiedades{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+}
+
+.propiedad-card{
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+    transition: 0.3s;
+}
+
+.propiedad-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+.propiedad-card img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.propiedad-card h3{
+    padding: 12px 15px;
+}
+
+.propiedad-card p{
+    padding: 0 15px 18px;
+    color: #1f4f3a;
+    font-weight: bold;
+}
+
+/* =========================
+   VENDE (MEJORADO)
+   ========================= */
+
+.hero-vende{
+    background: linear-gradient(135deg,#111,#000);
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+    border-radius: 12px;
+}
+
+.hero-vende h1{
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.hero-vende p{
+    max-width: 800px;
+    margin: auto;
+    color: #d9d9d9;
+    font-size: 1.1rem;
+}
+
+.btn-whatsapp{
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 40px;
+    background: linear-gradient(135deg,#25D366,#128C7E);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover{
+    transform: translateY(-4px);
+}
+
+/* =========================
+   BUSCADOR PREMIUM (PRO)
+   ========================= */
+
+.buscador{
+    text-align: center;
+    margin: 60px auto;
+}
+
+.buscador h2{
+    color: #1f4f3a;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.buscador-card{
+    background: #fff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+.grid-filtros{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.grid-filtros select,
+.grid-filtros input{
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.2s;
+}
+
+.grid-filtros select:focus,
+.grid-filtros input:focus{
+    border-color: #25D366;
+    box-shadow: 0 0 10px rgba(37,211,102,0.2);
+}
+
+.buscador-card button{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg,#25D366,#128C7E);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buscador-card button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37,211,102,0.25);
 }
 
 /* =========================
@@ -182,187 +338,4 @@ footer{
     padding: 20px;
     background: #111;
     color: #D4AF37;
-}
-
-/* =========================
-   PROPIEDADES
-   ========================= */
-
-.grid-propiedades{
-    max-width:1200px;
-    margin:auto;
-    padding:40px 20px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.propiedad-card{
-    background:#fff;
-    border-radius:12px;
-    overflow:hidden;
-    text-decoration:none;
-    color:black;
-    box-shadow:0 6px 18px rgba(0,0,0,0.15);
-    transition:0.3s;
-}
-
-.propiedad-card:hover{
-    transform:translateY(-8px);
-}
-
-.propiedad-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.propiedad-card h3{
-    padding:15px;
-}
-
-.propiedad-card p{
-    padding:0 15px 20px;
-    font-weight:bold;
-    color:#1f4f3a;
-}
-
-/* =========================
-   VENDE
-   ========================= */
-
-.hero-vende{
-    background:#000;
-    color:white;
-    text-align:center;
-    padding:60px 20px;
-}
-
-.hero-vende h1{
-    font-size:3rem;
-    margin:40px 0 20px;
-}
-
-.hero-vende p{
-    max-width:800px;
-    margin:auto;
-    font-size:1.2rem;
-    color:#d9d9d9;
-}
-
-.btn-whatsapp{
-    display:inline-block;
-    margin-top:35px;
-    padding:18px 45px;
-    background:linear-gradient(135deg,#25D366,#128C7E);
-    color:#fff;
-    text-decoration:none;
-    font-size:20px;
-    font-weight:700;
-    border-radius:60px;
-    transition:0.3s;
-}
-
-.btn-whatsapp:hover{
-    transform:translateY(-4px);
-}
-
-/* =========================
-   BUSCADOR PREMIUM (DISEÑO)
-   ========================= */
-
-.buscador{
-    max-width:1100px;
-    margin:70px auto;
-    text-align:center;
-    padding:20px;
-}
-
-/* TÍTULO */
-.buscador h2{
-    color:#1f4f3a;
-    font-size:30px;
-    font-weight:800;
-    margin-bottom:25px;
-    letter-spacing:0.5px;
-}
-
-/* TARJETA PRINCIPAL */
-.buscador-card{
-    background: linear-gradient(135deg, #ffffff, #f3f3f3);
-    border-radius:22px;
-    padding:30px;
-    box-shadow:0 20px 50px rgba(0,0,0,0.15);
-    border:1px solid rgba(0,0,0,0.08);
-    position:relative;
-    overflow:hidden;
-}
-
-/* efecto decorativo suave */
-.buscador-card::before{
-    content:"";
-    position:absolute;
-    top:-50%;
-    left:-50%;
-    width:200%;
-    height:200%;
-    background: radial-gradient(circle, rgba(37,211,102,0.08), transparent 60%);
-    transform:rotate(25deg);
-}
-
-/* GRID */
-.grid-filtros{
-    position:relative;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-    margin-bottom:20px;
-}
-
-/* INPUTS */
-.grid-filtros select,
-.grid-filtros input{
-    padding:14px;
-    border-radius:12px;
-    border:1px solid #ddd;
-    font-size:14px;
-    background:white;
-    transition:0.25s ease;
-    outline:none;
-}
-
-/* hover bonito */
-.grid-filtros select:hover,
-.grid-filtros input:hover{
-    border-color:#25D366;
-    box-shadow:0 5px 15px rgba(37,211,102,0.15);
-}
-
-/* focus moderno */
-.grid-filtros select:focus,
-.grid-filtros input:focus{
-    transform:scale(1.03);
-    border-color:#25D366;
-    box-shadow:0 8px 20px rgba(37,211,102,0.25);
-}
-
-/* BOTÓN PRO */
-.buscador-card button{
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:14px;
-    font-size:18px;
-    font-weight:700;
-    color:white;
-    background:linear-gradient(135deg,#25D366,#128C7E);
-    cursor:pointer;
-    transition:0.3s ease;
-    position:relative;
-    z-index:2;
-}
-
-.buscador-card button:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 30px rgba(37,211,102,0.35);
 }
