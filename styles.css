@@ -1,6 +1,6 @@
 /* =========================
    BASE
-   ========================= */
+========================= */
 
 body{
     font-family: Arial, sans-serif;
@@ -11,8 +11,8 @@ body{
 }
 
 /* =========================
-   SECCIONES GENERALES
-   ========================= */
+   SECCIONES
+========================= */
 
 section{
     padding: 40px 20px;
@@ -22,7 +22,7 @@ section{
 
 /* =========================
    HERO
-   ========================= */
+========================= */
 
 .hero{
     position: relative;
@@ -70,7 +70,7 @@ section{
 
 /* =========================
    MENÚ
-   ========================= */
+========================= */
 
 .menu-hero{
     display: flex;
@@ -98,8 +98,8 @@ section{
 }
 
 /* =========================
-   BOTÓN GENERAL
-   ========================= */
+   BOTÓN
+========================= */
 
 .btn{
     background: #D4AF37;
@@ -118,13 +118,12 @@ section{
 
 /* =========================
    PROYECTOS (MEJORADO)
-   ========================= */
+========================= */
 
 .grid-proyectos{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 22px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .card{
@@ -156,23 +155,9 @@ section{
     padding: 0 15px 15px;
 }
 
-/*cuadricula proyectos*/
-
-/* =========================
-   CUADRÍCULA PROYECTOS
-   ========================= */
-
-.grid-proyectos{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 20px 0;
-    align-items: stretch;
-}
-
 /* =========================
    PROPIEDADES
-   ========================= */
+========================= */
 
 .grid-propiedades{
     display: grid;
@@ -212,8 +197,8 @@ section{
 }
 
 /* =========================
-   VENDE (MEJORADO)
-   ========================= */
+   VENDE
+========================= */
 
 .hero-vende{
     background: linear-gradient(135deg,#111,#000);
@@ -223,37 +208,9 @@ section{
     border-radius: 12px;
 }
 
-.hero-vende h1{
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-}
-
-.hero-vende p{
-    max-width: 800px;
-    margin: auto;
-    color: #d9d9d9;
-    font-size: 1.1rem;
-}
-
-.btn-whatsapp{
-    display: inline-block;
-    margin-top: 30px;
-    padding: 16px 40px;
-    background: linear-gradient(135deg,#25D366,#128C7E);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn-whatsapp:hover{
-    transform: translateY(-4px);
-}
-
 /* =========================
-   BUSCADOR PREMIUM
-   ========================= */
+   BUSCADOR
+========================= */
 
 .buscador{
     text-align:center;
@@ -267,22 +224,13 @@ section{
     margin-bottom:10px;
 }
 
-.buscador-header p{
-    color:#666;
-    margin-bottom:20px;
-    font-size:15px;
-}
-
-/* tarjeta tipo “glass + sombra” */
 .buscador-card{
     background: linear-gradient(145deg, #ffffff, #f3f3f3);
     border-radius:20px;
     padding:30px;
     box-shadow:0 20px 50px rgba(0,0,0,0.12);
-    border:1px solid rgba(0,0,0,0.06);
 }
 
-/* grid moderno */
 .grid-filtros{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -290,7 +238,6 @@ section{
     margin-bottom:20px;
 }
 
-/* inputs modernos */
 .grid-filtros select,
 .grid-filtros input{
     padding:14px;
@@ -298,26 +245,9 @@ section{
     border:1px solid #ddd;
     outline:none;
     font-size:14px;
-    transition:0.25s ease;
     background:white;
 }
 
-/* efecto hover */
-.grid-filtros select:hover,
-.grid-filtros input:hover{
-    border-color:#25D366;
-    box-shadow:0 5px 15px rgba(37,211,102,0.15);
-}
-
-/* focus pro */
-.grid-filtros select:focus,
-.grid-filtros input:focus{
-    transform:scale(1.03);
-    border-color:#25D366;
-    box-shadow:0 8px 20px rgba(37,211,102,0.25);
-}
-
-/* botón pro */
 .buscador-card button{
     width:100%;
     padding:16px;
@@ -328,16 +258,11 @@ section{
     color:white;
     background:linear-gradient(135deg,#25D366,#128C7E);
     cursor:pointer;
-    transition:0.3s;
 }
 
-.buscador-card button:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 30px rgba(37,211,102,0.35);
-}
 /* =========================
    ASESORES
-   ========================= */
+========================= */
 
 .asesores{
     text-align: center;
@@ -362,7 +287,7 @@ section{
 
 /* =========================
    FOOTER
-   ========================= */
+========================= */
 
 footer{
     text-align: center;
