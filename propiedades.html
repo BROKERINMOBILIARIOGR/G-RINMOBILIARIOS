@@ -110,7 +110,7 @@
 
         </div>
 
-        <button>🔍 Buscar propiedades</button>
+        <button onclick="filtrarPropiedades()">🔍 Buscar propiedades</button>
 
     </div>
 
@@ -140,19 +140,42 @@
     </div>
 
 </section>
-
-     <script>
+<script>
 function filtrarPropiedades() {
 
-    const texto = document.querySelector('.buscador-header p');
-    
-    texto.innerText = "🔎 Buscando propiedades...";
+    const dep = document.querySelectorAll(".buscador-card select")[0].value;
+    const ciudad = document.querySelector(".buscador-card input[type='text']").value.toLowerCase();
+    const tipo = document.querySelectorAll(".buscador-card select")[1].value;
+    const min = Number(document.querySelectorAll(".buscador-card input[type='number']")[0].value || 0);
+    const max = Number(document.querySelectorAll(".buscador-card input[type='number']")[1].value || 999999999999);
 
-    setTimeout(() => {
-        texto.innerText = "Mostrando resultados (demo)";
-        alert("Aquí ya iría el filtro real de propiedades 🔥");
-    }, 1000);
+    const cards = document.querySelectorAll(".propiedad-card");
 
+    let visibles = 0;
+
+    cards.forEach(card => {
+
+        const cardDep = card.dataset.departamento || "";
+        const cardCiudad = (card.dataset.ciudad || "").toLowerCase();
+        const cardTipo = card.dataset.tipo || "";
+        const cardPrecio = Number(card.dataset.precio || 0);
+
+        let mostrar = true;
+
+        if (dep && cardDep !== dep) mostrar = false;
+        if (ciudad && !cardCiudad.includes(ciudad)) mostrar = false;
+        if (tipo && cardTipo !== tipo) mostrar = false;
+        if (cardPrecio < min || cardPrecio > max) mostrar = false;
+
+        if (mostrar) {
+            card.style.display = "block";
+            visibles++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    alert("Propiedades encontradas: " + visibles);
 }
 </script>
 
