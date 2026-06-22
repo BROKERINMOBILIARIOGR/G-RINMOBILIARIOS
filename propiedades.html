@@ -34,42 +34,48 @@
 
     <h2>Encuentra tu propiedad ideal</h2>
 
-    <div class="filtros">
+    <div class="buscador-card">
 
-        <select id="departamento">
-    <option value="">Departamento</option>
-    <option value="Amazonas">Amazonas</option>
-    <option value="Antioquia">Antioquia</option>
-    <option value="Arauca">Arauca</option>
-    <option value="Atlántico">Atlántico</option>
-    <option value="Bolívar">Bolívar</option>
-    <option value="Boyacá">Boyacá</option>
-    <option value="Caldas">Caldas</option>
-    <option value="Caquetá">Caquetá</option>
-    <option value="Casanare">Casanare</option>
-    <option value="Cauca">Cauca</option>
-    <option value="Cesar">Cesar</option>
-    <option value="Chocó">Chocó</option>
-    <option value="Córdoba">Córdoba</option>
-    <option value="Cundinamarca">Cundinamarca</option>
-    <option value="Guainía">Guainía</option>
-    <option value="Guaviare">Guaviare</option>
-    <option value="Huila">Huila</option>
-    <option value="La Guajira">La Guajira</option>
-    <option value="Magdalena">Magdalena</option>
-    <option value="Meta">Meta</option>
-    <option value="Nariño">Nariño</option>
-    <option value="Norte de Santander">Norte de Santander</option>
-    <option value="Putumayo">Putumayo</option>
-    <option value="Quindío">Quindío</option>
-    <option value="Risaralda">Risaralda</option>
-    <option value="San Andrés y Providencia">San Andrés y Providencia</option>
-    <option value="Santander">Santander</option>
-    <option value="Sucre">Sucre</option>
-    <option value="Tolima">Tolima</option>
-    <option value="Valle del Cauca">Valle del Cauca</option>
-    <option value="Vaupés">Vaupés</option>
-    <option value="Vichada">Vichada</option>
+        <div class="buscador-header">
+            <p>Filtra por ubicación, precio y tipo de inmueble</p>
+        </div>
+
+        <div class="grid-filtros">
+
+            <select id="departamento">
+                <option value="">Departamento</option>
+                <option>Tolima</option>
+                <option>Cundinamarca</option>
+                <option>Antioquia</option>
+                <option>Valle del Cauca</option>
+                <option>Risaralda</option>
+                <option>Quindío</option>
+                <option>Boyacá</option>
+                <option>Santander</option>
+            </select>
+
+            <input type="text" id="ciudad" placeholder="Ciudad o municipio">
+
+            <select id="tipo">
+                <option value="">Tipo de inmueble</option>
+                <option>Casa</option>
+                <option>Apartamento</option>
+                <option>Lote</option>
+                <option>Finca</option>
+                <option>Bodega</option>
+                <option>Local comercial</option>
+            </select>
+
+            <input type="number" id="min" placeholder="Precio mínimo">
+            <input type="number" id="max" placeholder="Precio máximo">
+
+        </div>
+
+        <button onclick="filtrar()">🔍 Buscar propiedades</button>
+
+    </div>
+
+</section>
 </select>
 
         <input type="text" id="ciudad" placeholder="Ciudad">
