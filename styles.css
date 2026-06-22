@@ -1,18 +1,14 @@
-/* =========================
+/* =====================================================
    BASE
-========================= */
+===================================================== */
 
 body{
     font-family: Arial, sans-serif;
     margin: 0;
-    line-height: 1.6;
     background: #f6f7f9;
     color: #222;
+    line-height: 1.6;
 }
-
-/* =========================
-   SECCIONES
-========================= */
 
 section{
     padding: 40px 20px;
@@ -20,18 +16,18 @@ section{
     margin: auto;
 }
 
-/* =========================
-   HERO
-========================= */
+/* =====================================================
+   HERO GENERAL
+===================================================== */
 
 .hero{
     position: relative;
     height: 260px;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
 }
 
 .video-fondo{
@@ -41,14 +37,12 @@ section{
     height: 100%;
     object-fit: cover;
     transform: scale(1.1);
-    z-index: 0;
 }
 
 .overlay{
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.45);
-    z-index: 1;
 }
 
 .hero-content{
@@ -68,9 +62,9 @@ section{
     height: 42px;
 }
 
-/* =========================
+/* =====================================================
    MENÚ
-========================= */
+===================================================== */
 
 .menu-hero{
     display: flex;
@@ -97,74 +91,63 @@ section{
     transform: translateY(-2px);
 }
 
-/* =========================
-   BOTÓN
-========================= */
+/* =====================================================
+   BOTONES
+===================================================== */
 
 .btn{
     background: #D4AF37;
     color: #111;
     padding: 10px 18px;
-    text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
+    text-decoration: none;
     display: inline-block;
     transition: 0.3s;
 }
 
 .btn:hover{
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
-/* =========================
-   PROYECTOS (MEJORADO)
-========================= */
+/* BOTÓN WHATSAPP / VENDE */
 
-.grid-proyectos{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.card{
-    background: white;
-    border-radius: 14px;
-    overflow: hidden;
+.btn-whatsapp,
+.btn-vende{
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
     text-decoration: none;
-    color: black;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
-    transition: 0.3s;
+    border-radius: 60px;
+    background: linear-gradient(135deg,#25D366,#128C7E);
+    box-shadow: 0 10px 25px rgba(37,211,102,0.35);
+    transition: 0.3s ease;
 }
 
-.card:hover{
-    transform: translateY(-8px);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+.btn-whatsapp:hover,
+.btn-vende:hover{
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 18px 40px rgba(37,211,102,0.45);
 }
 
-.card img{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
+/* =====================================================
+   GRID GENERAL
+===================================================== */
 
-.card h3{
-    padding: 10px 15px 0;
-}
-
-.card p{
-    padding: 0 15px 15px;
-}
-
-/* =========================
-   PROPIEDADES
-========================= */
-
+.grid-proyectos,
 .grid-propiedades{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 22px;
 }
 
+/* =====================================================
+   CARDS (PROYECTOS + PROPIEDADES)
+===================================================== */
+
+.card,
 .propiedad-card{
     background: white;
     border-radius: 14px;
@@ -175,119 +158,33 @@ section{
     transition: 0.3s;
 }
 
+.card:hover,
 .propiedad-card:hover{
     transform: translateY(-8px);
     box-shadow: 0 18px 40px rgba(0,0,0,0.18);
 }
 
+.card img,
 .propiedad-card img{
     width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
 }
 
+/* textos cards */
+.card h3,
 .propiedad-card h3{
-    padding: 12px 15px;
+    padding: 10px 15px 0;
 }
 
+.card p,
 .propiedad-card p{
-    padding: 0 15px 18px;
-    color: #1f4f3a;
-    font-weight: bold;
+    padding: 0 15px 15px;
 }
 
-/* =========================
-   VENDE
-========================= */
-
-.hero-vende{
-    background: linear-gradient(135deg,#111,#000);
-    color: white;
-    text-align: center;
-    padding: 70px 20px;
-    border-radius: 12px;
-}
-/* =========================
-   BOTÓN VENDE PRO
-========================= */
-
-.btn-vende{
-    display: inline-block;
-    margin-top: 25px;
-    padding: 18px 45px;
-    font-size: 18px;
-    font-weight: 800;
-    color: white;
-    text-decoration: none;
-    border-radius: 60px;
-
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
-
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-vende:hover{
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
-}
-/* =========================
-   BUSCADOR
-========================= */
-
-.buscador{
-    text-align:center;
-    margin:70px auto;
-}
-
-.buscador h2{
-    font-size:30px;
-    font-weight:800;
-    color:#1f4f3a;
-    margin-bottom:10px;
-}
-
-.buscador-card{
-    background: linear-gradient(145deg, #ffffff, #f3f3f3);
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 20px 50px rgba(0,0,0,0.12);
-}
-
-.grid-filtros{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.grid-filtros select,
-.grid-filtros input{
-    padding:14px;
-    border-radius:12px;
-    border:1px solid #ddd;
-    outline:none;
-    font-size:14px;
-    background:white;
-}
-
-.buscador-card button{
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:14px;
-    font-size:18px;
-    font-weight:700;
-    color:white;
-    background:linear-gradient(135deg,#25D366,#128C7E);
-    cursor:pointer;
-}
-
-/* =========================
+/* =====================================================
    ASESORES
-========================= */
+===================================================== */
 
 .asesores{
     text-align: center;
@@ -295,24 +192,36 @@ section{
 
 .card-asesor{
     display: inline-block;
-    margin: 20px;
     width: 200px;
+    margin: 20px;
     padding: 15px;
     background: #1f1f1f;
-    border-radius: 15px;
     color: white;
+    border-radius: 15px;
 }
 
 .card-asesor img{
     width: 160px;
     height: 160px;
-    object-fit: cover;
     border-radius: 50%;
+    object-fit: cover;
 }
 
-/* =========================
+/* =====================================================
+   VENDE
+===================================================== */
+
+.hero-vende{
+    text-align: center;
+    background: linear-gradient(135deg,#111,#000);
+    color: white;
+    padding: 70px 20px;
+    border-radius: 12px;
+}
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
     text-align: center;
