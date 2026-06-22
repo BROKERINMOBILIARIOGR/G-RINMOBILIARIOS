@@ -1,36 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Propiedades en Venta | Broker Inmobiliario G&R</title>
-
-<link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-
-<header class="hero-vende">
-
-    <div class="logo-titulo">
-        <img src="logo.jpeg" alt="Logo" class="logo">
-        <h2>Broker Inmobiliario G&R</h2>
-    </div>
-
-    <nav class="menu-hero">
-        <a href="index.html">Inicio</a>
-        <a href="proyectos.html">Proyectos</a>
-        <a href="propiedades.html">Propiedades en venta</a>
-        <a href="vende.html">Vende</a>
-        <a href="contacto.html">Contáctenos</a>
-    </nav>
-
-    <h1>Propiedades en Venta</h1>
-    <p>Selecciona una propiedad para ver toda la información detallada.</p>
-
-</header>
-
-    <section class="buscador">
+<section class="buscador">
 
     <h2>Encuentra tu propiedad ideal</h2>
 
@@ -42,21 +10,49 @@
 
         <div class="grid-filtros">
 
-            <select id="departamento">
+            <!-- DEPARTAMENTO (COLOMBIA COMPLETO) -->
+            <select>
                 <option value="">Departamento</option>
-                <option>Tolima</option>
-                <option>Cundinamarca</option>
+
+                <option>Amazonas</option>
                 <option>Antioquia</option>
-                <option>Valle del Cauca</option>
-                <option>Risaralda</option>
-                <option>Quindío</option>
+                <option>Arauca</option>
+                <option>Atlántico</option>
+                <option>Bolívar</option>
                 <option>Boyacá</option>
+                <option>Caldas</option>
+                <option>Caquetá</option>
+                <option>Casanare</option>
+                <option>Cauca</option>
+                <option>Cesar</option>
+                <option>Chocó</option>
+                <option>Córdoba</option>
+                <option>Cundinamarca</option>
+                <option>Guainía</option>
+                <option>Guaviare</option>
+                <option>Huila</option>
+                <option>La Guajira</option>
+                <option>Magdalena</option>
+                <option>Meta</option>
+                <option>Nariño</option>
+                <option>Norte de Santander</option>
+                <option>Putumayo</option>
+                <option>Quindío</option>
+                <option>Risaralda</option>
+                <option>San Andrés y Providencia</option>
                 <option>Santander</option>
+                <option>Sucre</option>
+                <option>Tolima</option>
+                <option>Valle del Cauca</option>
+                <option>Vaupés</option>
+                <option>Vichada</option>
             </select>
 
-            <input type="text" id="ciudad" placeholder="Ciudad o municipio">
+            <!-- CIUDAD -->
+            <input type="text" placeholder="Ciudad o municipio">
 
-            <select id="tipo">
+            <!-- TIPO DE INMUEBLE -->
+            <select>
                 <option value="">Tipo de inmueble</option>
                 <option>Casa</option>
                 <option>Apartamento</option>
@@ -66,115 +62,14 @@
                 <option>Local comercial</option>
             </select>
 
-            <input type="number" id="min" placeholder="Precio mínimo">
-            <input type="number" id="max" placeholder="Precio máximo">
+            <!-- PRECIO -->
+            <input type="number" placeholder="Precio mínimo (ej: 10000000)">
+            <input type="number" placeholder="Precio máximo (ej: 2000000000)">
 
         </div>
 
-        <button onclick="filtrar()">🔍 Buscar propiedades</button>
+        <button>🔍 Buscar propiedades</button>
 
     </div>
 
 </section>
-</select>
-
-        <input type="text" id="ciudad" placeholder="Ciudad">
-
-        <select id="tipo">
-            <option value="">Tipo de inmueble</option>
-            <option value="Casa">Casa</option>
-            <option value="Apartamento">Apartamento</option>
-            <option value="Lote">Lote</option>
-            <option value="Finca">Finca</option>
-            <option value="Bodega">Bodega</option>
-            <option value="Local">Local comercial</option>
-        </select>
-
-        <input type="number" id="min" placeholder="Precio mínimo (10.000.000)">
-        <input type="number" id="max" placeholder="Precio máximo (2.000.000.000)">
-
-        <button onclick="filtrar()">🔍 Buscar</button>
-
-    </div>
-
-</section>
-
-<section class="grid-propiedades">
-
-    <!-- PROPIEDAD 1 -->
-    <a href="casa1.html"
-   class="propiedad-card"
-   data-departamento="Tolima"
-   data-ciudad="Carmen de Apicala"
-   data-tipo="Casa"
-   data-precio="320000000">
-
-    <img src="Images/casa1.jpg" alt="Casa en venta">
-
-    <h3>Casa en El Carmen de Apicalá</h3>
-
-    <p>📍 Tolima - Carmen de Apicalá</p>
-    <p>💰 $320.000.000</p>
-
-</a>
-
-    <!-- PROPIEDAD 2 -->
-   <a href="apartamento1.html"
-   class="propiedad-card"
-   data-departamento="Tolima"
-   data-ciudad="Ibague"
-   data-tipo="Apartamento"
-   data-precio="250000000">
-
-    <img src="Images/apartamento1.jpg" alt="Apartamento en venta">
-
-    <h3>Apartamento en Ibagué</h3>
-
-    <p>📍 Tolima - Ibagué</p>
-    <p>💰 $250.000.000</p>
-
-</a>
-    <!-- PROPIEDAD 3 -->
-   
-
-</section>
-
-<footer>
-© Broker Inmobiliario G&R
-</footer>
-
-    <script>
-function filtrar() {
-
-    let departamento = document.getElementById("departamento").value.toLowerCase();
-    let ciudad = document.getElementById("ciudad").value.toLowerCase();
-    let tipo = document.getElementById("tipo").value.toLowerCase();
-
-    let min = parseInt(document.getElementById("min").value);
-    let max = parseInt(document.getElementById("max").value);
-
-    // 🔥 rango por defecto si está vacío
-    if (isNaN(min)) min = 10000000;
-    if (isNaN(max)) max = 2000000000;
-
-    let propiedades = document.querySelectorAll(".propiedad-card");
-
-    propiedades.forEach(card => {
-
-        let dep = card.getAttribute("data-departamento").toLowerCase();
-        let ciu = card.getAttribute("data-ciudad").toLowerCase();
-        let tip = card.getAttribute("data-tipo").toLowerCase();
-        let precio = parseInt(card.getAttribute("data-precio"));
-
-        let mostrar =
-            (departamento === "" || dep.includes(departamento)) &&
-            (ciudad === "" || ciu.includes(ciudad)) &&
-            (tipo === "" || tip.includes(tipo)) &&
-            (precio >= min && precio <= max);
-
-        card.style.display = mostrar ? "block" : "none";
-    });
-}
-</script>
-</body>
-</html>
