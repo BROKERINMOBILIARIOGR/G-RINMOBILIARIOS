@@ -2,46 +2,106 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Proyectos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos - Broker Inmobiliario G&R</title>
+
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
- <nav class="menu-hero">
-    <a href="index.html">Inicio</a>
-    <a href="proyectos.html">Proyectos</a>
-    <a href="propiedades.html">Propiedades en venta</a>
-    <a href="vende.html">Vende</a>
-    <a href="contacto.html">Contáctenos</a>
-</nav>
 
-<header class="hero-small">
-    <h1>Proyectos</h1>
+<body>
+
+<!-- =========================
+     HERO + MENU
+========================= -->
+<header class="hero">
+
+    <video autoplay muted loop playsinline class="video-fondo">
+        <source src="video/videoplayback.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="logo-titulo">
+            <img src="logo.jpeg" class="logo">
+            <h1>Broker Inmobiliario G&R</h1>
+        </div>
+
+        <p>Proyectos disponibles para inversión</p>
+
+        <nav class="menu-hero">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="propiedades.html">Propiedades</a>
+            <a href="vende.html">Vende</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+    </div>
 </header>
 
-<section class="proyectos-grid">
+<!-- =========================
+     PROYECTOS GRID
+========================= -->
 
-    <div class="card">
-        <img src="images/lagosdelolimpo/lagos2.jpg" alt="Lagos del Olimpo">
-        <h3>Lagos del Olimpo</h3>
-        <p>Lotes desde 45 millones. Financiación sin intereses. Separación desde 1 millón.</p>
-        <a class="btn" href="https://wa.me/573243716454" target="_blank">Más información</a>
+<section>
+    <h2>Proyectos destacados</h2>
+
+    <div class="grid-proyectos">
+
+        <!-- 1 -->
+        <a href="lagos-olimpo.html" target="_blank" class="card">
+            <img src="Images/lagosdelolimpo/lagos2.jpg">
+            <h3>Lagos del Olimpo</h3>
+            <p>Proyecto exclusivo de lotes con excelente valorización.</p>
+        </a>
+
+        <!-- 2 -->
+        <a href="fincas-paso.html" target="_blank" class="card">
+            <img src="Images/fincasdelpaso/volante.jpg">
+            <h3>Fincas del Paso</h3>
+            <p>Lotes campestres con entorno natural privilegiado.</p>
+        </a>
+
+        <!-- 3 -->
+        <a href="oasis-parcelacion.html" target="_blank" class="card">
+            <img src="Images/oasis/todo.jpg">
+            <h3>Parcelación Oasis</h3>
+            <p>Inversión segura en zona de alta proyección.</p>
+        </a>
+
+        <!-- 4 -->
+        <a href="oasis-urbanizacion.html" target="_blank" class="card">
+            <img src="Images/oasis/arribaoasis.jpg">
+            <h3>Urbanización Oasis</h3>
+            <p>Vivienda y lotes en entorno urbanizado moderno.</p>
+        </a>
+
+        <!-- 5 -->
+        <a href="praderas-olimpo.html" target="_blank" class="card">
+            <img src="Images/lagosdelolimpo/lagosconjunto.jpg">
+            <h3>Praderas del Olimpo</h3>
+            <p>Proyecto campestre con gran proyección de crecimiento.</p>
+        </a>
+
+        <!-- 6 -->
+        <a href="lagos-sumapaz.html" target="_blank" class="card">
+            <img src="Images/fincasdelpaso/lago.jpg">
+            <h3>Lagos del Sumapaz</h3>
+            <p>Entorno natural único con alta valorización.</p>
+        </a>
+
     </div>
-
-    <div class="card">
-        <img src="images/proyecto2.jpg" alt="Proyecto 2">
-        <h3>Proyecto 2</h3>
-        <p>Aquí va la descripción del segundo proyecto.</p>
-        <a class="btn" href="https://wa.me/573243716454" target="_blank">Más información</a>
-    </div>
-
-    <div class="card">
-        <img src="images/proyecto3.jpg" alt="Proyecto 3">
-        <h3>Proyecto 3</h3>
-        <p>Aquí va la descripción del tercer proyecto.</p>
-        <a class="btn" href="https://wa.me/573243716454" target="_blank">Más información</a>
-    </div>
-
 </section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+    © Broker Inmobiliario G&R
+</footer>
 
 </body>
 </html>
