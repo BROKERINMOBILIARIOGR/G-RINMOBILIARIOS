@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Propiedades en venta</title>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/propiedades.css">
 </head>
 
 <body>
 
 <!-- =========================
-     HERO + MENÚ
+     HERO
 ========================= -->
 <header class="hero">
 
@@ -24,11 +25,11 @@
     <div class="hero-content">
 
         <div class="logo-titulo">
-            <img src="logo.jpeg" class="logo" alt="Logo">
+            <img src="logo.jpeg" class="logo">
             <h1>Propiedades en venta</h1>
         </div>
 
-        <p>Encuentra la propiedad ideal para ti</p>
+        <p>Encuentra tu inmueble ideal</p>
 
         <nav class="menu-hero">
             <a href="index.html">Inicio</a>
@@ -43,56 +44,47 @@
 </header>
 
 <!-- =========================
-     BUSCADOR PREMIUM
+     BUSCADOR
 ========================= -->
 <section class="buscador">
 
-    <h2>Encuentra tu propiedad ideal</h2>
+    <h2>Encuentra tu propiedad</h2>
 
     <div class="buscador-card">
 
-        <div class="buscador-header">
-            <p>Filtra por ubicación, tipo y precio</p>
-        </div>
-
         <div class="grid-filtros">
 
-            <!-- DEPARTAMENTO -->
-            <select>
+            <!-- Departamento -->
+            <select id="departamento">
                 <option value="">Departamento</option>
-                <option>Amazonas</option><option>Antioquia</option><option>Arauca</option>
-                <option>Atlántico</option><option>Bolívar</option><option>Boyacá</option>
-                <option>Caldas</option><option>Caquetá</option><option>Casanare</option>
-                <option>Cauca</option><option>Cesar</option><option>Chocó</option>
-                <option>Córdoba</option><option>Cundinamarca</option><option>Guainía</option>
-                <option>Guaviare</option><option>Huila</option><option>La Guajira</option>
-                <option>Magdalena</option><option>Meta</option><option>Nariño</option>
-                <option>Norte de Santander</option><option>Putumayo</option><option>Quindío</option>
-                <option>Risaralda</option><option>San Andrés y Providencia</option><option>Santander</option>
-                <option>Sucre</option><option>Tolima</option><option>Valle del Cauca</option>
-                <option>Vaupés</option><option>Vichada</option>
+                <option value="Tolima">Tolima</option>
+                <option value="Cundinamarca">Cundinamarca</option>
+                <option value="Antioquia">Antioquia</option>
+                <option value="Valle del Cauca">Valle del Cauca</option>
+                <option value="Santander">Santander</option>
+                <option value="Bolívar">Bolívar</option>
             </select>
 
-            <input type="text" placeholder="Ciudad o municipio">
+            <!-- Ciudad -->
+            <input type="text" id="ciudad" placeholder="Ciudad">
 
-            <!-- TIPO -->
-            <select>
-                <option value="">Tipo de inmueble</option>
-                <option>Casa</option>
-                <option>Apartamento</option>
-                <option>Lote</option>
-                <option>Finca</option>
-                <option>Bodega</option>
-                <option>Local comercial</option>
+            <!-- Tipo -->
+            <select id="tipo">
+                <option value="">Tipo</option>
+                <option value="Casa">Casa</option>
+                <option value="Apartamento">Apartamento</option>
+                <option value="Lote">Lote</option>
+                <option value="Finca">Finca</option>
+                <option value="Bodega">Bodega</option>
+                <option value="Local">Local comercial</option>
             </select>
 
-            <!-- PRECIOS -->
-            <input type="number" placeholder="Precio mínimo">
-            <input type="number" placeholder="Precio máximo">
+            <!-- Precio -->
+            <input type="number" id="precioMax" placeholder="Precio máximo">
 
         </div>
 
-        <button onclick="filtrarPropiedades()">🔍 Buscar propiedades</button>
+        <button onclick="filtrarPropiedades()">Buscar</button>
 
     </div>
 
@@ -103,73 +95,68 @@
 ========================= -->
 <section>
 
-<div class="grid-propiedades">
+    <div class="grid-propiedades" id="listaPropiedades">
 
-    <a href="propiedad1.html" class="propiedad-card"
-       data-departamento="Tolima"
-       data-ciudad="Ibagué"
-       data-tipo="Casa"
-       data-precio="180000000">
+        <!-- PROPIEDAD 1 -->
+        <div class="propiedad-card" data-departamento="Tolima" data-ciudad="Melgar" data-tipo="Casa" data-precio="180000000">
 
-        <img src="Images/propiedad1.jpg">
-        <h3>Casa en Ibagué</h3>
-        <p>$180.000.000</p>
-    </a>
+            <span class="precio">$180.000.000</span>
 
-    <a href="propiedad2.html" class="propiedad-card"
-       data-departamento="Cundinamarca"
-       data-ciudad="Girardot"
-       data-tipo="Apartamento"
-       data-precio="250000000">
+            <img src="Images/casa1.jpg">
 
-        <img src="Images/propiedad2.jpg">
-        <h3>Apartamento moderno</h3>
-        <p>$250.000.000</p>
-    </a>
+            <h3>Casa campestre moderna</h3>
 
-</div>
+            <p class="ubicacion">Melgar, Tolima</p>
+
+            <a class="btn-ver" href="detalle1.html" target="_blank">Ver más</a>
+        </div>
+
+        <!-- PROPIEDAD 2 -->
+        <div class="propiedad-card" data-departamento="Cundinamarca" data-ciudad="Girardot" data-tipo="Apartamento" data-precio="120000000">
+
+            <span class="precio">$120.000.000</span>
+
+            <img src="Images/apto1.jpg">
+
+            <h3>Apartamento central</h3>
+
+            <p class="ubicacion">Girardot, Cundinamarca</p>
+
+            <a class="btn-ver" href="detalle2.html" target="_blank">Ver más</a>
+        </div>
+
+    </div>
 
 </section>
 
 <!-- =========================
-     JS FILTRO FUNCIONAL
+     SCRIPT FILTRO
 ========================= -->
 <script>
-function filtrarPropiedades() {
+function filtrarPropiedades(){
 
-    const dep = document.querySelectorAll(".grid-filtros select")[0].value;
-    const ciudad = document.querySelector(".grid-filtros input[type='text']").value.toLowerCase();
-    const tipo = document.querySelectorAll(".grid-filtros select")[1].value;
-    const min = Number(document.querySelectorAll(".grid-filtros input[type='number']")[0].value || 0);
-    const max = Number(document.querySelectorAll(".grid-filtros input[type='number']")[1].value || 999999999999);
+    let dep = document.getElementById("departamento").value.toLowerCase();
+    let ciudad = document.getElementById("ciudad").value.toLowerCase();
+    let tipo = document.getElementById("tipo").value.toLowerCase();
+    let precioMax = parseInt(document.getElementById("precioMax").value);
 
-    const cards = document.querySelectorAll(".propiedad-card");
-
-    let visibles = 0;
+    let cards = document.querySelectorAll(".propiedad-card");
 
     cards.forEach(card => {
 
-        const cardDep = card.dataset.departamento;
-        const cardCiudad = card.dataset.ciudad.toLowerCase();
-        const cardTipo = card.dataset.tipo;
-        const cardPrecio = Number(card.dataset.precio);
+        let cDep = card.getAttribute("data-departamento").toLowerCase();
+        let cCiudad = card.getAttribute("data-ciudad").toLowerCase();
+        let cTipo = card.getAttribute("data-tipo").toLowerCase();
+        let cPrecio = parseInt(card.getAttribute("data-precio"));
 
-        let mostrar = true;
+        let mostrar =
+            (dep === "" || cDep.includes(dep)) &&
+            (ciudad === "" || cCiudad.includes(ciudad)) &&
+            (tipo === "" || cTipo.includes(tipo)) &&
+            (isNaN(precioMax) || cPrecio <= precioMax);
 
-        if (dep && cardDep !== dep) mostrar = false;
-        if (ciudad && !cardCiudad.includes(ciudad)) mostrar = false;
-        if (tipo && cardTipo !== tipo) mostrar = false;
-        if (cardPrecio < min || cardPrecio > max) mostrar = false;
-
-        if (mostrar) {
-            card.style.display = "block";
-            visibles++;
-        } else {
-            card.style.display = "none";
-        }
+        card.style.display = mostrar ? "block" : "none";
     });
-
-    alert("Propiedades encontradas: " + visibles);
 }
 </script>
 
