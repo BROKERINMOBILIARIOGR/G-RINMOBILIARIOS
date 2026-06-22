@@ -11,7 +11,7 @@
 <body>
 
 <!-- =========================
-     HERO / MENU IGUAL AL INDEX
+     HERO + MENÚ
 ========================= -->
 <header class="hero">
 
@@ -28,7 +28,7 @@
             <h1>Propiedades en venta</h1>
         </div>
 
-        <p>Encuentra tu próximo hogar o inversión</p>
+        <p>Encuentra la propiedad ideal para ti</p>
 
         <nav class="menu-hero">
             <a href="index.html">Inicio</a>
@@ -52,49 +52,30 @@
     <div class="buscador-card">
 
         <div class="buscador-header">
-            <p>Filtra por ubicación, precio y tipo de inmueble</p>
+            <p>Filtra por ubicación, tipo y precio</p>
         </div>
 
         <div class="grid-filtros">
 
+            <!-- DEPARTAMENTO -->
             <select>
                 <option value="">Departamento</option>
-                <option>Amazonas</option>
-                <option>Antioquia</option>
-                <option>Arauca</option>
-                <option>Atlántico</option>
-                <option>Bolívar</option>
-                <option>Boyacá</option>
-                <option>Caldas</option>
-                <option>Caquetá</option>
-                <option>Casanare</option>
-                <option>Cauca</option>
-                <option>Cesar</option>
-                <option>Chocó</option>
-                <option>Córdoba</option>
-                <option>Cundinamarca</option>
-                <option>Guainía</option>
-                <option>Guaviare</option>
-                <option>Huila</option>
-                <option>La Guajira</option>
-                <option>Magdalena</option>
-                <option>Meta</option>
-                <option>Nariño</option>
-                <option>Norte de Santander</option>
-                <option>Putumayo</option>
-                <option>Quindío</option>
-                <option>Risaralda</option>
-                <option>San Andrés y Providencia</option>
-                <option>Santander</option>
-                <option>Sucre</option>
-                <option>Tolima</option>
-                <option>Valle del Cauca</option>
-                <option>Vaupés</option>
-                <option>Vichada</option>
+                <option>Amazonas</option><option>Antioquia</option><option>Arauca</option>
+                <option>Atlántico</option><option>Bolívar</option><option>Boyacá</option>
+                <option>Caldas</option><option>Caquetá</option><option>Casanare</option>
+                <option>Cauca</option><option>Cesar</option><option>Chocó</option>
+                <option>Córdoba</option><option>Cundinamarca</option><option>Guainía</option>
+                <option>Guaviare</option><option>Huila</option><option>La Guajira</option>
+                <option>Magdalena</option><option>Meta</option><option>Nariño</option>
+                <option>Norte de Santander</option><option>Putumayo</option><option>Quindío</option>
+                <option>Risaralda</option><option>San Andrés y Providencia</option><option>Santander</option>
+                <option>Sucre</option><option>Tolima</option><option>Valle del Cauca</option>
+                <option>Vaupés</option><option>Vichada</option>
             </select>
 
             <input type="text" placeholder="Ciudad o municipio">
 
+            <!-- TIPO -->
             <select>
                 <option value="">Tipo de inmueble</option>
                 <option>Casa</option>
@@ -105,8 +86,9 @@
                 <option>Local comercial</option>
             </select>
 
-            <input type="number" placeholder="Precio mínimo (10000000)">
-            <input type="number" placeholder="Precio máximo (2000000000)">
+            <!-- PRECIOS -->
+            <input type="number" placeholder="Precio mínimo">
+            <input type="number" placeholder="Precio máximo">
 
         </div>
 
@@ -117,37 +99,49 @@
 </section>
 
 <!-- =========================
-     PROPIEDADES (CARDS)
+     PROPIEDADES
 ========================= -->
 <section>
 
-    <div class="grid-propiedades">
+<div class="grid-propiedades">
 
-        <!-- PROPIEDAD 1 -->
-        <a href="propiedad1.html" class="propiedad-card">
-            <img src="Images/propiedad1.jpg" alt="">
-            <h3>Casa en Ibagué</h3>
-            <p>$180.000.000</p>
-        </a>
+    <a href="propiedad1.html" class="propiedad-card"
+       data-departamento="Tolima"
+       data-ciudad="Ibagué"
+       data-tipo="Casa"
+       data-precio="180000000">
 
-        <!-- PROPIEDAD 2 -->
-        <a href="propiedad2.html" class="propiedad-card">
-            <img src="Images/propiedad2.jpg" alt="">
-            <h3>Apartamento moderno</h3>
-            <p>$250.000.000</p>
-        </a>
+        <img src="Images/propiedad1.jpg">
+        <h3>Casa en Ibagué</h3>
+        <p>$180.000.000</p>
+    </a>
 
-    </div>
+    <a href="propiedad2.html" class="propiedad-card"
+       data-departamento="Cundinamarca"
+       data-ciudad="Girardot"
+       data-tipo="Apartamento"
+       data-precio="250000000">
+
+        <img src="Images/propiedad2.jpg">
+        <h3>Apartamento moderno</h3>
+        <p>$250.000.000</p>
+    </a>
+
+</div>
 
 </section>
+
+<!-- =========================
+     JS FILTRO FUNCIONAL
+========================= -->
 <script>
 function filtrarPropiedades() {
 
-    const dep = document.querySelectorAll(".buscador-card select")[0].value;
-    const ciudad = document.querySelector(".buscador-card input[type='text']").value.toLowerCase();
-    const tipo = document.querySelectorAll(".buscador-card select")[1].value;
-    const min = Number(document.querySelectorAll(".buscador-card input[type='number']")[0].value || 0);
-    const max = Number(document.querySelectorAll(".buscador-card input[type='number']")[1].value || 999999999999);
+    const dep = document.querySelectorAll(".grid-filtros select")[0].value;
+    const ciudad = document.querySelector(".grid-filtros input[type='text']").value.toLowerCase();
+    const tipo = document.querySelectorAll(".grid-filtros select")[1].value;
+    const min = Number(document.querySelectorAll(".grid-filtros input[type='number']")[0].value || 0);
+    const max = Number(document.querySelectorAll(".grid-filtros input[type='number']")[1].value || 999999999999);
 
     const cards = document.querySelectorAll(".propiedad-card");
 
@@ -155,10 +149,10 @@ function filtrarPropiedades() {
 
     cards.forEach(card => {
 
-        const cardDep = card.dataset.departamento || "";
-        const cardCiudad = (card.dataset.ciudad || "").toLowerCase();
-        const cardTipo = card.dataset.tipo || "";
-        const cardPrecio = Number(card.dataset.precio || 0);
+        const cardDep = card.dataset.departamento;
+        const cardCiudad = card.dataset.ciudad.toLowerCase();
+        const cardTipo = card.dataset.tipo;
+        const cardPrecio = Number(card.dataset.precio);
 
         let mostrar = true;
 
