@@ -207,7 +207,32 @@ section{
     padding: 70px 20px;
     border-radius: 12px;
 }
+/* =========================
+   BOTÓN VENDE PRO
+========================= */
 
+.btn-vende{
+    display: inline-block;
+    margin-top: 25px;
+    padding: 18px 45px;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    border-radius: 60px;
+
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-vende:hover{
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+}
 /* =========================
    BUSCADOR
 ========================= */
