@@ -339,3 +339,47 @@ footer{
     color:#1f4f3a;
     font-size:16px;
 }
+
+.buscador{
+    max-width:1100px;
+    margin:40px auto;
+    text-align:center;
+}
+
+.buscador h2{
+    margin-bottom:20px;
+    color:#1f4f3a;
+}
+
+.filtros{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    padding:20px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+}
+
+.filtros select,
+.filtros input{
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.filtros button{
+    background:#1f4f3a;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.filtros button:hover{
+    background:#25D366;
+    transform:scale(1.05);
+}
