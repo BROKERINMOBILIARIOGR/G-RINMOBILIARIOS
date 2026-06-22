@@ -294,5 +294,47 @@ footer{
     text-align:center;
     padding:20px;
 }
-```
+
+
+/* ===== PROPIEDADES ===== */
+
+.grid-propiedades{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.propiedad-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    text-decoration:none;
+    color:black;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.propiedad-card:hover{
+    transform:translateY(-8px);
+}
+
+.propiedad-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.propiedad-card h3{
+    padding:15px;
+}
+
+.propiedad-card p{
+    padding:0 15px 20px;
+    font-weight:bold;
+    color:#1f4f3a;
+}
+
 
