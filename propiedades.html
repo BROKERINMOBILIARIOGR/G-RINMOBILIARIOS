@@ -141,5 +141,20 @@
 
 </section>
 
+     <script>
+function filtrarPropiedades() {
+
+    const texto = document.querySelector('.buscador-header p');
+    
+    texto.innerText = "🔎 Buscando propiedades...";
+
+    setTimeout(() => {
+        texto.innerText = "Mostrando resultados (demo)";
+        alert("Aquí ya iría el filtro real de propiedades 🔥");
+    }, 1000);
+
+}
+</script>
+
 </body>
 </html>
