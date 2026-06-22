@@ -1,3 +1,7 @@
+/* =========================
+   BASE
+   ========================= */
+
 body{
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,8 +11,9 @@ body{
 }
 
 /* =========================
-   SECCIONES
+   SECCIONES GENERALES
    ========================= */
+
 section{
     padding: 30px 20px;
     max-width: 1000px;
@@ -16,114 +21,9 @@ section{
 }
 
 /* =========================
-   🏡 PROYECTOS
+   HERO (INICIO)
    ========================= */
-.card{
-    border: 1px solid #D4AF37;
-    background: white;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    text-align: center;
-}
 
-/* imagen principal del proyecto */
-.card > img{
-    width: 100%;
-    max-width: 320px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
-    margin: 0 auto 15px auto;
-}
-
-/* galería */
-.galeria-proyecto{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-}
-
-.galeria-proyecto img{
-    width: 180px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* botones */
-.btn{
-    background: #D4AF37;
-    color: #111;
-    padding: 10px 18px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.btn:hover{
-    background: #c89c2c;
-}
-
-/* =========================
-   👥 ASESORES
-   ========================= */
-.asesores{
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.card-asesor{
-    display: inline-block;
-    margin: 20px;
-    width: 200px;
-    padding: 15px;
-    background: #1f1f1f;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease;
-    text-align: center;
-    color: white;
-}
-
-.card-asesor:hover{
-    transform: scale(1.05);
-}
-
-.card-asesor img{
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid white;
-    display: block;
-    margin: 0 auto;
-}
-
-.card-asesor h3{
-    margin-top: 12px;
-    font-size: 18px;
-}
-
-/* =========================
-   FOOTER
-   ========================= */
-footer{
-    text-align: center;
-    padding: 20px;
-    background: #111;
-    color: #D4AF37;
-}
-
-/* =========================
-   HERO CON VIDEO
-   ========================= */
 .hero{
     position: relative;
     height: 260px;
@@ -134,7 +34,6 @@ footer{
     text-align: center;
 }
 
-/* video fondo */
 .video-fondo{
     position: absolute;
     inset: 0;
@@ -145,7 +44,6 @@ footer{
     z-index: 0;
 }
 
-/* overlay oscuro */
 .overlay{
     position: absolute;
     inset: 0;
@@ -153,14 +51,12 @@ footer{
     z-index: 1;
 }
 
-/* contenido del hero */
 .hero-content{
     position: relative;
     z-index: 2;
     color: white;
 }
 
-/* logo + título */
 .logo-titulo{
     display: flex;
     align-items: center;
@@ -171,22 +67,12 @@ footer{
 
 .logo{
     height: 40px;
-    width: auto;
-}
-
-.hero-content h1{
-    margin: 0;
-    font-size: 26px;
-}
-
-.hero-content p{
-    margin-top: 8px;
-    font-size: 16px;
 }
 
 /* =========================
-   MENÚ (ARREGLADO)
+   MENÚ
    ========================= */
+
 .menu-hero{
     display: flex;
     justify-content: center;
@@ -196,107 +82,111 @@ footer{
 }
 
 .menu-hero a{
-    color: #000; /* 👈 NEGRO (lo que pediste) */
+    color: #000;
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
-
     padding: 8px 14px;
     border-radius: 8px;
-
     background: rgba(255,255,255,0.7);
     border: 1px solid rgba(0,0,0,0.2);
-
     transition: 0.3s;
 }
 
 .menu-hero a:hover{
     background: #D4AF37;
-    color: #111;
 }
 
 /* =========================
-   PÁGINA PROYECTOS GRID
+   PROYECTOS
    ========================= */
-.proyectos-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 30px 20px;
+
+.card{
+    border: 1px solid #D4AF37;
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    text-align: center;
 }
 
-
-```css
-/* ===== PAGINA VENDE ===== */
-
-.hero-vende{
-    background:#000;
-    color:white;
-    text-align:center;
-    padding:60px 20px;
+.card > img{
+    width: 100%;
+    max-width: 320px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto 15px auto;
+    display: block;
 }
 
-.hero-vende h1{
-    font-size:3rem;
-    margin-top:40px;
-    margin-bottom:20px;
+.galeria-proyecto{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.hero-vende p{
-    max-width:800px;
-    margin:auto;
-    font-size:1.2rem;
-    line-height:1.8;
-    color:#d9d9d9;
+.galeria-proyecto img{
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.btn-whatsapp{
-    display:inline-block;
-    margin-top:35px;
-    padding:18px 45px;
-    background:linear-gradient(to right,#25D366,#128C7E);
-    color:#fff;
-    text-decoration:none;
-    font-size:20px;
-    font-weight:700;
-    border-radius:60px;
-    border:none;
-    box-shadow:0 10px 25px rgba(37,211,102,0.4);
-    transition:all 0.3s ease;
+/* =========================
+   BOTÓN GENERAL
+   ========================= */
+
+.btn{
+    background: #D4AF37;
+    color: #111;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
 }
 
-.btn-whatsapp:hover{
-    transform:translateY(-4px) scale(1.03);
-    box-shadow:0 15px 35px rgba(37,211,102,0.6);
-}
-.beneficios{
-    max-width:1000px;
-    margin:auto;
-    padding:40px 20px;
+/* =========================
+   ASESORES
+   ========================= */
+
+.asesores{
+    text-align: center;
 }
 
-.beneficios h2{
-    text-align:center;
-    margin-bottom:25px;
+.card-asesor{
+    display: inline-block;
+    margin: 20px;
+    width: 200px;
+    padding: 15px;
+    background: #1f1f1f;
+    border-radius: 15px;
+    color: white;
 }
 
-.beneficios .card{
-    background:white;
-    border-radius:10px;
-    padding:25px;
+.card-asesor img{
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-.beneficios .card p{
-    margin:15px 0;
-}
+/* =========================
+   FOOTER
+   ========================= */
 
 footer{
-    text-align:center;
-    padding:20px;
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #D4AF37;
 }
 
-
-/* ===== PROPIEDADES EN VENTA ===== */
+/* =========================
+   PROPIEDADES
+   ========================= */
 
 .grid-propiedades{
     max-width:1200px;
@@ -314,12 +204,11 @@ footer{
     text-decoration:none;
     color:black;
     box-shadow:0 6px 18px rgba(0,0,0,0.15);
-    transition:0.3s ease;
+    transition:0.3s;
 }
 
 .propiedad-card:hover{
     transform:translateY(-8px);
-    box-shadow:0 12px 25px rgba(0,0,0,0.25);
 }
 
 .propiedad-card img{
@@ -330,87 +219,79 @@ footer{
 
 .propiedad-card h3{
     padding:15px;
-    font-size:18px;
 }
 
 .propiedad-card p{
     padding:0 15px 20px;
     font-weight:bold;
     color:#1f4f3a;
-    font-size:16px;
 }
 
-.buscador{
-    max-width:1100px;
-    margin:40px auto;
-    text-align:center;
-}
+/* =========================
+   VENDE
+   ========================= */
 
-.buscador h2{
-    margin-bottom:20px;
-    color:#1f4f3a;
-}
-
-.filtros{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-    padding:20px;
-    background:#fff;
-    border-radius:12px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.1);
-}
-
-.filtros select,
-.filtros input{
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
-
-.filtros button{
-    background:#1f4f3a;
+.hero-vende{
+    background:#000;
     color:white;
-    border:none;
-    padding:12px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero-vende h1{
+    font-size:3rem;
+    margin:40px 0 20px;
+}
+
+.hero-vende p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.2rem;
+    color:#d9d9d9;
+}
+
+.btn-whatsapp{
+    display:inline-block;
+    margin-top:35px;
+    padding:18px 45px;
+    background:linear-gradient(135deg,#25D366,#128C7E);
+    color:#fff;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:700;
+    border-radius:60px;
     transition:0.3s;
 }
 
-.filtros button:hover{
-    background:#25D366;
-    transform:scale(1.05);
+.btn-whatsapp:hover{
+    transform:translateY(-4px);
 }
 
-/* ===== BUSCADOR PRO INMOBILIARIO ===== */
+/* =========================
+   BUSCADOR (PRO LIMPIO)
+   ========================= */
 
 .buscador{
     max-width:1100px;
     margin:60px auto;
     text-align:center;
-    padding:20px;
 }
 
 .buscador h2{
-    color:#fff;
+    color:#000;
     font-size:28px;
     margin-bottom:25px;
 }
 
-/* TARJETA PRINCIPAL */
 .buscador-card{
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,0.15);
+    border:1px solid rgba(0,0,0,0.1);
     border-radius:20px;
     padding:25px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.5);
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
 }
 
-/* GRID */
 .grid-filtros{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -418,25 +299,21 @@ footer{
     margin-bottom:20px;
 }
 
-/* INPUTS MODERNOS */
 .grid-filtros select,
 .grid-filtros input{
     padding:14px;
     border-radius:12px;
-    border:none;
-    outline:none;
+    border:1px solid #ddd;
     font-size:14px;
-    background:rgba(255,255,255,0.95);
-    transition:0.2s;
+    background:white;
 }
 
 .grid-filtros select:focus,
 .grid-filtros input:focus{
     transform:scale(1.03);
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* BOTÓN PRO */
 .buscador-card button{
     width:100%;
     padding:15px;
@@ -452,5 +329,4 @@ footer{
 
 .buscador-card button:hover{
     transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(37,211,102,0.4);
 }
