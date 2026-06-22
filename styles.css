@@ -383,3 +383,74 @@ footer{
     background:#25D366;
     transform:scale(1.05);
 }
+
+/* ===== BUSCADOR PRO INMOBILIARIO ===== */
+
+.buscador{
+    max-width:1100px;
+    margin:60px auto;
+    text-align:center;
+    padding:20px;
+}
+
+.buscador h2{
+    color:#fff;
+    font-size:28px;
+    margin-bottom:25px;
+}
+
+/* TARJETA PRINCIPAL */
+.buscador-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* GRID */
+.grid-filtros{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin-bottom:20px;
+}
+
+/* INPUTS MODERNOS */
+.grid-filtros select,
+.grid-filtros input{
+    padding:14px;
+    border-radius:12px;
+    border:none;
+    outline:none;
+    font-size:14px;
+    background:rgba(255,255,255,0.95);
+    transition:0.2s;
+}
+
+.grid-filtros select:focus,
+.grid-filtros input:focus{
+    transform:scale(1.03);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* BOTÓN PRO */
+.buscador-card button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    color:white;
+    background:linear-gradient(135deg,#25D366,#128C7E);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.buscador-card button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(37,211,102,0.4);
+}
