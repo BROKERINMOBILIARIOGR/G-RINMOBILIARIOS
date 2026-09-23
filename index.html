@@ -174,11 +174,12 @@ transition:0.3s;
 </div>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getDatabase, ref, runTransaction, onValue } 
-  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-  const firebaseConfig = {
+import { getDatabase, ref, runTransaction, onValue }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
   apiKey: "AIzaSyAKDczyyUwdxTn1QP1jkQks8SL91PwZawQ",
   authDomain: "contador-web-gyr.firebaseapp.com",
   databaseURL: "https://contador-web-gyr-default-rtdb.firebaseio.com",
