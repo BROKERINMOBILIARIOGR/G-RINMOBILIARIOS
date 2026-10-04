@@ -1,172 +1,192 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proyectos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos</title>
 
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/proyectos.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/proyectos.css">
 </head>
 
 <body>
-
-<header class="hero">
-
+  <header class="hero">
     <video autoplay muted loop playsinline class="video-fondo">
-        <source src="video/videoplayback.mp4" type="video/mp4">
+      <source src="video/videoplayback.mp4" type="video/mp4">
     </video>
 
     <div class="overlay"></div>
 
     <div class="hero-content">
+      <div class="logo-titulo">
+        <img src="logo.jpeg" class="logo" alt="Logo Broker Inmobiliario G&R">
+        <h1>Proyectos Inmobiliarios</h1>
+      </div>
 
-        <div class="logo-titulo">
-            <img src="logo.jpeg" class="logo">
-            <h1>Proyectos Inmobiliarios</h1>
-        </div>
+      <p>Explora nuestras oportunidades de inversión</p>
 
-        <p>Explora nuestras oportunidades de inversión</p>
-
-        <nav class="menu-hero">
-            <a href="index.html">Inicio</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="propiedades.html">Propiedades</a>
-            <a href="vende.html">Vende</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-
+      <nav class="menu-hero">
+        <a href="index.html">Inicio</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="propiedades.html">Propiedades</a>
+        <a href="vende.html">Vende</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
     </div>
+  </header>
 
-</header>
-
-<section>
-
+  <section>
     <div class="grid-proyectos">
 
-      <article class="card card-brisas" id="abrir-brisas"
-         role="button" tabindex="0"
-         aria-haspopup="dialog" aria-controls="modal-brisas">
-  <img src="logo.jpeg" alt="Brisas del Río">
-  <h3>Brisas del Río</h3>
-  <p>Proyecto inmobiliario.</p>
-</article>
+      <article
+        class="card card-brisas"
+        id="abrir-brisas"
+        role="button"
+        tabindex="0"
+        aria-haspopup="dialog"
+        aria-controls="modal-brisas"
+      >
+        <img src="logo.jpeg" alt="Brisas del Río">
+        <h3>Brisas del Río</h3>
+        <p>Proyecto inmobiliario.</p>
+      </article>
 
-<article class="card">
-  <img src="logo.jpeg" alt="Parcelación">
-  <h3>Parcelación</h3>
-  <p>Proyecto inmobiliario.</p>
-</article>
+      <article class="card">
+        <img src="logo.jpeg" alt="Parcelación">
+        <h3>Parcelación</h3>
+        <p>Proyecto inmobiliario.</p>
+      </article>
 
-<article class="card">
-  <img src="logo.jpeg" alt="Fincas del Olimpo">
-  <h3>Fincas del Olimpo</h3>
-  <p>Proyecto inmobiliario.</p>
-</article>
+      <article class="card">
+        <img src="logo.jpeg" alt="Fincas del Olimpo">
+        <h3>Fincas del Olimpo</h3>
+        <p>Proyecto inmobiliario.</p>
+      </article>
 
-<article class="card">
-  <img src="logo.jpeg" alt="Caracolí">
-  <h3>Caracolí</h3>
-  <p>Proyecto inmobiliario.</p>
-</article>
+      <article class="card">
+        <img src="logo.jpeg" alt="Caracolí">
+        <h3>Caracolí</h3>
+        <p>Proyecto inmobiliario.</p>
+      </article>
 
-<article class="card">
-  <img src="logo.jpeg" alt="Colina">
-  <h3>Colina</h3>
-  <p>Proyecto inmobiliario.</p>
-</article>
+      <article class="card">
+        <img src="logo.jpeg" alt="Colina">
+        <h3>Colina</h3>
+        <p>Proyecto inmobiliario.</p>
+      </article>
 
-<article class="card">
-  <img src="logo.jpeg" alt="Parque del Agua">
-  <h3>Parque del Agua</h3>
-  <p>Proyecto inmobiliario.</p>
-</article>
+      <article class="card">
+        <img src="logo.jpeg" alt="Parque del Agua">
+        <h3>Parque del Agua</h3>
+        <p>Proyecto inmobiliario.</p>
+      </article>
 
-<article class="card">
-  <img src="Images/praderas.jpg" alt="Praderas del Olimpo">
-  <h3>Praderas del Olimpo</h3>
-  <p>Proyecto campestre exclusivo.</p>
-</article>
+      <article class="card">
+        <img src="Images/praderas.jpg" alt="Praderas del Olimpo">
+        <h3>Praderas del Olimpo</h3>
+        <p>Proyecto campestre exclusivo.</p>
+      </article>
 
-<article class="card">
-  <img src="logo.jpeg" alt="Villas del Olimpo">
-  <h3>Villas del Olimpo</h3>
-  <p>Proyecto inmobiliario.</p>
-</article>
+      <article class="card">
+        <img src="logo.jpeg" alt="Villas del Olimpo">
+        <h3>Villas del Olimpo</h3>
+        <p>Proyecto inmobiliario.</p>
+      </article>
+
     </div>
+  </section>
 
-</section>
+  <dialog
+    class="modal-proyecto"
+    id="modal-brisas"
+    aria-labelledby="titulo-brisas"
+  >
+    <div class="modal-contenido">
+      <button
+        class="modal-cerrar"
+        id="cerrar-brisas"
+        type="button"
+        aria-label="Cerrar ventana"
+      >
+        ×
+      </button>
 
-<dialog class="modal-proyecto" id="modal-brisas"
-        aria-labelledby="titulo-brisas">
-  <div class="modal-contenido">
-    <button class="modal-cerrar" id="cerrar-brisas"
-            type="button" aria-label="Cerrar ventana">×</button>
+      <p class="modal-precio">26.000.000 COP</p>
+      <h2 id="titulo-brisas">💦 URBANIZACIÓN BRISAS DEL RÍO 💦</h2>
+      <p>📌 Cunday - Tolima</p>
+      <p><strong>Proyecto urbano de libre construcción</strong></p>
 
-    <p class="modal-precio">26.000.000 COP</p>
-    <h2 id="titulo-brisas">💦 URBANIZACIÓN BRISAS DEL RÍO 💦</h2>
-    <p>📌 Cunday - Tolima</p>
-    <p><strong>Proyecto urbano de libre construcción</strong></p>
+      <p>
+        Contamos con 600 lotes desde <strong>72 m²</strong>, a partir de
+        <strong>$26.000.000</strong>. El precio varía según la ubicación y
+        el metraje. ⛲
+      </p>
 
-    <p>
-      Contamos con 600 lotes desde <strong>72 m²</strong>, a partir de
-      <strong>$26.000.000</strong>. El precio varía según la ubicación y el metraje. ⛲
-    </p>
+      <h3>Áreas sociales</h3>
+      <ul>
+        <li>Parque infantil 🛝🛹</li>
+        <li>Zona de hamacas 🍃</li>
+        <li>Zona BBQ 🥩🍗</li>
+        <li>Parque biosaludable 🌴🌳</li>
+        <li>Cancha múltiple 🏀⚽🏐</li>
+        <li>Cancha sintética 🥅</li>
+        <li>Cancha de vóley playa 🏐</li>
+        <li>Piscina para niños y adultos 🤽🏻</li>
+        <li>Piscina con tobogán 🛝</li>
+        <li>Zona picnic 🍃</li>
+        <li>Sendero ecológico 🍀</li>
+        <li>Dog Park 🐶</li>
+        <li>Sede social ⛱️</li>
+        <li>Alumbrado público LED</li>
+        <li>Shut de basuras 🚮🗑️</li>
+        <li>Parqueaderos</li>
+      </ul>
 
-    <h3>Áreas sociales</h3>
-    <ul>
-      <li>Parque infantil 🛝🛹</li>
-      <li>Zona de hamacas 🍃</li>
-      <li>Zona BBQ 🥩🍗</li>
-      <li>Parque biosaludable 🌴🌳</li>
-      <li>Cancha múltiple 🏀⚽🏐</li>
-      <li>Cancha sintética 🥅</li>
-      <li>Cancha de vóley playa 🏐</li>
-      <li>Piscina para niños y adultos 🤽🏻</li>
-      <li>Piscina con tobogán 🛝</li>
-      <li>Zona picnic 🍃</li>
-      <li>Sendero ecológico 🍀</li>
-      <li>Dog Park 🐶</li>
-      <li>Sede social ⛱️</li>
-      <li>Alumbrado público LED</li>
-      <li>Shut de basuras 🚮🗑️</li>
-      <li>Parqueaderos</li>
-    </ul>
+      <p>
+        <strong>Comunícate con nosotros y sepáralo con $1'000.000 🤑</strong>
+      </p>
 
-    <p><strong>Comunícate con nosotros y sepáralo con $1'000.000 🤑</strong></p>
-    <p class="modal-beneficios">
-      SIN INTERESES 💰<br>
-      SIN FIADOR<br>
-      SIN ESTUDIO CREDITICIO
-    </p>
-    <p>Financiación desde 28 a 36 meses (depende del valor del lote).</p>
-  </div>
-</dialog>
-    
-<footer>
-© Broker Inmobiliario G&R
-</footer>
+      <p class="modal-beneficios">
+        SIN INTERESES 💰<br>
+        SIN FIADOR<br>
+        SIN ESTUDIO CREDITICIO
+      </p>
 
-<script>
-  const tarjetaBrisas = document.getElementById("abrir-brisas");
-  const modalBrisas = document.getElementById("modal-brisas");
-  const cerrarBrisas = document.getElementById("cerrar-brisas");
+      <p>
+        Financiación desde 28 a 36 meses (depende del valor del lote).
+      </p>
+    </div>
+  </dialog>
 
-  tarjetaBrisas.addEventListener("click", () => modalBrisas.showModal());
+  <footer>
+    © Broker Inmobiliario G&amp;R
+  </footer>
 
-  tarjetaBrisas.addEventListener("keydown", (evento) => {
-    if (evento.key === "Enter" || evento.key === " ") {
-      evento.preventDefault();
+  <script>
+    const tarjetaBrisas = document.getElementById("abrir-brisas");
+    const modalBrisas = document.getElementById("modal-brisas");
+    const cerrarBrisas = document.getElementById("cerrar-brisas");
+
+    tarjetaBrisas.addEventListener("click", () => {
       modalBrisas.showModal();
-    }
-  });
+    });
 
-  cerrarBrisas.addEventListener("click", () => modalBrisas.close());
+    tarjetaBrisas.addEventListener("keydown", (evento) => {
+      if (evento.key === "Enter" || evento.key === " ") {
+        evento.preventDefault();
+        modalBrisas.showModal();
+      }
+    });
 
-  modalBrisas.addEventListener("click", (evento) => {
-    if (evento.target === modalBrisas) modalBrisas.close();
-  });
-</script>
-    
+    cerrarBrisas.addEventListener("click", () => {
+      modalBrisas.close();
+    });
+
+    modalBrisas.addEventListener("click", (evento) => {
+      if (evento.target === modalBrisas) {
+        modalBrisas.close();
+      }
+    });
+  </script>
 </body>
 </html>
