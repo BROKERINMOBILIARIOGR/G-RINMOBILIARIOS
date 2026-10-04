@@ -245,30 +245,36 @@
   </footer>
 
   <script>
-    const tarjetaBrisas = document.getElementById("abrir-brisas");
-    const modalBrisas = document.getElementById("modal-brisas");
-    const cerrarBrisas = document.getElementById("cerrar-brisas");
+  const conexiones = [
+    {
+      tarjeta: document.getElementById("abrir-brisas"),
+      ventana: document.getElementById("modal-brisas")
+    },
+    {
+      tarjeta: document.getElementById("abrir-villas"),
+      ventana: document.getElementById("modal-villas")
+    }
+  ];
 
-    tarjetaBrisas.addEventListener("click", () => {
-      modalBrisas.showModal();
-    });
+  conexiones.forEach(({ tarjeta, ventana }) => {
+    if (!tarjeta || !ventana) return;
 
-    tarjetaBrisas.addEventListener("keydown", (evento) => {
+    tarjeta.addEventListener("click", () => ventana.showModal());
+
+    tarjeta.addEventListener("keydown", (evento) => {
       if (evento.key === "Enter" || evento.key === " ") {
         evento.preventDefault();
-        modalBrisas.showModal();
+        ventana.showModal();
       }
     });
 
-    cerrarBrisas.addEventListener("click", () => {
-      modalBrisas.close();
-    });
+    ventana.querySelector(".modal-cerrar")
+      ?.addEventListener("click", () => ventana.close());
 
-    modalBrisas.addEventListener("click", (evento) => {
-      if (evento.target === modalBrisas) {
-        modalBrisas.close();
-      }
+    ventana.addEventListener("click", (evento) => {
+      if (evento.target === ventana) ventana.close();
     });
-  </script>
+  });
+</script>
 </body>
 </html>
