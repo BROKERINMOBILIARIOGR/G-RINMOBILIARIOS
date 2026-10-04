@@ -43,3 +43,13 @@
     color: #1f4f3a;
     font-weight: bold;
 }
+
+
+.card-proyecto {
+  cursor: pointer;
+}
+
+.card-proyecto:focus-visible {
+  outline: 3px solid #159a73;
+  outline-offset: 4px;
+}
