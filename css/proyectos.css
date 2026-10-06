@@ -54,21 +54,29 @@
   outline-offset: 4px;
 }
 
-.modal-proyecto {
-  border: 0;
-  border-radius: 16px;
-  max-width: min(780px, calc(100% - 28px));
-  max-height: 88vh;
-  padding: 0;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, .35);
-}
-
-.modal-proyecto::backdrop { background: rgba(0, 0, 0, .68); }
-.modal-contenido { position: relative; padding: 28px; }
-.modal-cerrar { position: sticky; float: right; top: 0; border: 0; border-radius: 50%; width: 40px; height: 40px; font-size: 28px; cursor: pointer; background: #eee; }
-.modal-precio { color: #1f4f3a; font-weight: 700; font-size: 1.1rem; }
-.detalle-descripcion { white-space: pre-line; line-height: 1.6; }
-.detalle-imagenes { display: flex; gap: 10px; overflow-x: auto; margin: 0 0 18px; }
-.detalle-imagenes img { flex: 0 0 auto; width: min(260px, 75vw); height: 170px; object-fit: cover; border-radius: 10px; }
 .mensaje-proyectos { text-align: center; }
 .enlace-trabajadores { display: inline-block; margin: 16px; color: #1f4f3a; font-size: .9rem; }
+.ver-detalle { display: block; padding: 0 15px 16px; color: #1f4f3a; font-weight: 750; }
+.detalle-pagina { width: min(1120px, calc(100% - 32px)); margin: 34px auto 56px; }
+.volver-proyectos { display: inline-block; margin: 0 0 18px; color: #1f4f3a; font-weight: 700; text-decoration: none; }
+.ficha-proyecto { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr); overflow: hidden; border-radius: 18px; background: #fff; box-shadow: 0 14px 36px rgba(0,0,0,.12); }
+.galeria-detalle { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 190px; gap: 8px; padding: 12px; align-content: start; background: #f2f5f3; }
+.galeria-detalle img { width: 100%; height: 100%; min-height: 0; object-fit: cover; border-radius: 10px; }
+.galeria-detalle .imagen-principal { grid-column: 1 / -1; height: 330px; }
+.informacion-proyecto { padding: clamp(22px, 4vw, 42px); }
+.informacion-proyecto h2 { margin: 5px 0 12px; color: #1f4f3a; font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.15; }
+.ubicacion-proyecto { margin: 0; color: #65736b; font-weight: 650; }
+.precio-proyecto { color: #1f4f3a; font-size: 1.3rem; font-weight: 800; }
+.resumen-proyecto { font-size: 1.05rem; font-weight: 700; }
+.descripcion-proyecto { white-space: pre-line; line-height: 1.7; }
+.caracteristicas-proyecto { margin: 26px 0; }
+.caracteristicas-proyecto h3 { color: #1f4f3a; }
+.caracteristicas-proyecto ul { padding-left: 22px; line-height: 1.8; }
+.boton-contacto-proyecto { display: inline-block; margin-top: 18px; padding: 13px 20px; border-radius: 9px; background: #25D366; color: #fff; font-weight: 800; text-decoration: none; }
+.boton-contacto-proyecto:hover { background: #1daf58; }
+footer .enlace-trabajadores { display: block; }
+@media (max-width: 760px) {
+  .ficha-proyecto { grid-template-columns: 1fr; }
+  .galeria-detalle { grid-auto-rows: 125px; }
+  .galeria-detalle .imagen-principal { height: 240px; }
+}
