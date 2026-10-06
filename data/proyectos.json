@@ -1,0 +1,186 @@
+[
+  {
+    "id": "lagos-del-olimpo",
+    "title": "Lagos del Olimpo",
+    "summary": "Lotes desde $45 millones. Financiación directa sin intereses. Invierte hoy y separa tu lote con solo $1 millón.",
+    "location": "",
+    "price": "$45 millones",
+    "details": "Financiación directa sin intereses. Invierte hoy y separa tu lote con solo $1 millón.",
+    "features": [],
+    "images": [
+      "Images/lagosdelolimpo/lagos2.jpg",
+      "Images/lagosdelolimpo/lagosconjunto.jpg",
+      "Images/lagosdelolimpo/planolagos.jpg"
+    ],
+    "featured": true
+  },
+  {
+    "id": "oasis-del-olimpo",
+    "title": "Oasis Del Olimpo",
+    "summary": "Lotes desde $42 millones. Financiación directa sin intereses. Excelente oportunidad de inversión.",
+    "location": "",
+    "price": "$42 millones",
+    "details": "Financiación directa sin intereses. Excelente oportunidad de inversión.",
+    "features": [],
+    "images": [
+      "Images/oasis/oasisplanojpg.jpg",
+      "Images/oasis/todo.jpg",
+      "Images/oasis/arribaoasis.jpg"
+    ],
+    "featured": true
+  },
+  {
+    "id": "fincas-del-paso",
+    "title": "Fincas del Paso",
+    "summary": "Lotes desde $75 millones. Excelente valorización y ubicación estratégica.",
+    "location": "",
+    "price": "$75 millones",
+    "details": "Excelente valorización y ubicación estratégica.",
+    "features": [],
+    "images": [
+      "Images/fincasdelpaso/volante.jpg",
+      "Images/fincasdelpaso/lago.jpg",
+      "Images/fincasdelpaso/lago2.jpg"
+    ],
+    "featured": true
+  },
+  {
+    "id": "brisas-del-rio",
+    "title": "Brisas del Río",
+    "summary": "Proyecto urbano de libre construcción en Cunday, Tolima. Lotes desde 72 m².",
+    "location": "Cunday - Tolima",
+    "price": "$26.000.000 COP",
+    "details": "Contamos con 600 lotes desde 72 m². El precio varía según la ubicación y el metraje. Comunícate con nosotros y sepáralo con $1.000.000. Financiación desde 28 a 36 meses, según el valor del lote. Sin intereses, sin fiador y sin estudio crediticio.",
+    "features": [
+      "Parque infantil",
+      "Zona de hamacas",
+      "Zona BBQ",
+      "Parque biosaludable",
+      "Cancha múltiple",
+      "Cancha sintética",
+      "Cancha de vóley playa",
+      "Piscina para niños y adultos",
+      "Piscina con tobogán",
+      "Zona picnic",
+      "Sendero ecológico",
+      "Dog Park",
+      "Sede social",
+      "Alumbrado público LED",
+      "Shut de basuras",
+      "Parqueaderos"
+    ],
+    "images": [
+      "logo.jpeg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "parcelacion",
+    "title": "Parcelación",
+    "summary": "KDGVIUAGSDÑFIUGHASKJDFHGÑVKAJDHFÑKGJAHDFKJ",
+    "location": "SJHDFI",
+    "price": "10000",
+    "details": "SALDFHSAhDÑVJZSDXV",
+    "features": [],
+    "images": [
+      "logo.jpeg",
+      "Images/proyectos/parcelacion/94700595444d4cf3893a5339555513e5.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "fincas-del-olimpo",
+    "title": "Fincas del Olimpo",
+    "summary": "Proyecto inmobiliario.",
+    "location": "",
+    "price": "",
+    "details": "",
+    "features": [],
+    "images": [
+      "logo.jpeg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "caracoli",
+    "title": "Caracolí",
+    "summary": "Proyecto inmobiliario.",
+    "location": "",
+    "price": "",
+    "details": "",
+    "features": [],
+    "images": [
+      "logo.jpeg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "colina",
+    "title": "Colina",
+    "summary": "Proyecto inmobiliario.",
+    "location": "",
+    "price": "",
+    "details": "",
+    "features": [],
+    "images": [
+      "logo.jpeg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "parque-del-agua",
+    "title": "Parque del Agua",
+    "summary": "Proyecto inmobiliario.",
+    "location": "",
+    "price": "",
+    "details": "",
+    "features": [],
+    "images": [
+      "logo.jpeg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "praderas-del-olimpo",
+    "title": "Praderas del Olimpo",
+    "summary": "Proyecto campestre exclusivo.",
+    "location": "",
+    "price": "",
+    "details": "Proyecto campestre exclusivo.",
+    "features": [],
+    "images": [
+      "logo.jpeg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "villas-del-olimpo",
+    "title": "Villas del Olimpo",
+    "summary": "Condominio campestre en Carmen de Apicalá, Tolima.",
+    "location": "Carmen de Apicalá, Tolima",
+    "price": "$65.000.000 COP",
+    "details": "Proyecto de lotes campestres en condominio cerrado, sobre la vía al Paso - Girardot y a menos de 5 minutos del centro del pueblo. Lotes desde 300 m². Mall comercial exterior con locales desde 100 m² a partir de $150.000.000. Separa con $1.000.000; al mes completa la cuota inicial con $4.000.000 y paga el saldo en 30 cuotas sin intereses ni estudio de crédito. Financiación directamente con la constructora.",
+    "features": [
+      "Energía eléctrica y acueducto con red principal",
+      "Alcantarillado con red principal y PTAR",
+      "Vías internas pavimentadas",
+      "Parqueaderos para visitantes",
+      "Cerramiento y portería",
+      "3 lagos naturales",
+      "Piscina Cataratas Victoria",
+      "Aquapark infantil Poseidón",
+      "Dog Park",
+      "Parque infantil y biosaludable",
+      "Zona BBQ y zonas verdes",
+      "Senderos ecológicos",
+      "Cancha múltiple, tenis, pádel y sintética",
+      "Salón de eventos",
+      "Mall comercial exterior",
+      "Escritura pública individual"
+    ],
+    "images": [
+      "logo.jpeg"
+    ],
+    "featured": false
+  }
+]
