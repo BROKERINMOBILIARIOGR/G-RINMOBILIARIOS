@@ -53,3 +53,22 @@
   outline: 3px solid #159a73;
   outline-offset: 4px;
 }
+
+.modal-proyecto {
+  border: 0;
+  border-radius: 16px;
+  max-width: min(780px, calc(100% - 28px));
+  max-height: 88vh;
+  padding: 0;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .35);
+}
+
+.modal-proyecto::backdrop { background: rgba(0, 0, 0, .68); }
+.modal-contenido { position: relative; padding: 28px; }
+.modal-cerrar { position: sticky; float: right; top: 0; border: 0; border-radius: 50%; width: 40px; height: 40px; font-size: 28px; cursor: pointer; background: #eee; }
+.modal-precio { color: #1f4f3a; font-weight: 700; font-size: 1.1rem; }
+.detalle-descripcion { white-space: pre-line; line-height: 1.6; }
+.detalle-imagenes { display: flex; gap: 10px; overflow-x: auto; margin: 0 0 18px; }
+.detalle-imagenes img { flex: 0 0 auto; width: min(260px, 75vw); height: 170px; object-fit: cover; border-radius: 10px; }
+.mensaje-proyectos { text-align: center; }
+.enlace-trabajadores { display: inline-block; margin: 16px; color: #1f4f3a; font-size: .9rem; }

@@ -3,28 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyectos</title>
-
+  <title>Proyectos | Broker Inmobiliario G&amp;R</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/proyectos.css">
 </head>
-
 <body>
   <header class="hero">
     <video autoplay muted loop playsinline class="video-fondo">
       <source src="video/videoplayback.mp4" type="video/mp4">
     </video>
-
     <div class="overlay"></div>
-
     <div class="hero-content">
       <div class="logo-titulo">
-        <img src="logo.jpeg" class="logo" alt="Logo Broker Inmobiliario G&R">
+        <img src="logo.jpeg" class="logo" alt="Logo Broker Inmobiliario G&amp;R">
         <h1>Proyectos Inmobiliarios</h1>
       </div>
-
       <p>Explora nuestras oportunidades de inversión</p>
-
       <nav class="menu-hero">
         <a href="index.html">Inicio</a>
         <a href="proyectos.html">Proyectos</a>
@@ -35,243 +29,31 @@
     </div>
   </header>
 
-  <section>
-    <div class="grid-proyectos">
+  <main>
+    <section aria-labelledby="titulo-lista-proyectos">
+      <h2 id="titulo-lista-proyectos">Nuestros proyectos</h2>
+      <div id="lista-proyectos" class="grid-proyectos" aria-live="polite"></div>
+      <p id="mensaje-proyectos" class="mensaje-proyectos" role="status"></p>
+    </section>
+  </main>
 
-      <article
-        class="card card-proyecto"
-        id="abrir-brisas"
-        role="button"
-        tabindex="0"
-        aria-haspopup="dialog"
-        aria-controls="modal-brisas"
-      >
-        <img src="logo.jpeg" alt="Brisas del Río">
-        <h3>Brisas del Río</h3>
-        <p>Proyecto inmobiliario.</p>
-      </article>
-
-      <article class="card">
-        <img src="logo.jpeg" alt="Parcelación">
-        <h3>Parcelación</h3>
-        <p>Proyecto inmobiliario.</p>
-      </article>
-
-      <article class="card">
-        <img src="logo.jpeg" alt="Fincas del Olimpo">
-        <h3>Fincas del Olimpo</h3>
-        <p>Proyecto inmobiliario.</p>
-      </article>
-
-      <article class="card">
-        <img src="logo.jpeg" alt="Caracolí">
-        <h3>Caracolí</h3>
-        <p>Proyecto inmobiliario.</p>
-      </article>
-
-      <article class="card">
-        <img src="logo.jpeg" alt="Colina">
-        <h3>Colina</h3>
-        <p>Proyecto inmobiliario.</p>
-      </article>
-
-      <article class="card">
-        <img src="logo.jpeg" alt="Parque del Agua">
-        <h3>Parque del Agua</h3>
-        <p>Proyecto inmobiliario.</p>
-      </article>
-
-      <article class="card">
-        <img src="Images/praderas.jpg" alt="Praderas del Olimpo">
-        <h3>Praderas del Olimpo</h3>
-        <p>Proyecto campestre exclusivo.</p>
-      </article>
-
-      <article
-        class="card card-proyecto"
-        id="abrir-villas"
-        role="button"
-        tabindex="0"
-        aria-haspopup="dialog"
-        aria-controls="modal-villas"
-      >
-        <img src="logo.jpeg" alt="Villas del Olimpo">
-        <h3>Villas del Olimpo</h3>
-        <p>Condominio campestre.</p>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- Ventana de Brisas del Río -->
-  <dialog
-    class="modal-proyecto"
-    id="modal-brisas"
-    aria-labelledby="titulo-brisas"
-  >
+  <dialog class="modal-proyecto" id="detalle-proyecto" aria-labelledby="detalle-titulo">
     <div class="modal-contenido">
-      <button class="modal-cerrar" type="button" aria-label="Cerrar ventana">
-        ×
-      </button>
-
-      <p class="modal-precio">26.000.000 COP</p>
-      <h2 id="titulo-brisas">💦 URBANIZACIÓN BRISAS DEL RÍO 💦</h2>
-      <p>📌 Cunday - Tolima</p>
-      <p><strong>Proyecto urbano de libre construcción</strong></p>
-
-      <p>
-        Contamos con 600 lotes desde <strong>72 m²</strong>, a partir de
-        <strong>$26.000.000</strong>. El precio varía según la ubicación y
-        el metraje. ⛲
-      </p>
-
-      <h3>Áreas sociales</h3>
-      <ul>
-        <li>Parque infantil 🛝🛹</li>
-        <li>Zona de hamacas 🍃</li>
-        <li>Zona BBQ 🥩🍗</li>
-        <li>Parque biosaludable 🌴🌳</li>
-        <li>Cancha múltiple 🏀⚽🏐</li>
-        <li>Cancha sintética 🥅</li>
-        <li>Cancha de vóley playa 🏐</li>
-        <li>Piscina para niños y adultos 🤽🏻</li>
-        <li>Piscina con tobogán 🛝</li>
-        <li>Zona picnic 🍃</li>
-        <li>Sendero ecológico 🍀</li>
-        <li>Dog Park 🐶</li>
-        <li>Sede social ⛱️</li>
-        <li>Alumbrado público LED</li>
-        <li>Shut de basuras 🚮🗑️</li>
-        <li>Parqueaderos</li>
-      </ul>
-
-      <p>
-        <strong>Comunícate con nosotros y sepáralo con $1'000.000 🤑</strong>
-      </p>
-
-      <p class="modal-beneficios">
-        SIN INTERESES 💰<br>
-        SIN FIADOR<br>
-        SIN ESTUDIO CREDITICIO
-      </p>
-
-      <p>
-        Financiación desde 28 a 36 meses (depende del valor del lote).
-      </p>
-    </div>
-  </dialog>
-
-  <!-- Ventana de Villas del Olimpo -->
-  <dialog
-    class="modal-proyecto"
-    id="modal-villas"
-    aria-labelledby="titulo-villas"
-  >
-    <div class="modal-contenido">
-      <button class="modal-cerrar" type="button" aria-label="Cerrar ventana">
-        ×
-      </button>
-
-      <p class="modal-precio">65.000.000 COP</p>
-      <h2 id="titulo-villas">🔱 VILLAS DEL OLIMPO 🔱</h2>
-      <h3>Condominio campestre</h3>
-
-      <p>
-        Proyecto de lotes campestres con estilo mediterráneo, en condominio
-        cerrado, ubicado en Carmen de Apicalá, Tolima, Colombia. Sobre la vía
-        al Paso - Girardot, a menos de 5 minutos del centro del pueblo.
-      </p>
-
-      <p>
-        Lotes desde <strong>300 m²</strong>, a partir de
-        <strong>$65.000.000</strong>.
-      </p>
-
-      <p>
-        Mall comercial exterior: locales desde <strong>100 m²</strong>,
-        a partir de <strong>$150.000.000</strong>. 🛒🛍️
-      </p>
-
-      <h3>Servicios e infraestructura</h3>
-      <ul>
-        <li>Energía eléctrica con red principal 💡</li>
-        <li>Acueducto con red principal 🛁🚰</li>
-        <li>Alcantarillado con red principal y PTAR 🚽</li>
-        <li>Vías internas pavimentadas</li>
-        <li>Parqueaderos para visitantes 🚗</li>
-        <li>Cerramiento</li>
-        <li>Portería</li>
-      </ul>
-
-      <h3>Áreas comunes</h3>
-      <ul>
-        <li>3 lagos naturales</li>
-        <li>Zona de piscina Cataratas Victoria</li>
-        <li>Aquapark infantil Poseidón</li>
-        <li>Dog Park 🐶</li>
-        <li>Parque infantil</li>
-        <li>Parque biosaludable</li>
-        <li>Zona BBQ</li>
-        <li>Zonas verdes</li>
-        <li>Senderos ecológicos</li>
-        <li>Cancha múltiple</li>
-        <li>Cancha de tenis</li>
-        <li>Cancha de pádel</li>
-        <li>Cancha sintética</li>
-        <li>Salón de eventos</li>
-        <li>Mall comercial exterior 🏬🛒🛍️</li>
-        <li>Escritura pública individual ✒️</li>
-      </ul>
-
-      <h3>Forma de pago</h3>
-      <p>
-        Separa con <strong>$1.000.000</strong>. Al mes, completa la cuota
-        inicial con <strong>$4.000.000</strong>. El saldo se paga en
-        <strong>30 cuotas sin intereses</strong> ni estudio de crédito.
-      </p>
-      <p>Financiación directamente con la constructora. 💰</p>
+      <button class="modal-cerrar" id="cerrar-detalle" type="button" aria-label="Cerrar ventana">×</button>
+      <div id="detalle-imagenes" class="detalle-imagenes"></div>
+      <p class="modal-precio" id="detalle-precio"></p>
+      <h2 id="detalle-titulo"></h2>
+      <p id="detalle-ubicacion"></p>
+      <p id="detalle-descripcion" class="detalle-descripcion"></p>
+      <ul id="detalle-caracteristicas"></ul>
     </div>
   </dialog>
 
   <footer>
     © Broker Inmobiliario G&amp;R
+    <a class="enlace-trabajadores" href="https://CONFIGURA-TU-EQUIPO.ts.net/admin/">Acceso de trabajadores</a>
   </footer>
 
-  <script>
-    const proyectos = [
-      {
-        tarjeta: document.getElementById("abrir-brisas"),
-        ventana: document.getElementById("modal-brisas")
-      },
-      {
-        tarjeta: document.getElementById("abrir-villas"),
-        ventana: document.getElementById("modal-villas")
-      }
-    ];
-
-    proyectos.forEach(({ tarjeta, ventana }) => {
-      if (!tarjeta || !ventana) return;
-
-      tarjeta.addEventListener("click", () => {
-        ventana.showModal();
-      });
-
-      tarjeta.addEventListener("keydown", (evento) => {
-        if (evento.key === "Enter" || evento.key === " ") {
-          evento.preventDefault();
-          ventana.showModal();
-        }
-      });
-
-      ventana.querySelector(".modal-cerrar")
-        ?.addEventListener("click", () => ventana.close());
-
-      ventana.addEventListener("click", (evento) => {
-        if (evento.target === ventana) {
-          ventana.close();
-        }
-      });
-    });
-  </script>
+  <script src="js/proyectos.js" defer></script>
 </body>
 </html>

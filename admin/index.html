@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrar proyectos | Broker Inmobiliario G&amp;R</title>
+  <link rel="stylesheet" href="/admin/admin.css">
+  <script src="/admin/admin.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a href="/admin/" class="brand">G&amp;R <span>Panel de proyectos</span></a>
+      <div id="user-controls" class="user-controls" hidden>
+        <span id="user-label"></span>
+        <button id="logout-button" class="button button-quiet" type="button">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <section id="login-view" class="panel login-panel">
+      <p class="eyebrow">Acceso para el equipo</p>
+      <h1>Administrar proyectos</h1>
+      <p>Inicia sesión con la cuenta que te entregó la persona administradora.</p>
+      <form id="login-form">
+        <label>Usuario<input name="username" autocomplete="username" required></label>
+        <label>Contraseña<input name="password" type="password" autocomplete="current-password" required></label>
+        <button class="button button-primary" type="submit">Iniciar sesión</button>
+        <p id="login-message" class="form-message" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="dashboard-view" hidden>
+      <div class="page-heading">
+        <div><p class="eyebrow">Contenido de la página</p><h1>Proyectos</h1></div>
+        <div class="heading-actions">
+          <button id="publish-button" class="button button-quiet" type="button">Publicar cambios pendientes</button>
+          <button id="new-project-button" class="button button-primary" type="button">＋ Nuevo proyecto</button>
+        </div>
+      </div>
+      <p id="dashboard-message" class="notice" role="status"></p>
+      <div id="project-list" class="project-list"></div>
+
+      <section id="workers-section" class="panel workers-panel" hidden>
+        <div><p class="eyebrow">Cuentas autorizadas</p><h2>Trabajadores</h2></div>
+        <form id="worker-form" class="worker-form">
+          <label>Usuario<input name="username" autocomplete="off" minlength="3" required></label>
+          <label>Contraseña inicial<input name="password" type="password" minlength="12" autocomplete="new-password" required></label>
+          <button class="button button-primary" type="submit">Crear cuenta</button>
+        </form>
+        <p class="muted">Entrega la contraseña inicial al trabajador por un medio privado. Crea una cuenta distinta para cada persona.</p>
+        <div id="worker-list" class="worker-list"></div>
+      </section>
+    </section>
+
+    <dialog id="project-dialog" class="form-dialog">
+      <form id="project-form" class="project-form">
+        <div class="dialog-heading"><div><p class="eyebrow">Ficha del proyecto</p><h2 id="form-title">Nuevo proyecto</h2></div><button id="close-dialog" class="close-button" type="button" aria-label="Cerrar">×</button></div>
+        <input type="hidden" name="id">
+        <label>Nombre<input name="title" maxlength="120" required></label>
+        <label>Resumen para la tarjeta<textarea name="summary" maxlength="500" rows="3" required></textarea></label>
+        <div class="two-columns">
+          <label>Ubicación<input name="location" maxlength="180"></label>
+          <label>Precio<input name="price" maxlength="100" placeholder="Ejemplo: Desde $45 millones"></label>
+        </div>
+        <label>Detalles<textarea name="details" maxlength="6000" rows="5" placeholder="Información que se verá al abrir el proyecto"></textarea></label>
+        <label>Características (una por línea)<textarea name="features" rows="4" placeholder="Piscina&#10;Parque infantil&#10;Financiación directa"></textarea></label>
+        <label>Imágenes (JPG, PNG o WEBP; máximo 5 por envío y 6 MB cada una)<input name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+        <div id="current-images" class="current-images"></div>
+        <label class="check-label"><input name="featured" type="checkbox"> Mostrar también en la página de inicio</label>
+        <p id="form-message" class="form-message" role="alert"></p>
+        <div class="dialog-actions"><button id="cancel-dialog" class="button button-quiet" type="button">Cancelar</button><button class="button button-primary" type="submit">Guardar y publicar</button></div>
+      </form>
+    </dialog>
+    <footer>Broker Inmobiliario G&amp;R · El panel está disponible mientras el computador esté encendido y conectado.</footer>
+  </main>
+</body>
+</html>

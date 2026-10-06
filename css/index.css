@@ -16,6 +16,12 @@
     margin: 20px auto;
 }
 
+#proyectos-destacados{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
 /* =====================================================
    SECCIÓN PROYECTOS (GRID VISUAL MÁS LIMPIO)
 ===================================================== */

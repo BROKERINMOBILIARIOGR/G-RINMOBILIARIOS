@@ -1,0 +1,5 @@
+# Credenciales y datos privados del panel local
+.env.admin
+.local/
+__pycache__/
+*.py[cod]

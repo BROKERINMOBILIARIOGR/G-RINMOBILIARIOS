@@ -89,54 +89,9 @@ transition:0.3s;
 
 <section>
 <h2>Proyectos destacados</h2>
-
-<!-- PROYECTO 1 -->
-<div class="card">
-    <img src="Images/lagosdelolimpo/lagos2.jpg" alt="Lagos del Olimpo">
-
-    <h3>Lagos del Olimpo</h3>
-
-    <p>
-        Lotes desde $45 millones. Financiación directa sin intereses. Invierte hoy y separa tu lote con solo $1 millón.
-    </p>
-
-    <div class="galeria-proyecto">
-        <img src="Images/lagosdelolimpo/lagosconjunto.jpg" alt="">
-        <img src="Images/lagosdelolimpo/planolagos.jpg" alt="">
-    </div>
-</div>
-
-<!-- PROYECTO 2 -->
-<div class="card">
-    <img src="Images/oasis/oasisplanojpg.jpg" alt="Oasis">
-
-    <h3>Oasis Del Olimpo</h3>
-
-    <p>
-        Lotes desde $42 millones. Financiación directa sin intereses. Excelente oportunidad de inversión.
-    </p>
-
-    <div class="galeria-proyecto">
-        <img src="Images/oasis/todo.jpg" alt="">
-        <img src="Images/oasis/arribaoasis.jpg" alt="">
-    </div>
-</div>
-
-<!-- PROYECTO 3 -->
-<div class="card">
-    <img src="Images/fincasdelpaso/volante.jpg" alt="Fincas del Paso">
-
-    <h3>Fincas del Paso</h3>
-
-    <p>
-        Lotes desde $75 millones. Excelente valorización y ubicación estratégica.
-    </p>
-
-    <div class="galeria-proyecto">
-        <img src="Images/fincasdelpaso/lago.jpg" alt="">
-        <img src="Images/fincasdelpaso/lago2.jpg" alt="">
-    </div>
-</div>
+<div id="proyectos-destacados" class="grid-proyectos" aria-live="polite"></div>
+<p id="mensaje-destacados" role="status"></p>
+<p><a href="proyectos.html">Ver todos los proyectos</a></p>
 
 </section>
 
@@ -167,44 +122,10 @@ transition:0.3s;
 <p>📍 El Carmen de Apicalá - Tolima, Colombia</p>
 </section>
 
-<footer>© Broker Inmobiliario G&R</footer>
+<footer>© Broker Inmobiliario G&amp;R</footer>
+<p style="text-align:center"><a class="enlace-trabajadores" href="https://CONFIGURA-TU-EQUIPO.ts.net/admin/">Acceso de trabajadores</a></p>
 
-<div style="font-size:30px; text-align:center; margin-top:20px;">
-  👀 Visitas: <span id="visitas">0</span>
-</div>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import { getDatabase, ref, runTransaction, onValue }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAKDczyyUwdxTn1QP1jkQks8SL91PwZawQ",
-  authDomain: "contador-web-gyr.firebaseapp.com",
-  databaseURL: "https://contador-web-gyr-default-rtdb.firebaseio.com",
-  projectId: "contador-web-gyr",
-  storageBucket: "contador-web-gyr.firebasestorage.app",
-  messagingSenderId: "960149119215",
-  appId: "1:960149119215:web:b857b8cc57d5064da2fb1a"
-};
-
-  // 🔥 iniciar Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-
-  const visitasRef = ref(db, "visitas");
-
-  // ➕ sumar visita cada vez que alguien entra
-  runTransaction(visitasRef, (actual) => {
-    return (actual || 0) + 1;
-  });
-
-  // 👀 mostrar en tiempo real
-  onValue(visitasRef, (snapshot) => {
-    document.getElementById("visitas").innerText = snapshot.val();
-  });
-</script>
+<script src="js/index-proyectos.js" defer></script>
 
 <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:20px;">
 

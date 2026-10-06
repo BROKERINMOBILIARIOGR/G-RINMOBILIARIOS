@@ -1,0 +1,39 @@
+(() => {
+  const root = document.getElementById("proyectos-destacados");
+  const message = document.getElementById("mensaje-destacados");
+  if (!root) return;
+
+  fetch("data/proyectos.json", { cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) throw new Error("No se pudieron cargar los proyectos.");
+      return response.json();
+    })
+    .then((projects) => {
+      const featured = projects.filter((project) => project.featured).slice(0, 3);
+      featured.forEach((project) => {
+        const card = document.createElement("article");
+        card.className = "card";
+        const image = document.createElement("img");
+        image.src = (project.images || [])[0] || "logo.jpeg";
+        image.alt = project.title || "Proyecto inmobiliario";
+        const title = document.createElement("h3");
+        title.textContent = project.title || "Proyecto inmobiliario";
+        const summary = document.createElement("p");
+        summary.textContent = project.summary || "Conoce nuestros proyectos.";
+        const gallery = document.createElement("div");
+        gallery.className = "galeria-proyecto";
+        (project.images || []).slice(1, 3).forEach((src) => {
+          const thumbnail = document.createElement("img");
+          thumbnail.src = src;
+          thumbnail.alt = "Imagen de " + (project.title || "proyecto");
+          gallery.append(thumbnail);
+        });
+        card.append(image, title, summary, gallery);
+        root.append(card);
+      });
+      if (!featured.length) message.textContent = "Pronto publicaremos proyectos destacados.";
+    })
+    .catch(() => {
+      message.textContent = "No se pudieron cargar los proyectos. Intenta de nuevo más tarde.";
+    });
+})();
