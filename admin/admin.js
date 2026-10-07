@@ -69,7 +69,7 @@
       const { projects: loaded } = await api("/api/projects");
       projects = loaded;
       renderProjects();
-      showMessage(loaded.length ? "Puedes crear proyectos o editar sus fichas." : "Todavía no hay proyectos.");
+      showMessage(loaded.length ? "Puedes crear, editar o eliminar proyectos." : "Todavía no hay proyectos.");
     } catch (error) {
       if (error.message.includes("sesión")) clearSession();
       showMessage(error.message, true);
@@ -96,13 +96,59 @@
       edit.className = "button button-quiet";
       edit.textContent = "Editar";
       edit.addEventListener("click", () => openProject(project));
-      row.append(image, description, edit);
+      const actions = document.createElement("div");
+      actions.className = "project-actions";
+      actions.append(edit);
+      if (currentUser?.role === "owner") {
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "button button-danger";
+        remove.textContent = "Eliminar";
+        remove.addEventListener("click", async () => {
+          if (!window.confirm(`¿Eliminar el proyecto "${project.title}" de la página? Esta acción no se puede deshacer desde el panel.`)) return;
+          remove.disabled = true;
+          showMessage(`Eliminando y publicando "${project.title}"…`);
+          try {
+            const result = await api(`/api/projects/${encodeURIComponent(project.id)}`, { method: "DELETE" });
+            await loadProjects();
+            showMessage(result.published ? `"${project.title}" se eliminó y publicó en GitHub.` : "El proyecto se eliminó.");
+          } catch (error) {
+            showMessage(error.message, true);
+            remove.disabled = false;
+          }
+        });
+        actions.append(remove);
+      }
+      row.append(image, description, actions);
       root.append(row);
     });
   }
 
   const dialog = document.getElementById("project-dialog");
   const form = document.getElementById("project-form");
+  let currentProjectImages = [];
+  function renderCurrentImages() {
+    const images = document.getElementById("current-images");
+    images.replaceChildren();
+    currentProjectImages.forEach((src) => {
+      const item = document.createElement("div");
+      item.className = "current-image-item";
+      const image = document.createElement("img");
+      image.src = "/" + src;
+      image.alt = "Imagen actual del proyecto";
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "remove-image-button";
+      remove.textContent = "Quitar";
+      remove.setAttribute("aria-label", "Quitar esta imagen");
+      remove.addEventListener("click", () => {
+        currentProjectImages = currentProjectImages.filter((path) => path !== src);
+        renderCurrentImages();
+      });
+      item.append(image, remove);
+      images.append(item);
+    });
+  }
   function openProject(project = null) {
     form.reset();
     document.getElementById("form-message").textContent = "";
@@ -115,14 +161,8 @@
     form.elements.details.value = project?.details || "";
     form.elements.features.value = (project?.features || []).join("\n");
     form.elements.featured.checked = Boolean(project?.featured);
-    const images = document.getElementById("current-images");
-    images.replaceChildren();
-    (project?.images || []).forEach((src) => {
-      const image = document.createElement("img");
-      image.src = "/" + src;
-      image.alt = "Imagen actual del proyecto";
-      images.append(image);
-    });
+    currentProjectImages = [...(project?.images || [])];
+    renderCurrentImages();
     dialog.showModal();
   }
 
@@ -158,6 +198,8 @@
         details: form.elements.details.value,
         features: form.elements.features.value.split("\n").map((item) => item.trim()).filter(Boolean),
         featured: form.elements.featured.checked,
+        removeImages: (projects.find((project) => project.id === form.elements.id.value)?.images || [])
+          .filter((src) => !currentProjectImages.includes(src)),
         images: await Promise.all(files.map(readImage))
       };
       const response = await fetch("/api/projects", {

@@ -148,7 +148,7 @@ def github_request(path: str, method: str = "GET", payload: dict | None = None):
         raise RuntimeError(f"No se pudo conectar con GitHub: {error.reason}") from error
 
 
-def publish_files(files: dict[str, bytes]) -> str:
+def publish_files(files: dict[str, bytes], deletions: list[str] | None = None) -> str:
     read_dotenv()
     branch = os.environ.get("GITHUB_BRANCH", "main")
     owner = os.environ.get("GITHUB_OWNER", "BROKERINMOBILIARIOGR")
@@ -163,6 +163,8 @@ def publish_files(files: dict[str, bytes]) -> str:
             "encoding": "base64",
         })
         tree_entries.append({"path": path.replace("\\", "/"), "mode": "100644", "type": "blob", "sha": blob["sha"]})
+    for path in deletions or []:
+        tree_entries.append({"path": path.replace("\\", "/"), "mode": "100644", "type": "blob", "sha": None})
     tree = github_request("git/trees", "POST", {"base_tree": parent["tree"]["sha"], "tree": tree_entries})
     commit = github_request("git/commits", "POST", {
         "message": "Actualizar proyectos inmobiliarios desde el panel",
@@ -315,6 +317,38 @@ class Handler(BaseHTTPRequestHandler):
         user = self.user(owner_only=True)
         if not user:
             return self.reply(403, {"error": "Solo la persona administradora puede gestionar cuentas."})
+        project_prefix = "/api/projects/"
+        if path.startswith(project_prefix):
+            identifier = urllib.parse.unquote(path[len(project_prefix):])
+            if not identifier or "/" in identifier or "\\" in identifier or identifier in (".", ".."):
+                return self.reply(404, {"error": "No se encontró ese proyecto."})
+            projects = safe_json_projects()
+            project = next((item for item in projects if item.get("id") == identifier), None)
+            if not project:
+                return self.reply(404, {"error": "No encontramos el proyecto que intentas eliminar."})
+            remaining = [item for item in projects if item.get("id") != identifier]
+            image_paths = []
+            for image in project.get("images", []):
+                parts = Path(str(image)).as_posix().split("/")
+                if len(parts) == 4 and parts[:3] == ["Images", "proyectos", identifier] and parts[3] not in ("", ".", ".."):
+                    image_paths.append("/".join(parts))
+            content = (json.dumps(remaining, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+            commit = publish_files({"data/proyectos.json": content}, deletions=image_paths)
+            PROJECTS_FILE.write_bytes(content)
+            project_dir = IMAGE_DIR / identifier
+            for relative in image_paths:
+                image_file = (ROOT / relative).resolve()
+                try:
+                    image_file.relative_to(IMAGE_DIR.resolve())
+                    image_file.unlink(missing_ok=True)
+                except (OSError, ValueError):
+                    pass
+            try:
+                project_dir.rmdir()
+            except OSError:
+                pass
+            return self.reply(200, {"deleted": True, "published": True, "commit": commit})
+
         prefix = "/api/workers/"
         if not path.startswith(prefix):
             return self.reply(404, {"error": "No se encontró esa acción."})
@@ -386,6 +420,19 @@ class Handler(BaseHTTPRequestHandler):
             raise ValueError("Puedes subir hasta cinco imágenes por envío.")
         image_files: dict[str, bytes] = {}
         image_paths = list(project.get("images", []))
+        remove_images = body.get("removeImages", [])
+        if not isinstance(remove_images, list):
+            raise ValueError("La selección de imágenes por quitar no es válida.")
+        remove_images = [str(path) for path in remove_images]
+        if any(
+            path not in image_paths
+            or Path(path).is_absolute()
+            or ".." in Path(path).as_posix().split("/")
+            or Path(path).as_posix().split("/")[0] != "Images"
+            for path in remove_images
+        ):
+            raise ValueError("Una de las imágenes que intentas quitar no pertenece a este proyecto.")
+        image_paths = [path for path in image_paths if path not in remove_images]
         for upload in uploads:
             if not isinstance(upload, dict):
                 raise ValueError("Una imagen no tiene un formato válido.")
@@ -409,7 +456,7 @@ class Handler(BaseHTTPRequestHandler):
             image_files[relative] = binary
             image_paths.append(relative)
         if not image_paths:
-            raise ValueError("Agrega al menos una imagen al proyecto.")
+            raise ValueError("El proyecto debe conservar al menos una imagen.")
 
         project.update({"id": identifier, "title": title, "summary": summary, "location": location,
                         "price": price, "details": details, "features": features,
@@ -418,11 +465,26 @@ class Handler(BaseHTTPRequestHandler):
             projects.append(project)
         else:
             projects = [project if item.get("id") == identifier else item for item in projects]
+        still_used = {
+            str(path)
+            for item in projects
+            for path in item.get("images", [])
+        }
+        physical_deletions = [path for path in remove_images if path not in still_used]
+        previous_projects = PROJECTS_FILE.read_bytes() if PROJECTS_FILE.exists() else b"[]\n"
         json_bytes = write_projects(projects)
         try:
-            commit = publish_files({"data/proyectos.json": json_bytes, **image_files})
+            commit = publish_files({"data/proyectos.json": json_bytes, **image_files}, deletions=physical_deletions)
+            for relative in physical_deletions:
+                image_file = (ROOT / relative).resolve()
+                try:
+                    image_file.relative_to(IMAGE_DIR.resolve())
+                    image_file.unlink(missing_ok=True)
+                except (OSError, ValueError):
+                    pass
             return self.reply(200, {"saved": True, "published": True, "commit": commit, "project": project})
         except Exception as error:
+            PROJECTS_FILE.write_bytes(previous_projects)
             return self.reply(202, {"saved": True, "published": False, "project": project,
                                     "error": f"El proyecto quedó guardado en este computador, pero falta publicarlo en GitHub: {error}"})
 
