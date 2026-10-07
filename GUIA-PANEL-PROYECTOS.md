@@ -21,21 +21,28 @@ El panel usa un token privado para publicar en el repositorio. El token se queda
 4. Abre `.env.admin` y reemplaza `PEGA_AQUI_EL_TOKEN_PRIVADO` con el token. Guarda el archivo. `.env.admin` está excluido de Git; no lo compartas ni lo publiques.
 5. Haz doble clic en `crear-responsable.bat`, elige un usuario y una contraseña de al menos 12 caracteres. Esa cuenta puede crear y desactivar cuentas de trabajadores desde el panel.
 
-## 3. Iniciar el panel y habilitar acceso remoto
+## 3. Acceder desde teléfonos en el mismo Wi-Fi
 
-Instala Tailscale desde su [sitio oficial](https://tailscale.com/download/windows) y conecta este computador a tu cuenta. Tailscale Funnel da al panel una dirección HTTPS accesible desde otras redes; no hace falta abrir puertos del router. Consulta sus [instrucciones oficiales de Funnel](https://tailscale.com/kb/1223/funnel).
+La versión anterior solo aceptaba conexiones del propio computador. Para permitir la red local, reemplaza `admin_server.py` por la versión actualizada de este paquete. No compartas `.env.admin`.
 
-1. Haz doble clic en `iniciar-panel.bat` y deja abierta esa ventana mientras alguien carga o edita proyectos.
-2. Abre otra ventana de PowerShell y ejecuta `tailscale funnel 8765`. Acepta la activación que Tailscale solicite y deja también esa ventana abierta mientras se reciben cargas.
-3. Tailscale mostrará una dirección HTTPS terminada en `.ts.net`. Esa dirección abre el panel de trabajadores.
-4. En `index.html` y `proyectos.html`, reemplaza `https://CONFIGURA-TU-EQUIPO.ts.net` por el nombre de equipo y la dirección `.ts.net` que mostró Tailscale. Conserva `/admin/` al final. Guarda y publica esos dos cambios con GitHub Desktop.
+1. Inicia `iniciar-panel.bat`. Si Windows muestra una alerta de Firewall, permite el acceso en **redes privadas**; no lo habilites en redes públicas.
+2. En la ventana negra aparecerá una dirección como `http://192.168.1.20:8765/admin/`. En el teléfono conectado al mismo Wi-Fi, abre esa dirección. La IP será distinta en cada red.
+3. Si no aparece la alerta y no abre, revisa en Windows Defender Firewall que Python pueda recibir conexiones en redes privadas. No abras el puerto del router.
 
-La dirección de Funnel es pública, pero el panel exige una cuenta y contraseña de trabajador. Crea una cuenta distinta por persona desde la sección **Trabajadores** del panel y desactiva las cuentas cuando alguien ya no deba tener acceso.
+## 4. Acceder desde otra red con Tailscale
 
-## 4. Uso diario
+Instala Tailscale desde su [sitio oficial](https://tailscale.com/download) e inicia sesión en el computador. Para dar acceso privado, cada trabajador también necesita Tailscale en su teléfono y estar en el mismo equipo/red Tailscale. Consulta [Tailscale Serve](https://tailscale.com/docs/features/tailscale-serve).
+
+1. Con el panel abierto, inicia PowerShell y ejecuta `tailscale serve 8765`. Tailscale mostrará la dirección HTTPS privada del equipo. Los trabajadores podrán abrirla desde cualquier red si tienen Tailscale conectado.
+2. Para trabajadores que no puedan instalar Tailscale, se puede usar Funnel con `tailscale funnel 8765`. Esto crea una dirección HTTPS accesible desde Internet; cualquier persona puede llegar a la pantalla de inicio de sesión. Cada persona necesita su propio usuario y contraseña del panel. Consulta [Tailscale Funnel](https://tailscale.com/docs/features/tailscale-funnel).
+3. Conserva la dirección HTTPS que elijas. Cuando la tengas, sustituye el enlace provisional `https://CONFIGURA-TU-EQUIPO.ts.net` en `index.html` y `proyectos.html`, dejando `/admin/` al final, y publica esos cambios desde GitHub Desktop.
+
+No hace falta abrir puertos del router. El computador, el panel y Tailscale deben estar activos para recibir cargas. El sitio público ya publicado seguirá funcionando cuando el computador se apague.
+
+## 5. Uso diario
 
 1. Enciende el computador y conéctalo a internet.
-2. Inicia `iniciar-panel.bat` y `tailscale funnel 8765`.
+2. Inicia `iniciar-panel.bat` y activa el acceso remoto que hayas elegido (`tailscale serve 8765` para acceso privado o `tailscale funnel 8765` para acceso con enlace público).
 3. Desde **Acceso de trabajadores** en la página, inicia sesión. Completa nombre, resumen, ubicación, precio, detalles y características; puedes subir hasta cinco imágenes JPG, PNG o WEBP por envío, de hasta 6 MB cada una.
 4. Pulsa **Guardar y publicar**. El panel guarda una copia local y envía los archivos nuevos a GitHub. GitHub Pages puede tardar unos minutos en mostrar los cambios.
 5. Al terminar, puedes cerrar las dos ventanas y apagar el computador. El sitio público seguirá mostrando los proyectos ya publicados.

@@ -11,6 +11,7 @@ import mimetypes
 import os
 import re
 import secrets
+import socket
 import sqlite3
 import sys
 import time
@@ -448,9 +449,18 @@ def command_line() -> int:
         if connection.execute("SELECT COUNT(*) FROM users").fetchone()[0] == 0:
             print("Primero crea la cuenta responsable con: python admin_server.py create-owner")
             return 2
-    host = "127.0.0.1"
+    # Accept connections from the company Wi-Fi as well as from a local Tailscale
+    # proxy. Authentication remains mandatory for every admin API endpoint.
+    host = "0.0.0.0"
     port = int(os.environ.get("ADMIN_PORT", "8765"))
-    print(f"Panel de proyectos listo en http://127.0.0.1:{port}/admin/")
+    print(f"Panel en este computador: http://127.0.0.1:{port}/admin/")
+    try:
+        addresses = sorted({item[4][0] for item in socket.getaddrinfo(socket.gethostname(), None, socket.AF_INET)})
+        for address in addresses:
+            if not address.startswith("127."):
+                print(f"Panel en la red Wi-Fi: http://{address}:{port}/admin/")
+    except OSError:
+        pass
     print("Mantén esta ventana abierta mientras los trabajadores cargan proyectos.")
     try:
         ThreadingHTTPServer((host, port), Handler).serve_forever()
