@@ -128,19 +128,6 @@
     "featured": false
   },
   {
-    "id": "colina",
-    "title": "Colina",
-    "summary": "Proyecto inmobiliario.",
-    "location": "",
-    "price": "",
-    "details": "",
-    "features": [],
-    "images": [
-      "logo.jpeg"
-    ],
-    "featured": false
-  },
-  {
     "id": "praderas-del-olimpo",
     "title": "Praderas del Olimpo",
     "summary": "Proyecto campestre exclusivo.",
