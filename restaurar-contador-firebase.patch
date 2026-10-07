@@ -1,0 +1,33 @@
+*** Begin Patch
+*** Update File: index.html
+@@
+ <footer>© Broker Inmobiliario G&amp;R</footer>
++
++<div id="contador-visitas" style="font-size:30px; text-align:center; margin-top:20px;">
++  👀 Visitas: <span id="visitas">0</span>
++</div>
++
++<script type="module">
++  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
++  import { getDatabase, ref, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
++
++  const firebaseConfig = {
++    apiKey: "AIzaSyAKDczyyUwdxTn1QP1jkQks8SL91PwZawQ",
++    authDomain: "contador-web-gyr.firebaseapp.com",
++    databaseURL: "https://contador-web-gyr-default-rtdb.firebaseio.com",
++    projectId: "contador-web-gyr",
++    storageBucket: "contador-web-gyr.appspot.com",
++    messagingSenderId: "",
++    appId: ""
++  };
++
++  const app = initializeApp(firebaseConfig);
++  const db = getDatabase(app);
++  const visitasRef = ref(db, "visitas");
++
++  runTransaction(visitasRef, (actual) => (actual || 0) + 1);
++  onValue(visitasRef, (snapshot) => {
++    document.getElementById("visitas").textContent = snapshot.val() ?? 0;
++  });
++</script>
+*** End Patch
