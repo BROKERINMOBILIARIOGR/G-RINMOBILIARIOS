@@ -115,19 +115,6 @@
     "featured": false
   },
   {
-    "id": "praderas-del-olimpo",
-    "title": "Praderas del Olimpo",
-    "summary": "Proyecto campestre exclusivo.",
-    "location": "",
-    "price": "",
-    "details": "Proyecto campestre exclusivo.",
-    "features": [],
-    "images": [
-      "logo.jpeg"
-    ],
-    "featured": false
-  },
-  {
     "id": "villas-del-olimpo",
     "title": "Villas del Olimpo",
     "summary": "Condominio campestre en Carmen de Apicalá, Tolima.",
