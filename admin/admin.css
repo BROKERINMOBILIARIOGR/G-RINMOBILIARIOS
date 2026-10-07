@@ -17,10 +17,10 @@ h2 { margin-bottom: 14px; }
 .eyebrow { margin: 0 0 7px; color: var(--green); font-size: .76rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .muted { color: var(--muted); }
 label { display: grid; gap: 6px; margin: 0 0 15px; font-weight: 650; }
-input:not([type=checkbox]), textarea { width: 100%; border: 1px solid #bac8c0; border-radius: 9px; padding: 11px 12px; background: #fff; color: var(--ink); }
+input:not([type=checkbox]), textarea, select { width: 100%; border: 1px solid #bac8c0; border-radius: 9px; padding: 11px 12px; background: #fff; color: var(--ink); }
 input:focus, textarea:focus { outline: 3px solid rgba(31, 79, 58, .17); border-color: var(--green); }
 textarea { resize: vertical; }
-.button { border: 1px solid transparent; border-radius: 9px; padding: 10px 15px; font-weight: 700; white-space: nowrap; }
+.button { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid transparent; border-radius: 9px; padding: 10px 15px; font-weight: 700; white-space: nowrap; }
 .button-primary { color: #fff; background: var(--green); }
 .button-primary:hover { background: var(--green-dark); }
 .button-quiet { color: var(--green); background: #fff; border-color: var(--line); }

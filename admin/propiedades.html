@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrar propiedades | Broker Inmobiliario G&amp;R</title>
+  <link rel="stylesheet" href="/admin/admin.css">
+  <script src="/admin/propiedades.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a href="/admin/" class="brand">G&amp;R <span>Panel de propiedades</span></a>
+      <div id="user-controls" class="user-controls" hidden>
+        <span id="user-label"></span>
+        <button id="logout-button" class="button button-quiet" type="button">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <section id="login-view" class="panel login-panel">
+      <p class="eyebrow">Acceso para el equipo</p>
+      <h1>Administrar propiedades</h1>
+      <p>Usa la misma cuenta del panel de proyectos.</p>
+      <form id="login-form">
+        <label>Usuario<input name="username" autocomplete="username" required></label>
+        <label>Contraseña<input name="password" type="password" autocomplete="current-password" required></label>
+        <button class="button button-primary" type="submit">Iniciar sesión</button>
+        <p id="login-message" class="form-message" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="dashboard-view" hidden>
+      <div class="page-heading">
+        <div><p class="eyebrow">Contenido de la página</p><h1>Propiedades en venta</h1></div>
+        <div class="heading-actions">
+          <a class="button button-quiet" href="/admin/">Volver a proyectos</a>
+          <button id="new-property-button" class="button button-primary" type="button">＋ Nueva propiedad</button>
+        </div>
+      </div>
+      <p id="dashboard-message" class="notice" role="status"></p>
+      <div id="property-list" class="project-list"></div>
+    </section>
+
+    <dialog id="property-dialog" class="form-dialog">
+      <form id="property-form" class="project-form">
+        <div class="dialog-heading"><div><p class="eyebrow">Ficha del inmueble</p><h2 id="form-title">Nueva propiedad</h2></div><button id="close-dialog" class="close-button" type="button" aria-label="Cerrar">×</button></div>
+        <input type="hidden" name="id">
+        <label>Nombre de la propiedad<input name="title" maxlength="120" required placeholder="Ejemplo: Casa campestre en Melgar"></label>
+        <label>Resumen para la tarjeta<textarea name="summary" maxlength="500" rows="3" placeholder="Lo principal que verá el cliente"></textarea></label>
+        <div class="two-columns">
+          <label>Departamento<input name="department" maxlength="80" required placeholder="Tolima"></label>
+          <label>Ciudad o municipio<input name="city" maxlength="100" required placeholder="Melgar"></label>
+        </div>
+        <div class="two-columns">
+          <label>Tipo de inmueble<select name="type" required>
+            <option value="">Selecciona un tipo</option><option>Casa</option><option>Apartamento</option><option>Lote</option><option>Finca</option><option>Bodega</option><option>Local comercial</option>
+          </select></label>
+          <label>Precio en pesos<input name="price" type="number" min="1" step="100000" required placeholder="180000000"></label>
+        </div>
+        <div class="two-columns">
+          <label>Habitaciones<input name="bedrooms" type="number" min="0" max="50" step="1" value="0"></label>
+          <label>Baños<input name="bathrooms" type="number" min="0" max="50" step="1" value="0"></label>
+        </div>
+        <label>Área en m²<input name="area" type="number" min="0" max="1000000" step="1" value="0"></label>
+        <label>Descripción y detalles<textarea name="details" maxlength="6000" rows="6" placeholder="Distribución, estado, servicios, financiación y otros detalles"></textarea></label>
+        <label>Fotos (JPG, PNG o WEBP; máximo 5 por envío y 6 MB cada una)<input name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+        <div id="current-images" class="current-images"></div>
+        <p id="form-message" class="form-message" role="alert"></p>
+        <div class="dialog-actions"><button id="cancel-dialog" class="button button-quiet" type="button">Cancelar</button><button class="button button-primary" type="submit">Guardar y publicar</button></div>
+      </form>
+    </dialog>
+    <footer>Broker Inmobiliario G&amp;R · Las propiedades publicadas aparecen en el buscador de la web.</footer>
+  </main>
+</body>
+</html>

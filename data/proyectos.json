@@ -75,7 +75,6 @@
       "Parqueaderos"
     ],
     "images": [
-      "logo.jpeg",
       "Images/proyectos/brisas-del-rio/3654ffe4c2e24fb7923c4a37fdd741ef.jpg",
       "Images/proyectos/brisas-del-rio/07c3e70299354153bbc00f698fde14a8.jpg",
       "Images/proyectos/brisas-del-rio/05701bcc9da5429380b9524ce852dc57.jpg",
@@ -92,8 +91,6 @@
     "details": "42.000.000 COP\nPARCELACION OASIS\n42 COP\n*PARCELACIÓN OASIS DEL OLIMPO* 🏦\nEl Proyecto Urbanistico que lo tiene todo para su descanso y recreacion 😎\n 🛤️Lotes con áreas desde 105Mts (7x25) en adelante.\n💰Precios desde $42.000.000 millones de pesos con financiación sin intereses.\n✅Inicial Separacion $3’000.000 millones de pesos, saldo a 24 meses .\n👉🏻 Descuento de $2.000.000 Pago Contado 🥳Cuenta con:\n-\tAquapark para adultos🏊 y niños🤽\n-\tCancha múltiple🏀⚽\n-\tCancha sintética 🛣️\n-\tPortería 🏛️\n-\tZonas verdes🌳🌴\n-\tParqueaderos 🚘🚕para Visitantes\n▶️Ubicado en el Municipio de Carmen de\n Apicalá Tolima.\n😊Invierte en una zona de alta valorización👏🏻",
     "features": [],
     "images": [
-      "logo.jpeg",
-      "Images/proyectos/parcelacion/94700595444d4cf3893a5339555513e5.jpg",
       "Images/proyectos/parcelacion/d066d8d1f1de45ea8b8f475d84d0f65d.jpg",
       "Images/proyectos/parcelacion/25d08db66492450b807a7b1daed151d7.jpg",
       "Images/proyectos/parcelacion/8f0c36adf95e44e7ada9b85e04b08f95.jpg",
@@ -111,61 +108,8 @@
     "details": "75.000.000 COP\nFINCAS DEL PASO\n75 COP 75.000.000 COP\nFINCAS AGROTURISTICAS “EL PASO” 🏡\nEspectacular proyecto Ubicado en el Municipio de Carmen de Apicalá – Tolima via el paso.\nLotes con áreas desde 1000 m² en adelante y precios desde 💲73’000.000 , de contado  💲 75.000.000 a cuotas.\nContará con: \n✅Zona Húmeda 🤽🏼‍♀️\n✅Lago para deportes nauticos🚣🏻‍♀️\n✅Kiosco 🛖\n✅Sendero ecológico 🦋\n✅Parque Biosaludable 🏋🏼‍♀️\n✅Muelle \n✅contará con su propio acueducto y luz pública solar \n✅El pozo séptico, va por cuenta del cliente \n✅ construcción libre \n✅Financiación Sin Interés directamente con la Constructora 💰\n✨ Financiación a 24 meses",
     "features": [],
     "images": [
-      "logo.jpeg",
       "Images/proyectos/fincas-del-olimpo/a51caa2bc32848f7bbe335ace3e9690c.png",
       "Images/proyectos/fincas-del-olimpo/aa82b109cc704f1e8ef6088d784f9295.png"
-    ],
-    "featured": false
-  },
-  {
-    "id": "caracoli",
-    "title": "Caracolí",
-    "summary": "Proyecto inmobiliario.",
-    "location": "",
-    "price": "",
-    "details": "",
-    "features": [],
-    "images": [
-      "logo.jpeg"
-    ],
-    "featured": false
-  },
-  {
-    "id": "colina",
-    "title": "Colina",
-    "summary": "Proyecto inmobiliario.",
-    "location": "",
-    "price": "",
-    "details": "",
-    "features": [],
-    "images": [
-      "logo.jpeg"
-    ],
-    "featured": false
-  },
-  {
-    "id": "parque-del-agua",
-    "title": "Parque del Agua",
-    "summary": "Proyecto inmobiliario.",
-    "location": "",
-    "price": "",
-    "details": "",
-    "features": [],
-    "images": [
-      "logo.jpeg"
-    ],
-    "featured": false
-  },
-  {
-    "id": "praderas-del-olimpo",
-    "title": "Praderas del Olimpo",
-    "summary": "Proyecto campestre exclusivo.",
-    "location": "",
-    "price": "",
-    "details": "Proyecto campestre exclusivo.",
-    "features": [],
-    "images": [
-      "logo.jpeg"
     ],
     "featured": false
   },
@@ -195,7 +139,8 @@
       "Escritura pública individual"
     ],
     "images": [
-      "logo.jpeg"
+      "Images/proyectos/villas-del-olimpo/32dd2a40a2e44d8587d2d7669e503ebe.png",
+      "Images/proyectos/villas-del-olimpo/d60e0e95119e4cc19f3ecdff145029c7.jpg"
     ],
     "featured": false
   }

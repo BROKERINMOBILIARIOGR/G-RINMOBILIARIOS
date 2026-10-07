@@ -28,7 +28,9 @@ ROOT = Path(__file__).resolve().parent
 ADMIN_DIR = ROOT / "admin"
 DB_FILE = ROOT / ".local" / "admin.sqlite3"
 PROJECTS_FILE = ROOT / "data" / "proyectos.json"
+PROPERTIES_FILE = ROOT / "data" / "propiedades.json"
 IMAGE_DIR = ROOT / "Images" / "proyectos"
+PROPERTY_IMAGE_DIR = ROOT / "Images" / "propiedades"
 MAX_BODY = 48 * 1024 * 1024
 MAX_IMAGE = 6 * 1024 * 1024
 MAX_IMAGES = 5
@@ -114,6 +116,21 @@ def write_projects(projects: list[dict]) -> bytes:
     PROJECTS_FILE.parent.mkdir(parents=True, exist_ok=True)
     content = (json.dumps(projects, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     PROJECTS_FILE.write_bytes(content)
+    return content
+
+
+def safe_json_properties() -> list[dict]:
+    try:
+        value = json.loads(PROPERTIES_FILE.read_text(encoding="utf-8"))
+        return value if isinstance(value, list) else []
+    except (OSError, json.JSONDecodeError):
+        return []
+
+
+def write_properties(properties: list[dict]) -> bytes:
+    PROPERTIES_FILE.parent.mkdir(parents=True, exist_ok=True)
+    content = (json.dumps(properties, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+    PROPERTIES_FILE.write_bytes(content)
     return content
 
 
@@ -251,6 +268,10 @@ class Handler(BaseHTTPRequestHandler):
             if not self.user():
                 return self.reply(401, {"error": "Inicia sesión para continuar."})
             return self.reply(200, {"projects": safe_json_projects()})
+        if path == "/api/properties":
+            if not self.user():
+                return self.reply(401, {"error": "Inicia sesión para continuar."})
+            return self.reply(200, {"properties": safe_json_properties()})
         if path == "/api/workers":
             if not self.user(owner_only=True):
                 return self.reply(403, {"error": "Solo la persona administradora puede gestionar cuentas."})
@@ -288,13 +309,20 @@ class Handler(BaseHTTPRequestHandler):
                 if not self.user():
                     return self.reply(401, {"error": "Tu sesión venció. Vuelve a iniciar sesión."})
                 return self.save_project(body)
+            if path == "/api/properties":
+                if not self.user():
+                    return self.reply(401, {"error": "Tu sesión venció. Vuelve a iniciar sesión."})
+                return self.save_property(body)
             if path == "/api/publish":
                 if not self.user():
                     return self.reply(401, {"error": "Tu sesión venció. Vuelve a iniciar sesión."})
                 files = {"data/proyectos.json": PROJECTS_FILE.read_bytes()}
-                for image in IMAGE_DIR.rglob("*") if IMAGE_DIR.exists() else []:
-                    if image.is_file():
-                        files[image.relative_to(ROOT).as_posix()] = image.read_bytes()
+                if PROPERTIES_FILE.exists():
+                    files["data/propiedades.json"] = PROPERTIES_FILE.read_bytes()
+                for image_root in (IMAGE_DIR, PROPERTY_IMAGE_DIR):
+                    for image in image_root.rglob("*") if image_root.exists() else []:
+                        if image.is_file():
+                            files[image.relative_to(ROOT).as_posix()] = image.read_bytes()
                 commit = publish_files(files)
                 return self.reply(200, {"published": True, "commit": commit})
             if path == "/api/workers":
@@ -345,6 +373,40 @@ class Handler(BaseHTTPRequestHandler):
                     pass
             try:
                 project_dir.rmdir()
+            except OSError:
+                pass
+            return self.reply(200, {"deleted": True, "published": True, "commit": commit})
+
+        property_prefix = "/api/properties/"
+        if path.startswith(property_prefix):
+            identifier = urllib.parse.unquote(path[len(property_prefix):])
+            if not identifier or "/" in identifier or "\\" in identifier or identifier in (".", ".."):
+                return self.reply(404, {"error": "No se encontró esa propiedad."})
+            properties = safe_json_properties()
+            item = next((entry for entry in properties if entry.get("id") == identifier), None)
+            if not item:
+                return self.reply(404, {"error": "No encontramos la propiedad que intentas eliminar."})
+            remaining = [entry for entry in properties if entry.get("id") != identifier]
+            still_used = {str(path) for entry in remaining for path in entry.get("images", [])}
+            deletions = []
+            for image in item.get("images", []):
+                path = Path(str(image))
+                parts = path.as_posix().split("/")
+                if (str(image) not in still_used and not path.is_absolute() and ".." not in parts
+                        and len(parts) == 4 and parts[:3] == ["Images", "propiedades", identifier]):
+                    deletions.append(path.as_posix())
+            content = (json.dumps(remaining, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+            commit = publish_files({"data/propiedades.json": content}, deletions=deletions)
+            PROPERTIES_FILE.write_bytes(content)
+            for relative in deletions:
+                image_file = (ROOT / relative).resolve()
+                try:
+                    image_file.relative_to(PROPERTY_IMAGE_DIR.resolve())
+                    image_file.unlink(missing_ok=True)
+                except (OSError, ValueError):
+                    pass
+            try:
+                (PROPERTY_IMAGE_DIR / identifier).rmdir()
             except OSError:
                 pass
             return self.reply(200, {"deleted": True, "published": True, "commit": commit})
@@ -428,7 +490,6 @@ class Handler(BaseHTTPRequestHandler):
             path not in image_paths
             or Path(path).is_absolute()
             or ".." in Path(path).as_posix().split("/")
-            or Path(path).as_posix().split("/")[0] != "Images"
             for path in remove_images
         ):
             raise ValueError("Una de las imágenes que intentas quitar no pertenece a este proyecto.")
@@ -470,7 +531,10 @@ class Handler(BaseHTTPRequestHandler):
             for item in projects
             for path in item.get("images", [])
         }
-        physical_deletions = [path for path in remove_images if path not in still_used]
+        physical_deletions = [
+            path for path in remove_images
+            if path not in still_used and Path(path).as_posix().split("/")[0] == "Images"
+        ]
         previous_projects = PROJECTS_FILE.read_bytes() if PROJECTS_FILE.exists() else b"[]\n"
         json_bytes = write_projects(projects)
         try:
@@ -487,6 +551,102 @@ class Handler(BaseHTTPRequestHandler):
             PROJECTS_FILE.write_bytes(previous_projects)
             return self.reply(202, {"saved": True, "published": False, "project": project,
                                     "error": f"El proyecto quedó guardado en este computador, pero falta publicarlo en GitHub: {error}"})
+
+    def save_property(self, body: dict):
+        title = str(body.get("title", "")).strip()[:120]
+        department = str(body.get("department", "")).strip()[:80]
+        city = str(body.get("city", "")).strip()[:100]
+        property_type = str(body.get("type", "")).strip()[:60]
+        summary = str(body.get("summary", "")).strip()[:500]
+        details = str(body.get("details", "")).strip()[:6000]
+        if not title or not department or not city or not property_type:
+            raise ValueError("Completa nombre, departamento, ciudad y tipo de inmueble.")
+        try:
+            price = int(body.get("price", 0))
+        except (TypeError, ValueError) as error:
+            raise ValueError("Escribe un precio válido en pesos colombianos.") from error
+        if price <= 0:
+            raise ValueError("El precio debe ser mayor que cero.")
+        properties = safe_json_properties()
+        identifier = str(body.get("id", "")).strip()
+        item = next((entry for entry in properties if entry.get("id") == identifier), None) if identifier else None
+        if identifier and not item:
+            raise ValueError("No encontramos la propiedad que intentas editar.")
+        if not identifier:
+            identifier = slugify(title)
+            used = {entry.get("id") for entry in properties}
+            if identifier in used:
+                identifier = f"{identifier}-{uuid.uuid4().hex[:6]}"
+            item = {"id": identifier, "images": []}
+        uploads = body.get("images", [])
+        if not isinstance(uploads, list) or len(uploads) > MAX_IMAGES:
+            raise ValueError("Puedes subir hasta cinco imágenes por envío.")
+        image_paths = list(item.get("images", []))
+        remove_images = body.get("removeImages", [])
+        if not isinstance(remove_images, list):
+            raise ValueError("La selección de imágenes no es válida.")
+        remove_images = [str(path) for path in remove_images]
+        if any(path not in image_paths or Path(path).is_absolute() or ".." in Path(path).as_posix().split("/")
+               for path in remove_images):
+            raise ValueError("Una de las imágenes no pertenece a esta propiedad.")
+        image_paths = [path for path in image_paths if path not in remove_images]
+        image_files: dict[str, bytes] = {}
+        for upload in uploads:
+            if not isinstance(upload, dict):
+                raise ValueError("Una imagen no tiene un formato válido.")
+            filename = Path(str(upload.get("name", "foto.jpg"))).name
+            extension = Path(filename).suffix.lower()
+            if extension not in (".jpg", ".jpeg", ".png", ".webp"):
+                raise ValueError("Usa imágenes JPG, PNG o WEBP.")
+            try:
+                binary = base64.b64decode(str(upload.get("data", "")), validate=True)
+            except (ValueError, base64.binascii.Error) as error:
+                raise ValueError("No se pudo leer una de las imágenes.") from error
+            if not binary or len(binary) > MAX_IMAGE:
+                raise ValueError("Cada imagen debe pesar menos de 6 MB.")
+            if not verify_image(binary, extension):
+                raise ValueError("El contenido de una imagen no coincide con su extensión.")
+            relative = f"Images/propiedades/{identifier}/{uuid.uuid4().hex}{extension}"
+            image_files[relative] = binary
+            image_paths.append(relative)
+        if not image_paths:
+            raise ValueError("Agrega al menos una foto a la propiedad.")
+        try:
+            bedrooms = max(0, min(50, int(body.get("bedrooms", 0) or 0)))
+            bathrooms = max(0, min(50, int(body.get("bathrooms", 0) or 0)))
+            area = max(0, min(1_000_000, int(body.get("area", 0) or 0)))
+        except (TypeError, ValueError) as error:
+            raise ValueError("Habitaciones, baños y área deben ser números enteros.") from error
+        item.update({"id": identifier, "title": title, "department": department, "city": city,
+                     "type": property_type, "price": price, "summary": summary, "details": details,
+                     "bedrooms": bedrooms, "bathrooms": bathrooms, "area": area, "images": image_paths})
+        if item not in properties:
+            properties.append(item)
+        else:
+            properties = [item if entry.get("id") == identifier else entry for entry in properties]
+        still_used = {str(path) for entry in properties for path in entry.get("images", [])}
+        deletions = [path for path in remove_images if path not in still_used
+                     and Path(path).as_posix().split("/")[:3] == ["Images", "propiedades", identifier]]
+        previous = PROPERTIES_FILE.read_bytes() if PROPERTIES_FILE.exists() else b"[]\n"
+        content = write_properties(properties)
+        try:
+            for relative, binary in image_files.items():
+                destination = ROOT / relative
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes(binary)
+            commit = publish_files({"data/propiedades.json": content, **image_files}, deletions=deletions)
+            for relative in deletions:
+                try:
+                    target = (ROOT / relative).resolve()
+                    target.relative_to(PROPERTY_IMAGE_DIR.resolve())
+                    target.unlink(missing_ok=True)
+                except (OSError, ValueError):
+                    pass
+            return self.reply(200, {"saved": True, "published": True, "commit": commit, "property": item})
+        except Exception as error:
+            PROPERTIES_FILE.write_bytes(previous)
+            return self.reply(202, {"saved": False, "published": False,
+                                    "error": f"No se pudo publicar la propiedad en GitHub: {error}"})
 
 
 def command_line() -> int:

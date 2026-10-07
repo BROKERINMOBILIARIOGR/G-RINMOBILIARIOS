@@ -1,0 +1,13 @@
+NUEVO PANEL DE PROPIEDADES
+
+Instalación en el computador
+1. Detén el panel abierto con Ctrl+C en su ventana negra.
+2. Extrae este ZIP dentro de C:\Users\USUARIO\Documents\GitHub\G-RINMOBILIARIOS y acepta reemplazar archivos. Conserva las carpetas admin, css, data y js.
+3. Inicia iniciar-panel.bat una sola vez.
+4. Abre http://127.0.0.1:8765/admin/ e inicia sesión. Pulsa “Administrar propiedades en venta”.
+5. Pulsa “Nueva propiedad”, completa nombre, departamento, ciudad, tipo y precio, agrega al menos una foto y pulsa “Guardar y publicar”.
+
+Los filtros públicos por departamento, ciudad, tipo y precio máximo se mantienen. Cada tarjeta permite abrir una ficha con fotos, detalles y contacto por WhatsApp.
+
+Publicar el código del panel
+En GitHub Desktop revisa los archivos cambiados, escribe en Summary: Agregar administración y buscador de propiedades, pulsa Commit to main y luego Push origin. Los datos de cada inmueble se publican desde el panel al guardar.
