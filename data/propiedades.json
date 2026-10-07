@@ -26,5 +26,23 @@
     "bathrooms": 0,
     "area": 0,
     "images": []
+  },
+  {
+    "id": "casa-en-altos-de-arenitas",
+    "images": [
+      "Images/propiedades/casa-en-altos-de-arenitas/dd15098f2dd444b5a3229b9274e9e935.jpg",
+      "Images/propiedades/casa-en-altos-de-arenitas/a2697e470cd340f288d69580b3f603c3.jpg",
+      "Images/propiedades/casa-en-altos-de-arenitas/b26a5ce6b76b4738a42f587ca1191278.jpg"
+    ],
+    "title": "Casa en Altos de arenitas",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Casa",
+    "price": 160000001,
+    "summary": "Altos de arenitas\nEstrato 2",
+    "details": "Frente 17.50\nLado 12 \nAtrás 10\nArea irregular.\n3 habitaciones\nAparta estudio sótano ( 6x7) habitación, con baño, conciba, patio se arrienda por $380\nTiene tanque subterráneo de 3000 litros para comprarle hidro.\nAceituna una sola persona.\nPatio y plancha de 3 metros irregulares.\n$150 millones negociables.\nCon los 3 servicios agua, energía y gas natural.",
+    "bedrooms": 3,
+    "bathrooms": 0,
+    "area": 0
   }
 ]
