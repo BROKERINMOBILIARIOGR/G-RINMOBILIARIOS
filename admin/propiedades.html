@@ -47,6 +47,10 @@
         <input type="hidden" name="id">
         <label>Nombre de la propiedad<input name="title" maxlength="120" required placeholder="Ejemplo: Casa campestre en Melgar"></label>
         <label>Resumen para la tarjeta<textarea name="summary" maxlength="500" rows="3" placeholder="Lo principal que verá el cliente"></textarea></label>
+        <details class="translation-fields"><summary>Versión en inglés</summary>
+          <label>Property name<input name="titleEn" maxlength="120"></label>
+          <label>Card summary in English<textarea name="summaryEn" maxlength="500" rows="3"></textarea></label>
+        </details>
         <div class="two-columns">
           <label>Departamento<input name="department" maxlength="80" required placeholder="Tolima"></label>
           <label>Ciudad o municipio<input name="city" maxlength="100" required placeholder="Melgar"></label>
@@ -63,6 +67,12 @@
         </div>
         <label>Área en m²<input name="area" type="number" min="0" max="1000000" step="1" value="0"></label>
         <label>Descripción y detalles<textarea name="details" maxlength="6000" rows="6" placeholder="Distribución, estado, servicios, financiación y otros detalles"></textarea></label>
+        <details class="translation-fields"><summary>Property details in English</summary>
+          <label>Department in English<input name="departmentEn" maxlength="80"></label>
+          <label>City or town in English<input name="cityEn" maxlength="100"></label>
+          <label>Property type in English<input name="typeEn" maxlength="60" placeholder="House, Apartment, Lot..."></label>
+          <label>Full description in English<textarea name="detailsEn" maxlength="6000" rows="5"></textarea></label>
+        </details>
         <label>Fotos (JPG, PNG o WEBP; máximo 5 por envío y 6 MB cada una)<input name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
         <div id="current-images" class="current-images"></div>
         <p id="form-message" class="form-message" role="alert"></p>

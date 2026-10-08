@@ -53,9 +53,9 @@
   {
     "id": "lote-en-villa-hanna",
     "images": [
-      "Images/propiedades/lote-en-villa-hanna/a2535da705f44d94b7aed9afe539e296.jpeg",
       "Images/propiedades/lote-en-villa-hanna/50e5855134054cd3a9faa8fe240f7cc0.jpeg",
-      "Images/propiedades/lote-en-villa-hanna/05b7b89f3bc443b9957323f3b2e01451.jpeg"
+      "Images/propiedades/lote-en-villa-hanna/05b7b89f3bc443b9957323f3b2e01451.jpeg",
+      "Images/propiedades/lote-en-villa-hanna/a2535da705f44d94b7aed9afe539e296.jpeg"
     ],
     "title": "Lote en Villa Hanna",
     "department": "Tolima",
@@ -88,14 +88,14 @@
   {
     "id": "bosa-recreo",
     "images": [
-      "Images/propiedades/bosa-recreo/dee835a518b4444db8928fa2e53ecb99.jpeg",
-      "Images/propiedades/bosa-recreo/32a2d0546dce436ba5342d2ab17f1567.jpeg",
       "Images/propiedades/bosa-recreo/8e924353c2564cfaa40394628a71b932.jpeg",
+      "Images/propiedades/bosa-recreo/32a2d0546dce436ba5342d2ab17f1567.jpeg",
       "Images/propiedades/bosa-recreo/d6a2d65ae7604104b387d8d5e0f7b1c2.jpeg",
-      "Images/propiedades/bosa-recreo/92f9bfb5f1314d8596846d55d2c76870.jpeg",
       "Images/propiedades/bosa-recreo/b7f045bc170f422d87c1d79ed3afe065.jpeg",
-      "Images/propiedades/bosa-recreo/9a0a52723aab4e7fa63134d01bb05734.jpeg",
-      "Images/propiedades/bosa-recreo/d4714a4c42fa48a2997e2c8db0321aaf.jpeg"
+      "Images/propiedades/bosa-recreo/dee835a518b4444db8928fa2e53ecb99.jpeg",
+      "Images/propiedades/bosa-recreo/d4714a4c42fa48a2997e2c8db0321aaf.jpeg",
+      "Images/propiedades/bosa-recreo/92f9bfb5f1314d8596846d55d2c76870.jpeg",
+      "Images/propiedades/bosa-recreo/9a0a52723aab4e7fa63134d01bb05734.jpeg"
     ],
     "title": "Bosa Recreo",
     "department": "Bogota",
@@ -124,5 +124,102 @@
     "bedrooms": 0,
     "bathrooms": 0,
     "area": 60
+  },
+  {
+    "id": "lote-35-y-36",
+    "images": [
+      "Images/propiedades/lote-35-y-36/f120e3639d5c4f7494d46ce2bcbaf378.jpeg",
+      "Images/propiedades/lote-35-y-36/d36d8dce9cd04ae2b9f4f6ad71ef9459.jpeg",
+      "Images/propiedades/lote-35-y-36/35dd06184798422cb2ffaf8ff98a0afb.jpeg",
+      "Images/propiedades/lote-35-y-36/969e39d05e554fa2a972ff8123a8d4b2.jpeg",
+      "Images/propiedades/lote-35-y-36/13cdd151bc284bc18e7499402a365e3a.jpeg",
+      "Images/propiedades/lote-35-y-36/8aae20175af741c0a3215693bd6516b9.jpeg",
+      "Images/propiedades/lote-35-y-36/bb120e9f2091444492c0b1aaa733f247.jpeg",
+      "Images/propiedades/lote-35-y-36/c8393e0442fe4db6b7960602dc79ffba.jpeg",
+      "Images/propiedades/lote-35-y-36/cb35499e19ac4b9e81f353cffc29b1d1.jpeg",
+      "Images/propiedades/lote-35-y-36/0fa91b68cd1d48bd9bfc42bc8c396db2.jpeg",
+      "Images/propiedades/lote-35-y-36/1d71971029a64c8a899583c5db9b9e1c.jpeg",
+      "Images/propiedades/lote-35-y-36/ee4683e5bc984a8a9fc2a1a92493caa0.jpeg",
+      "Images/propiedades/lote-35-y-36/4657efbe8d5a4111a9bda63dd9f1dbda.jpeg",
+      "Images/propiedades/lote-35-y-36/dd1df204484b4cc89908bab49bf251e4.jpeg",
+      "Images/propiedades/lote-35-y-36/51b550dca52242c8837fdc71b108f695.jpeg",
+      "Images/propiedades/lote-35-y-36/786c5f0069e74fcfa7efac8bab779bb5.jpeg",
+      "Images/propiedades/lote-35-y-36/c482929e159844a3a61af1e13e6736cc.jpeg",
+      "Images/propiedades/lote-35-y-36/e474871b07ee47288fa60658958c4e76.jpeg",
+      "Images/propiedades/lote-35-y-36/f97ebe15a06a4a2bb8bef870b9aa810f.jpeg",
+      "Images/propiedades/lote-35-y-36/8f3f80d544a54487951d4471d9fa4358.jpeg"
+    ],
+    "title": "Lote 35 y 36 en Caracoli",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 41000001,
+    "summary": "Se rematan lotes",
+    "details": "Se vende lote 35 y 36 por aparte. ubicados en la urbanization Caracolí en el municipio del carmen de apical. cada lote tiene una superficie de 732 metros cuadrados. La urbanización cuenta con piscina y zonas sociales.",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72
+  },
+  {
+    "id": "casa-8",
+    "images": [
+      "Images/propiedades/casa-8/c205d9ec679f40168daa15a15ca1d9e3.jpeg",
+      "Images/propiedades/casa-8/184eacac732b4cfea60cd88c6854edee.jpeg",
+      "Images/propiedades/casa-8/307aa4f1a2aa4482b379573d574e6d8d.jpeg"
+    ],
+    "title": "Casa 8",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Casa",
+    "price": 230000001,
+    "summary": "En venta Casa número 8 del barrio arenitas",
+    "details": "Se vende Casa🏡 Urbanización  Pueblito Español - Carmen de Apicala Tolima ⚠️La casa tiene 105 m2 construidos ( 6 * 17,5) , servicios ( agua , luz , gas ) 3 habitaciones, 2 baños, cocina integral, sala  comedor, patio de ropas,  garaje y placa con techo ⚠️ Excelentes terminados y capacidad de estructura ⚠️Sector Central y de alta valorización 📈 🏡 Documentos al día para el traspaso. 🏡",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": 105
+  },
+  {
+    "id": "casa-en-villa-nelly",
+    "images": [
+      "Images/propiedades/casa-en-villa-nelly/05f620c6f12349bd9cb51405474c2d0d.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/dcd0dea7758943a796f2359aa2369177.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/b2aebb47821e4bccb6e9ee065e624f07.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/944848ccfc4f4be7917d0c730b6676c4.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/68ce0195ce7f4c7080673a090ed3a42f.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/1decb72476934e2e9341b82c81c15f7c.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/3aa0a16a7c024d21914099abfa0590af.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/619da137be3c498a83a6ca8497bc77b2.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/b22a0158096e4488bf0ad3dbcc15da64.jpeg"
+    ],
+    "title": "Casa en Villa Nelly",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Casa",
+    "price": 163000001,
+    "summary": "Se vende casa en villa nelly etapa 1",
+    "details": "Casa en Villa Nelly con escritura pública, gas natural, acueducto, alcantarillado. Vias pavimentadas. Entrada a via peatonal; un primer piso. Estrato 2",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "area": 72
+  },
+  {
+    "id": "lote-f8ea34",
+    "images": [
+      "Images/propiedades/lote-f8ea34/2da7719583c649a0bb1ddd8e49b33a5a.jpg",
+      "Images/propiedades/lote-f8ea34/d63502a76b2f4479bfc08a4a4e1fc686.jpeg",
+      "Images/propiedades/lote-f8ea34/03fd2c1b3b2644b98804e0275f509917.jpeg",
+      "Images/propiedades/lote-f8ea34/92aa347fd79149f281e10d1118cb5a55.jpeg",
+      "Images/propiedades/lote-f8ea34/9dc75aa2ff8248c2a46cb7a0653829d9.jpg"
+    ],
+    "title": "Lote",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 47000001,
+    "summary": "Lote189 en La Colina",
+    "details": "Se vende lote en urbanización La colina. Cuenta con: acueducto, luz, alcantarillado y vias pavimentadas. libre construcción",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72
   }
 ]

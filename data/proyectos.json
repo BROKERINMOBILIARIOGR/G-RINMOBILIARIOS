@@ -151,5 +151,31 @@
       "Images/proyectos/villas-del-olimpo/d60e0e95119e4cc19f3ecdff145029c7.jpg"
     ],
     "featured": false
+  },
+  {
+    "id": "reserva-de-montecarlo",
+    "images": [
+      "Images/proyectos/reserva-de-montecarlo/804cbcd2b1b24b988d0780cb2e2dcfda.jpeg",
+      "Images/proyectos/reserva-de-montecarlo/bcfaee994bad4e9787a45c838664cc70.jpeg",
+      "Images/proyectos/reserva-de-montecarlo/2b0f18547ff345f58bdf5fb5caf3fe53.jpeg",
+      "Images/proyectos/reserva-de-montecarlo/1c3eb953903a4e3784dd88ca56581730.jpeg",
+      "Images/proyectos/reserva-de-montecarlo/382a25e406b24ccb94d6c5c9521f28ea.jpeg"
+    ],
+    "featured": true,
+    "title": "RESERVA DE MONTECARLO",
+    "summary": "RESERVA MONTECARLO – TOCAIMA, CUNDINAMARCA\nSobre la vía Tocaima–Girardot, a solo 5 km del municipio.",
+    "location": "Tocaima - Cundinamarca",
+    "price": "$85.000.000",
+    "details": "RESERVA MONTECARLO – TOCAIMA, CUNDINAMARCA\nSobre la vía Tocaima–Girardot, a solo 5 km del municipio.\n\n🌿Lotes campestres desde 500 m²\n💰 Desde $85 millones\n✅ Separa con $1 millón\n✅ Cuota inicial desde $5 millones\n✅ Financiación hasta 48 meses, sin intereses\n🏡 Libre construcción  \n🌳 Fauna, flora y amplias zonas verdes  \n🏊 Piscinas · 🎾 Pádel · Lagos · Zonas sociales  \n\nInvierte con respaldo:\nLicencia de urbanismo aprobada · Financiación sin intereses · Alto potencial de valorización.",
+    "features": [
+      "🌿Lotes campestres desde 500 m²",
+      "💰 Desde $85 millones",
+      "✅ Separa con $1 millón",
+      "✅ Cuota inicial desde $5 millones",
+      "✅ Financiación hasta 48 meses, sin intereses",
+      "🏡 Libre construcción",
+      "🌳 Fauna, flora y amplias zonas verdes",
+      "🏊 Piscinas · 🎾 Pádel · Lagos · Zonas sociales"
+    ]
   }
 ]

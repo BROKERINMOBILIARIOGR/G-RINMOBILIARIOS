@@ -5,6 +5,8 @@
   const token = () => sessionStorage.getItem(tokenKey) || "";
   let currentUser = null;
   let projects = [];
+  let englishTranslations = {};
+  let translationSupport = false;
 
   async function api(path, options = {}) {
     const headers = new Headers(options.headers || {});
@@ -67,8 +69,13 @@
   async function loadProjects() {
     showMessage("Cargando proyectos…");
     try {
-      const { projects: loaded } = await api("/api/projects");
+      const [{ projects: loaded }, translationResult] = await Promise.all([
+        api("/api/projects"),
+        api("/api/translations-en").catch(() => ({ translations: {} }))
+      ]);
       projects = loaded;
+      englishTranslations = translationResult.translations.projects || {};
+      translationSupport = true;
       renderProjects();
       showMessage(loaded.length ? "Puedes crear, editar o eliminar proyectos." : "Todavía no hay proyectos.");
     } catch (error) {
@@ -131,7 +138,7 @@
   function renderCurrentImages() {
     const images = document.getElementById("current-images");
     images.replaceChildren();
-    currentProjectImages.forEach((src) => {
+    currentProjectImages.forEach((src, index) => {
       const item = document.createElement("div");
       item.className = "current-image-item";
       const image = document.createElement("img");
@@ -146,21 +153,48 @@
         currentProjectImages = currentProjectImages.filter((path) => path !== src);
         renderCurrentImages();
       });
-      item.append(image, remove);
+      const reorder = document.createElement("div");
+      reorder.className = "image-order-actions";
+      [
+        { label: "Mover foto antes", text: "↑", offset: -1, disabled: index === 0 },
+        { label: "Mover foto después", text: "↓", offset: 1, disabled: index === currentProjectImages.length - 1 }
+      ].forEach(({ label, text, offset, disabled }) => {
+        const move = document.createElement("button");
+        move.type = "button";
+        move.className = "image-order-button";
+        move.textContent = text;
+        move.setAttribute("aria-label", label);
+        move.title = label;
+        move.disabled = disabled;
+        move.addEventListener("click", () => {
+          const nextIndex = index + offset;
+          [currentProjectImages[index], currentProjectImages[nextIndex]] = [currentProjectImages[nextIndex], currentProjectImages[index]];
+          renderCurrentImages();
+        });
+        reorder.append(move);
+      });
+      item.append(image, reorder, remove);
       images.append(item);
     });
   }
   function openProject(project = null) {
+    const translated = englishTranslations[project?.id] || {};
     form.reset();
     document.getElementById("form-message").textContent = "";
     document.getElementById("form-title").textContent = project ? "Editar proyecto" : "Nuevo proyecto";
     form.elements.id.value = project?.id || "";
     form.elements.title.value = project?.title || "";
     form.elements.summary.value = project?.summary || "";
+    form.elements.titleEn.value = project?.titleEn || translated.title || "";
+    form.elements.summaryEn.value = project?.summaryEn || translated.summary || "";
     form.elements.location.value = project?.location || "";
     form.elements.price.value = project?.price || "";
     form.elements.details.value = project?.details || "";
     form.elements.features.value = (project?.features || []).join("\n");
+    form.elements.locationEn.value = project?.locationEn || translated.location || "";
+    form.elements.priceEn.value = project?.priceEn || translated.price || "";
+    form.elements.detailsEn.value = project?.detailsEn || translated.details || "";
+    form.elements.featuresEn.value = (project?.featuresEn || translated.features || []).join("\n");
     form.elements.featured.checked = Boolean(project?.featured);
     currentProjectImages = [...(project?.images || [])];
     renderCurrentImages();
@@ -190,17 +224,33 @@
       const files = Array.from(form.elements.images.files || []);
       if (files.length > 5) throw new Error("Puedes seleccionar hasta cinco imágenes por envío.");
       if (files.some((file) => file.size > 6 * 1024 * 1024)) throw new Error("Cada imagen debe pesar menos de 6 MB.");
+      const spanishDetails = form.elements.details.value.trim();
+      const spanishFeatures = form.elements.features.value.split("\n").map((item) => item.trim()).filter(Boolean);
+      const englishFeatures = form.elements.featuresEn.value.split("\n").map((item) => item.trim()).filter(Boolean);
+      if (form.elements.summary.value.trim() && !form.elements.summaryEn.value.trim()) throw new Error("Agrega también el resumen en inglés.");
+      if (translationSupport) {
+        if (!form.elements.titleEn.value.trim() || !form.elements.summaryEn.value.trim()) throw new Error("Completa el nombre y el resumen en inglés.");
+        if (spanishDetails && !form.elements.detailsEn.value.trim()) throw new Error("Agrega también la descripción en inglés para que la ficha esté completa.");
+        if (spanishFeatures.length && !englishFeatures.length) throw new Error("Agrega también las características en inglés.");
+      }
       const payload = {
         id: form.elements.id.value,
         title: form.elements.title.value,
         summary: form.elements.summary.value,
+        titleEn: form.elements.titleEn.value,
+        summaryEn: form.elements.summaryEn.value,
         location: form.elements.location.value,
+        locationEn: form.elements.locationEn.value,
         price: form.elements.price.value,
+        priceEn: form.elements.priceEn.value,
         details: form.elements.details.value,
-        features: form.elements.features.value.split("\n").map((item) => item.trim()).filter(Boolean),
+        detailsEn: form.elements.detailsEn.value,
+        features: spanishFeatures,
+        featuresEn: englishFeatures,
         featured: form.elements.featured.checked,
         removeImages: (projects.find((project) => project.id === form.elements.id.value)?.images || [])
           .filter((src) => !currentProjectImages.includes(src)),
+        imageOrder: currentProjectImages,
         images: await Promise.all(files.map(readImage))
       };
       const response = await fetch("/api/projects", {

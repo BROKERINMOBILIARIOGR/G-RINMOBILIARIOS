@@ -59,12 +59,22 @@
         <input type="hidden" name="id">
         <label>Nombre<input name="title" maxlength="120" required></label>
         <label>Resumen para la tarjeta<textarea name="summary" maxlength="500" rows="3" required></textarea></label>
+        <details class="translation-fields"><summary>Versión en inglés</summary>
+          <label>Project name<input name="titleEn" maxlength="120"></label>
+          <label>Card summary in English<textarea name="summaryEn" maxlength="500" rows="3"></textarea></label>
+        </details>
         <div class="two-columns">
           <label>Ubicación<input name="location" maxlength="180"></label>
           <label>Precio<input name="price" maxlength="100" placeholder="Ejemplo: Desde $45 millones"></label>
         </div>
         <label>Detalles<textarea name="details" maxlength="6000" rows="5" placeholder="Información que se verá al abrir el proyecto"></textarea></label>
         <label>Características (una por línea)<textarea name="features" rows="4" placeholder="Piscina&#10;Parque infantil&#10;Financiación directa"></textarea></label>
+        <details class="translation-fields"><summary>Project details in English</summary>
+          <label>Location in English<input name="locationEn" maxlength="180"></label>
+          <label>Price in English<input name="priceEn" maxlength="100" placeholder="Example: From COP $45 million"></label>
+          <label>Full description in English<textarea name="detailsEn" maxlength="6000" rows="5"></textarea></label>
+          <label>Features in English (one per line)<textarea name="featuresEn" rows="4"></textarea></label>
+        </details>
         <label>Imágenes (JPG, PNG o WEBP; máximo 5 por envío y 6 MB cada una)<input name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
         <div id="current-images" class="current-images"></div>
         <label class="check-label"><input name="featured" type="checkbox"> Mostrar también en la página de inicio</label>

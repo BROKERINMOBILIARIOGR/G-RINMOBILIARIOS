@@ -19,6 +19,22 @@
     return link;
   }
 
+  function shareLabel() {
+    return window.siteLanguage?.() === "en" ? "Share" : "Compartir";
+  }
+
+  function refreshShareLabels() {
+    document.querySelectorAll(".share-actions").forEach((actions) => {
+      const title = actions.dataset.shareTitle || "";
+      actions.setAttribute("aria-label", `${shareLabel()} ${title}`.trim());
+      const toggle = actions.querySelector(".share-toggle");
+      toggle.setAttribute("aria-label", shareLabel());
+      toggle.title = shareLabel();
+      const status = actions.querySelector(".share-status");
+      if (status) status.textContent = "";
+    });
+  }
+
   document.addEventListener("click", (event) => {
     if (event.target.closest(".share-actions")) return;
     document.querySelectorAll(".share-actions.is-open").forEach(closeMenu);
@@ -29,6 +45,7 @@
       document.querySelectorAll(".share-actions.is-open").forEach(closeMenu);
     }
   });
+  document.addEventListener("site-language-change", refreshShareLabels);
 
   window.sharePageUrl = (collection, identifier, image) => {
     const url = new URL(`compartir/${collection}/${encodeURIComponent(identifier)}.html`, window.location.href);
@@ -36,18 +53,19 @@
     return url.href;
   };
 
-  window.createShareActions = (title, url) => {
+  window.createShareActions = (title, url, image) => {
     const actions = document.createElement("div");
     actions.className = "share-actions";
     actions.setAttribute("role", "group");
-    actions.setAttribute("aria-label", `Compartir ${title}`);
+    actions.dataset.shareTitle = title;
+    actions.setAttribute("aria-label", `${shareLabel()} ${title}`);
 
     const toggle = document.createElement("button");
     toggle.type = "button";
     toggle.className = "share-toggle";
-    toggle.setAttribute("aria-label", "Compartir");
+    toggle.setAttribute("aria-label", shareLabel());
     toggle.setAttribute("aria-expanded", "false");
-    toggle.title = "Compartir";
+    toggle.title = shareLabel();
     const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     icon.setAttribute("viewBox", "0 0 24 24");
     icon.setAttribute("width", "20");
@@ -77,8 +95,10 @@
     toggle.setAttribute("aria-controls", options.id);
 
     const text = `${title} ${url}`;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
+    const whatsapp = makeLink("WhatsApp", whatsappUrl, "share-whatsapp");
     options.append(
-      makeLink("WhatsApp", `https://wa.me/?text=${encodeURIComponent(text)}`, "share-whatsapp"),
+      whatsapp,
       makeLink("Facebook", `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, "share-facebook")
     );
 
@@ -94,10 +114,10 @@
           return;
         }
         await navigator.clipboard.writeText(url);
-        status.textContent = "Enlace copiado. Pégalo en Instagram para compartirlo.";
+        status.textContent = window.siteLanguage?.() === "en" ? "Link copied. Paste it on Instagram to share." : "Enlace copiado. Pégalo en Instagram para compartirlo.";
       } catch (error) {
         if (error.name === "AbortError") return;
-        status.textContent = "Copia este enlace y compártelo en Instagram: ";
+        status.textContent = window.siteLanguage?.() === "en" ? "Copy this link and share it on Instagram: " : "Copia este enlace y compártelo en Instagram: ";
         const copy = document.createElement("a");
         copy.href = url;
         copy.textContent = title;

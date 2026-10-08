@@ -4,11 +4,13 @@
   let properties = [];
 
   const normalize = (value) => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/_/g, " ").toLowerCase().trim();
-  const money = (value) => new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(Number(value) || 0);
+  const money = (value) => new Intl.NumberFormat(window.siteLanguage() === "en" ? "en-US" : "es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(Number(value) || 0);
+  let translations = {};
 
   function render(list) {
     grid.replaceChildren();
-    list.forEach((property) => {
+    list.forEach((source) => {
+      const property = window.localizeListing(source, "properties", translations);
       const card = document.createElement("article");
       card.className = "propiedad-card";
       const price = document.createElement("span");
@@ -33,13 +35,16 @@
       const link = document.createElement("a");
       link.className = "btn-ver";
       link.href = `propiedad.html?id=${encodeURIComponent(property.id)}`;
-      link.textContent = "Ver más";
-      const shareUrl = window.sharePageUrl("propiedades", property.id, (property.images || [])[0]);
-      const share = window.createShareActions(property.title || "Propiedad en venta", shareUrl);
+      link.textContent = window.siteText("Ver más");
+      const shareImage = (property.images || [])[0];
+      const shareUrl = window.sharePageUrl("propiedades", property.id, shareImage);
+      const share = window.createShareActions(property.title || "Propiedad en venta", shareUrl, shareImage);
       card.append(price, image, title, type, location, summary, link, share);
       grid.append(card);
     });
-    status.textContent = list.length ? `${list.length} propiedad${list.length === 1 ? "" : "es"} disponible${list.length === 1 ? "" : "s"}.` : "No encontramos propiedades con esos filtros.";
+    status.textContent = window.siteLanguage() === "en"
+      ? (list.length ? `${list.length} ${list.length === 1 ? "property" : "properties"} available.` : "No properties match those filters.")
+      : (list.length ? `${list.length} propiedad${list.length === 1 ? "" : "es"} disponible${list.length === 1 ? "" : "s"}.` : "No encontramos propiedades con esos filtros.");
   }
 
   window.filtrarPropiedades = () => {
@@ -64,8 +69,12 @@
     document.getElementById(id).addEventListener("change", window.filtrarPropiedades);
   });
 
-  fetch("data/propiedades.json", { cache: "no-store" })
-    .then((response) => { if (!response.ok) throw new Error("No se pudo cargar el catálogo."); return response.json(); })
-    .then((data) => { properties = Array.isArray(data) ? data : []; render(properties); })
-    .catch(() => { status.textContent = "No se pudo cargar el catálogo de propiedades. Intenta actualizar la página."; status.classList.add("error"); });
+  Promise.all([
+    fetch("data/propiedades.json", { cache: "no-store" }).then((response) => { if (!response.ok) throw new Error("No se pudo cargar el catálogo."); return response.json(); }),
+    window.siteTranslationReady
+  ])
+    .then(([data, loadedTranslations]) => { properties = Array.isArray(data) ? data : []; translations = loadedTranslations; render(properties); })
+    .catch(() => { status.textContent = window.siteLanguage() === "en" ? "The property catalog could not be loaded. Please refresh the page." : "No se pudo cargar el catálogo de propiedades. Intenta actualizar la página."; status.classList.add("error"); });
+
+  document.addEventListener("site-language-change", () => window.filtrarPropiedades());
 })();

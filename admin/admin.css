@@ -49,10 +49,16 @@ textarea { resize: vertical; }
 .dialog-heading h2 { margin: 0; }
 .close-button { border: 0; background: transparent; color: var(--muted); font-size: 32px; line-height: 1; }
 .two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.translation-fields { margin: 0 0 15px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; }
+.translation-fields summary { color: var(--green); font-weight: 750; cursor: pointer; }
+.translation-fields label:first-of-type { margin-top: 12px; }
 .check-label { display: flex; align-items: center; gap: 9px; }
 .current-images { display: flex; flex-wrap: wrap; gap: 8px; margin: -3px 0 14px; }
 .current-image-item { display: grid; justify-items: center; gap: 4px; }
 .current-images img { width: 82px; height: 65px; object-fit: cover; border-radius: 7px; }
+.image-order-actions { display: flex; gap: 4px; }
+.image-order-button { width: 32px; height: 28px; border: 1px solid var(--line); border-radius: 5px; background: #fff; color: var(--green); cursor: pointer; font: inherit; font-weight: 700; }
+.image-order-button:disabled { color: #aab3ae; cursor: default; }
 .remove-image-button { border: 0; border-radius: 6px; padding: 4px 8px; background: #fff0ed; color: #9c3528; cursor: pointer; font: inherit; font-size: .82rem; }
 .remove-image-button:hover { background: #ffe0db; }
 .dialog-actions { justify-content: end; margin-top: 18px; }

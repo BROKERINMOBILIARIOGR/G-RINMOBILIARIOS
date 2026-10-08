@@ -343,6 +343,15 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         path = urllib.parse.urlsplit(self.path).path
+        if path == "/api/translations-en":
+            if not self.user():
+                return self.reply(401, {"error": "Inicia sesión para continuar."})
+            source = ROOT / "data" / "translations-en.json"
+            try:
+                translations = json.loads(source.read_text(encoding="utf-8")) if source.is_file() else {}
+            except (OSError, json.JSONDecodeError):
+                translations = {}
+            return self.reply(200, {"translations": translations})
         if path == "/api/me":
             user = self.user()
             return self.reply(200, {"user": user}) if user else self.reply(401, {"error": "Inicia sesión para continuar."})
@@ -576,6 +585,12 @@ class Handler(BaseHTTPRequestHandler):
         location = str(body.get("location", "")).strip()[:180]
         price = str(body.get("price", "")).strip()[:100]
         features = [str(item).strip()[:180] for item in body.get("features", []) if str(item).strip()][:30]
+        title_en = str(body.get("titleEn", "")).strip()[:120]
+        summary_en = str(body.get("summaryEn", "")).strip()[:500]
+        location_en = str(body.get("locationEn", "")).strip()[:180]
+        price_en = str(body.get("priceEn", "")).strip()[:100]
+        details_en = str(body.get("detailsEn", "")).strip()[:6000]
+        features_en = [str(item).strip()[:180] for item in body.get("featuresEn", []) if str(item).strip()][:30]
         if not title or not summary:
             raise ValueError("El nombre y el resumen son obligatorios.")
         projects = safe_json_projects()
@@ -607,6 +622,12 @@ class Handler(BaseHTTPRequestHandler):
         ):
             raise ValueError("Una de las imágenes que intentas quitar no pertenece a este proyecto.")
         image_paths = [path for path in image_paths if path not in remove_images]
+        image_order = body.get("imageOrder", image_paths)
+        if not isinstance(image_order, list) or any(not isinstance(path, str) for path in image_order):
+            raise ValueError("El orden de las imágenes no es válido.")
+        if len(image_order) != len(set(image_order)) or set(image_order) != set(image_paths):
+            raise ValueError("El orden debe incluir exactamente las imágenes actuales.")
+        image_paths = list(image_order)
         for upload in uploads:
             if not isinstance(upload, dict):
                 raise ValueError("Una imagen no tiene un formato válido.")
@@ -634,6 +655,8 @@ class Handler(BaseHTTPRequestHandler):
 
         project.update({"id": identifier, "title": title, "summary": summary, "location": location,
                         "price": price, "details": details, "features": features,
+                        "titleEn": title_en, "summaryEn": summary_en, "locationEn": location_en,
+                        "priceEn": price_en, "detailsEn": details_en, "featuresEn": features_en,
                         "images": image_paths, "featured": bool(body.get("featured", project.get("featured", False)))})
         if project not in projects:
             projects.append(project)
@@ -677,6 +700,12 @@ class Handler(BaseHTTPRequestHandler):
         property_type = str(body.get("type", "")).strip()[:60]
         summary = str(body.get("summary", "")).strip()[:500]
         details = str(body.get("details", "")).strip()[:6000]
+        title_en = str(body.get("titleEn", "")).strip()[:120]
+        summary_en = str(body.get("summaryEn", "")).strip()[:500]
+        department_en = str(body.get("departmentEn", "")).strip()[:80]
+        city_en = str(body.get("cityEn", "")).strip()[:100]
+        type_en = str(body.get("typeEn", "")).strip()[:60]
+        details_en = str(body.get("detailsEn", "")).strip()[:6000]
         if not title or not department or not city or not property_type:
             raise ValueError("Completa nombre, departamento, ciudad y tipo de inmueble.")
         try:
@@ -708,6 +737,12 @@ class Handler(BaseHTTPRequestHandler):
                for path in remove_images):
             raise ValueError("Una de las imágenes no pertenece a esta propiedad.")
         image_paths = [path for path in image_paths if path not in remove_images]
+        image_order = body.get("imageOrder", image_paths)
+        if not isinstance(image_order, list) or any(not isinstance(path, str) for path in image_order):
+            raise ValueError("El orden de las fotos no es válido.")
+        if len(image_order) != len(set(image_order)) or set(image_order) != set(image_paths):
+            raise ValueError("El orden debe incluir exactamente las fotos actuales.")
+        image_paths = list(image_order)
         image_files: dict[str, bytes] = {}
         for upload in uploads:
             if not isinstance(upload, dict):
@@ -737,6 +772,8 @@ class Handler(BaseHTTPRequestHandler):
             raise ValueError("Habitaciones, baños y área deben ser números enteros.") from error
         item.update({"id": identifier, "title": title, "department": department, "city": city,
                      "type": property_type, "price": price, "summary": summary, "details": details,
+                     "titleEn": title_en, "summaryEn": summary_en, "departmentEn": department_en,
+                     "cityEn": city_en, "typeEn": type_en, "detailsEn": details_en,
                      "bedrooms": bedrooms, "bathrooms": bathrooms, "area": area, "images": image_paths})
         if item not in properties:
             properties.append(item)
