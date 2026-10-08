@@ -38,6 +38,9 @@
         items.forEach((text) => { const li = document.createElement("li"); li.textContent = text; list.append(li); });
         characteristics.append(heading, list);
       } else characteristics.hidden = true;
+      document.getElementById("share-propiedad").replaceChildren(
+        window.createShareActions(property.title || "Propiedad en venta", window.location.href)
+      );
       const message = "Hola, quisiera más información sobre la propiedad " + property.title + ".";
       document.getElementById("contactar-propiedad").href = "https://wa.me/573243716454?text=" + encodeURIComponent(message);
       status.hidden = true;

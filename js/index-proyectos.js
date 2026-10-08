@@ -28,7 +28,12 @@
           thumbnail.alt = "Imagen de " + (project.title || "proyecto");
           gallery.append(thumbnail);
         });
-        card.append(image, title, summary, gallery);
+        const link = document.createElement("a");
+        link.className = "card-proyecto-link";
+        link.href = `proyecto.html?id=${encodeURIComponent(project.id)}`;
+        link.append(image, title, summary, gallery);
+        const share = window.createShareActions(project.title || "Proyecto inmobiliario", new URL(link.href, window.location.href).href);
+        card.append(link, share);
         root.append(card);
       });
       if (!featured.length) message.textContent = "Pronto publicaremos proyectos destacados.";

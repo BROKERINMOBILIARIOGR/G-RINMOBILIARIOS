@@ -41,6 +41,9 @@
         document.getElementById("seccion-caracteristicas").hidden = false;
       }
 
+      document.getElementById("share-proyecto").replaceChildren(
+        window.createShareActions(project.title || "Proyecto inmobiliario", window.location.href)
+      );
       const message = `Hola, quisiera más información sobre ${project.title}.`;
       document.getElementById("contactar-proyecto").href = `https://wa.me/573243716454?text=${encodeURIComponent(message)}`;
       status.hidden = true;

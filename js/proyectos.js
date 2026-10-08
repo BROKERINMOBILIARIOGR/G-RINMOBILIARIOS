@@ -3,11 +3,11 @@
   const message = document.getElementById("mensaje-proyectos");
 
   function makeCard(project) {
-    const card = document.createElement("a");
+    const card = document.createElement("article");
     card.className = "card card-proyecto";
-    card.href = `proyecto.html?id=${encodeURIComponent(project.id)}`;
-    card.target = "_blank";
-    card.rel = "noopener noreferrer";
+    const link = document.createElement("a");
+    link.className = "card-proyecto-link";
+    link.href = `proyecto.html?id=${encodeURIComponent(project.id)}`;
     const image = document.createElement("img");
     image.src = (project.images || [])[0] || "logo.jpeg";
     image.alt = project.title || "Proyecto inmobiliario";
@@ -18,7 +18,9 @@
     const prompt = document.createElement("span");
     prompt.className = "ver-detalle";
     prompt.textContent = "Ver detalles ↗";
-    card.append(image, title, summary, prompt);
+    link.append(image, title, summary, prompt);
+    const share = window.createShareActions(project.title || "Proyecto inmobiliario", new URL(link.href, window.location.href).href);
+    card.append(link, share);
     return card;
   }
 

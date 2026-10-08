@@ -34,7 +34,8 @@
       link.className = "btn-ver";
       link.href = `propiedad.html?id=${encodeURIComponent(property.id)}`;
       link.textContent = "Ver más";
-      card.append(price, image, title, type, location, summary, link);
+      const share = window.createShareActions(property.title || "Propiedad en venta", new URL(link.href, window.location.href).href);
+      card.append(price, image, title, type, location, summary, link, share);
       grid.append(card);
     });
     status.textContent = list.length ? `${list.length} propiedad${list.length === 1 ? "" : "es"} disponible${list.length === 1 ? "" : "s"}.` : "No encontramos propiedades con esos filtros.";

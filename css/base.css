@@ -206,3 +206,32 @@ footer {
     color: #f6f7f9;
     font-size: 14px;
 }
+
+.share-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin: 0 15px 15px;
+}
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 6px;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.share-whatsapp { background: #168a50; }
+.share-facebook { background: #1877f2; }
+.share-instagram { background: #b83275; }
+.share-status { flex-basis: 100%; color: #4f5d55; font-size: 12px; }
