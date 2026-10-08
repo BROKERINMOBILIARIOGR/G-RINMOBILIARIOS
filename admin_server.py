@@ -607,6 +607,12 @@ class Handler(BaseHTTPRequestHandler):
         ):
             raise ValueError("Una de las imágenes que intentas quitar no pertenece a este proyecto.")
         image_paths = [path for path in image_paths if path not in remove_images]
+        image_order = body.get("imageOrder", image_paths)
+        if not isinstance(image_order, list) or any(not isinstance(path, str) for path in image_order):
+            raise ValueError("El orden de las imágenes no es válido.")
+        if len(image_order) != len(set(image_order)) or set(image_order) != set(image_paths):
+            raise ValueError("El orden debe incluir exactamente las imágenes actuales.")
+        image_paths = list(image_order)
         for upload in uploads:
             if not isinstance(upload, dict):
                 raise ValueError("Una imagen no tiene un formato válido.")
@@ -708,6 +714,12 @@ class Handler(BaseHTTPRequestHandler):
                for path in remove_images):
             raise ValueError("Una de las imágenes no pertenece a esta propiedad.")
         image_paths = [path for path in image_paths if path not in remove_images]
+        image_order = body.get("imageOrder", image_paths)
+        if not isinstance(image_order, list) or any(not isinstance(path, str) for path in image_order):
+            raise ValueError("El orden de las fotos no es válido.")
+        if len(image_order) != len(set(image_order)) or set(image_order) != set(image_paths):
+            raise ValueError("El orden debe incluir exactamente las fotos actuales.")
+        image_paths = list(image_order)
         image_files: dict[str, bytes] = {}
         for upload in uploads:
             if not isinstance(upload, dict):

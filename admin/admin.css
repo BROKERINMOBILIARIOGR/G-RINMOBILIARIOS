@@ -53,6 +53,9 @@ textarea { resize: vertical; }
 .current-images { display: flex; flex-wrap: wrap; gap: 8px; margin: -3px 0 14px; }
 .current-image-item { display: grid; justify-items: center; gap: 4px; }
 .current-images img { width: 82px; height: 65px; object-fit: cover; border-radius: 7px; }
+.image-order-actions { display: flex; gap: 4px; }
+.image-order-button { width: 32px; height: 28px; border: 1px solid var(--line); border-radius: 5px; background: #fff; color: var(--green); cursor: pointer; font: inherit; font-weight: 700; }
+.image-order-button:disabled { color: #aab3ae; cursor: default; }
 .remove-image-button { border: 0; border-radius: 6px; padding: 4px 8px; background: #fff0ed; color: #9c3528; cursor: pointer; font: inherit; font-size: .82rem; }
 .remove-image-button:hover { background: #ffe0db; }
 .dialog-actions { justify-content: end; margin-top: 18px; }

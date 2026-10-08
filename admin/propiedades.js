@@ -121,7 +121,7 @@
   function renderImages() {
     const root = document.getElementById("current-images");
     root.replaceChildren();
-    currentImages.forEach((src) => {
+    currentImages.forEach((src, index) => {
       const item = document.createElement("div");
       item.className = "current-image-item";
       const image = document.createElement("img");
@@ -132,7 +132,27 @@
       remove.className = "remove-image-button";
       remove.textContent = "Quitar";
       remove.addEventListener("click", () => { currentImages = currentImages.filter((path) => path !== src); renderImages(); });
-      item.append(image, remove);
+      const reorder = document.createElement("div");
+      reorder.className = "image-order-actions";
+      [
+        { label: "Mover foto antes", text: "↑", offset: -1, disabled: index === 0 },
+        { label: "Mover foto después", text: "↓", offset: 1, disabled: index === currentImages.length - 1 }
+      ].forEach(({ label, text, offset, disabled }) => {
+        const move = document.createElement("button");
+        move.type = "button";
+        move.className = "image-order-button";
+        move.textContent = text;
+        move.setAttribute("aria-label", label);
+        move.title = label;
+        move.disabled = disabled;
+        move.addEventListener("click", () => {
+          const nextIndex = index + offset;
+          [currentImages[index], currentImages[nextIndex]] = [currentImages[nextIndex], currentImages[index]];
+          renderImages();
+        });
+        reorder.append(move);
+      });
+      item.append(image, reorder, remove);
       root.append(item);
     });
   }
@@ -193,6 +213,7 @@
         area: form.elements.area.value,
         details: form.elements.details.value,
         removeImages: ((original && original.images) || []).filter((src) => !currentImages.includes(src)),
+        imageOrder: currentImages,
         images: await Promise.all(files.map(readImage))
       };
       const result = await api("/api/properties", { method: "POST", body: JSON.stringify(body) });

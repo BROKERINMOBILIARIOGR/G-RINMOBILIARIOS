@@ -131,7 +131,7 @@
   function renderCurrentImages() {
     const images = document.getElementById("current-images");
     images.replaceChildren();
-    currentProjectImages.forEach((src) => {
+    currentProjectImages.forEach((src, index) => {
       const item = document.createElement("div");
       item.className = "current-image-item";
       const image = document.createElement("img");
@@ -146,7 +146,27 @@
         currentProjectImages = currentProjectImages.filter((path) => path !== src);
         renderCurrentImages();
       });
-      item.append(image, remove);
+      const reorder = document.createElement("div");
+      reorder.className = "image-order-actions";
+      [
+        { label: "Mover foto antes", text: "↑", offset: -1, disabled: index === 0 },
+        { label: "Mover foto después", text: "↓", offset: 1, disabled: index === currentProjectImages.length - 1 }
+      ].forEach(({ label, text, offset, disabled }) => {
+        const move = document.createElement("button");
+        move.type = "button";
+        move.className = "image-order-button";
+        move.textContent = text;
+        move.setAttribute("aria-label", label);
+        move.title = label;
+        move.disabled = disabled;
+        move.addEventListener("click", () => {
+          const nextIndex = index + offset;
+          [currentProjectImages[index], currentProjectImages[nextIndex]] = [currentProjectImages[nextIndex], currentProjectImages[index]];
+          renderCurrentImages();
+        });
+        reorder.append(move);
+      });
+      item.append(image, reorder, remove);
       images.append(item);
     });
   }
@@ -201,6 +221,7 @@
         featured: form.elements.featured.checked,
         removeImages: (projects.find((project) => project.id === form.elements.id.value)?.images || [])
           .filter((src) => !currentProjectImages.includes(src)),
+        imageOrder: currentProjectImages,
         images: await Promise.all(files.map(readImage))
       };
       const response = await fetch("/api/projects", {
