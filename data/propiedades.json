@@ -1,19 +1,5 @@
 [
   {
-    "id": "casa-campestre-moderna",
-    "title": "Casa campestre moderna",
-    "department": "Tolima",
-    "city": "Melgar",
-    "type": "Casa",
-    "price": 180000000,
-    "summary": "Casa campestre en Melgar.",
-    "details": "",
-    "bedrooms": 0,
-    "bathrooms": 0,
-    "area": 0,
-    "images": []
-  },
-  {
     "id": "casa-en-altos-de-arenitas",
     "images": [
       "Images/propiedades/casa-en-altos-de-arenitas/dd15098f2dd444b5a3229b9274e9e935.jpg",
