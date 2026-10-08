@@ -200,3 +200,9 @@ footer {
     background: #111;
     color: #D4AF37;
 }
+
+.contador-visitas {
+    margin-top: 8px;
+    color: #f6f7f9;
+    font-size: 14px;
+}
