@@ -355,26 +355,37 @@ class Handler(BaseHTTPRequestHandler):
             if not project:
                 return self.reply(404, {"error": "No encontramos el proyecto que intentas eliminar."})
             remaining = [item for item in projects if item.get("id") != identifier]
+            still_used = {
+                str(image)
+                for entry in remaining
+                for image in entry.get("images", [])
+            }
+            still_used.update(
+                str(image)
+                for item in safe_json_properties()
+                for image in item.get("images", [])
+            )
             image_paths = []
             for image in project.get("images", []):
-                parts = Path(str(image)).as_posix().split("/")
-                if len(parts) == 4 and parts[:3] == ["Images", "proyectos", identifier] and parts[3] not in ("", ".", ".."):
-                    image_paths.append("/".join(parts))
+                relative = Path(str(image).replace("\\", "/"))
+                if str(image) in still_used or relative.is_absolute() or ".." in relative.parts:
+                    continue
+                image_file = (ROOT / relative).resolve()
+                try:
+                    image_file.relative_to((ROOT / "Images").resolve())
+                except ValueError:
+                    continue
+                image_paths.append(relative.as_posix())
             content = (json.dumps(remaining, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
             commit = publish_files({"data/proyectos.json": content}, deletions=image_paths)
             PROJECTS_FILE.write_bytes(content)
-            project_dir = IMAGE_DIR / identifier
             for relative in image_paths:
                 image_file = (ROOT / relative).resolve()
                 try:
-                    image_file.relative_to(IMAGE_DIR.resolve())
+                    image_file.relative_to((ROOT / "Images").resolve())
                     image_file.unlink(missing_ok=True)
                 except (OSError, ValueError):
                     pass
-            try:
-                project_dir.rmdir()
-            except OSError:
-                pass
             return self.reply(200, {"deleted": True, "published": True, "commit": commit})
 
         property_prefix = "/api/properties/"
