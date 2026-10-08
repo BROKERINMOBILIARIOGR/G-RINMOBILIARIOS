@@ -61,5 +61,21 @@
     "bedrooms": 0,
     "bathrooms": 0,
     "area": 43
+  },
+  {
+    "id": "lote-urbano",
+    "images": [
+      "Images/propiedades/lote-urbano/00d49c4b740f4509b63def0889b0a63f.jpg"
+    ],
+    "title": "Lote urbano",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 38000001,
+    "summary": "Lote urbano en altos de arenitas",
+    "details": "Se vende lote en la urbanización Altos De Arenitas.\ncuenta con luz, agua, alcantarillado y vias pavimentadas.\nTambien escritura pública individual",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72
   }
 ]
