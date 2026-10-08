@@ -8,6 +8,8 @@
   let currentUser = null;
   let properties = [];
   let currentImages = [];
+  let englishTranslations = {};
+  let translationSupport = false;
 
   async function api(path, options = {}) {
     const headers = new Headers(options.headers || {});
@@ -62,8 +64,13 @@
   async function loadProperties() {
     message("Cargando propiedades…");
     try {
-      const result = await api("/api/properties");
+      const [result, translated] = await Promise.all([
+        api("/api/properties"),
+        api("/api/translations-en").catch(() => ({ translations: {} }))
+      ]);
       properties = result.properties || [];
+      englishTranslations = translated.translations.properties || {};
+      translationSupport = true;
       renderProperties();
       message(properties.length ? "Puedes agregar, editar o eliminar propiedades." : "Todavía no hay propiedades.");
     } catch (error) {
@@ -158,20 +165,27 @@
   }
 
   function openProperty(property = null) {
+    const translated = englishTranslations[property?.id] || {};
     form.reset();
     message("", false, true);
     document.getElementById("form-title").textContent = property ? "Editar propiedad" : "Nueva propiedad";
     form.elements.id.value = (property && property.id) || "";
     form.elements.title.value = (property && property.title) || "";
     form.elements.summary.value = (property && property.summary) || "";
+    form.elements.titleEn.value = property?.titleEn || translated.title || "";
+    form.elements.summaryEn.value = property?.summaryEn || translated.summary || "";
     form.elements.department.value = (property && property.department) || "";
     form.elements.city.value = (property && property.city) || "";
     form.elements.type.value = (property && property.type) || "";
+    form.elements.departmentEn.value = property?.departmentEn || translated.department || "";
+    form.elements.cityEn.value = property?.cityEn || translated.city || "";
+    form.elements.typeEn.value = property?.typeEn || translated.type || "";
     form.elements.price.value = (property && property.price) || "";
     form.elements.bedrooms.value = (property && property.bedrooms) || 0;
     form.elements.bathrooms.value = (property && property.bathrooms) || 0;
     form.elements.area.value = (property && property.area) || 0;
     form.elements.details.value = (property && property.details) || "";
+    form.elements.detailsEn.value = property?.detailsEn || translated.details || "";
     currentImages = [...((property && property.images) || [])];
     renderImages();
     dialog.showModal();
@@ -199,19 +213,30 @@
       const files = Array.from(form.elements.images.files || []);
       if (files.length > 5) throw new Error("Puedes agregar hasta cinco fotos por envío.");
       if (files.some((file) => file.size > 6 * 1024 * 1024)) throw new Error("Cada foto debe pesar menos de 6 MB.");
+      if (translationSupport) {
+        if (!form.elements.titleEn.value.trim()) throw new Error("Completa el nombre en inglés.");
+        if (form.elements.summary.value.trim() && !form.elements.summaryEn.value.trim()) throw new Error("Agrega también el resumen en inglés.");
+        if (form.elements.details.value.trim() && !form.elements.detailsEn.value.trim()) throw new Error("Agrega también la descripción en inglés para que la ficha esté completa.");
+      }
       const original = properties.find((item) => item.id === form.elements.id.value);
       const body = {
         id: form.elements.id.value,
         title: form.elements.title.value,
+        titleEn: form.elements.titleEn.value,
         summary: form.elements.summary.value,
+        summaryEn: form.elements.summaryEn.value,
         department: form.elements.department.value,
+        departmentEn: form.elements.departmentEn.value,
         city: form.elements.city.value,
+        cityEn: form.elements.cityEn.value,
         type: form.elements.type.value,
+        typeEn: form.elements.typeEn.value,
         price: form.elements.price.value,
         bedrooms: form.elements.bedrooms.value,
         bathrooms: form.elements.bathrooms.value,
         area: form.elements.area.value,
         details: form.elements.details.value,
+        detailsEn: form.elements.detailsEn.value,
         removeImages: ((original && original.images) || []).filter((src) => !currentImages.includes(src)),
         imageOrder: currentImages,
         images: await Promise.all(files.map(readImage))
