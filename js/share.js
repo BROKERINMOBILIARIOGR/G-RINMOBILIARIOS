@@ -30,6 +30,12 @@
     }
   });
 
+  window.sharePageUrl = (collection, identifier, image) => {
+    const url = new URL(`compartir/${collection}/${encodeURIComponent(identifier)}.html`, window.location.href);
+    url.searchParams.set("v", image || "logo.jpeg");
+    return url.href;
+  };
+
   window.createShareActions = (title, url) => {
     const actions = document.createElement("div");
     actions.className = "share-actions";

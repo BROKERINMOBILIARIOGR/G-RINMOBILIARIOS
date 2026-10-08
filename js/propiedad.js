@@ -39,7 +39,10 @@
         characteristics.append(heading, list);
       } else characteristics.hidden = true;
       document.getElementById("share-propiedad").replaceChildren(
-        window.createShareActions(property.title || "Propiedad en venta", window.location.href)
+        window.createShareActions(
+          property.title || "Propiedad en venta",
+          window.sharePageUrl("propiedades", property.id, (property.images || [])[0])
+        )
       );
       const message = "Hola, quisiera más información sobre la propiedad " + property.title + ".";
       document.getElementById("contactar-propiedad").href = "https://wa.me/573243716454?text=" + encodeURIComponent(message);

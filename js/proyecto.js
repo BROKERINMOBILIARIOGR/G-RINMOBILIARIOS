@@ -42,7 +42,10 @@
       }
 
       document.getElementById("share-proyecto").replaceChildren(
-        window.createShareActions(project.title || "Proyecto inmobiliario", window.location.href)
+        window.createShareActions(
+          project.title || "Proyecto inmobiliario",
+          window.sharePageUrl("proyectos", project.id, (project.images || [])[0])
+        )
       );
       const message = `Hola, quisiera más información sobre ${project.title}.`;
       document.getElementById("contactar-proyecto").href = `https://wa.me/573243716454?text=${encodeURIComponent(message)}`;

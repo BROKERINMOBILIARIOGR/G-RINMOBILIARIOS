@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import base64
 from contextlib import contextmanager
+import html
 import hashlib
 import hmac
 import json
@@ -132,6 +133,84 @@ def write_properties(properties: list[dict]) -> bytes:
     content = (json.dumps(properties, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     PROPERTIES_FILE.write_bytes(content)
     return content
+
+
+def social_share_page_path(collection: str, identifier: str) -> str:
+    if collection not in ("proyectos", "propiedades") or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", identifier):
+        raise ValueError("No se puede crear la vista previa de esta ficha.")
+    return f"compartir/{collection}/{identifier}.html"
+
+
+def social_share_pages(items: list[dict], collection: str) -> dict[str, bytes]:
+    read_dotenv()
+    site_url = os.environ.get(
+        "PUBLIC_SITE_URL", "https://brokerinmobiliariogr.github.io/G-RINMOBILIARIOS/"
+    ).rstrip("/") + "/"
+    detail_file = "proyecto.html" if collection == "proyectos" else "propiedad.html"
+    pages = {}
+    for item in items:
+        identifier = str(item.get("id", ""))
+        path = social_share_page_path(collection, identifier)
+        title = str(item.get("title") or ("Proyecto inmobiliario" if collection == "proyectos" else "Propiedad en venta"))
+        description = str(item.get("summary") or item.get("details") or title).strip()[:300]
+        image = "logo.jpeg"
+        for candidate in item.get("images", []):
+            relative = Path(str(candidate).replace("\\", "/"))
+            if (not relative.is_absolute() and ".." not in relative.parts
+                    and relative.parts and relative.parts[0] == "Images"):
+                image = relative.as_posix()
+                break
+        share_url = urllib.parse.urljoin(site_url, path) + "?" + urllib.parse.urlencode({"v": image})
+        image_url = urllib.parse.urljoin(site_url, urllib.parse.quote(image, safe="/"))
+        detail_url = urllib.parse.urljoin(
+            site_url, detail_file + "?" + urllib.parse.urlencode({"id": identifier})
+        )
+        safe_title = html.escape(title, quote=True)
+        safe_description = html.escape(description, quote=True)
+        safe_share_url = html.escape(share_url, quote=True)
+        safe_image_url = html.escape(image_url, quote=True)
+        safe_detail_url = html.escape(detail_url, quote=True)
+        redirect_url = json.dumps(detail_url, ensure_ascii=True).replace("</", "<\\/")
+        page = f"""<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{safe_title} | Broker Inmobiliario G&amp;R</title>
+  <meta name="description" content="{safe_description}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Broker Inmobiliario G&amp;R">
+  <meta property="og:title" content="{safe_title}">
+  <meta property="og:description" content="{safe_description}">
+  <meta property="og:url" content="{safe_share_url}">
+  <meta property="og:image" content="{safe_image_url}">
+  <meta property="og:image:alt" content="{safe_title}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{safe_title}">
+  <meta name="twitter:description" content="{safe_description}">
+  <meta name="twitter:image" content="{safe_image_url}">
+  <script>window.location.replace({redirect_url});</script>
+</head>
+<body>
+  <main>
+    <img src="{safe_image_url}" alt="{safe_title}" style="max-width:100%;height:auto">
+    <h1>{safe_title}</h1>
+    <p>{safe_description}</p>
+    <a href="{safe_detail_url}">Ver ficha</a>
+  </main>
+</body>
+</html>
+"""
+        pages[path] = page.encode("utf-8")
+    return pages
+
+
+def write_social_share_pages(pages: dict[str, bytes]) -> None:
+    for relative, content in pages.items():
+        target = (ROOT / relative).resolve()
+        target.relative_to((ROOT / "compartir").resolve())
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(content)
 
 
 def github_request(path: str, method: str = "GET", payload: dict | None = None):
@@ -322,6 +401,12 @@ class Handler(BaseHTTPRequestHandler):
                 files = {"data/proyectos.json": PROJECTS_FILE.read_bytes()}
                 if PROPERTIES_FILE.exists():
                     files["data/propiedades.json"] = PROPERTIES_FILE.read_bytes()
+                share_pages = {
+                    **social_share_pages(safe_json_projects(), "proyectos"),
+                    **social_share_pages(safe_json_properties(), "propiedades"),
+                }
+                write_social_share_pages(share_pages)
+                files.update(share_pages)
                 for image_root in (IMAGE_DIR, PROPERTY_IMAGE_DIR):
                     for image in image_root.rglob("*") if image_root.exists() else []:
                         if image.is_file():
@@ -380,8 +465,15 @@ class Handler(BaseHTTPRequestHandler):
                     continue
                 image_paths.append(relative.as_posix())
             content = (json.dumps(remaining, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
-            commit = publish_files({"data/proyectos.json": content}, deletions=image_paths)
+            share_path = social_share_page_path("proyectos", identifier)
+            commit = publish_files({"data/proyectos.json": content}, deletions=[*image_paths, share_path])
             PROJECTS_FILE.write_bytes(content)
+            share_file = (ROOT / share_path).resolve()
+            try:
+                share_file.relative_to((ROOT / "compartir" / "proyectos").resolve())
+                share_file.unlink(missing_ok=True)
+            except (OSError, ValueError):
+                pass
             for relative in image_paths:
                 image_file = (ROOT / relative).resolve()
                 try:
@@ -410,8 +502,15 @@ class Handler(BaseHTTPRequestHandler):
                         and len(parts) == 4 and parts[:3] == ["Images", "propiedades", identifier]):
                     deletions.append(path.as_posix())
             content = (json.dumps(remaining, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
-            commit = publish_files({"data/propiedades.json": content}, deletions=deletions)
+            share_path = social_share_page_path("propiedades", identifier)
+            commit = publish_files({"data/propiedades.json": content}, deletions=[*deletions, share_path])
             PROPERTIES_FILE.write_bytes(content)
+            share_file = (ROOT / share_path).resolve()
+            try:
+                share_file.relative_to((ROOT / "compartir" / "propiedades").resolve())
+                share_file.unlink(missing_ok=True)
+            except (OSError, ValueError):
+                pass
             for relative in deletions:
                 image_file = (ROOT / relative).resolve()
                 try:
@@ -549,10 +648,15 @@ class Handler(BaseHTTPRequestHandler):
             path for path in remove_images
             if path not in still_used and Path(path).as_posix().split("/")[0] == "Images"
         ]
+        share_pages = social_share_pages(projects, "proyectos")
+        write_social_share_pages(share_pages)
         previous_projects = PROJECTS_FILE.read_bytes() if PROJECTS_FILE.exists() else b"[]\n"
         json_bytes = write_projects(projects)
         try:
-            commit = publish_files({"data/proyectos.json": json_bytes, **image_files}, deletions=physical_deletions)
+            commit = publish_files(
+                {"data/proyectos.json": json_bytes, **image_files, **share_pages},
+                deletions=physical_deletions,
+            )
             for relative in physical_deletions:
                 image_file = (ROOT / relative).resolve()
                 try:
@@ -641,6 +745,8 @@ class Handler(BaseHTTPRequestHandler):
         still_used = {str(path) for entry in properties for path in entry.get("images", [])}
         deletions = [path for path in remove_images if path not in still_used
                      and Path(path).as_posix().split("/")[:3] == ["Images", "propiedades", identifier]]
+        share_pages = social_share_pages(properties, "propiedades")
+        write_social_share_pages(share_pages)
         previous = PROPERTIES_FILE.read_bytes() if PROPERTIES_FILE.exists() else b"[]\n"
         content = write_properties(properties)
         try:
@@ -648,7 +754,10 @@ class Handler(BaseHTTPRequestHandler):
                 destination = ROOT / relative
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 destination.write_bytes(binary)
-            commit = publish_files({"data/propiedades.json": content, **image_files}, deletions=deletions)
+            commit = publish_files(
+                {"data/propiedades.json": content, **image_files, **share_pages},
+                deletions=deletions,
+            )
             for relative in deletions:
                 try:
                     target = (ROOT / relative).resolve()
@@ -659,6 +768,7 @@ class Handler(BaseHTTPRequestHandler):
             return self.reply(200, {"saved": True, "published": True, "commit": commit, "property": item})
         except Exception as error:
             PROPERTIES_FILE.write_bytes(previous)
+            write_social_share_pages(social_share_pages(safe_json_properties(), "propiedades"))
             return self.reply(202, {"saved": False, "published": False,
                                     "error": f"No se pudo publicar la propiedad en GitHub: {error}"})
 
