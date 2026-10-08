@@ -42,9 +42,10 @@
     document.getElementById("user-controls").hidden = true;
   }
 
-  document.getElementById("login-form").addEventListener("submit", async (event) => {
+  const loginForm = document.getElementById("login-form");
+  loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+    const form = new FormData(loginForm);
     const message = document.getElementById("login-message");
     message.textContent = "Verificando acceso…";
     try {
@@ -52,7 +53,7 @@
         username: form.get("username"), password: form.get("password")
       }) });
       sessionStorage.setItem(tokenKey, result.token);
-      event.currentTarget.reset();
+      loginForm.reset();
       message.textContent = "";
       setLoggedIn(result.user);
     } catch (error) { message.textContent = error.message; }
