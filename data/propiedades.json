@@ -177,5 +177,25 @@
     "bedrooms": 3,
     "bathrooms": 2,
     "area": 105
+  },
+  {
+    "id": "casa-en-villa-nelly",
+    "images": [
+      "Images/propiedades/casa-en-villa-nelly/68ce0195ce7f4c7080673a090ed3a42f.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/3aa0a16a7c024d21914099abfa0590af.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/b2aebb47821e4bccb6e9ee065e624f07.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/944848ccfc4f4be7917d0c730b6676c4.jpeg",
+      "Images/propiedades/casa-en-villa-nelly/dcd0dea7758943a796f2359aa2369177.jpeg"
+    ],
+    "title": "Casa en Villa Nelly",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Casa",
+    "price": 163000001,
+    "summary": "Se vende casa en villa nelly etapa 1",
+    "details": "Casa en Villa Nelly con escritura pública, gas natural, acueducto, alcantarillado. Vias pavimentadas. Entrada a via peatonal; un primer piso. Estrato 2",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "area": 72
   }
 ]
