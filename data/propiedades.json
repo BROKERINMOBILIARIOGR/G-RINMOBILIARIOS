@@ -124,5 +124,25 @@
     "bedrooms": 0,
     "bathrooms": 0,
     "area": 60
+  },
+  {
+    "id": "lote-35-y-36",
+    "images": [
+      "Images/propiedades/lote-35-y-36/f120e3639d5c4f7494d46ce2bcbaf378.jpeg",
+      "Images/propiedades/lote-35-y-36/d36d8dce9cd04ae2b9f4f6ad71ef9459.jpeg",
+      "Images/propiedades/lote-35-y-36/35dd06184798422cb2ffaf8ff98a0afb.jpeg",
+      "Images/propiedades/lote-35-y-36/969e39d05e554fa2a972ff8123a8d4b2.jpeg",
+      "Images/propiedades/lote-35-y-36/13cdd151bc284bc18e7499402a365e3a.jpeg"
+    ],
+    "title": "Lote 35 y 36",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 41000001,
+    "summary": "Se rematan lotes",
+    "details": "Se vende lote 35 y 36 por aparte. ubicados en la urbanization Caracolí en el municipio del carmen de apical. cada lote tiene una superficie de 732 metros cuadrados. La urbanización cuenta con piscina y zonas sociales.",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72
   }
 ]
