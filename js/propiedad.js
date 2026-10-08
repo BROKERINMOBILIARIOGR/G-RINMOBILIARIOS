@@ -38,10 +38,12 @@
         items.forEach((text) => { const li = document.createElement("li"); li.textContent = text; list.append(li); });
         characteristics.append(heading, list);
       } else characteristics.hidden = true;
+      const shareImage = (property.images || [])[0];
       document.getElementById("share-propiedad").replaceChildren(
         window.createShareActions(
           property.title || "Propiedad en venta",
-          window.sharePageUrl("propiedades", property.id, (property.images || [])[0])
+          window.sharePageUrl("propiedades", property.id, shareImage),
+          shareImage
         )
       );
       const message = "Hola, quisiera más información sobre la propiedad " + property.title + ".";

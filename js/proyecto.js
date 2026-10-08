@@ -41,10 +41,12 @@
         document.getElementById("seccion-caracteristicas").hidden = false;
       }
 
+      const shareImage = (project.images || [])[0];
       document.getElementById("share-proyecto").replaceChildren(
         window.createShareActions(
           project.title || "Proyecto inmobiliario",
-          window.sharePageUrl("proyectos", project.id, (project.images || [])[0])
+          window.sharePageUrl("proyectos", project.id, shareImage),
+          shareImage
         )
       );
       const message = `Hola, quisiera más información sobre ${project.title}.`;

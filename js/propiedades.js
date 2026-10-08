@@ -34,8 +34,9 @@
       link.className = "btn-ver";
       link.href = `propiedad.html?id=${encodeURIComponent(property.id)}`;
       link.textContent = "Ver más";
-      const shareUrl = window.sharePageUrl("propiedades", property.id, (property.images || [])[0]);
-      const share = window.createShareActions(property.title || "Propiedad en venta", shareUrl);
+      const shareImage = (property.images || [])[0];
+      const shareUrl = window.sharePageUrl("propiedades", property.id, shareImage);
+      const share = window.createShareActions(property.title || "Propiedad en venta", shareUrl, shareImage);
       card.append(price, image, title, type, location, summary, link, share);
       grid.append(card);
     });

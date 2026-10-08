@@ -32,8 +32,9 @@
         link.className = "card-proyecto-link";
         link.href = `proyecto.html?id=${encodeURIComponent(project.id)}`;
         link.append(image, title, summary, gallery);
-        const shareUrl = window.sharePageUrl("proyectos", project.id, (project.images || [])[0]);
-        const share = window.createShareActions(project.title || "Proyecto inmobiliario", shareUrl);
+        const shareImage = (project.images || [])[0];
+        const shareUrl = window.sharePageUrl("proyectos", project.id, shareImage);
+        const share = window.createShareActions(project.title || "Proyecto inmobiliario", shareUrl, shareImage);
         card.append(link, share);
         root.append(card);
       });

@@ -19,8 +19,9 @@
     prompt.className = "ver-detalle";
     prompt.textContent = "Ver detalles ↗";
     link.append(image, title, summary, prompt);
-    const shareUrl = window.sharePageUrl("proyectos", project.id, (project.images || [])[0]);
-    const share = window.createShareActions(project.title || "Proyecto inmobiliario", shareUrl);
+    const shareImage = (project.images || [])[0];
+    const shareUrl = window.sharePageUrl("proyectos", project.id, shareImage);
+    const share = window.createShareActions(project.title || "Proyecto inmobiliario", shareUrl, shareImage);
     card.append(link, share);
     return card;
   }
