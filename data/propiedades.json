@@ -107,5 +107,22 @@
     "bedrooms": 3,
     "bathrooms": 1,
     "area": 0
+  },
+  {
+    "id": "lote-7249aa",
+    "images": [
+      "Images/propiedades/lote-7249aa/933c08cf7f6446d98c7d7cdd7900e408.jpeg",
+      "Images/propiedades/lote-7249aa/afbcf2b614b14ace8b625b65b31eed9e.jpeg"
+    ],
+    "title": "Lote",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 38000001,
+    "summary": "Lote urbano",
+    "details": "Se remata lote urbano ubicado cerca de la brio del Carmen de Apicalá. cuenta con acueducto, alcantarillado y luz. escritura pública individual",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 60
   }
 ]
