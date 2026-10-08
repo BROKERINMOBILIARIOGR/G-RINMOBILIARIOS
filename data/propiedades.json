@@ -44,5 +44,22 @@
     "bedrooms": 3,
     "bathrooms": 0,
     "area": 0
+  },
+  {
+    "id": "lote",
+    "images": [
+      "Images/propiedades/lote/d2789f476fb8431a9d2cf8aa7336bb69.jpg",
+      "Images/propiedades/lote/514216177bce438fb8a7721bdc18dd27.jpg"
+    ],
+    "title": "Lote",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 43000001,
+    "summary": "Se vende lote 6*12",
+    "details": "Lote de 6*12 con vias pavimentadas, alcantarillado, luz, acueducto y escritura publica individual",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 43
   }
 ]
