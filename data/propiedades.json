@@ -1,30 +1,88 @@
 [
   {
-    "id": "casa-campestre-moderna",
-    "title": "Casa campestre moderna",
+    "id": "casa-en-altos-de-arenitas",
+    "images": [
+      "Images/propiedades/casa-en-altos-de-arenitas/dd15098f2dd444b5a3229b9274e9e935.jpg",
+      "Images/propiedades/casa-en-altos-de-arenitas/a2697e470cd340f288d69580b3f603c3.jpg",
+      "Images/propiedades/casa-en-altos-de-arenitas/b26a5ce6b76b4738a42f587ca1191278.jpg"
+    ],
+    "title": "Casa en Altos de arenitas",
     "department": "Tolima",
-    "city": "Melgar",
+    "city": "Carmen de apicala",
     "type": "Casa",
-    "price": 180000000,
-    "summary": "Casa campestre en Melgar.",
-    "details": "",
-    "bedrooms": 0,
+    "price": 160000001,
+    "summary": "Altos de arenitas\nEstrato 2",
+    "details": "Frente 17.50\nLado 12 \nAtrás 10\nArea irregular.\n3 habitaciones\nAparta estudio sótano ( 6x7) habitación, con baño, conciba, patio se arrienda por $380\nTiene tanque subterráneo de 3000 litros para comprarle hidro.\nAceituna una sola persona.\nPatio y plancha de 3 metros irregulares.\nCon los 3 servicios agua, energía y gas natural.",
+    "bedrooms": 3,
     "bathrooms": 0,
-    "area": 0,
-    "images": []
+    "area": 120
   },
   {
-    "id": "apartamento-central",
-    "title": "Apartamento central",
-    "department": "Cundinamarca",
-    "city": "Girardot",
-    "type": "Apartamento",
-    "price": 120000000,
-    "summary": "Apartamento en el centro de Girardot.",
-    "details": "",
+    "id": "lote",
+    "images": [
+      "Images/propiedades/lote/d2789f476fb8431a9d2cf8aa7336bb69.jpg",
+      "Images/propiedades/lote/514216177bce438fb8a7721bdc18dd27.jpg"
+    ],
+    "title": "Lote",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 43000001,
+    "summary": "Se vende lote 6*12",
+    "details": "Lote de 6*12 con vias pavimentadas, alcantarillado, luz, acueducto y escritura publica individual",
     "bedrooms": 0,
     "bathrooms": 0,
-    "area": 0,
-    "images": []
+    "area": 43
+  },
+  {
+    "id": "lote-urbano",
+    "images": [
+      "Images/propiedades/lote-urbano/00d49c4b740f4509b63def0889b0a63f.jpg"
+    ],
+    "title": "Lote urbano",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 38000001,
+    "summary": "Lote urbano en altos de arenitas",
+    "details": "Se vende lote en la urbanización Altos De Arenitas.\ncuenta con luz, agua, alcantarillado y vias pavimentadas.\nTambien escritura pública individual",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72
+  },
+  {
+    "id": "lote-en-villa-hanna",
+    "images": [
+      "Images/propiedades/lote-en-villa-hanna/a2535da705f44d94b7aed9afe539e296.jpeg",
+      "Images/propiedades/lote-en-villa-hanna/50e5855134054cd3a9faa8fe240f7cc0.jpeg",
+      "Images/propiedades/lote-en-villa-hanna/05b7b89f3bc443b9957323f3b2e01451.jpeg"
+    ],
+    "title": "Lote en Villa Hanna",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 38000001,
+    "summary": "Lote en el condominio Villa Hanna. se sigue fachada.",
+    "details": "Lote en condominio Villa Hanna a 10 minutos del pueblo. se sigue fachada del conjunto para construir. cuenta con agua, luz y alcantarillado. escritura publica individual",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72
+  },
+  {
+    "id": "casa-lote",
+    "images": [
+      "Images/propiedades/casa-lote/2ea495a363d0476ab69a34091bc17285.jpeg",
+      "Images/propiedades/casa-lote/3c7a0d570e3d4e44b1c00c9d361292fb.jpeg"
+    ],
+    "title": "Casa Lote",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 115000001,
+    "summary": "Casa Lote ubicada en la Urbanización El Lago",
+    "details": "Se vende casa lote con escritura pública a 10 minutos del parque; cuenta con agua, alcantarillado y luz. paredes levantadas y piso de concreto",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 100
   }
 ]
