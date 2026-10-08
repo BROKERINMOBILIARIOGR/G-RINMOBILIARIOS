@@ -79,7 +79,7 @@
     const text = `${title} ${url}`;
     options.append(
       makeLink("WhatsApp", `https://wa.me/?text=${encodeURIComponent(text)}`, "share-whatsapp"),
-      makeLink("Facebook", `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(title)}`, "share-facebook")
+      makeLink("Facebook", `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, "share-facebook")
     );
 
     const instagram = document.createElement("button");
