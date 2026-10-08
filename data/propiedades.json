@@ -77,5 +77,23 @@
     "bedrooms": 0,
     "bathrooms": 0,
     "area": 72
+  },
+  {
+    "id": "lote-en-villa-hanna",
+    "images": [
+      "Images/propiedades/lote-en-villa-hanna/a2535da705f44d94b7aed9afe539e296.jpeg",
+      "Images/propiedades/lote-en-villa-hanna/50e5855134054cd3a9faa8fe240f7cc0.jpeg",
+      "Images/propiedades/lote-en-villa-hanna/05b7b89f3bc443b9957323f3b2e01451.jpeg"
+    ],
+    "title": "Lote en Villa Hanna",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 38000001,
+    "summary": "Lote en el condominio Villa Hanna. se sigue fachada.",
+    "details": "Lote en condominio Villa Hanna a 10 minutos del pueblo. se sigue fachada del conjunto para construir. cuenta con agua, luz y alcantarillado. escritura publica individual",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72
   }
 ]
