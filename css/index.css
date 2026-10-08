@@ -22,6 +22,22 @@
     gap: 20px;
 }
 
+#proyectos-destacados .card-proyecto-link,
+#proyectos-destacados .card-proyecto-link:visited {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+#proyectos-destacados .card-proyecto-link h3 {
+    color: #202a25;
+}
+
+#proyectos-destacados .card-proyecto-link p {
+    color: #1f4f3a;
+    text-decoration: none;
+}
+
 /* =====================================================
    SECCIÓN PROYECTOS (GRID VISUAL MÁS LIMPIO)
 ===================================================== */
