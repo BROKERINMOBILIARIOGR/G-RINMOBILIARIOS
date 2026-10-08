@@ -95,5 +95,22 @@
     "bedrooms": 0,
     "bathrooms": 0,
     "area": 72
+  },
+  {
+    "id": "casa-lote",
+    "images": [
+      "Images/propiedades/casa-lote/2ea495a363d0476ab69a34091bc17285.jpeg",
+      "Images/propiedades/casa-lote/3c7a0d570e3d4e44b1c00c9d361292fb.jpeg"
+    ],
+    "title": "Casa Lote",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 115000001,
+    "summary": "Casa Lote ubicada en la Urbanización El Lago",
+    "details": "Se vende casa lote con escritura pública a 10 minutos del parque; cuenta con agua, alcantarillado y luz. paredes levantadas y piso de concreto",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 100
   }
 ]
