@@ -97,29 +97,6 @@
     const text = `${title} ${url}`;
     const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
     const whatsapp = makeLink("WhatsApp", whatsappUrl, "share-whatsapp");
-    whatsapp.addEventListener("click", async (event) => {
-      if (!image || !navigator.share || !navigator.canShare) return;
-      event.preventDefault();
-      closeMenu(actions);
-      try {
-        const imageUrl = new URL(image, document.baseURI);
-        const response = await fetch(imageUrl);
-        if (!response.ok) throw new Error("No se pudo cargar la imagen");
-        const blob = await response.blob();
-        const file = new File([blob], imageUrl.pathname.split("/").pop() || "propiedad.jpg", {
-          type: blob.type || "image/jpeg"
-        });
-        if (!navigator.canShare({ files: [file] })) {
-          window.location.assign(whatsappUrl);
-          return;
-        }
-        await navigator.share({ files: [file], text: `${title}\n${url}` });
-      } catch (error) {
-        if (error.name === "AbortError") return;
-        status.textContent = window.siteLanguage?.() === "en" ? "Could not attach the photo. Use this link to share it: " : "No se pudo adjuntar la foto. Usa este enlace para compartirla: ";
-        status.append(makeLink(window.siteLanguage?.() === "en" ? "Open WhatsApp" : "Abrir WhatsApp", whatsappUrl, "share-whatsapp"));
-      }
-    });
     options.append(
       whatsapp,
       makeLink("Facebook", `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, "share-facebook")
