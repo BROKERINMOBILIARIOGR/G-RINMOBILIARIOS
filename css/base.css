@@ -332,3 +332,11 @@ footer {
 .footer-social .btn-whatsapp:hover {
     transform: translateY(-2px);
 }
+
+
+.catalog-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
