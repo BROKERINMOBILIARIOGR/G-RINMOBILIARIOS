@@ -45,7 +45,7 @@ Instala Tailscale desde su [sitio oficial](https://tailscale.com/download) e ini
 
 1. Con el panel abierto, inicia PowerShell y ejecuta `tailscale serve 8765`. Tailscale mostrará la dirección HTTPS privada del equipo. Los trabajadores podrán abrirla desde cualquier red si tienen Tailscale conectado.
 2. Para trabajadores que no puedan instalar Tailscale, se puede usar Funnel con `tailscale funnel 8765`. Esto crea una dirección HTTPS accesible desde Internet; cualquier persona puede llegar a la pantalla de inicio de sesión. Cada persona necesita su propio usuario y contraseña del panel. Consulta [Tailscale Funnel](https://tailscale.com/docs/features/tailscale-funnel).
-3. Conserva la dirección HTTPS que elijas y compártela con el equipo. Mientras Tailscale no esté configurado, usa desde el teléfono conectado al mismo Wi-Fi la dirección local que muestra la ventana del panel.
+3. Mientras Tailscale no esté configurado, usa desde el teléfono conectado al mismo Wi-Fi la dirección local que muestra la ventana del panel. Cuando configures la dirección HTTPS, sustituye el enlace provisional `https://CONFIGURA-TU-EQUIPO.ts.net` en `index.html`, `proyectos.html` y `proyecto.html`, conservando `/admin/`, y publica esos cambios desde GitHub Desktop.
 
 No hace falta abrir puertos del router. El computador, el panel y Tailscale deben estar activos para recibir cargas. El sitio público ya publicado seguirá funcionando cuando el computador se apague.
 
