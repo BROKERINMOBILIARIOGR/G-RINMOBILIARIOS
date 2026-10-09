@@ -205,6 +205,108 @@ def social_share_pages(items: list[dict], collection: str) -> dict[str, bytes]:
     return pages
 
 
+def analytics_report(days: int) -> dict:
+    read_dotenv()
+    property_id = os.environ.get("GA4_PROPERTY_ID", "").strip()
+    credentials_path = Path(os.environ.get(
+        "GA4_SERVICE_ACCOUNT_FILE", ".local/ga4-service-account.json"
+    ))
+    if not credentials_path.is_absolute():
+        credentials_path = ROOT / credentials_path
+    if not property_id or property_id.startswith("PEGA_AQUI"):
+        raise RuntimeError("Falta configurar el ID de Google Analytics en .env.admin.")
+    if not credentials_path.is_file():
+        raise RuntimeError("Falta el archivo privado de acceso a Google Analytics en .local.")
+    try:
+        from google.analytics.data_v1beta import BetaAnalyticsDataClient
+        from google.analytics.data_v1beta.types import DateRange, Dimension, Metric, RunReportRequest
+        from google.oauth2 import service_account
+    except ImportError as error:
+        raise RuntimeError("Falta instalar el conector de Google Analytics. Sigue la guía del panel.") from error
+
+    credentials = service_account.Credentials.from_service_account_file(
+        str(credentials_path),
+        scopes=["https://www.googleapis.com/auth/analytics.readonly"],
+    )
+    client = BetaAnalyticsDataClient(credentials=credentials)
+    date_ranges = [DateRange(start_date=f"{days - 1}daysAgo", end_date="today")]
+    property_name = f"properties/{property_id}"
+
+    def report(dimensions: list[str], metrics: list[str]):
+        request = RunReportRequest(
+            property=property_name,
+            date_ranges=date_ranges,
+            dimensions=[Dimension(name=name) for name in dimensions],
+            metrics=[Metric(name=name) for name in metrics],
+            limit=10000,
+        )
+        return client.run_report(request)
+
+    overview_response = report([], ["activeUsers", "sessions", "screenPageViews"])
+    overview_values = overview_response.rows[0].metric_values if overview_response.rows else []
+    overview = {
+        "activeUsers": int(overview_values[0].value) if len(overview_values) > 0 else 0,
+        "sessions": int(overview_values[1].value) if len(overview_values) > 1 else 0,
+        "pageViews": int(overview_values[2].value) if len(overview_values) > 2 else 0,
+        "contacts": 0,
+    }
+
+    listings = {}
+    for kind, collection in (("proj", safe_json_projects()), ("prop", safe_json_properties())):
+        for item in collection:
+            identifier = str(item.get("id", ""))
+            slug = re.sub(r"[^a-z0-9_]", "_", identifier.lower())
+            slug = re.sub(r"_+", "_", slug).strip("_")[:26]
+            listings[(kind, identifier)] = {"name": str(item.get("title") or identifier), "slug": slug}
+
+    page_response = report(["pagePathPlusQueryString"], ["screenPageViews", "activeUsers"])
+    view_totals: dict[str, dict] = {}
+    for row in page_response.rows:
+        page_path = row.dimension_values[0].value
+        parsed = urllib.parse.urlsplit(page_path)
+        if parsed.path.rstrip("/").endswith("/proyecto.html"):
+            kind = "proj"
+        elif parsed.path.rstrip("/").endswith("/propiedad.html"):
+            kind = "prop"
+        else:
+            continue
+        identifier = urllib.parse.parse_qs(parsed.query).get("id", [""])[0]
+        if not identifier:
+            continue
+        current = view_totals.setdefault((kind, identifier), {"count": 0, "people": 0})
+        current["count"] += int(row.metric_values[0].value)
+        current["people"] += int(row.metric_values[1].value)
+
+    top_views = [
+        {"id": identifier, "name": listings.get((kind, identifier), {}).get("name", identifier), **values}
+        for (kind, identifier), values in view_totals.items()
+    ]
+    top_views.sort(key=lambda item: item["count"], reverse=True)
+
+    events_response = report(["eventName"], ["eventCount"])
+    clicks: dict[tuple[str, str], int] = {}
+    for row in events_response.rows:
+        event_name = row.dimension_values[0].value
+        count = int(row.metric_values[0].value)
+        if event_name.startswith("ad_c_proj_") or event_name.startswith("ad_c_prop_"):
+            kind = "proj" if event_name.startswith("ad_c_proj_") else "prop"
+            prefix = f"ad_c_{kind}_"
+            slug = event_name.removeprefix(prefix)
+            identifier = next((key for (item_kind, key), value in listings.items()
+                               if item_kind == kind and value["slug"] == slug), slug)
+            key = (kind, identifier)
+            clicks[key] = clicks.get(key, 0) + count
+        elif event_name.startswith("ad_w_proj_") or event_name.startswith("ad_w_prop_") or event_name == "contact_click":
+            overview["contacts"] += count
+
+    top_clicks = [
+        {"id": identifier, "name": listings.get((kind, identifier), {}).get("name", identifier), "count": count}
+        for (kind, identifier), count in clicks.items()
+    ]
+    top_clicks.sort(key=lambda item: item["count"], reverse=True)
+    return {"days": days, "overview": overview, "topViews": top_views[:10], "topClicks": top_clicks[:10]}
+
+
 def write_social_share_pages(pages: dict[str, bytes]) -> None:
     for relative, content in pages.items():
         target = (ROOT / relative).resolve()
@@ -352,6 +454,21 @@ class Handler(BaseHTTPRequestHandler):
             except (OSError, json.JSONDecodeError):
                 translations = {}
             return self.reply(200, {"translations": translations})
+        if path == "/api/analytics":
+            if not self.user():
+                return self.reply(401, {"error": "Inicia sesión para continuar."})
+            try:
+                days = int(urllib.parse.parse_qs(urllib.parse.urlsplit(self.path).query).get("days", ["30"])[0])
+            except (TypeError, ValueError):
+                return self.reply(400, {"error": "Elige un periodo válido: 7, 30 o 90 días."})
+            if days not in (7, 30, 90):
+                return self.reply(400, {"error": "Elige un periodo válido: 7, 30 o 90 días."})
+            try:
+                return self.reply(200, analytics_report(days))
+            except RuntimeError as error:
+                return self.reply(503, {"error": str(error)})
+            except Exception:
+                return self.reply(502, {"error": "Google Analytics no respondió. Revisa el ID de propiedad y el acceso de solo lectura de la cuenta de servicio."})
         if path == "/api/me":
             user = self.user()
             return self.reply(200, {"user": user}) if user else self.reply(401, {"error": "Inicia sesión para continuar."})

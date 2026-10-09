@@ -35,6 +35,24 @@ textarea { resize: vertical; }
 .project-row p { margin: 0; color: var(--muted); }
 .project-row .button { min-width: 100px; }
 .project-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.analytics-panel { margin-top: 28px; }
+.analytics-heading { display: flex; justify-content: space-between; align-items: end; gap: 18px; }
+.analytics-heading h2 { margin-bottom: 0; }
+.analytics-controls { display: flex; align-items: center; gap: 8px; }
+.analytics-controls label { margin: 0; color: var(--muted); font-size: .9rem; }
+.analytics-controls select { width: auto; min-width: 150px; }
+.analytics-summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+.analytics-card { padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: #f8faf8; }
+.analytics-card span { display: block; color: var(--muted); font-size: .9rem; }
+.analytics-card strong { display: block; margin-top: 4px; color: var(--green); font-size: 1.65rem; }
+.analytics-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.analytics-tables h3 { margin: 0 0 8px; font-size: 1rem; }
+.table-scroll { overflow-x: auto; }
+.analytics-tables table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.analytics-tables th, .analytics-tables td { padding: 9px 8px; border-bottom: 1px solid var(--line); text-align: left; }
+.analytics-tables th:not(:first-child), .analytics-tables td:not(:first-child) { text-align: right; white-space: nowrap; }
+.analytics-note { margin: 14px 0 0; color: var(--muted); font-size: .84rem; }
+.analytics-empty { color: var(--muted); }
 .workers-panel { margin-top: 34px; }
 .worker-form { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: end; }
 .worker-form label { margin: 0; }
@@ -71,6 +89,10 @@ footer { padding: 34px 0 0; color: var(--muted); text-align: center; font-size: 
   .project-row img { width: 70px; height: 62px; }
   .project-row > .project-actions { grid-column: 2; justify-self: start; }
   .worker-form, .two-columns { grid-template-columns: 1fr; }
+  .analytics-heading, .analytics-controls { align-items: stretch; flex-direction: column; }
+  .analytics-controls select { width: 100%; }
+  .analytics-summary { grid-template-columns: 1fr 1fr; }
+  .analytics-tables { grid-template-columns: 1fr; }
   .brand span { display: block; margin: 0; font-size: .8rem; }
   .user-controls { align-items: end; flex-direction: column; gap: 2px; font-size: .8rem; }
 }
