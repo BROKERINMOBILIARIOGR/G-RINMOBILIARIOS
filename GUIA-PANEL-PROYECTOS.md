@@ -35,11 +35,9 @@ La medición de fichas y clics comienza cuando se publique el seguimiento actual
 
 ## 3. Acceder desde teléfonos en el mismo Wi-Fi
 
-La versión anterior solo aceptaba conexiones del propio computador. Para permitir la red local, reemplaza `admin_server.py` por la versión actualizada de este paquete. No compartas `.env.admin`.
-
 1. Inicia `iniciar-panel.bat`. Si Windows muestra una alerta de Firewall, permite el acceso en **redes privadas**; no lo habilites en redes públicas.
-2. En la ventana negra aparecerá una dirección como `http://192.168.1.20:8765/admin/`. En el teléfono conectado al mismo Wi-Fi, abre esa dirección. La IP será distinta en cada red.
-3. Si no aparece la alerta y no abre, revisa en Windows Defender Firewall que Python pueda recibir conexiones en redes privadas. No abras el puerto del router.
+2. En la ventana negra aparecerá una dirección como `http://192.168.1.20:8765/admin/`. En el teléfono conectado al mismo Wi-Fi, abre esa dirección. La IP puede cambiar al conectarse a otra red.
+3. Si no abre, revisa en Windows Defender Firewall que Python pueda recibir conexiones en redes privadas. No abras el puerto del router.
 
 ## 4. Acceder desde otra red con Tailscale
 
@@ -47,7 +45,7 @@ Instala Tailscale desde su [sitio oficial](https://tailscale.com/download) e ini
 
 1. Con el panel abierto, inicia PowerShell y ejecuta `tailscale serve 8765`. Tailscale mostrará la dirección HTTPS privada del equipo. Los trabajadores podrán abrirla desde cualquier red si tienen Tailscale conectado.
 2. Para trabajadores que no puedan instalar Tailscale, se puede usar Funnel con `tailscale funnel 8765`. Esto crea una dirección HTTPS accesible desde Internet; cualquier persona puede llegar a la pantalla de inicio de sesión. Cada persona necesita su propio usuario y contraseña del panel. Consulta [Tailscale Funnel](https://tailscale.com/docs/features/tailscale-funnel).
-3. Conserva la dirección HTTPS que elijas. Cuando la tengas, sustituye el enlace provisional `https://CONFIGURA-TU-EQUIPO.ts.net` en `index.html` y `proyectos.html`, dejando `/admin/` al final, y publica esos cambios desde GitHub Desktop.
+3. Conserva la dirección HTTPS que elijas y compártela con el equipo. Mientras Tailscale no esté configurado, usa desde el teléfono conectado al mismo Wi-Fi la dirección local que muestra la ventana del panel.
 
 No hace falta abrir puertos del router. El computador, el panel y Tailscale deben estar activos para recibir cargas. El sitio público ya publicado seguirá funcionando cuando el computador se apague.
 
@@ -55,7 +53,7 @@ No hace falta abrir puertos del router. El computador, el panel y Tailscale debe
 
 1. Enciende el computador y conéctalo a internet.
 2. Inicia `iniciar-panel.bat` y activa el acceso remoto que hayas elegido (`tailscale serve 8765` para acceso privado o `tailscale funnel 8765` para acceso con enlace público).
-3. Desde **Acceso de trabajadores** en la página, inicia sesión. Completa nombre, resumen, ubicación, precio, detalles y características; puedes subir hasta cinco imágenes JPG, PNG o WEBP por envío, de hasta 6 MB cada una.
+3. Abre la dirección HTTPS privada de Tailscale o, si estás en el mismo Wi-Fi, la dirección local indicada por el panel. Inicia sesión y completa nombre, resumen, ubicación, precio, detalles y características; puedes subir hasta cinco imágenes JPG, PNG o WEBP por envío, de hasta 6 MB cada una.
 4. Pulsa **Guardar y publicar**. El panel guarda una copia local y envía los archivos nuevos a GitHub. GitHub Pages puede tardar unos minutos en mostrar los cambios.
 5. Al terminar, puedes cerrar las dos ventanas y apagar el computador. El sitio público seguirá mostrando los proyectos ya publicados.
 

@@ -955,8 +955,8 @@ def command_line() -> int:
         if connection.execute("SELECT COUNT(*) FROM users").fetchone()[0] == 0:
             print("Primero crea la cuenta responsable con: python admin_server.py create-owner")
             return 2
-    # Accept connections from the company Wi-Fi as well as from a local Tailscale
-    # proxy. Authentication remains mandatory for every admin API endpoint.
+    # Allow workers on the company Wi-Fi as well as a local Tailscale proxy.
+    # Authentication remains mandatory for every admin API endpoint.
     host = "0.0.0.0"
     port = int(os.environ.get("ADMIN_PORT", "8765"))
     print(f"Panel en este computador: http://127.0.0.1:{port}/admin/")
