@@ -33,6 +33,7 @@
     document.getElementById("user-label").textContent = user.username;
     document.getElementById("workers-section").hidden = user.role !== "owner";
     loadProjects();
+    loadAnalytics();
     if (user.role === "owner") loadWorkers();
   }
 
@@ -83,6 +84,78 @@
       showMessage(error.message, true);
     }
   }
+
+  const analyticsRange = document.getElementById("analytics-range");
+  const analyticsMessage = document.getElementById("analytics-message");
+  const analyticsResults = document.getElementById("analytics-results");
+  const numberFormat = new Intl.NumberFormat("es-CO");
+
+  function renderAnalyticsTable(targetId, rows, includePeople) {
+    const body = document.getElementById(targetId);
+    body.replaceChildren();
+    if (!rows.length) {
+      const row = document.createElement("tr");
+      const cell = document.createElement("td");
+      cell.colSpan = includePeople ? 3 : 2;
+      cell.className = "analytics-empty";
+      cell.textContent = "Aún no hay datos para este periodo.";
+      row.append(cell);
+      body.append(row);
+      return;
+    }
+    rows.forEach((item) => {
+      const row = document.createElement("tr");
+      const name = document.createElement("td");
+      name.textContent = item.name || "Anuncio";
+      const count = document.createElement("td");
+      count.textContent = numberFormat.format(item.count || 0);
+      row.append(name, count);
+      if (includePeople) {
+        const people = document.createElement("td");
+        people.textContent = numberFormat.format(item.people || 0);
+        row.append(people);
+      }
+      body.append(row);
+    });
+  }
+
+  function renderAnalytics(data) {
+    const summary = document.getElementById("analytics-summary");
+    summary.replaceChildren();
+    [
+      ["Personas", data.overview.activeUsers],
+      ["Sesiones", data.overview.sessions],
+      ["Páginas vistas", data.overview.pageViews],
+      ["Clics a WhatsApp", data.overview.contacts]
+    ].forEach(([label, value]) => {
+      const card = document.createElement("div");
+      card.className = "analytics-card";
+      const caption = document.createElement("span");
+      caption.textContent = label;
+      const number = document.createElement("strong");
+      number.textContent = numberFormat.format(value || 0);
+      card.append(caption, number);
+      summary.append(card);
+    });
+    renderAnalyticsTable("analytics-views", data.topViews || [], true);
+    renderAnalyticsTable("analytics-clicks", data.topClicks || [], false);
+    analyticsResults.hidden = false;
+  }
+
+  async function loadAnalytics() {
+    analyticsMessage.textContent = "Cargando estadísticas…";
+    analyticsResults.hidden = true;
+    try {
+      const data = await api(`/api/analytics?days=${encodeURIComponent(analyticsRange.value)}`);
+      renderAnalytics(data);
+      analyticsMessage.textContent = `Datos de los últimos ${analyticsRange.value} días.`;
+    } catch (error) {
+      analyticsMessage.textContent = error.message;
+    }
+  }
+
+  document.getElementById("analytics-refresh").addEventListener("click", loadAnalytics);
+  analyticsRange.addEventListener("change", loadAnalytics);
 
   function renderProjects() {
     const root = document.getElementById("project-list");

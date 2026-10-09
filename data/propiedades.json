@@ -221,5 +221,40 @@
     "bedrooms": 0,
     "bathrooms": 0,
     "area": 72
+  },
+  {
+    "id": "finca-san-rafael",
+    "images": [
+      "Images/propiedades/finca-san-rafael/6674d2e0f1704be6b017114b85d66294.jpeg",
+      "Images/propiedades/finca-san-rafael/729ba769bad14fc8926acd5f34aa5d3e.jpeg",
+      "Images/propiedades/finca-san-rafael/a0c1a10748d04fcc98d71b5504fb399e.jpeg",
+      "Images/propiedades/finca-san-rafael/aeadda96aaf045928a3a3d1661b669e1.jpeg",
+      "Images/propiedades/finca-san-rafael/5b0973e8ab56473ca484d8030ee8ed0f.jpeg",
+      "Images/propiedades/finca-san-rafael/b3c94658aac843199301bf65a097c026.jpeg",
+      "Images/propiedades/finca-san-rafael/40fc9d27abaf4e2293b810bb4f6f0ba6.jpeg",
+      "Images/propiedades/finca-san-rafael/bf4b6c96ccae4f5eabcd9236674c10bd.jpeg",
+      "Images/propiedades/finca-san-rafael/436adc6472b74c5897bb83bf1eafae0b.jpeg",
+      "Images/propiedades/finca-san-rafael/f36ebb46a4c048248b4903bff0b16812.jpeg",
+      "Images/propiedades/finca-san-rafael/33bdbc11128f4e8f8c71296e0eed44e5.jpeg",
+      "Images/propiedades/finca-san-rafael/43bf3d4ef8294b2ea976bca9d5def5ae.jpeg",
+      "Images/propiedades/finca-san-rafael/8c5c80c17419464db8b1a7b81922dd95.jpeg",
+      "Images/propiedades/finca-san-rafael/ac3a9523891640deb7eb0051446babb9.jpeg"
+    ],
+    "title": "Finca San Rafael",
+    "department": "Meta",
+    "city": "Mapiripan",
+    "type": "Finca",
+    "price": 2800000001,
+    "summary": "Se remata finca ganadera",
+    "details": "Información General \n• Nombre del predio: Finca San Rafael Vereda: SAN ANTONIO \n• Ubicación: Límite entre Puerto Concordia (costado occidente) y Mapiripán, \nDepartamento del Meta. \n• Área total: 349,4 hectáreas (según plano topográfico certificado) / 338 \nhectáreas (según escrituras públicas vigentes). \n• Uso principal: Agrícola y multipropósito (ganadero, agrícola y \nagroturístico). \nDistribución de Áreas y Topografía \n• Área en Sabana / Producción: 250 hectáreas aptas para ganadería y \nagricultura. \n• Reserva Natural (Montaña): 50 hectáreas de selva nativa, refugio de fauna \ny flora de la Orinoquía. \n• Topografía: Sabana plana con zonas de bajos, lagunas, esteros firmes y \náreas de ladera hacia los límites con caños y montaña.",
+    "titleEn": "Finca San Rafael",
+    "summaryEn": "Cattle ranch for immediate sale at a bargain price.",
+    "departmentEn": "Meta",
+    "cityEn": "Mapiripan",
+    "typeEn": "Farm",
+    "detailsEn": "General Information\n• Property Name: Finca San Rafael | Locality (Vereda): San Antonio\n• Location: Border between Puerto Concordia (western side) and Mapiripán, Meta Department.\n• Total Area: 349.4 hectares (per certified topographic survey) / 338 hectares (per current public deeds).\n• Primary Use: Agricultural and multipurpose (livestock, agriculture, and agritourism).\nArea Distribution and Topography\n• Savanna / Production Area: 250 hectares suitable for livestock and agriculture.\n• Natural Reserve (Forest/Highland): 50 hectares of native forest, a refuge for Orinoquía flora and fauna.\n• Topography: Flat savanna with low-lying areas, lagoons, firm wetlands, and sloping terrain near the boundaries with streams and forest areas.",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 0
   }
 ]

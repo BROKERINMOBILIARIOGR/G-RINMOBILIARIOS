@@ -60,6 +60,7 @@
     .then(([projects, loadedTranslations]) => {
       project = projects.find((item) => item.id === id);
       if (!project) throw new Error("No encontramos ese proyecto.");
+      window.trackListingAnalytics?.("view", project.id, project.title, "project");
       translations = loadedTranslations;
       render();
     })

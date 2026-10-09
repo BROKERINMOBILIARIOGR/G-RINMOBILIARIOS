@@ -264,4 +264,6 @@ footer {
 .share-whatsapp { background: #168a50; }
 .share-facebook { background: #1877f2; }
 .share-instagram { background: #b83275; }
+.share-copy { background: #1f4f3a; }
+.share-copy:hover { background: #173d2d; }
 .share-status { display: block; margin-top: 6px; color: #4f5d55; font-size: 12px; }

@@ -30,7 +30,12 @@
     const items = [];
     if (property.bedrooms) items.push(window.siteLanguage() === "en" ? `${property.bedrooms} bedrooms` : `${property.bedrooms} habitaciones`);
     if (property.bathrooms) items.push(window.siteLanguage() === "en" ? `${property.bathrooms} bathrooms` : `${property.bathrooms} baños`);
-    if (property.area) items.push(window.siteLanguage() === "en" ? `${property.area} m²` : `${property.area} m²`);
+    if (property.area) items.push(`${property.area} m²`);
+    if (property.areaHectares) {
+      const english = window.siteLanguage() === "en";
+      const hectares = new Intl.NumberFormat(english ? "en-US" : "es-CO", { maximumFractionDigits: 4 }).format(Number(property.areaHectares));
+      items.push(`${hectares} ${english ? "hectares" : "hectáreas"}`);
+    }
     const characteristics = document.getElementById("detalle-caracteristicas");
     characteristics.replaceChildren();
     if (items.length) {
@@ -59,6 +64,7 @@
     .then(([properties, loadedTranslations]) => {
       property = properties.find((item) => item.id === id);
       if (!property) throw new Error("No encontramos esa propiedad.");
+      window.trackListingAnalytics?.("view", property.id, property.title, "property");
       translations = loadedTranslations;
       render();
     })

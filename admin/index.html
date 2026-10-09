@@ -41,6 +41,26 @@
       <p id="dashboard-message" class="notice" role="status"></p>
       <div id="project-list" class="project-list"></div>
 
+      <section class="panel analytics-panel" aria-labelledby="analytics-heading">
+        <div class="analytics-heading">
+          <div><p class="eyebrow">Uso interno</p><h2 id="analytics-heading">Rendimiento de la página</h2></div>
+          <div class="analytics-controls">
+            <label for="analytics-range">Periodo</label>
+            <select id="analytics-range"><option value="7">Últimos 7 días</option><option value="30" selected>Últimos 30 días</option><option value="90">Últimos 90 días</option></select>
+            <button id="analytics-refresh" class="button button-quiet" type="button">Actualizar</button>
+          </div>
+        </div>
+        <p id="analytics-message" class="muted" role="status">Cargando estadísticas…</p>
+        <div id="analytics-results" hidden>
+          <div id="analytics-summary" class="analytics-summary"></div>
+          <div class="analytics-tables">
+            <section><h3>Anuncios más vistos</h3><div class="table-scroll"><table><thead><tr><th>Anuncio</th><th>Vistas</th><th>Personas</th></tr></thead><tbody id="analytics-views"></tbody></table></div></section>
+            <section><h3>Anuncios más abiertos</h3><div class="table-scroll"><table><thead><tr><th>Anuncio</th><th>Clics</th></tr></thead><tbody id="analytics-clicks"></tbody></table></div></section>
+          </div>
+          <p class="analytics-note">La medición por anuncio empieza cuando se publique esta función. Las visitas anteriores no se pueden recuperar.</p>
+        </div>
+      </section>
+
       <section id="workers-section" class="panel workers-panel" hidden>
         <div><p class="eyebrow">Cuentas autorizadas</p><h2>Trabajadores</h2></div>
         <form id="worker-form" class="worker-form">

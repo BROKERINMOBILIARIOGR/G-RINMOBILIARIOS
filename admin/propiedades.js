@@ -184,6 +184,7 @@
     form.elements.bedrooms.value = (property && property.bedrooms) || 0;
     form.elements.bathrooms.value = (property && property.bathrooms) || 0;
     form.elements.area.value = (property && property.area) || 0;
+    form.elements.areaHectares.value = (property && property.areaHectares) || 0;
     form.elements.details.value = (property && property.details) || "";
     form.elements.detailsEn.value = property?.detailsEn || translated.details || "";
     currentImages = [...((property && property.images) || [])];
@@ -235,6 +236,7 @@
         bedrooms: form.elements.bedrooms.value,
         bathrooms: form.elements.bathrooms.value,
         area: form.elements.area.value,
+        areaHectares: form.elements.areaHectares.value,
         details: form.elements.details.value,
         detailsEn: form.elements.detailsEn.value,
         removeImages: ((original && original.images) || []).filter((src) => !currentImages.includes(src)),

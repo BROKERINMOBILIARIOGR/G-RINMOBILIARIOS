@@ -21,6 +21,18 @@ El panel usa un token privado para publicar en el repositorio. El token se queda
 4. Abre `.env.admin` y reemplaza `PEGA_AQUI_EL_TOKEN_PRIVADO` con el token. Guarda el archivo. `.env.admin` está excluido de Git; no lo compartas ni lo publiques.
 5. Haz doble clic en `crear-responsable.bat`, elige un usuario y una contraseña de al menos 12 caracteres. Esa cuenta puede crear y desactivar cuentas de trabajadores desde el panel.
 
+### Conectar las estadísticas privadas
+
+El panel puede consultar informes privados de Google Analytics. Las cifras solo se entregan después de iniciar sesión; la clave de consulta se guarda en `.local`, que no se publica.
+
+1. En Google Cloud, habilita **Google Analytics Data API** y crea una cuenta de servicio. Descarga su archivo JSON y guárdalo como `.local/ga4-service-account.json` dentro de la carpeta del sitio.
+2. En Google Analytics, abre **Administrador → Gestión de accesos a la propiedad** y agrega el correo de esa cuenta de servicio con permiso **Lector**.
+3. En `.env.admin`, completa `GA4_PROPERTY_ID` con el ID numérico de la propiedad y conserva `GA4_SERVICE_ACCOUNT_FILE=.local/ga4-service-account.json`.
+4. Instala el conector una sola vez desde PowerShell en la carpeta del sitio: `python -m pip install -r requirements-admin.txt`.
+5. Reinicia el panel e inicia sesión. En **Rendimiento de la página** puedes elegir 7, 30 o 90 días.
+
+La medición de fichas y clics comienza cuando se publique el seguimiento actualizado. Los informes anteriores de anuncios individuales no se pueden reconstruir. La portada ya tenía Google Analytics; ahora el seguimiento se amplía a todas las páginas, fichas abiertas, clics para abrir anuncios y clics de contacto por WhatsApp.
+
 ## 3. Acceder desde teléfonos en el mismo Wi-Fi
 
 La versión anterior solo aceptaba conexiones del propio computador. Para permitir la red local, reemplaza `admin_server.py` por la versión actualizada de este paquete. No compartas `.env.admin`.
@@ -54,4 +66,4 @@ Si el panel indica que guardó localmente pero no pudo publicar, deja el computa
 - El equipo y el túnel deben estar activos durante cada carga; con el computador apagado el sitio público sigue visible, pero el panel no recibe archivos.
 - Los archivos publicados se guardan en el repositorio público del sitio, así que las imágenes son públicas.
 - Este panel crea y edita fichas y permite añadir imágenes. La versión inicial no elimina proyectos ni fotos desde la interfaz.
-- El contador de visitas que antes estaba conectado a Firebase se retiró. Google Analytics de la página se conserva.
+- El antiguo contador público de Firebase se retiró. Las estadísticas detalladas se consultan en el panel con acceso privado a Google Analytics.
