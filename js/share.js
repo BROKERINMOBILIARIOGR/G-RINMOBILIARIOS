@@ -30,6 +30,8 @@
       const toggle = actions.querySelector(".share-toggle");
       toggle.setAttribute("aria-label", shareLabel());
       toggle.title = shareLabel();
+      const copyButton = actions.querySelector(".share-copy");
+      if (copyButton) copyButton.textContent = window.siteLanguage?.() === "en" ? "Copy link" : "Copiar enlace";
       const status = actions.querySelector(".share-status");
       if (status) status.textContent = "";
     });
@@ -130,7 +132,30 @@
     const status = document.createElement("span");
     status.className = "share-status";
     status.setAttribute("role", "status");
-    options.append(instagram);
+    const copyButton = document.createElement("button");
+    copyButton.type = "button";
+    copyButton.className = "share-button share-copy";
+    copyButton.textContent = window.siteLanguage?.() === "en" ? "Copy link" : "Copiar enlace";
+    copyButton.addEventListener("click", async () => {
+      closeMenu(actions);
+      try {
+        await navigator.clipboard.writeText(url);
+        status.textContent = window.siteLanguage?.() === "en"
+          ? "Link copied. Paste it into WhatsApp and wait for the preview."
+          : "Enlace copiado. Pégalo en WhatsApp y espera la miniatura.";
+      } catch (_error) {
+        status.textContent = window.siteLanguage?.() === "en"
+          ? "Copy this link: "
+          : "Copia este enlace: ";
+        const fallback = document.createElement("a");
+        fallback.href = url;
+        fallback.textContent = url;
+        fallback.target = "_blank";
+        fallback.rel = "noopener noreferrer";
+        status.append(fallback);
+      }
+    });
+    options.append(instagram, copyButton);
     toggle.addEventListener("click", () => {
       const isOpen = toggle.getAttribute("aria-expanded") === "true";
       document.querySelectorAll(".share-actions.is-open").forEach(closeMenu);
