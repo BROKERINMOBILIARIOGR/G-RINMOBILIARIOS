@@ -23,6 +23,9 @@
       image.alt = `${visible.title || window.siteText("Proyecto")} — ${window.siteLanguage() === "en" ? "image" : "imagen"} ${index + 1}`;
       image.loading = index === 0 ? "eager" : "lazy";
       image.className = index === 0 ? "imagen-principal" : "imagen-galeria";
+      image.tabIndex = 0;
+      image.setAttribute("role", "button");
+      image.setAttribute("aria-label", `${window.siteLanguage() === "en" ? "View photo" : "Ver foto"} ${index + 1} ${window.siteLanguage() === "en" ? "of" : "de"} ${paths.length}`);
       gallery.append(image);
     });
 
