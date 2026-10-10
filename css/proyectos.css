@@ -69,6 +69,18 @@
 .galeria-detalle { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 190px; gap: 8px; padding: 12px; align-content: start; background: #f2f5f3; }
 .galeria-detalle img { width: 100%; height: 100%; min-height: 0; object-fit: cover; border-radius: 10px; }
 .galeria-detalle .imagen-principal { grid-column: 1 / -1; height: 330px; }
+.galeria-detalle img { cursor: zoom-in; }
+.galeria-detalle img:focus-visible { outline: 3px solid #159a73; outline-offset: 2px; }
+.visor-fotos { width: min(96vw, 1400px); height: min(94vh, 1000px); max-width: none; max-height: none; padding: 52px 64px 42px; border: 0; border-radius: 14px; color: #fff; background: rgba(12, 18, 16, .96); overflow: hidden; }
+.visor-fotos::backdrop { background: rgba(0, 0, 0, .86); }
+.visor-fotos-contenido { display: grid; width: 100%; height: 100%; grid-template-rows: minmax(0, 1fr) auto; gap: 12px; }
+.visor-fotos-imagen { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.visor-fotos-pie { display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 24px; color: #f4f4f4; text-align: center; }
+.visor-fotos-boton { position: absolute; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; color: #fff; background: rgba(0,0,0,.5); font: inherit; font-size: 25px; cursor: pointer; }
+.visor-fotos-boton:hover, .visor-fotos-boton:focus-visible { background: rgba(255,255,255,.2); }
+.visor-fotos-cerrar { top: 12px; right: 12px; font-size: 30px; }
+.visor-fotos-anterior { top: 50%; left: 12px; transform: translateY(-50%); }
+.visor-fotos-siguiente { top: 50%; right: 12px; transform: translateY(-50%); }
 .informacion-proyecto { padding: clamp(22px, 4vw, 42px); }
 .informacion-proyecto h2 { margin: 5px 0 12px; color: #1f4f3a; font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.15; }
 .ubicacion-proyecto { margin: 0; color: #65736b; font-weight: 650; }
@@ -86,4 +98,9 @@ footer .enlace-trabajadores { display: block; }
   .ficha-proyecto { grid-template-columns: 1fr; }
   .galeria-detalle { grid-auto-rows: 125px; }
   .galeria-detalle .imagen-principal { height: 240px; }
+  .visor-fotos { width: 100vw; height: 100dvh; padding: 58px 12px 28px; border-radius: 0; }
+  .visor-fotos-boton { width: 40px; height: 40px; }
+  .visor-fotos-cerrar { top: 10px; right: 10px; }
+  .visor-fotos-anterior { left: 8px; }
+  .visor-fotos-siguiente { right: 8px; }
 }
