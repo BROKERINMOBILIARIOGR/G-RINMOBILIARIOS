@@ -192,5 +192,40 @@
       "Wildlife, native plants, and green spaces",
       "Pools, padel, lakes, and shared areas"
     ]
+  },
+  {
+    "id": "bethel-campestre",
+    "images": [
+      "Images/proyectos/bethel-campestre/58ed74402b1240d98e634968ab7b082f.jpeg",
+      "Images/proyectos/bethel-campestre/75a976bc4e304bd98d06bdba36455252.jpeg",
+      "Images/proyectos/bethel-campestre/b49b71705e15442895cd68d6549b40b4.jpeg",
+      "Images/proyectos/bethel-campestre/86e3683116cf4be19702c09636690fb7.jpeg",
+      "Images/proyectos/bethel-campestre/6e3aec63b90b4327b37421ee447698f1.jpeg"
+    ],
+    "featured": false,
+    "title": "Bethel Campestre",
+    "summary": "Te presentamos Betel Campestre, un proyecto pensado para quienes desean invertir en su futuro, adquirir su lote propio y disfrutar de un entorno tranquilo con excelentes zonas sociales.\n\n📍 Ubicación estratégica: sobre la vía nacional Flandes – Espinal, una ubicación ideal para quienes buscan invertir y disfrutar de un espacio propio.",
+    "location": "Flandes",
+    "price": "15000001",
+    "details": "🏡 ¡Conoce el Proyecto Bethel Campestre! 🌿\n\nTe presentamos Betel Campestre, un proyecto pensado para quienes desean invertir en su futuro, adquirir su lote propio y disfrutar de un entorno tranquilo con excelentes zonas sociales.\n\n📍 Ubicación estratégica: sobre la vía nacional Flandes – Espinal, una ubicación ideal para quienes buscan invertir y disfrutar de un espacio propio.\n\n🌳 Características del proyecto:\n\n- Lotes disponibles desde 80 m².\n- Precios desde $15.000.000 en adelante.\n- Servicios de energía y agua.\n- Escritura pública por derecho de cuota.\n\n💰 ¡Facilidades de financiación directa y sin intereses!\n\n✅ Separa tu lote con tan solo $500.000.\n✅ A los 20 días, realizas el pago de la cuota inicial correspondiente al 30% del valor del lote.\n✅ El saldo restante puedes diferirlo a 6 meses, sin ningún tipo de interés.\n\n🏊 Zonas sociales para disfrutar en familia:\n\n- Portería.\n- Quiosco.\n- Parque infantil.\n- Piscina.\n\n✨ ¡Invierte hoy en tu futuro y comienza a construir tus sueños en Bethel Campestre!\n\n📲 Escríbeme para conocer los lotes disponibles, sus precios y las opciones de financiación. ¡Será un gusto asesorarte y ayudarte a encontrar el lote ideal para ti! 🌱",
+    "features": [
+      "🏊 Zonas sociales para disfrutar en familia:",
+      "- Portería.",
+      "- Quiosco.",
+      "- Parque infantil.",
+      "- Piscina."
+    ],
+    "titleEn": "Bethel Campestre",
+    "summaryEn": "Introducing Bethel Campestre—a project designed for those looking to invest in their future, own their own plot of land, and enjoy a peaceful setting with excellent communal amenities.\n\n📍 Strategic location: Situated on the Flandes–Espinal highway—an ideal spot for anyone looking to invest in and enjoy their own property.",
+    "locationEn": "Flandes",
+    "priceEn": "15000000",
+    "detailsEn": "🏡 Discover the Bethel Campestre Project! 🌿\n\nIntroducing Bethel Campestre—a project designed for those looking to invest in their future, own their own plot of land, and enjoy a peaceful setting with excellent communal amenities.\n\n📍 Strategic location: Situated on the Flandes–Espinal highway—an ideal spot for anyone looking to invest in and enjoy their own property.\n\n🌳 Project features:\n\n- Lots available starting at 80 m².\n- Prices starting from $15,000,000.\n- Electricity and water utilities included.\n- Public deed based on fractional ownership rights.\n\n💰 Direct, interest-free financing options!\n\n✅ Reserve your lot with just $500,000.\n✅ Pay the down payment (30% of the lot's value) within 20 days.\n✅ Pay the remaining balance over 6 months—completely interest-free.\n\n🏊 Communal areas for family enjoyment:\n\n- Security gatehouse.\n- Gazebo/Kiosk.\n- Children's playground.\n- Swimming pool.\n\n✨ Invest in your future today and start building your dreams at Bethel Campestre!\n\n📲 Message me to learn about available lots, prices, and financing options. It would be a pleasure to advise you and help you find the perfect lot! 🌱",
+    "featuresEn": [
+      "🏊 Communal areas for family enjoyment:",
+      "- Security gatehouse.",
+      "- Gazebo/Kiosk.",
+      "- Children's playground.",
+      "- Swimming pool."
+    ]
   }
 ]
