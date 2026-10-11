@@ -400,5 +400,32 @@
     "bathrooms": 5,
     "area": 1800,
     "areaHectares": 0.0
+  },
+  {
+    "id": "lote-colinas-de-marantha",
+    "images": [
+      "Images/propiedades/lote-colinas-de-marantha/7b6d9dc816c845d095a0fbb6df34450c.jpeg",
+      "Images/propiedades/lote-colinas-de-marantha/065ea4e5cb38470aafb91f4cc1d3656a.jpeg",
+      "Images/propiedades/lote-colinas-de-marantha/52dd795c13b74da6a0921f3b94c27522.jpeg",
+      "Images/propiedades/lote-colinas-de-marantha/72624f4542fe4a16ad1fe8ead4a2a3fa.jpeg",
+      "Images/propiedades/lote-colinas-de-marantha/8e626981148146bba361e0e88211a3eb.jpeg"
+    ],
+    "title": "Lote Colinas de Marantha",
+    "department": "Tolima",
+    "city": "Melgar",
+    "type": "Lote",
+    "price": 270000001,
+    "summary": "Lote de 600 mtrs  2 piscinas comunales  condominio colinas de maranta tiene agua propia, escrituras publica y impuestos al día",
+    "details": "",
+    "titleEn": "600 m² plot in the Colinas de Maranta gated community, featuring communal pools, a private water supply, public title de",
+    "summaryEn": "600 m² plot in the Colinas de Maranta gated community, featuring communal pools, a private water supply, public title deeds, and up-to-date tax payments.",
+    "departmentEn": "Tolima",
+    "cityEn": "Melgar",
+    "typeEn": "600 m² plot in the Colinas de Maranta gated community, featu",
+    "detailsEn": "600 m² plot in the Colinas de Maranta gated community, featuring communal pools, a private water supply, public title deeds, and up-to-date tax payments.",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 600,
+    "areaHectares": 0.0
   }
 ]
