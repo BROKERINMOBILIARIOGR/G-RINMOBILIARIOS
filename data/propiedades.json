@@ -256,5 +256,32 @@
     "bedrooms": 0,
     "bathrooms": 0,
     "area": 0
+  },
+  {
+    "id": "apartamento-en-venta-melgar",
+    "images": [
+      "Images/propiedades/apartamento-en-venta-melgar/fa3d6ece20074739b3c52fc7ceb5404c.jpeg",
+      "Images/propiedades/apartamento-en-venta-melgar/07a3841728be4ba4907f02cb479cd275.jpeg",
+      "Images/propiedades/apartamento-en-venta-melgar/8fb4c2098f7d414e8f958b69818aef99.jpeg",
+      "Images/propiedades/apartamento-en-venta-melgar/f623bde330ac41c7b95e460e60c075d6.jpeg",
+      "Images/propiedades/apartamento-en-venta-melgar/626ca494fb0c40b9b9188657ecf985ba.jpeg"
+    ],
+    "title": "Apartamento en venta Melgar",
+    "department": "Tolima",
+    "city": "Melgar",
+    "type": "Apartamento",
+    "price": 270000001,
+    "summary": "conjunto cerrado $270.000.000",
+    "details": "partamento en Venta en Melgar\n¡Disfruta descanso, valorización y ubicación estratégica en uno de los destinos turísticos más consolidados del centro del país!\n✨ Características principales:\n* 📐 79 m² construidos\n* 🏢 Tercer piso\n* 🛏️ 3 habitaciones amplias con clóset de piso a techo\n* 🚿 2 baños con divisiones en vidrio (baño social completo y baño privado en la alcoba principal)\n* 🍽️ Cocina integral moderna\n* 🧺 Zona de lavandería independiente\n* 🌅 Balcón amplio en zona social\n* 🌇 Alcoba principal con dos ventanales de piso a techo y acceso a balcón\n🔒 Conjunto residencial con:\n* 🏊 Piscina\n* 🎉 Salón social\n* 🛡️ Vigilancia 24 horas\n* 📹 Circuito cerrado de TV\n* ⚡ Cerramiento eléctrico\n📍 Ubicación estratégica:\nSobre la vía Rojas Pinilla, a pocas cuadras del parque principal de Melgar.\nCerca de Dollar City, El Corral, supermercados Ara, D1 y Éxito.\nZona comercial y turística de alta valorización.\n💼 Ideal para:\n✔️ Segunda vivienda de descanso\n✔️ Renta vacacional premium\n✔️ Inversionistas que buscan alta rotación y valorización\n💰 Valor: $270.000.000",
+    "titleEn": "Apartment for sale in Melgar",
+    "summaryEn": "Gated community $270,000,000",
+    "departmentEn": "Tolima",
+    "cityEn": "Melgar",
+    "typeEn": "Apartment",
+    "detailsEn": "Apartment for Sale in Melgar\nEnjoy relaxation, property appreciation, and a strategic location in one of the country's most established tourist destinations!\n✨ Key features:\n* 📐 79 m² built area\n* 🏢 Third floor\n* 🛏️ 3 spacious bedrooms with floor-to-ceiling closets\n* 🚿 2 bathrooms with glass shower enclosures (full guest bathroom and private en-suite in the master bedroom)\n* 🍽️ Modern fully equipped kitchen\n* 🧺 Separate laundry area\n* 🌅 Spacious balcony off the living area\n* 🌇 Master bedroom with two floor-to-ceiling windows and balcony access\n🔒 Residential complex featuring:\n* 🏊 Swimming pool\n* 🎉 Social/party room\n* 🛡️ 24-hour security\n* 📹 CCTV system\n* ⚡ Electric perimeter fencing\n📍 Strategic location:\nLocated on Rojas Pinilla Avenue, just a few blocks from Melgar's main park.\nClose to Dollar City, El Corral, and supermarkets such as Ara, D1, and Éxito.\nHigh-appreciation commercial and tourist area.\n💼 Ideal for:\n✔️ A vacation home\n✔️ Premium vacation rentals\n✔️ Investors seeking high turnover and property appreciation\n💰 Price: $270,000,000 COP",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": 79,
+    "areaHectares": 0.0
   }
 ]
