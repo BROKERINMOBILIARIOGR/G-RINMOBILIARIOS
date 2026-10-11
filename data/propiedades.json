@@ -320,5 +320,32 @@
     "bathrooms": 2,
     "area": 79,
     "areaHectares": 0.0
+  },
+  {
+    "id": "casa-en-venta-en-club-puerto-penalisa",
+    "images": [
+      "Images/propiedades/casa-en-venta-en-club-puerto-penalisa/c71de614f96e43a2b637558b9fc359bf.jpeg",
+      "Images/propiedades/casa-en-venta-en-club-puerto-penalisa/5e4eb3c465e54633b308c64e39cfb580.jpeg",
+      "Images/propiedades/casa-en-venta-en-club-puerto-penalisa/ee22e3e5e84e4074b1bda16d0b92b2d8.jpeg",
+      "Images/propiedades/casa-en-venta-en-club-puerto-penalisa/2b0211a9b71042d1bdb6867caa3c39a7.jpeg",
+      "Images/propiedades/casa-en-venta-en-club-puerto-penalisa/3fc26ad1be864e21a97d0b26cb7dcde4.jpeg"
+    ],
+    "title": "🏡 CASA EN VENTA EN CLUB PUERTO PEÑALISA",
+    "department": "Tolima",
+    "city": "Melgar",
+    "type": "Casa",
+    "price": 330000001,
+    "summary": "⁠Cabaña en Melgar $330.000.000",
+    "details": "🌴 CABAÑA VACACIONAL EN VENTA – MELGAR, TOLIMA\n\n📍 Ubicación\n\nConjunto Vacacional Quebraditas II\nVereda La Cajita – Melgar, Tolima\n\n🏡 CABAÑA VACACIONAL\n\n💰 Valor de venta: $330.000.000\n💵 Administración: $350.000 mensuales\n💧 La administración incluye el servicio de agua.\n\n📐 Características del terreno\n\n* Área de terreno: 980 m²\n* Entorno natural, tranquilo y rodeado de vegetación.\n* Ideal para descanso, recreación y disfrutar del clima cálido de Melgar.\n* La propiedad cuenta con aljibe.\n* Un hilo de agua atraviesa el terreno, aportando un ambiente natural y agradable.\n\n🛏️ Distribución de la cabaña\n\n* 2 habitaciones\n* Habitación principal con baño privado\n* Baño completo de servicio social y para la segunda habitación\n* Sala-comedor\n* Cuarto de lavandería\n* Zona BBQ\n* Jacuzzi con capacidad aproximada para 10 personas\n\n🌿 ZONAS COMUNES DEL CONJUNTO\n\nEl Conjunto Vacacional Quebraditas II cuenta con espacios ideales para compartir y disfrutar en familia:\n\n* 🏊 2 piscinas\n* 🏠 Sede social\n* 🎱 Mesa de billar\n* 🏓 Mesa de ping-pong\n* 🎯 Área de diversión y entretenimiento\n* 🌳 Sendero peatonal\n* 💧 La administración incluye el servicio de agua",
+    "titleEn": "CASA EN VENTA EN CLUB PUERTO PEÑALISA",
+    "summaryEn": "Cabin in Melgar $330,000,000",
+    "departmentEn": "Tolima",
+    "cityEn": "Melgar",
+    "typeEn": "Chalet",
+    "detailsEn": "🌴 VACATION CABIN FOR SALE – MELGAR, TOLIMA\n\n📍 Location\n\nQuebraditas II Vacation Complex\nLa Cajita Rural Area – Melgar, Tolima\n\n🏡 VACATION CABIN\n\n💰 Sale price: $330,000,000\n💵 HOA fee: $350,000/month\n💧 Water service is included in the HOA fee.\n\n📐 Property Features\n\n*   Lot size: 980 m²\n*   Natural, peaceful setting surrounded by greenery.\n*   Ideal for relaxation, recreation, and enjoying Melgar's warm climate.\n*   The property features a private well.\n*   A small stream runs through the property, creating a pleasant, natural atmosphere.\n\n🛏️ Cabin Layout\n\n*   2 bedrooms\n*   Master bedroom with private bathroom\n*   Full bathroom (guest/shared with second bedroom)\n*   Living-dining area\n*   Laundry room\n*   BBQ area\n*   Jacuzzi (approx. 10-person capacity)\n\n🌿 COMPLEX COMMON AREAS\n\nThe Quebraditas II Vacation Complex offers spaces ideal for family enjoyment:\n\n*   🏊 2 swimming pools\n*   🏠 Clubhouse\n*   🎱 Billiards table\n*   🏓 Ping-pong table\n*   🎯 Recreation and entertainment area\n*   🌳 Walking path\n*   💧 Water service included in the HOA fee",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area": 980,
+    "areaHectares": 0.0
   }
 ]
