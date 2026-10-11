@@ -427,5 +427,32 @@
     "bathrooms": 0,
     "area": 600,
     "areaHectares": 0.0
+  },
+  {
+    "id": "lote-ubicado-en-guayata",
+    "images": [
+      "Images/propiedades/lote-ubicado-en-guayata/e79774bc198640c29e9d78911f5c915a.jpeg",
+      "Images/propiedades/lote-ubicado-en-guayata/7322a4cafc104d60b23a852cefc74b22.jpeg",
+      "Images/propiedades/lote-ubicado-en-guayata/43f56aed841b4cbd8e150ed39bf226f0.jpeg",
+      "Images/propiedades/lote-ubicado-en-guayata/8dab7088cc28406aadc004933d09bc60.jpeg",
+      "Images/propiedades/lote-ubicado-en-guayata/1c12afbdb8ef4e549e703770578d6dfb.jpeg"
+    ],
+    "title": "Lote ubicado en Guayata",
+    "department": "Boyaca",
+    "city": "Tenza",
+    "type": "Lote",
+    "price": 180000001,
+    "summary": "Lote ubicado en Guayata. Valle de Tenza en Boyacá",
+    "details": "Lote ubicado en Guayata. Valle de Tenza en Boyacá clima entre 19 y 22 grados tiene agua, la luz si hay que matricularla queda a bordo de carretera. A 18 minutos de el pueblo a pie escrituras publica y impuestos al día",
+    "titleEn": "Plot located in Guayatá",
+    "summaryEn": "Plot located in Guayatá, Tenza Valley, Boyacá.",
+    "departmentEn": "Tolima",
+    "cityEn": "Melgar",
+    "typeEn": "600 m² plot in the Colinas de Maranta gated community, featu",
+    "detailsEn": "Plot of land located in Guayatá, in the Tenza Valley (Boyacá). It features a climate ranging from 19 to 22°C and has a water supply; electricity connection needs to be arranged, though the property is located right next to the road. It is an 18-minute walk from the town, and the public deed and tax payments are up to date.",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 0,
+    "areaHectares": 0.0
   }
 ]
