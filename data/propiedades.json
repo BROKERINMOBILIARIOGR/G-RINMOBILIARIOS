@@ -464,5 +464,29 @@
     "bathrooms": 0,
     "area": 0,
     "areaHectares": 0.0
+  },
+  {
+    "id": "proyecto-valle-de-el-carmen",
+    "images": [
+      "Images/propiedades/proyecto-valle-de-el-carmen/75703360f1d74285af9679aa173c8c34.jpeg",
+      "Images/propiedades/proyecto-valle-de-el-carmen/91dbc7234360453d8870f35c60f5d7e6.jpeg"
+    ],
+    "title": "Proyecto valle de el Carmen",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 48000001,
+    "summary": "Proyecto valle de el Carmen",
+    "details": "Este es de Carmen de apicala. Proyecto valle de el Carmen. Ya hay muchas casas construidas. 200 mtrs. Esquinero  no tiene agua están en el proceso luz si tiene ,no es condominio es abierto. A futuro  si lo puede ser",
+    "titleEn": "Proyecto valle de el Carmen",
+    "summaryEn": "Proyecto valle de el Carmen",
+    "departmentEn": "Tolima",
+    "cityEn": "Carmen de apicala",
+    "typeEn": "the Valle del Carmen development.",
+    "detailsEn": "This property is in Carmen de Apicalá, in the Valle del Carmen development. Many houses have already been built there. It is a 200-square-meter corner lot. It has electricity but currently lacks a water connection (though the process is underway); it is an open neighborhood rather than a gated community, though it could become one in the future.",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 200,
+    "areaHectares": 0.0
   }
 ]
