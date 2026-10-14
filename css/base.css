@@ -316,6 +316,34 @@ footer {
     margin-top: 12px;
 }
 
+.footer-social .btn-instagram-footer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 6px;
+    background: transparent;
+    color: #f3c6dd;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-social .btn-instagram-footer:hover {
+    background: #b83275;
+    border-color: #b83275;
+    color: #fff;
+}
+
+.footer-social .btn-instagram-footer:focus-visible {
+    outline: 2px solid #f3c6dd;
+    outline-offset: 2px;
+}
+
 .footer-social .btn-whatsapp {
     display: inline-flex;
     align-items: center;
