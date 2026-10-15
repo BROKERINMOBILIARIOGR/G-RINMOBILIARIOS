@@ -488,5 +488,34 @@
     "bathrooms": 0,
     "area": 200,
     "areaHectares": 0.0
+  },
+  {
+    "id": "lote-caracoli",
+    "images": [
+      "Images/propiedades/lote-caracoli/f4bddce3d3234f0bb68aca6df99818be.jpeg",
+      "Images/propiedades/lote-caracoli/0f4813bfbe7e4024bdf64078296db22a.jpeg",
+      "Images/propiedades/lote-caracoli/9e2b6b8dcb1240c18bcd64d4090bd80e.jpeg",
+      "Images/propiedades/lote-caracoli/156e177d9ae14271985105372fa88e6c.jpeg",
+      "Images/propiedades/lote-caracoli/c8b487b4e2b34f7e89c14aa201270757.jpeg",
+      "Images/propiedades/lote-caracoli/2eb1a182774f49ecaf39acab026f2773.jpeg",
+      "Images/propiedades/lote-caracoli/150160c612454bf59dab6ab41debe0a3.jpeg"
+    ],
+    "title": "Lote Caracoli",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 40000001,
+    "summary": "2 lotes de 72 metros cuadrados a 40 millones",
+    "details": "Se vende lote en 40 millones cada uno. Lote L36 Y L35 en el conjunto residencial Caracoli ubicado en el municipio del Carmen de Apicala. a 5 minutos de centro.\ncuenta con agua, luz, alcantarillado y escritura pública individual.",
+    "titleEn": "Lote Caracoli",
+    "summaryEn": "2 lots of 72 square meters for 40 million",
+    "departmentEn": "Tolima",
+    "cityEn": "Carmen de apicala",
+    "typeEn": "Lots",
+    "detailsEn": "Lots for sale at 40 million [COP] each. Lots L36 and L35 are located in the Caracoli residential complex in the municipality of Carmen de Apicalá, 5 minutes from the town center.\nThey are equipped with water, electricity, and sewage services, and each has an individual public deed.",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72,
+    "areaHectares": 0.0
   }
 ]
