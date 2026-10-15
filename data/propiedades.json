@@ -517,5 +517,32 @@
     "bathrooms": 0,
     "area": 72,
     "areaHectares": 0.0
+  },
+  {
+    "id": "casa-en-portal-del-lago",
+    "images": [
+      "Images/propiedades/casa-en-portal-del-lago/68e3addd79ee468f96bc7c739020efd5.jpg",
+      "Images/propiedades/casa-en-portal-del-lago/cb14d11cf6e3441b912918e51c84abc1.jpg",
+      "Images/propiedades/casa-en-portal-del-lago/043fd8e991a64033a6e6e9a9d6df29c4.png",
+      "Images/propiedades/casa-en-portal-del-lago/a6a8de3bde9747278b5bbb98d89b237b.png",
+      "Images/propiedades/casa-en-portal-del-lago/ea16de73c2fd4bdbb2a5a1f43650a0d3.jpeg"
+    ],
+    "title": "Casa en Portal Del Lago",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Casa",
+    "price": 130000001,
+    "summary": "Se Remata casa en Portal del lago; 130 millones",
+    "details": "Se remata casa en urbanización Lagos del olimpo.\ncuenta con vias pavimentadas, la propiedad esta frente a una bahía de parqueo. \nla urbanización cuenta con un lago y zonas verdes. Tambien cuenta con una piscina comunal, sala y comedor",
+    "titleEn": "Casa en Portal Del Lago",
+    "summaryEn": "House for sale at a bargain price in Portal del Lago; 130 million",
+    "departmentEn": "Tolima",
+    "cityEn": "Carmen de apicala",
+    "typeEn": "House",
+    "detailsEn": "House for sale at a bargain price in the Lagos del Olimpo residential development.\nIt features paved roads, and the property is located directly across from a parking bay.\nThe development includes a lake and green areas, as well as a communal swimming pool.",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "area": 65,
+    "areaHectares": 0.0
   }
 ]
