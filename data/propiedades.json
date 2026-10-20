@@ -82,12 +82,19 @@
     "department": "Tolima",
     "city": "Carmen de apicala",
     "type": "Lote",
-    "price": 38000001,
+    "price": 38000000,
     "summary": "Lote en el condominio Villa Hanna. se sigue fachada.",
     "details": "Lote en condominio Villa Hanna a 10 minutos del pueblo. se sigue fachada del conjunto para construir. cuenta con agua, luz y alcantarillado. escritura publica individual",
     "bedrooms": 0,
     "bathrooms": 0,
-    "area": 72
+    "area": 72,
+    "titleEn": "Lot in Villa Hanna",
+    "summaryEn": "Lot in Villa Hanna gated community; the development's facade is being completed.",
+    "departmentEn": "Tolima",
+    "cityEn": "El Carmen de Apicalá",
+    "typeEn": "Lot",
+    "detailsEn": "Lot in Villa Hanna gated community, 10 minutes from town. The community facade is being completed before construction. Water, electricity, sewer service, and an individual public deed are included.",
+    "areaHectares": 0.0
   },
   {
     "id": "casa-lote",
