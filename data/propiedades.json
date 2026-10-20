@@ -621,5 +621,29 @@
     "bathrooms": 3,
     "area": 130,
     "areaHectares": 0.0
+  },
+  {
+    "id": "lote-pentagono-de-arenitas",
+    "images": [
+      "Images/propiedades/lote-pentagono-de-arenitas/bc4927d0066a43889565b1f49a5e9f03.jpg",
+      "Images/propiedades/lote-pentagono-de-arenitas/efb65e8b802f4441897d17f15afbe02b.jpg"
+    ],
+    "title": "Lote Pentágono De Arenitas",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 50000001,
+    "summary": "Se vende lote en el espectacular mirador ubicado en el barrio Pentágono de Arenitas.",
+    "details": "Se vende lote en el espectacular mirador ubicado en el barrio Pentágono de Arenitas.\n72 metros cuadrados. con escritura pública individual, acueducto, luz y alcantarillado. listo para construir.",
+    "titleEn": "Lote Pentágono de Arenitas",
+    "summaryEn": "Plot of land for sale in a spectacular viewpoint located in the Pentágono neighborhood of Arenitas.",
+    "departmentEn": "Tolima",
+    "cityEn": "Carmen de apicala",
+    "typeEn": "Lots",
+    "detailsEn": "Plot of land for sale in a spectacular viewpoint located in the Pentágono neighborhood of Arenitas.\n72 square meters, with an individual public deed, water supply, electricity, and sewage connections. Ready for construction.",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72,
+    "areaHectares": 0.0
   }
 ]
