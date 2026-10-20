@@ -101,12 +101,19 @@
     "department": "Bogota",
     "city": "Bogota",
     "type": "Apartamento",
-    "price": 170000001,
+    "price": 160000001,
     "summary": "",
     "details": "Cuenta con cocina integral, 3 habitaciones 1 baño y cocina integral.",
     "bedrooms": 3,
     "bathrooms": 1,
-    "area": 0
+    "area": 0,
+    "titleEn": "Bosa Recreo",
+    "summaryEn": "",
+    "departmentEn": "Bogotá",
+    "cityEn": "Bogotá",
+    "typeEn": "Apartment",
+    "detailsEn": "Includes a fitted kitchen, three bedrooms, and one bathroom.",
+    "areaHectares": 0.0
   },
   {
     "id": "lote-7249aa",
