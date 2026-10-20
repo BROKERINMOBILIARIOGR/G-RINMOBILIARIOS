@@ -34,12 +34,19 @@
     "department": "Tolima",
     "city": "Carmen de apicala",
     "type": "Lote",
-    "price": 43000001,
+    "price": 43000000,
     "summary": "Se vende lote 6*12",
     "details": "Lote de 6*12 con vias pavimentadas, alcantarillado, luz, acueducto y escritura publica individual",
     "bedrooms": 0,
     "bathrooms": 0,
-    "area": 43
+    "area": 43,
+    "titleEn": "Lot",
+    "summaryEn": "6 x 12 m lot for sale",
+    "departmentEn": "Tolima",
+    "cityEn": "El Carmen de Apicalá",
+    "typeEn": "Lot",
+    "detailsEn": "6 x 12 m lot with paved roads, sewer, electricity, water supply, and an individual public deed.",
+    "areaHectares": 0.0
   },
   {
     "id": "lote-urbano",
