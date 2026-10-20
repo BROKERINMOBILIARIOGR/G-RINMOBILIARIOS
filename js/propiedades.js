@@ -2,6 +2,7 @@
   const grid = document.getElementById("listaPropiedades");
   const status = document.getElementById("estadoPropiedades");
   let properties = [];
+  let popularity = {};
 
   const normalize = (value) => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/_/g, " ").toLowerCase().trim();
   const money = (value) => new Intl.NumberFormat(window.siteLanguage() === "en" ? "en-US" : "es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(Number(value) || 0);
@@ -9,7 +10,11 @@
 
   function render(list) {
     grid.replaceChildren();
-    list.forEach((source) => {
+    const ordered = list
+      .map((property, index) => ({ property, index, views: Number(popularity[property.id]) || 0 }))
+      .sort((a, b) => b.views - a.views || a.index - b.index)
+      .map(({ property }) => property);
+    ordered.forEach((source) => {
       const property = window.localizeListing(source, "properties", translations);
       const card = document.createElement("article");
       card.className = "propiedad-card";
@@ -73,7 +78,15 @@
     fetch("data/propiedades.json", { cache: "no-store" }).then((response) => { if (!response.ok) throw new Error("No se pudo cargar el catálogo."); return response.json(); }),
     window.siteTranslationReady
   ])
-    .then(([data, loadedTranslations]) => { properties = Array.isArray(data) ? data : []; translations = loadedTranslations; render(properties); })
+    .then(([data, loadedTranslations]) => {
+      properties = Array.isArray(data) ? data : [];
+      translations = loadedTranslations;
+      render(properties);
+      import("./popularidad.js")
+        .then(({ getListingPopularity }) => getListingPopularity("propiedades"))
+        .then((counts) => { popularity = counts; window.filtrarPropiedades(); })
+        .catch(() => {});
+    })
     .catch(() => { status.textContent = window.siteLanguage() === "en" ? "The property catalog could not be loaded. Please refresh the page." : "No se pudo cargar el catálogo de propiedades. Intenta actualizar la página."; status.classList.add("error"); });
 
   document.addEventListener("site-language-change", () => window.filtrarPropiedades());

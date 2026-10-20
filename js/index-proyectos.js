@@ -4,9 +4,14 @@
   if (!root) return;
   let projects = [];
   let translations = {};
+  let popularity = {};
 
   function render() {
-    const featured = projects.filter((project) => project.featured).slice(0, 3);
+    const featured = projects.filter((project) => project.featured)
+      .map((project, index) => ({ project, index, views: Number(popularity[project.id]) || 0 }))
+      .sort((a, b) => b.views - a.views || a.index - b.index)
+      .slice(0, 3)
+      .map(({ project }) => project);
     root.replaceChildren();
     featured.forEach((source) => {
         const project = window.localizeListing(source, "projects", translations);
@@ -47,7 +52,15 @@
     }),
     window.siteTranslationReady
   ])
-    .then(([loadedProjects, loadedTranslations]) => { projects = loadedProjects; translations = loadedTranslations; render(); })
+    .then(([loadedProjects, loadedTranslations]) => {
+      projects = loadedProjects;
+      translations = loadedTranslations;
+      render();
+      import("./popularidad.js")
+        .then(({ getListingPopularity }) => getListingPopularity("proyectos"))
+        .then((counts) => { popularity = counts; render(); })
+        .catch(() => {});
+    })
     .catch(() => { message.textContent = window.siteLanguage() === "en" ? "Projects could not be loaded. Please try again later." : "No se pudieron cargar los proyectos. Intenta de nuevo más tarde."; });
 
   document.addEventListener("site-language-change", render);

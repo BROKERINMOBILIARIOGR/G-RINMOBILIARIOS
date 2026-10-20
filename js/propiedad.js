@@ -68,6 +68,9 @@
       property = properties.find((item) => item.id === id);
       if (!property) throw new Error("No encontramos esa propiedad.");
       window.trackListingAnalytics?.("view", property.id, property.title, "property");
+      import("./popularidad.js")
+        .then(({ recordListingView }) => recordListingView("propiedades", property.id))
+        .catch((error) => console.warn("No se pudo registrar la visita de la propiedad:", error));
       translations = loadedTranslations;
       render();
     })

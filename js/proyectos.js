@@ -3,6 +3,7 @@
   const message = document.getElementById("mensaje-proyectos");
   let projects = [];
   let translations = {};
+  let popularity = {};
 
   function makeCard(source) {
     const project = window.localizeListing(source, "projects", translations);
@@ -30,7 +31,11 @@
   }
 
   function render() {
-    const visibleProjects = projects.map(makeCard);
+    const ordered = projects
+      .map((project, index) => ({ project, index, views: Number(popularity[project.id]) || 0 }))
+      .sort((a, b) => b.views - a.views || a.index - b.index)
+      .map(({ project }) => project);
+    const visibleProjects = ordered.map(makeCard);
     root.replaceChildren(...visibleProjects);
     if (!projects.length) message.textContent = window.siteText("Pronto publicaremos nuevos proyectos.");
   }
@@ -46,6 +51,10 @@
       projects = loadedProjects;
       translations = loadedTranslations;
       render();
+      import("./popularidad.js")
+        .then(({ getListingPopularity }) => getListingPopularity("proyectos"))
+        .then((counts) => { popularity = counts; render(); })
+        .catch(() => {});
     })
     .catch(() => { message.textContent = window.siteLanguage() === "en" ? "Projects could not be loaded. Please try again later." : "No se pudieron cargar los proyectos. Intenta de nuevo más tarde."; });
 

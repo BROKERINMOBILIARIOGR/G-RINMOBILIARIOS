@@ -64,6 +64,9 @@
       project = projects.find((item) => item.id === id);
       if (!project) throw new Error("No encontramos ese proyecto.");
       window.trackListingAnalytics?.("view", project.id, project.title, "project");
+      import("./popularidad.js")
+        .then(({ recordListingView }) => recordListingView("proyectos", project.id))
+        .catch((error) => console.warn("No se pudo registrar la visita del proyecto:", error));
       translations = loadedTranslations;
       render();
     })
