@@ -285,12 +285,19 @@
     "department": "Tolima",
     "city": "Carmen de apicala",
     "type": "Lote",
-    "price": 47000001,
+    "price": 47000000,
     "summary": "Lote189 en La Colina",
     "details": "Se vende lote en urbanización La colina. Cuenta con: acueducto, luz, alcantarillado y vias pavimentadas. libre construcción",
     "bedrooms": 0,
     "bathrooms": 0,
-    "area": 72
+    "area": 72,
+    "titleEn": "Lot",
+    "summaryEn": "Lot 168",
+    "departmentEn": "Tolima",
+    "cityEn": "El Carmen de Apicalá",
+    "typeEn": "Lot",
+    "detailsEn": "Lot for sale in the La Colina development. It has water supply, electricity, sewer service, and paved roads. Free construction.",
+    "areaHectares": 0.0
   },
   {
     "id": "finca-san-rafael",
