@@ -28,6 +28,11 @@ textarea { resize: vertical; }
 .page-heading { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin: 32px 0 20px; }
 .notice { min-height: 1.5em; margin: 0 0 12px; color: var(--green); }
 .notice.error, .form-message { color: var(--danger); }
+.property-search { margin: 0 0 18px; }
+.property-search label { margin-bottom: 6px; }
+.property-search input { max-width: 560px; }
+.property-search p { margin: 6px 0 0; font-size: .9rem; }
+.property-empty { padding: 20px; border: 1px dashed var(--line); border-radius: 12px; background: #fff; color: var(--muted); text-align: center; }
 .project-list { display: grid; gap: 12px; }
 .project-row { display: grid; grid-template-columns: 100px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 14px; background: #fff; border: 1px solid var(--line); border-radius: 13px; }
 .project-row img { width: 100px; height: 76px; object-fit: cover; border-radius: 8px; background: #edf1ee; }

@@ -46,14 +46,16 @@
 
   document.getElementById("login-form").addEventListener("submit", async (event) => {
     event.preventDefault();
-    const values = new FormData(event.currentTarget);
-    message("Verificando acceso…", false, true);
+    const loginForm = event.currentTarget;
+    const values = new FormData(loginForm);
+    const loginMessage = document.getElementById("login-message");
+    loginMessage.textContent = "Verificando acceso…";
     try {
       const result = await api("/api/login", { method: "POST", body: JSON.stringify({ username: values.get("username"), password: values.get("password") }) });
       sessionStorage.setItem(tokenKey, result.token);
-      event.currentTarget.reset();
+      loginForm.reset();
       setLoggedIn(result.user);
-    } catch (error) { message(error.message, true, true); }
+    } catch (error) { loginMessage.textContent = error.message; }
   });
 
   document.getElementById("logout-button").addEventListener("click", async () => {
@@ -82,7 +84,29 @@
   function renderProperties() {
     const list = document.getElementById("property-list");
     list.replaceChildren();
-    properties.forEach((property) => {
+    const searchInput = document.getElementById("property-search-input");
+    const query = normalizeSearch(searchInput ? searchInput.value.trim() : "");
+    const filteredProperties = properties.filter((property) => {
+      const searchableText = normalizeSearch([
+        property.title, property.summary, property.type, property.city,
+        property.department, property.price
+      ].join(" "));
+      return searchableText.includes(query);
+    });
+    const count = document.getElementById("property-search-count");
+    if (count) {
+      count.textContent = query
+        ? `${filteredProperties.length} de ${properties.length} propiedades`
+        : `${properties.length} ${properties.length === 1 ? "propiedad" : "propiedades"}`;
+    }
+    if (query && filteredProperties.length === 0) {
+      const empty = document.createElement("p");
+      empty.className = "property-empty";
+      empty.textContent = "No encontramos propiedades con esa búsqueda.";
+      list.append(empty);
+      return;
+    }
+    filteredProperties.forEach((property) => {
       const row = document.createElement("article");
       row.className = "project-row";
       const image = document.createElement("img");
@@ -123,6 +147,10 @@
       row.append(image, description, actions);
       list.append(row);
     });
+  }
+
+  function normalizeSearch(value) {
+    return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es");
   }
 
   function renderImages() {
@@ -193,6 +221,8 @@
   }
 
   document.getElementById("new-property-button").addEventListener("click", () => openProperty());
+  const searchInput = document.getElementById("property-search-input");
+  if (searchInput) searchInput.addEventListener("input", renderProperties);
   document.getElementById("close-dialog").addEventListener("click", () => dialog.close());
   document.getElementById("cancel-dialog").addEventListener("click", () => dialog.close());
 
