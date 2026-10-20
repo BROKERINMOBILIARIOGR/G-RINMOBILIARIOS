@@ -202,12 +202,19 @@
     "department": "Tolima",
     "city": "Carmen de apicala",
     "type": "Lote",
-    "price": 41000001,
+    "price": 41000000,
     "summary": "Se rematan lotes",
     "details": "Se vende lote 35 y 36 por aparte. ubicados en la urbanization Caracolí en el municipio del carmen de apical. cada lote tiene una superficie de 732 metros cuadrados. La urbanización cuenta con piscina y zonas sociales.",
     "bedrooms": 0,
     "bathrooms": 0,
-    "area": 72
+    "area": 72,
+    "titleEn": "Lots 35 and 36 in Caracolí",
+    "summaryEn": "Lots for sale",
+    "departmentEn": "Tolima",
+    "cityEn": "El Carmen de Apicalá",
+    "typeEn": "Lot",
+    "detailsEn": "Lots 35 and 36 are for sale separately in the Caracolí development in El Carmen de Apicalá. Each lot measures 732 m². The development has a swimming pool and shared social areas.",
+    "areaHectares": 0.0
   },
   {
     "id": "casa-8",
