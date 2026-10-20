@@ -106,12 +106,19 @@
     "department": "Tolima",
     "city": "Carmen de apicala",
     "type": "Casa lote",
-    "price": 115000001,
+    "price": 115000000,
     "summary": "Casa Lote ubicada en la Urbanización El Lago",
     "details": "Se vende casa lote con escritura pública a 10 minutos del parque; cuenta con agua, alcantarillado y luz. paredes levantadas y piso de concreto",
     "bedrooms": 0,
     "bathrooms": 0,
-    "area": 100
+    "area": 100,
+    "titleEn": "House Lot",
+    "summaryEn": "House lot in the El Lago development",
+    "departmentEn": "Tolima",
+    "cityEn": "El Carmen de Apicalá",
+    "typeEn": "House and Lot",
+    "detailsEn": "House lot with a public deed, 10 minutes from the town square. Water, sewer service, and electricity are available. The walls are built and the floor is concrete.",
+    "areaHectares": 0.0
   },
   {
     "id": "bosa-recreo",
