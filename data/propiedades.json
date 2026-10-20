@@ -160,12 +160,19 @@
     "department": "Tolima",
     "city": "Carmen de apicala",
     "type": "Lote",
-    "price": 38000001,
+    "price": 38000000,
     "summary": "Lote urbano",
     "details": "Se remata lote urbano ubicado cerca de la brio del Carmen de Apicalá. cuenta con acueducto, alcantarillado y luz. escritura pública individual",
     "bedrooms": 0,
     "bathrooms": 0,
-    "area": 60
+    "area": 60,
+    "titleEn": "Urban Lot",
+    "summaryEn": "Urban lot",
+    "departmentEn": "Tolima",
+    "cityEn": "El Carmen de Apicalá",
+    "typeEn": "Lot",
+    "detailsEn": "Distressed sale of an urban lot near the Brío gas station in El Carmen de Apicalá. It has water supply, sewer service, electricity, and an individual public deed.",
+    "areaHectares": 0.0
   },
   {
     "id": "lote-35-y-36",
