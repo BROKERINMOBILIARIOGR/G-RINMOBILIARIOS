@@ -227,12 +227,19 @@
     "department": "Tolima",
     "city": "Carmen de apicala",
     "type": "Casa",
-    "price": 230000001,
+    "price": 230000000,
     "summary": "En venta Casa número 8 del barrio arenitas",
     "details": "Se vende Casa🏡 Urbanización  Pueblito Español - Carmen de Apicala Tolima ⚠️La casa tiene 105 m2 construidos ( 6 * 17,5) , servicios ( agua , luz , gas ) 3 habitaciones, 2 baños, cocina integral, sala  comedor, patio de ropas,  garaje y placa con techo ⚠️ Excelentes terminados y capacidad de estructura ⚠️Sector Central y de alta valorización 📈 🏡 Documentos al día para el traspaso. 🏡",
     "bedrooms": 3,
     "bathrooms": 2,
-    "area": 105
+    "area": 105,
+    "titleEn": "House 8",
+    "summaryEn": "House No. 8 for sale in the Arenitas neighborhood",
+    "departmentEn": "Tolima",
+    "cityEn": "El Carmen de Apicalá",
+    "typeEn": "House",
+    "detailsEn": "House for sale in Pueblito Español, El Carmen de Apicalá, Tolima. It has 105 m² of built area (6 x 17.5 m), water, electricity, natural gas, three bedrooms, two bathrooms, a fitted kitchen, living and dining rooms, laundry patio, garage, and a covered slab area. Excellent finishes and a strong structure. Centrally located in an area with strong appreciation potential. Documents are ready for transfer.",
+    "areaHectares": 0.0
   },
   {
     "id": "casa-en-villa-nelly",
