@@ -585,5 +585,32 @@
     "bathrooms": 2,
     "area": 120,
     "areaHectares": 0.0
+  },
+  {
+    "id": "se-vende-propiedad-de-2-pisos-5-unidades-independientes",
+    "images": [
+      "Images/propiedades/se-vende-propiedad-de-2-pisos-5-unidades-independientes/2ffc5ab562c24c50b024bb972b76f1fe.jpg",
+      "Images/propiedades/se-vende-propiedad-de-2-pisos-5-unidades-independientes/7b8542283c9f489b95c455d829dac9ef.jpg",
+      "Images/propiedades/se-vende-propiedad-de-2-pisos-5-unidades-independientes/e2d8037b2ea14f38b1dc9f632d5c95f7.jpg",
+      "Images/propiedades/se-vende-propiedad-de-2-pisos-5-unidades-independientes/51fc1964d3d64dada844a02698bfd6b9.jpg",
+      "Images/propiedades/se-vende-propiedad-de-2-pisos-5-unidades-independientes/a7eec3774c094823ab48e51bd0ddb76c.jpg"
+    ],
+    "title": "SE VENDE PROPIEDAD DE 2 PISOS – 5 UNIDADES INDEPENDIENTES",
+    "department": "Meta",
+    "city": "Villavicencio",
+    "type": "Casa",
+    "price": 290000001,
+    "summary": "Excelente oportunidad de inversión: propiedad de dos plantas con 5 unidades familiares actualmente rentando, todas con entrada independiente, ideal para generar ingresos por alquiler.",
+    "details": "SE VENDE PROPIEDAD DE 2 PISOS – 5 UNIDADES INDEPENDIENTES\nExcelente oportunidad de inversión: propiedad de dos plantas con 5 unidades familiares actualmente rentando, todas con entrada independiente, ideal para generar ingresos por alquiler.\nLa propiedad está distribuida así:\n3 apartamentos amplios de 2 habitaciones, cada uno con sala-comedor, cocina y baño.\n1 apartamento cuenta con balcón.\n1 apartamento cuenta con patio.\n1 apartamento de 1 habitación, con cocina, comedor y baño independiente.\n1 local comercial o apartaestudio tipo loft, con acceso independiente.\nUna propiedad con 5 unidades generadoras de renta, excelente alternativa para inversión y generación de ingresos mensuales.\n📲 Mayores informes y citas para conocer la propiedad por mensaje privado.",
+    "titleEn": "SE VENDE PROPIEDAD DE 2 PISOS – 5 UNIDADES INDEPENDIENTES",
+    "summaryEn": "Excellent investment opportunity: a two-story property with 5 residential units currently being rented out, each with its own separate entrance—ideal for generating rental income.",
+    "departmentEn": "Meta",
+    "cityEn": "Villavicencio",
+    "typeEn": "House",
+    "detailsEn": "2-STORY PROPERTY FOR SALE – 5 INDEPENDENT UNITS\nAn excellent investment opportunity: a two-story property featuring 5 residential units—all currently tenanted and each with its own private entrance—making it ideal for generating rental income.\nThe property is laid out as follows:\n3 spacious 2-bedroom apartments, each with a living-dining area, kitchen, and bathroom.\n1 apartment includes a balcony.\n1 apartment includes a patio.\n1 one-bedroom apartment, complete with a kitchen, dining area, and private bathroom.\n1 commercial space or loft-style studio apartment, with its own independent access.\nA property comprising 5 income-generating units—an excellent choice for investment and creating a monthly revenue stream.\n📲 For further information or to schedule a viewing, please send a private message.",
+    "bedrooms": 6,
+    "bathrooms": 3,
+    "area": 130,
+    "areaHectares": 0.0
   }
 ]
