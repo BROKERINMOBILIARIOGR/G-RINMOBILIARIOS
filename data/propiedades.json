@@ -62,7 +62,14 @@
     "details": "Se vende lote en la urbanización Altos De Arenitas.\ncuenta con luz, agua, alcantarillado y vias pavimentadas.\nTambien escritura pública individual",
     "bedrooms": 0,
     "bathrooms": 0,
-    "area": 72
+    "area": 72,
+    "titleEn": "Urban Lot",
+    "summaryEn": "Urban lot in Altos de Arenitas",
+    "departmentEn": "Tolima",
+    "cityEn": "El Carmen de Apicalá",
+    "typeEn": "Lot",
+    "detailsEn": "Lot for sale in the Altos de Arenitas development. It has electricity, water, sewer service, and paved roads, as well as an individual public deed.",
+    "areaHectares": 0.0
   },
   {
     "id": "lote-en-villa-hanna",
