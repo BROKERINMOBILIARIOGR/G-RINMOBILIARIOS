@@ -10,12 +10,19 @@
     "department": "Tolima",
     "city": "Carmen de apicala",
     "type": "Casa",
-    "price": 160000001,
+    "price": 160000000,
     "summary": "Altos de arenitas\nEstrato 2",
     "details": "Frente 17.50\nLado 12 \nAtrás 10\nArea irregular.\n3 habitaciones\nAparta estudio sótano ( 6x7) habitación, con baño, conciba, patio se arrienda por $380\nTiene tanque subterráneo de 3000 litros para comprarle hidro.\nAceituna una sola persona.\nPatio y plancha de 3 metros irregulares.\nCon los 3 servicios agua, energía y gas natural.",
     "bedrooms": 3,
     "bathrooms": 0,
-    "area": 120
+    "area": 120,
+    "titleEn": "House in Altos de Arenitas",
+    "summaryEn": "Altos de Arenitas · Socioeconomic stratum 2",
+    "departmentEn": "Tolima",
+    "cityEn": "El Carmen de Apicalá",
+    "typeEn": "House",
+    "detailsEn": "Approximate lot dimensions: 17.5 m front, 12 m side, and 10 m rear; irregular area. Three bedrooms. The basement studio (6 x 7 m) includes a bedroom, bathroom, kitchen, and patio; it can be rented for COP $380,000. Underground 3,000-liter water tank. The property has a patio and an irregular 3-meter slab area. Connected to water, electricity, and natural gas.",
+    "areaHectares": 0.0
   },
   {
     "id": "lote",
