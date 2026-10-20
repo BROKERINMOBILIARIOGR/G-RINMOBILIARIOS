@@ -258,12 +258,19 @@
     "department": "Tolima",
     "city": "Carmen de apicala",
     "type": "Casa",
-    "price": 163000001,
+    "price": 163000000,
     "summary": "Se vende casa en villa nelly etapa 1",
     "details": "Casa en Villa Nelly con escritura pública, gas natural, acueducto, alcantarillado. Vias pavimentadas. Entrada a via peatonal; un primer piso. Estrato 2",
     "bedrooms": 2,
     "bathrooms": 1,
-    "area": 72
+    "area": 72,
+    "titleEn": "House in Villa Nelly",
+    "summaryEn": "House for sale in Villa Nelly, Phase 1",
+    "departmentEn": "Tolima",
+    "cityEn": "El Carmen de Apicalá",
+    "typeEn": "House",
+    "detailsEn": "House in Villa Nelly with a public deed, natural gas, water supply, sewer service, and paved roads. Access is via a pedestrian street. Single-story home. Socioeconomic stratum 2.",
+    "areaHectares": 0.0
   },
   {
     "id": "lote-f8ea34",
