@@ -546,5 +546,32 @@
     "bathrooms": 1,
     "area": 65,
     "areaHectares": 0.0
+  },
+  {
+    "id": "casa-portal-del-lago",
+    "images": [
+      "Images/propiedades/casa-portal-del-lago/7fbc9faccb264369b0f1d8f9728241fa.jpg",
+      "Images/propiedades/casa-portal-del-lago/c4d7b933103749cf8aeeb147a33bce03.jpg",
+      "Images/propiedades/casa-portal-del-lago/225f364eaf8848f7bf85415d046de987.jpg",
+      "Images/propiedades/casa-portal-del-lago/90a2eb542c1f4c59ba26146ab52ce291.jpg",
+      "Images/propiedades/casa-portal-del-lago/0158a93b73b546528c746ad43e2aa366.jpg"
+    ],
+    "title": "Casa portal del lago",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Casa",
+    "price": 260000001,
+    "summary": "espectacular casa ubicada en el km 2 vía el charcon Carmen de APICALA , lote de 6m x 1 de fondo , se construyó 2 pisos más terraza",
+    "details": "Se vende esta espectacular casa ubicada en el km 2 vía el charcon Carmen de APICALA , lote de 6m x 1 de fondo , se construyó 2 pisos más terraza , piso 1 sala comedor , cocina  integral, 1 baño , 1 cuarto de lavado , estudio , por el frente puerta principal frente a la vía principal del condominio y por atrás salida al balcón frente a la piscina del conjunto , piso 2., tres alcobas  1 con baño privado y balcones con vista a la piscina otra con balcón vista a la piscina y la tercera con vista a la sala \nPiso 3 terraza con el piso en baldosa tráfico pesado antideslizante punto de luz y de agua para futuro jacuzzi , hay 2 piscinas las cuales se pagan $8000 entrada \nLa casa cuenta con cámaras y alarma de seguridad \nServicios agua y luz",
+    "titleEn": "Casa Portal del lago",
+    "summaryEn": "spectacular house located at km 2 on the road to El Charcón, in Carmen de Apicalá. The lot measures 6m in width by 1m in depth.",
+    "departmentEn": "Tolima",
+    "cityEn": "Carmen de apicala",
+    "typeEn": "House",
+    "detailsEn": "For sale: a spectacular house located at km 2 on the road to El Charcón, in Carmen de Apicalá. The lot measures 6m in width by 1m in depth. The property consists of two floors plus a terrace. The first floor features a living-dining area, a fully equipped kitchen, one bathroom, a laundry room, and a study; the front entrance faces the main road of the residential complex, while the rear opens onto a balcony overlooking the complex's swimming pool. The second floor contains three bedrooms: one with an en-suite bathroom and a balcony overlooking the pool, another with a balcony also overlooking the pool, and a third with a view toward the living area.\nThe third floor is a terrace featuring heavy-duty, non-slip floor tiles, with pre-installed electrical and water connections for a potential future jacuzzi. There are two swimming pools available for use (entry fee: $8,000).\nThe house is equipped with security cameras and an alarm system.\nUtilities: water and electricity.",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": 120,
+    "areaHectares": 0.0
   }
 ]
