@@ -70,7 +70,6 @@ def image_from_rss(node):
                 candidate = element.attrib["url"]
         elif name == "image":
             candidate = element.attrib.get("url", "") or (element.text or "").strip()
-        parsed = urllib.request.urlparse(candidate) if hasattr(urllib.request, "urlparse") else None
         if candidate.startswith("https://"):
             return candidate
     return ""
