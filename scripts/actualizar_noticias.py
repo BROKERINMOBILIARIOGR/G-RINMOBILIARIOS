@@ -171,7 +171,7 @@ def main():
         "items": items,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Guardados {len(payload['items'])} titulares de varias fuentes.")
 
 if __name__ == "__main__":
