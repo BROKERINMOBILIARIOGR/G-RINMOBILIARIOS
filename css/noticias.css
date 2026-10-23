@@ -1,0 +1,23 @@
+.actualidad-intro { max-width: 1180px; }
+.actualidad-intro > h2 { margin-bottom: 8px; color: #173d2d; }
+.actualidad-intro > p { max-width: 850px; }
+.actualidad-fecha { margin-top: 12px; color: #58645d; font-size: 14px; }
+.filtros-noticias { display: flex; flex-wrap: wrap; gap: 9px; margin: 24px 0 18px; }
+.filtro-noticia { border: 1px solid #cbd5ce; border-radius: 999px; padding: 9px 15px; background: #fff; color: #244432; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.filtro-noticia:hover, .filtro-noticia.activo { border-color: #1f4f3a; background: #1f4f3a; color: #fff; }
+.filtro-noticia:focus-visible, .noticia-enlace:focus-visible { outline: 3px solid #d4af37; outline-offset: 3px; }
+.estado-noticias { margin: 10px 0 18px; color: #58645d; }
+.lista-noticias { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 18px; }
+.noticia-card { display: flex; flex-direction: column; min-height: 200px; padding: 20px; border: 1px solid #e1e7e2; border-radius: 14px; background: #fff; box-shadow: 0 7px 20px rgba(0,0,0,.07); }
+.noticia-categoria { align-self: flex-start; margin-bottom: 11px; padding: 4px 9px; border-radius: 99px; background: #edf3ef; color: #1f4f3a; font-size: 12px; font-weight: 700; }
+.noticia-card h3 { margin: 0 0 10px; font-size: 18px; line-height: 1.4; }
+.noticia-card h3 a { color: #202a25; text-decoration: none; }
+.noticia-card h3 a:hover { color: #1f6847; text-decoration: underline; }
+.noticia-meta { margin-top: auto; color: #66736b; font-size: 13px; }
+.noticias-destacadas { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 18px 0; }
+.noticia-destacada { padding: 16px; border-left: 4px solid #d4af37; border-radius: 8px; background: #fff; box-shadow: 0 5px 16px rgba(0,0,0,.07); }
+.noticia-destacada a { color: #202a25; font-weight: 700; text-decoration: none; }
+.noticia-destacada a:hover { text-decoration: underline; }
+.noticias-ver-todas { display: inline-block; margin-top: 8px; padding: 10px 16px; border-radius: 8px; background: #1f4f3a; color: white; font-weight: 700; text-decoration: none; }
+.noticias-ver-todas:hover { background: #173d2d; }
+@media (max-width: 600px) { .filtro-noticia { font-size: 13px; } .noticia-card { padding: 17px; } }
