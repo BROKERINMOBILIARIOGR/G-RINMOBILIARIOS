@@ -103,9 +103,32 @@ def fetch_feed(label, url, cutoff):
         })
     return results
 
+def camara_project(cutoff):
+    # Proyecto legislativo de vivienda publicado en la ficha oficial de la Cámara.
+    url = "https://www.camara.gov.co/vivienda-sin-cuota-inicial/"
+    filed = datetime(2026, 10, 21, 12, tzinfo=timezone.utc)
+    if filed < cutoff:
+        return []
+    request = urllib.request.Request(url, headers=HEADERS)
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            page = response.read(2 * 1024 * 1024).decode("utf-8", errors="replace")
+    except (urllib.error.URLError, TimeoutError):
+        return []
+    if "455/2026C" not in page or "sin cuota inicial" not in page.lower():
+        return []
+    return [{
+        "title": "Proyecto de ley propone vivienda VIP sin cuota inicial (455/2026C)",
+        "url": url,
+        "source": "Cámara de Representantes",
+        "publishedAt": filed.isoformat(timespec="seconds"),
+        "category": "Política y normas",
+        "imageUrl": "",
+    }]
+
 def main():
     cutoff = datetime.now(timezone.utc) - timedelta(days=90)
-    items = []
+    items = camara_project(cutoff)
     errors = []
     for label, url in FEEDS:
         try:
