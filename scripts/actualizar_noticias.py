@@ -21,13 +21,13 @@ HEADERS = {
     "Accept": "application/rss+xml, application/xml, text/xml",
 }
 TOPIC = re.compile(
-    r"\\bviviend\\w*\\b|inmobili\\w*|finca\\s*ra[ií]z|"
-    r"\\bcasas?\\b|\\bhogares?\\b|"
-    r"subsid\\w*|mi casa ya|arriendo|arrendamiento|hipoteca|cr[eé]dito hipotecario|"
-    r"\\bv\\.?\\s*i\\.?\\s*s\\.?\\b|\\bv\\.?\\s*i\\.?\\s*p\\.?\\b|"
+    r"\bviviend\w*\b|inmobili\w*|finca\s*ra[ií]z|"
+    r"\bcasas?\b|\bhogares?\b|"
+    r"subsid\w*|mi casa ya|arriendo|arrendamiento|hipoteca|cr[eé]dito hipotecario|"
+    r"\bv\.?\s*i\.?\s*s\.?\b|\bv\.?\s*i\.?\s*p\.?\b|"
     r"construcci[oó]n de vivienda|proyecto[s]? de vivienda|vivienda nueva|constructora[s]?|"
     r"licencia[s]? de construcci[oó]n|urbanismo|uso del suelo|impuesto predial|catastro|"
-    r"\\blotes?\\b|desalojo|damnificad\\w*",
+    r"\blotes?\b|desalojo|damnificad\w*",
     re.I,
 )
 CATEGORIES = [
