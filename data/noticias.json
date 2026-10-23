@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T00:29-05:00",
+  "updatedAt": "2026-10-23T00:32-05:00",
   "items": [
     {
       "title": "Emergencia en Moniquirá, Boyacá, por deslizamiento de tierra en la vereda de Pajales tras fuertes lluvias: se reportan tres casas afectadas",
@@ -26,12 +26,212 @@
       "imageUrl": "https://imagenes2.eltiempo.com/files/og_thumbnail/files/fp/uploads/2026/10/22/6ada8b0f27a5d.r_d.1345-728-0.jpeg"
     },
     {
+      "title": "Empresa transportadora encontró al adulto mayor al que no dejaron subir a un bus con su perra y le pidió disculpas públicas",
+      "url": "https://www.elcolombiano.com/inicio/adulto-mayor-no-pudo-viajar-con-perrita-bus-empresa-transportadora-pide-disculpas-DB42527141",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-21T12:53:42+00:00",
+      "category": "Política y normas",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/416x300/0c0/0d0/center/11101/FCAG/anciano-bus-perro_51934673_20261021073004.png"
+    },
+    {
+      "title": "En video | Las últimas imágenes del puertorriqueño antes de su asesinato en un hotel en Laureles, Medellín",
+      "url": "https://www.elcolombiano.com/inicio/gustavo-javier-rodriguez-melendez-ultimas-imagenes-con-vida-puertorriqueno-asesinado-laureles-EB42526983",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-21T12:48:02+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/459x300/0c0/0d0/center/11101/EWTU/puertorriqueno-2_51934510_20261021073621.jpg"
+    },
+    {
+      "title": "Más de 30 planes gratis para este fin de semana en el Parque de los Deseos",
+      "url": "https://www.elcolombiano.com/inicio/planes-gratis-fin-de-semana-25-octubre-medellin-parque-de-los-deseos-NB42526649",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-21T12:36:12+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/450x300/0c0/0d0/center/11101/SCDD/whatsapp-image-2026-10-20-at-20-09_51934648_20261021071548.jpg"
+    },
+    {
+      "title": "Jhon Arias, de héroe a villano, con Palmeiras busca el paso a la final de la Libertadores ante Fluminense",
+      "url": "https://www.elcolombiano.com/inicio/jhon-arias-palmeiras-final-copa-libertadores-partido-fluminense-LB42526148",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-21T12:16:09+00:00",
+      "category": "Política y normas",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/533x300/0c0/0d0/center/11101/VFKS/arias1_51934433_20261021071303.jpg"
+    },
+    {
       "title": "Proyecto de ley propone vivienda VIP sin cuota inicial (455/2026C)",
       "url": "https://www.camara.gov.co/vivienda-sin-cuota-inicial/",
       "source": "Cámara de Representantes",
       "publishedAt": "2026-10-21T12:00:00+00:00",
       "category": "Política y normas",
       "imageUrl": ""
+    },
+    {
+      "title": "<p>Así se repartirá el Presupuesto 2027: </p><p>$11,4 billones menos para el servicio de la deuda</p>",
+      "url": "https://www.elcolombiano.com/inicio/presupuesto-colombia-2027-634-billones-inversion-deuda-publica-OC42519052",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-21T11:00:46+00:00",
+      "category": "Subsidios",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/533x300/0c0/0d0/center/11101/UQDH/whatsapp-image-2026-10-20-at-19-19_51933575_20261020192910.jpg"
+    },
+    {
+      "title": "Nacional no pudo con Cúcuta y perdió después de 14 años en la tierra de James Rodríguez",
+      "url": "https://www.elcolombiano.com/inicio/en-vivo-cucuta-vs-nacional-fecha-15-clausura-2026-general-santander-FB42520454",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-21T02:25:03+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/390x300/0c0/0d0/center/11101/UPKD/whatsapp-image-2026-10-20-at-8-44-52-pm_51933646_20261020204847.jpg"
+    },
+    {
+      "title": "¿Hasta cuándo va periodo crítico de calidad del aire en Valle de Aburrá? 18 estaciones marcaron amarillo",
+      "url": "https://www.elcolombiano.com/inicio/periodo-critico-de-calidad-del-aire-en-valle-de-aburra-HB42522476",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-21T01:59:56+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/533x300/0c0/0d0/center/11101/QVCH/contaminacion-aire-valle-de-aburra_51934041_20261020205026.jpg"
+    },
+    {
+      "title": "Así proponen salvar al parque Lleras, en Medellín, y decirle adiós a la estampida del comercio y la ilegalidad",
+      "url": "https://www.elcolombiano.com/inicio/como-recuperar-parque-lleras-medellin-crisis-comercio-ilegalidad-MC42518325",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-21T01:05:47+00:00",
+      "category": "Política y normas",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/451x300/0c0/0d0/center/11101/UXMD/lleras-4_51933566_20261020193918.jpg"
+    },
+    {
+      "title": "Cae uno de los más buscados del Frente 4: lo señalan del crimen de un líder campesino en Segovia, Antioquia",
+      "url": "https://www.elcolombiano.com/inicio/capturan-david-castiblanco-alias-brayan-ross-homicidio-lider-campesino-segovia-EC42511995",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-21T00:33:12+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/416x300/0c0/0d0/center/11101/SPXR/captura-alias-brayan-los-mas-buscado_51932701_20261020171128.png"
+    },
+    {
+      "title": "Juanes se presentará como artista invitado en los Latin Grammy 2026",
+      "url": "https://www.elcolombiano.com/inicio/juanes-nominado-y-artista-invitado-latin-grammy-2026-juanes-teban-OC42516594",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-21T00:06:58+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/450x300/0c0/0d0/center/11101/CRSE/juanes-foto-nueva_51933355_20261020184840.jpg"
+    },
+    {
+      "title": "“Uno no hace jugadores: descubre el talento y ayuda a desarrollarlo”: los secretos de Camilo Pérez, cazatalentos de Nacional",
+      "url": "https://www.elcolombiano.com/inicio/camilo-perez-cazatalentos-atletico-nacional-KC42514790",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T23:02:59+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/450x300/0c0/0d0/center/11101/IEQK/juan-camilo-perez-3-jpg_51931746_20261020180317.jpg"
+    },
+    {
+      "title": "“Hoy no escaparon doce mujeres”: gobernador de Nariño lloró al hablar de las víctimas del derrumbe en mina de oro",
+      "url": "https://www.elcolombiano.com/inicio/gobernador-narino-llora-victimas-doce-mujeres-derrumbe-mina-oro-santa-barbara-LC42512559",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T22:53:18+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/450x300/0c0/0d0/center/11101/VAHO/aparon-doce-mujeres-gobernador-de-n_51932412_20261020173502.jpg"
+    },
+    {
+      "title": "Murió famosa exnovia de Justin Bieber y dejó una bebé de solo 10 meses, ¿qué le pasó?",
+      "url": "https://www.elcolombiano.com/inicio/murio-famosa-exnovia-justin-bieber-sahara-ray-que-le-paso-JD42508357",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T21:45:50+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/450x300/0c0/0d0/center/11101/NNCT/murio-famosa-exnovia-de-justin-biebe_51931562_20261020162721.jpg"
+    },
+    {
+      "title": "Lucho Díaz y el Bayern Múnich van contra un imbatible Arsenal en Champions; ¿a qué hora y dónde ver el partido?",
+      "url": "https://www.elcolombiano.com/inicio/bayern-munich-vs-arsenal-hoy-horario-donde-ver-luis-diaz-champions-KD42509377",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T21:44:43+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/450x300/0c0/0d0/center/11101/LSSY/bayern-arsenal-champions-league_51931882_20261020163527.jpg"
+    },
+    {
+      "title": "Así intentaron sacar inmenso cargamento de 7,6 toneladas de cocaína camufladas en panela desde puerto en Cartagena",
+      "url": "https://www.elcolombiano.com/inicio/incautacion-7-6-toneladas-cocaina-mezclada-panela-puerto-cartagena-BL42497431",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T20:59:03+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/533x300/0c0/0d0/center/11101/ULKQ/coca-incautada_51929761_20261020143320.png"
+    },
+    {
+      "title": "“Se elevó”: la excusa de la auxiliar que no activó el código fucsia a menor abusada en Envigado",
+      "url": "https://www.elcolombiano.com/inicio/envigado-hospital-manuel-uribe-angel-falla-codigo-fucsia-menor-PD42506845",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T20:58:16+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/416x300/0c0/0d0/center/11101/HNLR/hospital-manuel-uribe-angel-abuso-se_51931399_20261020154155.png"
+    },
+    {
+      "title": "Madre soltera y víctima de una estafa, así fue el nuevo desahucio de una mujer y su hijo de 9 años, esta vez en Barcelona",
+      "url": "https://www.elcolombiano.com/inicio/madre-soltera-hijo-nueve-anos-desahuciados-barcelona-estafa-alquiler-FD42501224",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T20:49:40+00:00",
+      "category": "Política y normas",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/455x300/0c0/0d0/center/11101/SGIC/image-2026-10-20t152610-064_51930294_20261020153330.jpg"
+    },
+    {
+      "title": "RTVC denuncia que entre 2023 y 2026 pagaron a contratistas que habrían presentado aportes falsos a salud y pensión",
+      "url": "https://www.elcolombiano.com/inicio/rtvc-denuncia-20232026-pagaron-contratistas-aportes-salud-pension-HF42476717",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T19:47:36+00:00",
+      "category": "Política y normas",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/414x300/0c0/0d0/center/11101/CXKP/rtvc-morris-petro-colprensa_51924855_20261020072020.webp"
+    },
+    {
+      "title": "Corte Suprema no se opondría al “Estatuto Antiterrorista” del Gobierno, pero tiene estas precisiones clave",
+      "url": "https://www.elcolombiano.com/inicio/estatuto-antiterrorista-corte-suprema-justicia-no-se-opondria-GL42494222",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T19:42:37+00:00",
+      "category": "Subsidios",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/450x300/0c0/0d0/center/11101/TAGC/abelardo-corte-suprema-1_51928985_20261020134046.jpg"
+    },
+    {
+      "title": "Atención: Concejo autorizó reforma administrativa más grande en Medellín en diez años",
+      "url": "https://www.elcolombiano.com/inicio/concejo-medellin-aprueba-reforma-administrativa-alcaldia-nuevos-cargos-ML42496758",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T19:35:24+00:00",
+      "category": "Política y normas",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/413x300/0c0/0d0/center/11101/MHSR/reforma-administraiva_51929746_20261020160106.jpg"
+    },
+    {
+      "title": "Abelardo de la Espriella promete sedes presidenciales en Medellín y Cali tras estrenar la de Barranquilla",
+      "url": "https://www.elcolombiano.com/inicio/casa-blanca-abelardo-de-la-espriella-barranquilla-sede-presidencial-esta-lista-criticas-LK42486490",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T19:29:36+00:00",
+      "category": "Política y normas",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/450x300/0c0/0d0/center/11101/TQPD/la-casa-blanca-de-abelardo-de-la-e_51926623_20261020112021.jpg"
+    },
+    {
+      "title": "Colombia arrasó en los premios Fine Dining Table: estos son los ganadores",
+      "url": "https://www.elcolombiano.com/inicio/lista-86-restaurantes-hoteles-colombianos-premiados-los-fuegos-2026-CL42492716",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T19:27:04+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/439x300/0c0/0d0/center/11101/WFIG/el-salvador-fine-dining-table_51928928_20261020125213.jpg"
+    },
+    {
+      "title": "Explosión de pipeta de gas habría provocado incendio en Itagüí: seis adultos quemados y un menor herido",
+      "url": "https://www.elcolombiano.com/inicio/incendio-itagui-pipeta-gas-seis-adultos-quemados-DL42497730",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T19:21:36+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/248x300/0c0/0d0/center/11101/XCTS/incendio-itagui1_51929889_20261020140732.png"
+    },
+    {
+      "title": "Antioquia ya suma 84 inmuebles demolidos por inseguridad: ocho fueron derribados en Caldas",
+      "url": "https://www.elcolombiano.com/inicio/antioquia-suma-84-inmuebles-demolidos-ocho-caldas-inseguridad-BL42496979",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T19:12:45+00:00",
+      "category": "Mercado inmobiliario",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/429x294/0c0/0d0/center/11101/VCLR/el-colombiano-antioquia-ya-suma-84-i_51929755_20261020151605.jpg"
+    },
+    {
+      "title": "Tras la muerte de Abraxas Aguilar, ¿cuál será el futuro de su casa de 100.000 imágenes?",
+      "url": "https://www.elcolombiano.com/inicio/muerte-abraxas-aguilar-artista-casa-collage-medellin-que-pasara-con-su-casa-IL42494862",
+      "source": "EL COLOMBIANO",
+      "publishedAt": "2026-10-20T18:57:49+00:00",
+      "category": "Subsidios",
+      "imageUrl": "https://estaticos.elcolombiano.com/binrepository/450x300/0c0/0d0/center/11101/RDCW/taller-de-abraxas-aguilar-m_51929056_20261020130323.jpg"
     }
   ]
 }
