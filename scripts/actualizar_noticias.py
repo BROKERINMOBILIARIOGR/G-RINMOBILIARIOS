@@ -15,6 +15,7 @@ FEEDS = [
     ("EL TIEMPO · Economía", "https://www.eltiempo.com/rss/economia.xml"),
     ("EL TIEMPO · Colombia", "https://www.eltiempo.com/rss/colombia.xml"),
     ("EL TIEMPO · Política", "https://www.eltiempo.com/rss/politica.xml"),
+    ("EL COLOMBIANO", "https://www.elcolombiano.com/rss/inicio"),
 ]
 HEADERS = {
     "User-Agent": "G-R-Inmobiliarios-Noticias/1.0 (+https://brokerinmobiliariogr.github.io/G-RINMOBILIARIOS/)",
