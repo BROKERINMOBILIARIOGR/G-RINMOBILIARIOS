@@ -2,6 +2,12 @@ name: Actualizar noticias de vivienda
 on:
   schedule:
     - cron: "0 11 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/actualizar-noticias.yml"
+      - "scripts/actualizar_noticias.py"
   workflow_dispatch:
 
 permissions:
