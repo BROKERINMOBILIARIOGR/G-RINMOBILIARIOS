@@ -14,12 +14,12 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 OUTPUT = Path("data/noticias.json")
-BASE = "https://news.google.com/rss/search?"
+BASE = "https://www.bing.com/news/search?"
 QUERY = '(vivienda Colombia OR subsidio vivienda Colombia OR finca raíz Colombia OR mercado inmobiliario Colombia OR construcción vivienda Colombia OR reforma vivienda Colombia OR proyectos vivienda Colombia)'
 def feed_url(cutoff):
     query = QUERY + " after:" + cutoff.strftime("%Y-%m-%d")
     return BASE + urllib.parse.urlencode({
-        "q": query, "hl": "es-419", "gl": "CO", "ceid": "CO:es-419"
+        "q": query, "format": "rss", "setmkt": "es-CO"
     })
 HEADERS = {"User-Agent": "G-R-Inmobiliarios-Noticias/1.0 (+https://brokerinmobiliariogr.github.io/G-RINMOBILIARIOS/)"}
 CATEGORIES = [
@@ -64,6 +64,8 @@ def image_from_rss(node):
         candidate = ""
         if name in ("thumbnail", "content") and element.attrib.get("url"):
             candidate = element.attrib["url"]
+        elif name == "image":
+            candidate = element.attrib.get("url", "") or (element.text or "").strip()
         elif name == "enclosure" and element.attrib.get("type", "").startswith("image/"):
             candidate = element.attrib.get("url", "")
         if candidate and candidate.startswith("https://"):
@@ -120,9 +122,9 @@ def main():
     for node in channel.findall("item"):
         title = (node.findtext("title") or "").strip()
         link = (node.findtext("link") or "").strip()
-        source_node = node.find("source")
-        source = (source_node.text or "").strip() if source_node is not None else ""
-        published = parse_date(node.findtext("pubDate"))
+        source_node = next((element for element in node.iter() if element.tag.rsplit("}", 1)[-1].lower() == "source"), None)
+        source = ((source_node.text or "").strip() or source_node.attrib.get("url", "")) if source_node is not None else ""
+        published = parse_date(next((element.text for element in node if element.tag.rsplit("}", 1)[-1].lower() == "pubdate"), ""))
         if not published:
             continue
         try:
