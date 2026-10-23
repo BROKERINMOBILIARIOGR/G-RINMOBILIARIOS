@@ -2,8 +2,11 @@
 """Actualiza titulares y enlaces RSS, sin copiar artículos completos."""
 import json
 import re
+import urllib.error
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from html.parser import HTMLParser
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
@@ -42,6 +45,57 @@ def parse_date(value):
     except (TypeError, ValueError, OverflowError):
         return ""
 
+class ArticleImageParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.image = ""
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() != "meta" or self.image:
+            return
+        values = {key.lower(): value for key, value in attrs if key and value}
+        key = (values.get("property") or values.get("name") or "").lower()
+        if key in ("og:image", "og:image:secure_url", "twitter:image", "twitter:image:src"):
+            self.image = values.get("content", "")
+
+def image_from_rss(node):
+    for element in node.iter():
+        name = element.tag.rsplit("}", 1)[-1].lower()
+        candidate = ""
+        if name in ("thumbnail", "content") and element.attrib.get("url"):
+            candidate = element.attrib["url"]
+        elif name == "enclosure" and element.attrib.get("type", "").startswith("image/"):
+            candidate = element.attrib.get("url", "")
+        if candidate and candidate.startswith("https://"):
+            return candidate
+    return ""
+
+def image_from_article(url):
+    try:
+        request = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (compatible; GRNoticias/1.0)",
+            "Accept": "text/html,application/xhtml+xml",
+        })
+        with urllib.request.urlopen(request, timeout=10) as response:
+            content_type = response.headers.get("Content-Type", "")
+            if "html" not in content_type.lower():
+                return ""
+            html = response.read(1024 * 1024).decode("utf-8", errors="replace")
+            parser = ArticleImageParser()
+            parser.feed(html)
+            image = urllib.parse.urljoin(response.geturl(), parser.image)
+            parsed = urllib.parse.urlparse(image)
+            return image if parsed.scheme == "https" and parsed.netloc else ""
+    except (urllib.error.URLError, TimeoutError, ValueError):
+        return ""
+
+def add_article_images(items):
+    def find(item):
+        item["imageUrl"] = image_from_article(item["url"])
+        return item
+    with ThreadPoolExecutor(max_workers=6) as executor:
+        return list(executor.map(find, items))
+
 def main():
     cutoff = datetime.now(timezone.utc) - timedelta(days=90)
     request = urllib.request.Request(feed_url(cutoff), headers=HEADERS)
@@ -78,9 +132,10 @@ def main():
             "category": category_for(title + " " + source),
         })
     items.sort(key=lambda item: item["publishedAt"], reverse=True)
+    items = add_article_images(items[:36])
     payload = {
         "updatedAt": datetime.now(ZoneInfo("America/Bogota")).isoformat(timespec="minutes"),
-        "items": items[:36],
+        "items": items,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
