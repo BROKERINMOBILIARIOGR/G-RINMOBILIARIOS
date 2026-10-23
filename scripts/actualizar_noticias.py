@@ -21,18 +21,19 @@ HEADERS = {
     "Accept": "application/rss+xml, application/xml, text/xml",
 }
 TOPIC = re.compile(
-    r"viviend|inmobili|finca\s*ra[ií]z|casa[s]?|hogar(?:es)?|"
-    r"subsid|mi casa ya|arriendo|arrendamiento|hipoteca|cr[eé]dito hipotecario|"
-    r"v\.?\s*i\.?\s*s\.?|v\.?\s*i\.?\s*p\.?|"
-    r"construcci[oó]n|constructora|proyecto habitacional|"
-    r"urbanismo|uso del suelo|predial|catastro|lote[s]?|"
-    r"desalojo|damnificad|vivienda de inter[eé]s",
+    r"\\bviviend\\w*\\b|inmobili\\w*|finca\\s*ra[ií]z|"
+    r"\\bcasas?\\b|\\bhogares?\\b|"
+    r"subsid\\w*|mi casa ya|arriendo|arrendamiento|hipoteca|cr[eé]dito hipotecario|"
+    r"\\bv\\.?\\s*i\\.?\\s*s\\.?\\b|\\bv\\.?\\s*i\\.?\\s*p\\.?\\b|"
+    r"construcci[oó]n de vivienda|proyecto[s]? de vivienda|vivienda nueva|constructora[s]?|"
+    r"licencia[s]? de construcci[oó]n|urbanismo|uso del suelo|impuesto predial|catastro|"
+    r"\\blotes?\\b|desalojo|damnificad\\w*",
     re.I,
 )
 CATEGORIES = [
     ("Subsidios", re.compile(r"subsid|mi casa ya|vivienda gratis|cobertura|caja de compensación", re.I)),
     ("Política y normas", re.compile(r"reforma|ley |decreto|congreso|ministerio|gobierno|política|senado|cámara de representantes|norma", re.I)),
-    ("Proyectos y construcción", re.compile(r"construcc|proyecto|licencia|obra|urbanismo|vivienda nueva|constructor", re.I)),
+    ("Proyectos y construcción", re.compile(r"construcción de vivienda|proyectos? de vivienda|vivienda nueva|constructoras?|licencias? de construcción|urbanismo", re.I)),
 ]
 
 def category_for(text):
