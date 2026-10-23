@@ -5,7 +5,7 @@ import re
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -13,9 +13,11 @@ from zoneinfo import ZoneInfo
 OUTPUT = Path("data/noticias.json")
 BASE = "https://news.google.com/rss/search?"
 QUERY = '(vivienda Colombia OR subsidio vivienda Colombia OR finca raíz Colombia OR mercado inmobiliario Colombia OR construcción vivienda Colombia OR reforma vivienda Colombia OR proyectos vivienda Colombia)'
-URL = BASE + urllib.parse.urlencode({
-    "q": QUERY, "hl": "es-419", "gl": "CO", "ceid": "CO:es-419"
-})
+def feed_url(cutoff):
+    query = QUERY + " after:" + cutoff.strftime("%Y-%m-%d")
+    return BASE + urllib.parse.urlencode({
+        "q": query, "hl": "es-419", "gl": "CO", "ceid": "CO:es-419"
+    })
 HEADERS = {"User-Agent": "G-R-Inmobiliarios-Noticias/1.0 (+https://brokerinmobiliariogr.github.io/G-RINMOBILIARIOS/)"}
 CATEGORIES = [
     ("Subsidios", re.compile(r"subsid|mi casa ya|vivienda gratis|cobertura|caja de compensación", re.I)),
@@ -41,7 +43,8 @@ def parse_date(value):
         return ""
 
 def main():
-    request = urllib.request.Request(URL, headers=HEADERS)
+    cutoff = datetime.now(timezone.utc) - timedelta(days=90)
+    request = urllib.request.Request(feed_url(cutoff), headers=HEADERS)
     with urllib.request.urlopen(request, timeout=30) as response:
         root = ET.fromstring(response.read())
     items = []
@@ -55,6 +58,14 @@ def main():
         source_node = node.find("source")
         source = (source_node.text or "").strip() if source_node is not None else ""
         published = parse_date(node.findtext("pubDate"))
+        if not published:
+            continue
+        try:
+            published_dt = datetime.fromisoformat(published)
+        except ValueError:
+            continue
+        if published_dt < cutoff:
+            continue
         key = link or title.casefold()
         if not title or not link or key in seen:
             continue
