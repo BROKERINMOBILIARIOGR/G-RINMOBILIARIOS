@@ -91,10 +91,21 @@ def image_from_article(url):
 
 def add_article_images(items):
     def find(item):
-        item["imageUrl"] = image_from_article(item["url"])
+        if not item.get("imageUrl"):
+            item["imageUrl"] = image_from_article(item["url"])
         return item
     with ThreadPoolExecutor(max_workers=6) as executor:
-        return list(executor.map(find, items))
+        enriched = list(executor.map(find, items))
+    image_counts = {}
+    for item in enriched:
+        image = item.get("imageUrl", "")
+        if image:
+            image_counts[image] = image_counts.get(image, 0) + 1
+    for item in enriched:
+        image = item.get("imageUrl", "")
+        if image and image_counts[image] > 1:
+            item["imageUrl"] = ""
+    return enriched
 
 def main():
     cutoff = datetime.now(timezone.utc) - timedelta(days=90)
@@ -130,6 +141,7 @@ def main():
             "source": source[:100] or "Google Noticias",
             "publishedAt": published,
             "category": category_for(title + " " + source),
+            "imageUrl": image_from_rss(node),
         })
     items.sort(key=lambda item: item["publishedAt"], reverse=True)
     items = add_article_images(items[:36])
