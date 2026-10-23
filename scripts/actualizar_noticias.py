@@ -143,6 +143,7 @@ def main():
     items = camara_project(cutoff)
     items = camara_project(cutoff)
     seen = {item["url"] for item in items}
+    seen_titles = {re.sub(r"\\s+", " ", item["title"]).strip().casefold() for item in items}
     for search_terms in QUERIES:
         request = urllib.request.Request(feed_url(cutoff, search_terms), headers=HEADERS)
         try:
@@ -161,6 +162,9 @@ def main():
             published = parse_date(node.findtext("pubDate"))
             if not published or not title or not link:
                 continue
+            normalized_title = re.sub(r"\\s+", " ", title).strip().casefold()
+            if "apuest" in normalized_title or normalized_title in seen_titles:
+                continue
             try:
                 published_dt = datetime.fromisoformat(published)
             except ValueError:
@@ -168,6 +172,7 @@ def main():
             if published_dt < cutoff or link in seen:
                 continue
             seen.add(link)
+            seen_titles.add(normalized_title)
             items.append({
                 "title": title[:240],
                 "url": link,
