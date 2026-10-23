@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T00:22-05:00",
+  "updatedAt": "2026-10-23T00:29-05:00",
   "items": [
     {
       "title": "Emergencia en Moniquirá, Boyacá, por deslizamiento de tierra en la vereda de Pajales tras fuertes lluvias: se reportan tres casas afectadas",
@@ -24,6 +24,14 @@
       "publishedAt": "2026-10-22T22:29:49+00:00",
       "category": "Subsidios",
       "imageUrl": "https://imagenes2.eltiempo.com/files/og_thumbnail/files/fp/uploads/2026/10/22/6ada8b0f27a5d.r_d.1345-728-0.jpeg"
+    },
+    {
+      "title": "Proyecto de ley propone vivienda VIP sin cuota inicial (455/2026C)",
+      "url": "https://www.camara.gov.co/vivienda-sin-cuota-inicial/",
+      "source": "Cámara de Representantes",
+      "publishedAt": "2026-10-21T12:00:00+00:00",
+      "category": "Política y normas",
+      "imageUrl": ""
     }
   ]
 }
