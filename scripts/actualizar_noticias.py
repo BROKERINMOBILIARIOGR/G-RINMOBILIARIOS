@@ -15,9 +15,16 @@ from zoneinfo import ZoneInfo
 
 OUTPUT = Path("data/noticias.json")
 BASE = "https://news.google.com/rss/search?"
-QUERY = '(vivienda Colombia OR subsidio vivienda Colombia OR finca raíz Colombia OR mercado inmobiliario Colombia OR construcción vivienda Colombia OR reforma vivienda Colombia OR proyectos vivienda Colombia)'
-def feed_url(cutoff):
-    query = QUERY + " after:" + cutoff.strftime("%Y-%m-%d")
+QUERIES = [
+    "vivienda Colombia",
+    "subsidio de vivienda Colombia",
+    "finca raíz Colombia",
+    "mercado inmobiliario Colombia",
+    "construcción de vivienda Colombia",
+    "política de vivienda Colombia",
+]
+def feed_url(cutoff, search_terms):
+    query = search_terms + " after:" + cutoff.strftime("%Y-%m-%d")
     return BASE + urllib.parse.urlencode({
         "q": query, "hl": "es-419", "gl": "CO", "ceid": "CO:es-419"
     })
@@ -134,36 +141,41 @@ def camara_project(cutoff):
 def main():
     cutoff = datetime.now(timezone.utc) - timedelta(days=90)
     items = camara_project(cutoff)
-    request = urllib.request.Request(feed_url(cutoff), headers=HEADERS)
-    with urllib.request.urlopen(request, timeout=30) as response:
-        root = ET.fromstring(response.read())
-    channel = root.find("channel")
-    if channel is None:
-        raise RuntimeError("El RSS no tiene un canal válido.")
+    items = camara_project(cutoff)
     seen = {item["url"] for item in items}
-    for node in channel.findall("item"):
-        title = (node.findtext("title") or "").strip()
-        link = (node.findtext("link") or "").strip()
-        source_node = node.find("source")
-        source = (source_node.text or "").strip() if source_node is not None else ""
-        published = parse_date(node.findtext("pubDate"))
-        if not published or not title or not link:
-            continue
+    for search_terms in QUERIES:
+        request = urllib.request.Request(feed_url(cutoff, search_terms), headers=HEADERS)
         try:
-            published_dt = datetime.fromisoformat(published)
-        except ValueError:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                root = ET.fromstring(response.read())
+        except (urllib.error.URLError, TimeoutError, ET.ParseError):
             continue
-        if published_dt < cutoff or link in seen:
+        channel = root.find("channel")
+        if channel is None:
             continue
-        seen.add(link)
-        items.append({
-            "title": title[:240],
-            "url": link,
-            "source": source[:100] or "Google Noticias",
-            "publishedAt": published,
-            "category": category_for(title + " " + source),
-            "imageUrl": image_from_rss(node),
-        })
+        for node in channel.findall("item"):
+            title = (node.findtext("title") or "").strip()
+            link = (node.findtext("link") or "").strip()
+            source_node = node.find("source")
+            source = (source_node.text or "").strip() if source_node is not None else ""
+            published = parse_date(node.findtext("pubDate"))
+            if not published or not title or not link:
+                continue
+            try:
+                published_dt = datetime.fromisoformat(published)
+            except ValueError:
+                continue
+            if published_dt < cutoff or link in seen:
+                continue
+            seen.add(link)
+            items.append({
+                "title": title[:240],
+                "url": link,
+                "source": source[:100] or "Google Noticias",
+                "publishedAt": published,
+                "category": category_for(title + " " + source),
+                "imageUrl": image_from_rss(node),
+            })
     items.sort(key=lambda item: item["publishedAt"], reverse=True)
     items = add_article_images(items[:36])
     payload = {
