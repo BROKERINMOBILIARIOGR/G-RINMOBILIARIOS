@@ -69,7 +69,7 @@
     .then(response => { if (!response.ok) throw new Error("No disponible"); return response.json(); })
     .then(data => {
       items = Array.isArray(data.items) ? data.items : [];
-      if (updated && data.updatedAt) updated.textContent = "Actualizado el " + formatDate(data.updatedAt) + " · Fuentes: agregadores y medios enlazados.";
+      if (updated && data.updatedAt) updated.textContent = "Actualizado el " + formatDate(data.updatedAt) + " · Fuentes: medios colombianos enlazados.";
       if (homeCards) {
         const featured = items.slice(0, 3);
         homeCards.innerHTML = featured.map(item => card(item, true)).join("");
