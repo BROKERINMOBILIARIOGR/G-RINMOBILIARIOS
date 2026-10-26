@@ -747,5 +747,41 @@
     "bathrooms": 0,
     "area": 100,
     "areaHectares": 0.0
+  },
+  {
+    "id": "bahia-solero-alicante",
+    "images": [
+      "Images/propiedades/bahia-solero-alicante/3ab1916a39824dacbbe9dbaeed0de113.jpeg",
+      "Images/propiedades/bahia-solero-alicante/cb2fde2c51014d778934f6db4a0f54f8.jpeg",
+      "Images/propiedades/bahia-solero-alicante/ee90225f15af41bba113350abd68e431.jpeg",
+      "Images/propiedades/bahia-solero-alicante/d4c05378760541c89140729a54f17fa4.jpeg",
+      "Images/propiedades/bahia-solero-alicante/37a4aa59d1534d9a83a49b668b08cc89.jpeg",
+      "Images/propiedades/bahia-solero-alicante/476fddf8b0bf4ae0ade0dd95ce06d9f3.jpeg",
+      "Images/propiedades/bahia-solero-alicante/6826d24a45cd4d8b9a26c2c072f7bfc7.jpeg",
+      "Images/propiedades/bahia-solero-alicante/66560544894a4ccd801fd5da362b04c1.jpeg",
+      "Images/propiedades/bahia-solero-alicante/602af1868d40410f91e4d7ed96bf9bfd.jpeg",
+      "Images/propiedades/bahia-solero-alicante/61511e9a25504244a83a9ffd9844f732.jpeg",
+      "Images/propiedades/bahia-solero-alicante/ea490cba62b54c808b1ceda6b3ab8cdf.jpeg",
+      "Images/propiedades/bahia-solero-alicante/939b3efbea6246e5a38063d5832d6706.jpeg",
+      "Images/propiedades/bahia-solero-alicante/b582f324a52a4333a85b4d0fb1594c9d.jpeg",
+      "Images/propiedades/bahia-solero-alicante/9eb34298b3b64751a709ed4f25731163.jpeg"
+    ],
+    "title": "Bahia Solero Alicante",
+    "department": "Cundinamarca",
+    "city": "Ricaurte",
+    "type": "Apartamento",
+    "price": 250000000,
+    "summary": "✨ Apartamento en venta en Bahía Solero Alicante – Peñalisa, Ricaurte, Cundinamarca ✨\nEste apartamento ubicado en el condominio Bahía Solero Alicante combina comodidad, ubicación estratégica y excelentes zonas sociales, ideal para descanso, renta vacacional o inversión inmobiliaria.",
+    "details": "✨ Apartamento en venta en Bahía Solero Alicante – Peñalisa, Ricaurte, Cundinamarca ✨\nEste apartamento ubicado en el condominio Bahía Solero Alicante combina comodidad, ubicación estratégica y excelentes zonas sociales, ideal para descanso, renta vacacional o inversión inmobiliaria.\n📍 Ubicación privilegiada en Peñalisa – Ricaurte, con fácil conexión hacia Girardot y Melgar. A pocos minutos de Carulla Peñalisa, Unicentro Girardot y Homecenter, rodeado de comercio, restaurantes y servicios.\n🏡 Características del apartamento:\n* 57 m² construidos / 51 m² privados\n* Ubicado en cuarto piso con acceso por ascensor\n* 3 habitaciones\n* 2 baños con divisiones en vidrio\n* Cocina integral abierta\n* Mesón en mármol tipo comedor\n* Zona de lavado independiente\n* Balcón con vista exterior al conjunto\n* Parqueadero asignado + parqueaderos para visitantes\n🌴 Zonas comunes para disfrutar:\n* Piscina para adultos y piscina para niños\n* Gimnasio\n* Salón social\n* Parque infantil\n* Amplias zonas verdes\nAdemás, el proyecto continúa creciendo con futuras amenidades como club de playa, kioscos, cancha de voleibol, lago natural, zona comercial, restaurantes y bares, aumentando aún más su valorización y atractivo",
+    "titleEn": "Bahia Solero Alicante",
+    "summaryEn": "✨ Apartment for Sale in Bahía Solero Alicante – Peñalisa, Ricaurte, Cundinamarca ✨\nLocated within the Bahía Solero Alicante condominium, this apartment offers a perfect blend of comfort, a strategic location, and excellent communal amenities—making it an ideal choice for a vacation retreat, a short-term rental property, or a real estate investment.",
+    "departmentEn": "Cundinamarca",
+    "cityEn": "Ricaurte",
+    "typeEn": "Apartment Peñalisa",
+    "detailsEn": "✨ Apartment for Sale in Bahía Solero Alicante – Peñalisa, Ricaurte, Cundinamarca ✨\nLocated within the Bahía Solero Alicante condominium, this apartment offers a perfect blend of comfort, a strategic location, and excellent communal amenities—making it an ideal choice for a vacation retreat, a short-term rental property, or a real estate investment.\n📍 Privileged location in Peñalisa – Ricaurte, with easy access to Girardot and Melgar. Situated just minutes away from Carulla Peñalisa, Unicentro Girardot, and Homecenter, and surrounded by a variety of shops, restaurants, and services.\n🏡 Apartment Features:\n* 57 m² total built area / 51 m² private area\n* Located on the fourth floor (accessible by elevator)\n* 3 bedrooms\n* 2 bathrooms with glass shower enclosures\n* Open-plan kitchen\n* Marble countertop with a breakfast bar/dining area\n* Separate laundry area\n* Balcony with an exterior view of the complex\n* Assigned parking space + visitor parking\n🌴 Communal Amenities:\n* Swimming pools for adults and children\n* Gym\n* Social/event hall\n* Children’s playground\n* Extensive green areas\nFurthermore, the development is set to expand with future amenities—including a beach club, gazebos, a volleyball court, a natural lake, a commercial area, restaurants, and bars—which will further enhance the property’s value and appeal.",
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "area": 57,
+    "areaHectares": 0.0
   }
 ]
