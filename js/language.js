@@ -1,7 +1,7 @@
 (() => {
   const labels = {
     "Inicio": "Home", "Proyectos": "Projects", "Proyectos Inmobiliarios": "Real Estate Projects", "Propiedades": "Properties",
-    "Propiedades en venta": "Properties for Sale", "Vende": "Sell",
+    "Propiedades en venta": "Properties for Sale", "Vende": "Sell", "Actualidad": "News",
     "Contáctenos": "Contact Us", "Contacto": "Contact", "Contáctanos": "Contact Us",
     "Invierte con confianza en proyectos inmobiliarios.": "Invest with confidence in real estate projects.",
     "Explora nuestras oportunidades de inversión": "Explore our investment opportunities",
