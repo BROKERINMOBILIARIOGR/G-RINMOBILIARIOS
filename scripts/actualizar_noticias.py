@@ -13,7 +13,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from zoneinfo import ZoneInfo
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 OUTPUT = Path("data/noticias.json")
 SHARE_DIR = Path("compartir/noticias")
@@ -26,6 +26,11 @@ QUERIES = [
     "mercado inmobiliario Colombia",
     "construcción de vivienda Colombia",
     "política de vivienda Colombia",
+    '"Carmen de Apicalá" lotes',
+    '"Carmen de Apicalá" vivienda',
+    '"Carmen de Apicalá" compraventa predios',
+    '"Carmen de Apicalá" parcelación OR urbanismo',
+    "Tolima lotes compraventa vivienda",
 ]
 def feed_url(cutoff, search_terms):
     query = search_terms + " after:" + cutoff.strftime("%Y-%m-%d")
@@ -40,10 +45,37 @@ CATEGORIES = [
 ]
 
 def category_for(text):
+    if re.search(r"carmen\s+de\s+apical[aá]|carmelitan", text, re.I) and re.search(
+        r"lote|viviend|inmob|predio|compraventa|catastro|ejido|urban|constru|parcel|venta", text, re.I
+    ):
+        return "Carmen de Apicalá"
     for label, pattern in CATEGORIES:
         if pattern.search(text):
             return label
     return "Mercado inmobiliario"
+
+def carmen_apicala_items(cutoff):
+    # Fuentes locales verificables que sirven de contexto mientras llegan
+    # nuevos titulares a las búsquedas RSS municipales.
+    items = [
+        {
+            "title": "Carmen de Apicalá publicó un proyecto de acuerdo sobre venta de ejidos para facilitar el acceso a la propiedad y promover vivienda digna",
+            "url": "https://alcaldiacarmendeapicala-tolima.gov.co/normatividad/proyecto-de-acuerdo-007-de-mayo-de-2026/",
+            "source": "Alcaldía de Carmen de Apicalá",
+            "publishedAt": "2026-05-29T14:27:00+00:00",
+            "category": "Carmen de Apicalá",
+            "imageUrl": "",
+        },
+        {
+            "title": "Más de 200 familias denuncian presunto fraude relacionado con lotes en Carmen de Apicalá, según medio regional",
+            "url": "https://elirreverenteibague.com/mas-de-200-familias-denuncian-presunto-fraude-con-lotes-y-senalan-al-alcalde-de-carmen-de-apicala/",
+            "source": "El Irreverente",
+            "publishedAt": "2026-10-15T22:25:00+00:00",
+            "category": "Carmen de Apicalá",
+            "imageUrl": "",
+        },
+    ]
+    return [item for item in items if datetime.fromisoformat(item["publishedAt"]) >= cutoff - timedelta(days=275)]
 
 def parse_date(value):
     if not value:
@@ -242,6 +274,7 @@ def main():
         for item in previous_items
     }
     items = camara_project(cutoff)
+    items.extend(carmen_apicala_items(cutoff))
     seen = {item["url"] for item in items}
     seen_titles = {re.sub(r"\\s+", " ", item["title"]).strip().casefold() for item in items}
     for search_terms in QUERIES:
@@ -261,6 +294,12 @@ def main():
             source = (source_node.text or "").strip() if source_node is not None else ""
             published = parse_date(node.findtext("pubDate"))
             if not published or not title or not link:
+                continue
+            if (
+                "más de 200 familias denuncian" in title.casefold()
+                and "irreverente" in (source or "").casefold()
+                and any("elirreverenteibague.com/mas-de-200-familias-denuncian" in item["url"] for item in items)
+            ):
                 continue
             normalized_title = re.sub(r"\\s+", " ", title).strip().casefold()
             if "apuest" in normalized_title or normalized_title in seen_titles:
@@ -294,10 +333,25 @@ def main():
         if not item.get("imageUrl") and previous.get("imageUrl"):
             item["imageUrl"] = previous["imageUrl"]
     items.sort(key=lambda item: item["publishedAt"], reverse=True)
-    items = add_article_images(items[:36])
+    local_items = [item for item in items if item.get("category") == "Carmen de Apicalá"]
+    national_items = [item for item in items if item.get("category") != "Carmen de Apicalá"]
+    # Reserve room for local coverage so a busy national news cycle cannot
+    # push every Carmen de Apicalá story out of the page. Keep an official
+    # municipal item in the local mix alongside current regional reporting.
+    official_local = [item for item in local_items if re.search(r"alcald[ií]a", item.get("source", ""), re.I)]
+    other_local = [item for item in local_items if item not in official_local]
+    selected_local = official_local[:1] + other_local[:3]
+    selected_local.extend(other_local[3:3 + max(0, 4 - len(selected_local))])
+    items = sorted(selected_local + national_items[:32], key=lambda item: item["publishedAt"], reverse=True)
+    items = add_article_images(items)
     create_news_share_pages(items)
+    try:
+        bogota_timezone = ZoneInfo("America/Bogota")
+    except ZoneInfoNotFoundError:
+        # Windows Python may not include the IANA timezone database.
+        bogota_timezone = timezone(timedelta(hours=-5))
     payload = {
-        "updatedAt": datetime.now(ZoneInfo("America/Bogota")).isoformat(timespec="minutes"),
+        "updatedAt": datetime.now(bogota_timezone).isoformat(timespec="minutes"),
         "items": items,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
