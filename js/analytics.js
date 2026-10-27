@@ -37,6 +37,16 @@
     try { destination = new URL(link.href, window.location.href); }
     catch (_) { return; }
 
+    if (link.hasAttribute("data-news-outbound")) {
+      window.gtag("event", "news_outbound_click", {
+        news_title: link.dataset.newsTitle || "",
+        news_source: link.dataset.newsSource || "",
+        outbound_url: destination.href,
+        transport_type: "beacon"
+      });
+      return;
+    }
+
     const match = destination.pathname.match(/\/(proyecto|propiedad)\.html$/i);
     const id = destination.searchParams.get("id");
     if (match && id) {
