@@ -33,8 +33,20 @@
     const link = safeUrl(item.url);
     const title = escapeText(item.title);
     const media = `<a class="noticia-miniatura" href="${link}" target="_blank" rel="noopener noreferrer" aria-label="Abrir noticia: ${title}">${imageMarkup(item)}</a>`;
-    if (featured) return `<article class="noticia-destacada">${media}<div class="noticia-contenido"><a class="noticia-titulo" href="${link}" target="_blank" rel="noopener noreferrer">${title}</a><p class="noticia-meta">${escapeText(item.source)} · ${formatDate(item.publishedAt)}</p></div></article>`;
-    return `<article class="noticia-card">${media}<div class="noticia-contenido"><span class="noticia-categoria">${escapeText(item.category)}</span><h3><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a></h3><p class="noticia-meta">${escapeText(item.source)} · ${formatDate(item.publishedAt)}</p></div></article>`;
+    const articleClass = featured ? "noticia-destacada" : "noticia-card";
+    const content = featured
+      ? `<a class="noticia-titulo" href="${link}" target="_blank" rel="noopener noreferrer">${title}</a>`
+      : `<span class="noticia-categoria">${escapeText(item.category)}</span><h3><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a></h3>`;
+    return `<article class="${articleClass}">${media}<div class="noticia-contenido">${content}<p class="noticia-meta">${escapeText(item.source)} · ${formatDate(item.publishedAt)}</p></div><div class="noticia-compartir" data-share-title="${title}" data-share-url="${link}"></div></article>`;
+  }
+  function addShareActions(container) {
+    if (!container || typeof window.createShareActions !== "function") return;
+    container.querySelectorAll(".noticia-compartir").forEach(placeholder => {
+      placeholder.replaceChildren(window.createShareActions(
+        placeholder.dataset.shareTitle,
+        placeholder.dataset.shareUrl
+      ));
+    });
   }
   function watchImages(container) {
     if (!container) return;
@@ -50,6 +62,7 @@
     const visible = activeFilter === "Todas" ? items : items.filter(item => item.category === activeFilter);
     if (list) {
       list.innerHTML = visible.map(item => card(item)).join("");
+      addShareActions(list);
       watchImages(list);
     }
     if (status && list) status.textContent = visible.length ? `${visible.length} titulares recientes. Abre cada enlace para leer la noticia en su fuente original.` : "No hay titulares para esta categoría por ahora.";
@@ -73,6 +86,7 @@
       if (homeCards) {
         const featured = items.slice(0, 3);
         homeCards.innerHTML = featured.map(item => card(item, true)).join("");
+        addShareActions(homeCards);
         watchImages(homeCards);
         const message = document.getElementById("estado-noticias-inicio");
         if (message && !featured.length) message.textContent = "La primera actualización automática está en preparación.";
