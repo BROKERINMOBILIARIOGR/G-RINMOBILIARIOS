@@ -27,9 +27,9 @@ try {
 
   // El total acumulado de visitas sigue siendo independiente de las sesiones activas.
   const visitsRef = ref(database, "visitas");
-  if (counter) {
-    runTransaction(visitsRef, (current) => (current || 0) + 1)
+  runTransaction(visitsRef, (current) => (current || 0) + 1)
       .catch((error) => console.error("No se pudo actualizar el contador de visitas:", error));
+  if (counter) {
     onValue(visitsRef, (snapshot) => {
       counter.textContent = snapshot.val() ?? 0;
     }, (error) => {

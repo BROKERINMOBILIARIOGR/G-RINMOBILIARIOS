@@ -171,6 +171,7 @@ def create_news_share_pages(items):
   <meta name="description" content="{safe_description}">
   <link rel="icon" href="../../logo-gr.svg">
   <script src="../../js/analytics.js?v=2" defer></script>
+  <script type="module" src="../../js/contador-visitas.js?v=3"></script>
   <style>
     * {{ box-sizing: border-box; }}
     body {{ margin: 0; background: #f5f7f6; color: #202a25; font: 16px/1.6 Arial, sans-serif; }}
