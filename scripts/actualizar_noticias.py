@@ -153,7 +153,7 @@ def create_news_share_pages(items):
         title = str(item.get("title") or "Actualidad de vivienda")
         description = f"{item.get('source') or 'Fuente original'} · Lee la noticia completa en su publicación original."
         article_url = item["url"]
-        image = item.get("imageUrl") or "Images/logo-gr-facebook.png"
+        image = item.get("imageUrl") or "Images/logo-gr-facebook-v2.png"
         image_url = urllib.parse.urljoin(SITE_URL, urllib.parse.quote(image, safe=":/%?=&"))
         share_url = urllib.parse.urljoin(SITE_URL, relative_path)
         safe_title = html.escape(title, quote=True)
