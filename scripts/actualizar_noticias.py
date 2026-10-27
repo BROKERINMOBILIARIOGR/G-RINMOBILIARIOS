@@ -153,7 +153,7 @@ def create_news_share_pages(items):
         title = str(item.get("title") or "Actualidad de vivienda")
         description = f"{item.get('source') or 'Fuente original'} · Lee la noticia completa en su publicación original."
         article_url = item["url"]
-        image = item.get("imageUrl") or "logo.jpeg"
+        image = item.get("imageUrl") or "Images/logo-gr-facebook.png"
         image_url = urllib.parse.urljoin(SITE_URL, urllib.parse.quote(image, safe=":/%?=&"))
         share_url = urllib.parse.urljoin(SITE_URL, relative_path)
         safe_title = html.escape(title, quote=True)
@@ -169,7 +169,7 @@ def create_news_share_pages(items):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{safe_title} | Actualidad G&amp;R</title>
   <meta name="description" content="{safe_description}">
-  <link rel="icon" href="../../logo.jpeg">
+  <link rel="icon" href="../../logo-gr.svg">
   <script src="../../js/analytics.js?v=2" defer></script>
   <style>
     * {{ box-sizing: border-box; }}
@@ -205,7 +205,7 @@ def create_news_share_pages(items):
 </head>
 <body>
   <header class="brand">
-    <a href="../../index.html"><img src="../../logo.jpeg" alt=""><span>Broker Inmobiliario G&amp;R</span></a>
+    <a href="../../index.html"><img src="../../logo-gr.svg" alt=""><span>Broker Inmobiliario G&amp;R</span></a>
     <span class="brand-label">Actualidad de vivienda</span>
   </header>
   <main>

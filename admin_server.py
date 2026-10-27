@@ -154,7 +154,7 @@ def social_share_pages(items: list[dict], collection: str) -> dict[str, bytes]:
         path = social_share_page_path(collection, identifier)
         title = str(item.get("title") or ("Proyecto inmobiliario" if collection == "proyectos" else "Propiedad en venta"))
         description = str(item.get("summary") or item.get("details") or title).strip()[:300]
-        image = "logo.jpeg"
+        image = "Images/logo-gr-facebook.png"
         for candidate in item.get("images", []):
             relative = Path(str(candidate).replace("\\", "/"))
             if (not relative.is_absolute() and ".." not in relative.parts
