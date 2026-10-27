@@ -37,14 +37,18 @@
     const content = featured
       ? `<a class="noticia-titulo" href="${link}" target="_blank" rel="noopener noreferrer">${title}</a>`
       : `<span class="noticia-categoria">${escapeText(item.category)}</span><h3><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a></h3>`;
-    return `<article class="${articleClass}">${media}<div class="noticia-contenido">${content}<p class="noticia-meta">${escapeText(item.source)} · ${formatDate(item.publishedAt)}</p></div><div class="noticia-compartir" data-share-title="${title}" data-share-url="${link}"></div></article>`;
+    const shareUrl = item.sharePath ? new URL(item.sharePath, window.location.href).href : link;
+    const image = safeUrl(item.imageUrl);
+    return `<article class="${articleClass}">${media}<div class="noticia-contenido">${content}<p class="noticia-meta">${escapeText(item.source)} · ${formatDate(item.publishedAt)}</p></div><div class="noticia-compartir" data-share-title="${title}" data-share-url="${escapeText(shareUrl)}" data-share-image="${escapeText(image === "#" ? "" : image)}"></div></article>`;
   }
   function addShareActions(container) {
     if (!container || typeof window.createShareActions !== "function") return;
     container.querySelectorAll(".noticia-compartir").forEach(placeholder => {
       placeholder.replaceChildren(window.createShareActions(
         placeholder.dataset.shareTitle,
-        placeholder.dataset.shareUrl
+        placeholder.dataset.shareUrl,
+        placeholder.dataset.shareImage,
+        { shareText: `${placeholder.dataset.shareTitle}\n${placeholder.dataset.shareUrl}`, nativeShareText: placeholder.dataset.shareTitle, copyText: `${placeholder.dataset.shareTitle}\n${placeholder.dataset.shareUrl}` }
       ));
     });
   }

@@ -55,7 +55,7 @@
     return url.href;
   };
 
-  window.createShareActions = (title, url, image) => {
+  window.createShareActions = (title, url, image, shareOptions = {}) => {
     const actions = document.createElement("div");
     actions.className = "share-actions";
     actions.setAttribute("role", "group");
@@ -96,7 +96,7 @@
     options.hidden = true;
     toggle.setAttribute("aria-controls", options.id);
 
-    const text = `${title} ${url}`;
+    const text = shareOptions.shareText || `${title}\n${url}`;
     const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
     const whatsapp = makeLink("WhatsApp", whatsappUrl, "share-whatsapp");
     options.append(
@@ -112,11 +112,13 @@
       closeMenu(actions);
       try {
         if (navigator.share) {
-          await navigator.share({ title, text: title, url });
+          await navigator.share({ title, text: shareOptions.nativeShareText || shareOptions.shareText || title, url });
           return;
         }
-        await navigator.clipboard.writeText(url);
-        status.textContent = window.siteLanguage?.() === "en" ? "Link copied. Paste it on Instagram to share." : "Enlace copiado. Pégalo en Instagram para compartirlo.";
+        await navigator.clipboard.writeText(shareOptions.copyText || url);
+        status.textContent = window.siteLanguage?.() === "en"
+          ? "Headline and link copied. Paste them on Instagram to share."
+          : "Titular y enlace copiados. Pégalos en Instagram para compartirlos.";
       } catch (error) {
         if (error.name === "AbortError") return;
         status.textContent = window.siteLanguage?.() === "en" ? "Copy this link and share it on Instagram: " : "Copia este enlace y compártelo en Instagram: ";
@@ -139,10 +141,10 @@
     copyButton.addEventListener("click", async () => {
       closeMenu(actions);
       try {
-        await navigator.clipboard.writeText(url);
+        await navigator.clipboard.writeText(shareOptions.copyText || url);
         status.textContent = window.siteLanguage?.() === "en"
-          ? "Link copied. Paste it into WhatsApp and wait for the preview."
-          : "Enlace copiado. Pégalo en WhatsApp y espera la miniatura.";
+          ? "Headline and link copied. Paste them into your message."
+          : "Titular y enlace copiados. Pégalos en tu mensaje.";
       } catch (_error) {
         status.textContent = window.siteLanguage?.() === "en"
           ? "Copy this link: "

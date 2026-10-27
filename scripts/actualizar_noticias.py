@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Actualiza titulares y enlaces RSS, sin copiar artículos completos."""
+import hashlib
+import html
 import json
 import re
 import urllib.error
@@ -14,6 +16,8 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 OUTPUT = Path("data/noticias.json")
+SHARE_DIR = Path("compartir/noticias")
+SITE_URL = "https://brokerinmobiliariogr.github.io/G-RINMOBILIARIOS/"
 BASE = "https://news.google.com/rss/search?"
 QUERIES = [
     "vivienda Colombia",
@@ -138,9 +142,72 @@ def camara_project(cutoff):
     }]
 
 
+def create_news_share_pages(items):
+    SHARE_DIR.mkdir(parents=True, exist_ok=True)
+    active_paths = set()
+    for item in items:
+        identifier = hashlib.sha256(item["url"].encode("utf-8")).hexdigest()[:20]
+        relative_path = f"compartir/noticias/{identifier}.html"
+        item["sharePath"] = relative_path
+        active_paths.add(f"{identifier}.html")
+        title = str(item.get("title") or "Actualidad de vivienda")
+        description = f"{item.get('source') or 'Fuente original'} · Lee la noticia completa en su publicación original."
+        article_url = item["url"]
+        image = item.get("imageUrl") or "logo.jpeg"
+        image_url = urllib.parse.urljoin(SITE_URL, urllib.parse.quote(image, safe=":/%?=&"))
+        share_url = urllib.parse.urljoin(SITE_URL, relative_path)
+        safe_title = html.escape(title, quote=True)
+        safe_description = html.escape(description, quote=True)
+        safe_image = html.escape(image_url, quote=True)
+        safe_share_url = html.escape(share_url, quote=True)
+        safe_article_url = html.escape(article_url, quote=True)
+        redirect_url = json.dumps(article_url, ensure_ascii=True).replace("</", "<\\/")
+        page = f"""<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{safe_title} | Actualidad G&amp;R</title>
+  <meta name="description" content="{safe_description}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Broker Inmobiliario G&amp;R">
+  <meta property="og:title" content="{safe_title}">
+  <meta property="og:description" content="{safe_description}">
+  <meta property="og:url" content="{safe_share_url}">
+  <meta property="og:image" content="{safe_image}">
+  <meta property="og:image:alt" content="{safe_title}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{safe_title}">
+  <meta name="twitter:description" content="{safe_description}">
+  <meta name="twitter:image" content="{safe_image}">
+  <script>window.location.replace({redirect_url});</script>
+</head>
+<body>
+  <main>
+    <img src="{safe_image}" alt="" style="max-width:100%;height:auto">
+    <h1>{safe_title}</h1>
+    <p>{safe_description}</p>
+    <a href="{safe_article_url}">Leer la noticia original</a>
+  </main>
+</body>
+</html>
+"""
+        (SHARE_DIR / f"{identifier}.html").write_text(page, encoding="utf-8")
+    for old_page in SHARE_DIR.glob("[0-9a-f]" * 20 + ".html"):
+        if old_page.name not in active_paths:
+            old_page.unlink()
+
+
 def main():
     cutoff = datetime.now(timezone.utc) - timedelta(days=90)
-    items = camara_project(cutoff)
+    try:
+        previous_items = json.loads(OUTPUT.read_text(encoding="utf-8")).get("items", [])
+    except (OSError, json.JSONDecodeError):
+        previous_items = []
+    previous_by_title = {
+        (" ".join(str(item.get("title", "")).split()).casefold(), str(item.get("source", "")).casefold()): item
+        for item in previous_items
+    }
     items = camara_project(cutoff)
     seen = {item["url"] for item in items}
     seen_titles = {re.sub(r"\\s+", " ", item["title"]).strip().casefold() for item in items}
@@ -181,8 +248,21 @@ def main():
                 "category": category_for(title + " " + source),
                 "imageUrl": image_from_rss(node),
             })
+    for item in items:
+        key = (" ".join(str(item.get("title", "")).split()).casefold(), str(item.get("source", "")).casefold())
+        previous = previous_by_title.get(key)
+        if not previous:
+            continue
+        previous_url = str(previous.get("url", ""))
+        current_host = urllib.parse.urlparse(item["url"]).hostname or ""
+        previous_host = urllib.parse.urlparse(previous_url).hostname or ""
+        if current_host == "news.google.com" and previous_host and previous_host != "news.google.com":
+            item["url"] = previous_url
+        if not item.get("imageUrl") and previous.get("imageUrl"):
+            item["imageUrl"] = previous["imageUrl"]
     items.sort(key=lambda item: item["publishedAt"], reverse=True)
     items = add_article_images(items[:36])
+    create_news_share_pages(items)
     payload = {
         "updatedAt": datetime.now(ZoneInfo("America/Bogota")).isoformat(timespec="minutes"),
         "items": items,
