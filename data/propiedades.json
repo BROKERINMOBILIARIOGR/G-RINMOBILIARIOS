@@ -816,5 +816,28 @@
     "bathrooms": 0,
     "area": 72,
     "areaHectares": 0.0
+  },
+  {
+    "id": "casa-en-altos-de-arenitas-aab60d",
+    "images": [
+      "Images/propiedades/casa-en-altos-de-arenitas-aab60d/2b5fae5b67e14aadb877b5768176660e.jpg"
+    ],
+    "title": "Casa en Altos de Arenitas",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Casa",
+    "price": 135000000,
+    "summary": "Casa de 72 metros cuadrados en 1350 millones",
+    "details": "Se vende propiedad ubicada en el barrio altos de arenitas en el carmen de Apicalá\ncon red de gas natural, acueducto, alcantarillado, alumbrado público y luz.\nescritura pública individual ¿, libre de hipoteca. impuestos al día.",
+    "titleEn": "Casa en Altos de Arenitas",
+    "summaryEn": "72-square-meter house for 1.35 billion",
+    "departmentEn": "Tolima",
+    "cityEn": "Carmen de apicala",
+    "typeEn": "House",
+    "detailsEn": "Property for sale located in the Altos de Arenitas neighborhood in El Carmen de Apicalá.\nEquipped with natural gas, water supply, sewage system, public lighting, and electricity.\nIndividual public deed; free of mortgages. Taxes are up to date.",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72,
+    "areaHectares": 0.0
   }
 ]
