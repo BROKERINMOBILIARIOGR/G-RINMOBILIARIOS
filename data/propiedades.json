@@ -784,5 +784,28 @@
     "bathrooms": 2,
     "area": 57,
     "areaHectares": 0.0
+  },
+  {
+    "id": "lagos-del-olimpo",
+    "images": [
+      "Images/propiedades/lagos-del-olimpo/e4ad800595b942429726f5e1bdc44eaf.jpg"
+    ],
+    "title": "Lagos del Olimpo",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Lote",
+    "price": 36000000,
+    "summary": "se remata lote en mega proyecto lagos del olimpo",
+    "details": "Se remata lote en megaproyecto Lagos Del Olimpo en la etapa uno, listo para construir:\nVias pavimentadas\nzonas BBQ\nzonas de piscina para niños\nZona de piscina para adultos y para mascotas\nLago de 2.6 hectáreas\nRed de gas natural\nluz\nalcantarillado y acueducto",
+    "titleEn": "lagos del olimpo",
+    "summaryEn": "Lot for sale in the Lagos del Olimpo mega-development (Phase 1), ready for construction:\nPaved roads\nBBQ areas\nChildren’s pool areas\nPool areas for adults and pets\n2.6-hectare lake\nNatural gas network\nElectricity\nSewage and water supply systems",
+    "departmentEn": "Tolima",
+    "cityEn": "Carmen de apicala",
+    "typeEn": "Lots",
+    "detailsEn": "Lot for sale in the Lagos del Olimpo mega-development (Phase 1), ready for construction:\nPaved roads\nBBQ areas\nChildren’s pool areas\nPool areas for adults and pets\n2.6-hectare lake\nNatural gas network\nElectricity\nSewage and water supply systems",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 72,
+    "areaHectares": 0.0
   }
 ]
