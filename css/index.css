@@ -83,6 +83,99 @@ section .card:hover{
     transform: scale(1.05);
 }
 
+#descargar-broker {
+    scroll-margin-top: 24px;
+}
+
+.broker-download-card {
+    display: grid;
+    grid-template-columns: minmax(92px, 140px) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(20px, 4vw, 42px);
+    padding: clamp(24px, 5vw, 48px);
+    border: 1px solid #e6dece;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #fffdf8, #f0eee6);
+    box-shadow: 0 14px 36px rgba(31, 79, 58, .12);
+}
+
+.broker-download-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+}
+
+.broker-download-kicker {
+    margin-bottom: 6px;
+    color: #8e7140;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.broker-download-card h2 {
+    margin-bottom: 10px;
+    color: #263b32;
+}
+
+.broker-download-card p {
+    margin-bottom: 14px;
+}
+
+.broker-download-meta {
+    color: #53645a;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.broker-download-button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: #1f4f3a;
+    color: #fff;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .2s ease, transform .2s ease;
+}
+
+.broker-download-button:hover {
+    background: #173d2d;
+}
+
+.broker-download-button:focus-visible {
+    outline: 3px solid #d4af37;
+    outline-offset: 3px;
+}
+
+.broker-download-note {
+    max-width: 700px;
+    margin: 14px 0 0 !important;
+    color: #626b65;
+    font-size: 13px;
+}
+
+@media (max-width: 640px) {
+    .broker-download-card {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+
+    .broker-download-logo {
+        width: 104px;
+    }
+
+    .broker-download-button {
+        width: 100%;
+    }
+}
+
 /* =====================================================
    BOTONES INDEX (EVITAR QUE SE VEAN FEOS)
 ===================================================== */
