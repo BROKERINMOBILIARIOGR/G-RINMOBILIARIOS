@@ -846,5 +846,28 @@
     "bathrooms": 0,
     "area": 72,
     "areaHectares": 0.0
+  },
+  {
+    "id": "chalet-bugambiles",
+    "images": [
+      "Images/propiedades/chalet-bugambiles/e8524a2b1d4e4f679e0f484af05ed261.jpg"
+    ],
+    "title": "Chalet Bugambiles",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Casa",
+    "price": 42000000,
+    "summary": "Se vende lujosa casa quinta en el maravilloso conjunto reservado BUGAMBILES",
+    "details": "Casa esquinera, con jardín  y aparcamiento para dos coches. cocina totalmente nueva, para estrenar.\nesta propiedad se vende a puerta cerrada (con todos los muebles que estén dentro de la propiedad.",
+    "titleEn": "Chalet BUGAMBILES",
+    "summaryEn": "Luxurious country house for sale in the wonderful, exclusive residential community of BUGAMBILES",
+    "departmentEn": "Tolima",
+    "cityEn": "Carmen de apicala",
+    "typeEn": "House",
+    "detailsEn": "Corner house with a garden and parking for two cars. The kitchen is brand new—never used.\nThis property is being sold fully furnished (including all furniture currently inside).",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": 0,
+    "areaHectares": 0.0
   }
 ]
