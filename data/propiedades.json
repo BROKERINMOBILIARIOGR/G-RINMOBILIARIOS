@@ -850,13 +850,17 @@
   {
     "id": "chalet-bugambiles",
     "images": [
-      "Images/propiedades/chalet-bugambiles/e8524a2b1d4e4f679e0f484af05ed261.jpg"
+      "Images/propiedades/chalet-bugambiles/d763ce92ed7f41c3b021656b6f826ff5.jpg",
+      "Images/propiedades/chalet-bugambiles/75fc6a883909424b8428c9ae6a5557ff.jpg",
+      "Images/propiedades/chalet-bugambiles/7b51c2d0d9f749a28484b696967ef6f0.jpg",
+      "Images/propiedades/chalet-bugambiles/a61025cfea4b433d95e4c3cc4737090b.jpg",
+      "Images/propiedades/chalet-bugambiles/9100018fe64441ca8e77bc5338f5f39b.jpg"
     ],
     "title": "Chalet Bugambiles",
     "department": "Tolima",
     "city": "Carmen de apicala",
     "type": "Casa",
-    "price": 42000000,
+    "price": 420000000,
     "summary": "Se vende lujosa casa quinta en el maravilloso conjunto reservado BUGAMBILES",
     "details": "Casa esquinera, con jardín  y aparcamiento para dos coches. cocina totalmente nueva, para estrenar.\nesta propiedad se vende a puerta cerrada (con todos los muebles que estén dentro de la propiedad.",
     "titleEn": "Chalet BUGAMBILES",
