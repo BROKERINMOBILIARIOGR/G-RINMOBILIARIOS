@@ -880,5 +880,32 @@
     "bathrooms": 2,
     "area": 0,
     "areaHectares": 0.0
+  },
+  {
+    "id": "chale-portal-del-lago",
+    "images": [
+      "Images/propiedades/chale-portal-del-lago/7920eda2859b4a57a6dda2e83bfb5cfd.jpg",
+      "Images/propiedades/chale-portal-del-lago/4d19f9d3215240bfa596ec15b38f66c4.jpg",
+      "Images/propiedades/chale-portal-del-lago/624cccccf23a42d5b2a02def0dceb7b3.jpg",
+      "Images/propiedades/chale-portal-del-lago/bfba4be01e754c83997a2d1a1a7be32d.jpg",
+      "Images/propiedades/chale-portal-del-lago/c707a8ddb9e54559a9020f87b5764abd.jpg"
+    ],
+    "title": "Chale Portal del Lago",
+    "department": "Tolima",
+    "city": "Carmen de apicala",
+    "type": "Casa",
+    "price": 380000000,
+    "summary": "Se vende hermosa cabaña campestre en el barrio portal del lago",
+    "details": "Cabaña campestre con piscina privada de 72 metros cuadrados, zona de BBQ baño exterior, sala, comedor, parqueadero para dos coches, árboles frutales y de sombra, zona de hamacas cocina tipo americana.",
+    "titleEn": "chalet portal del lago",
+    "summaryEn": "Country cabin with a private swimming pool, covering 72 square meters; features an outdoor BBQ area, an external bathroom, a living room, a dining area, parking for two cars, fruit and shade trees, a hammock area, and an American-style kitchen.",
+    "departmentEn": "Tolima",
+    "cityEn": "Carmen de apicala",
+    "typeEn": "chalet",
+    "detailsEn": "Country cabin with a private swimming pool, covering 72 square meters; features an outdoor BBQ area, an external bathroom, a living room, a dining area, parking for two cars, fruit and shade trees, a hammock area, and an American-style kitchen.",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": 600,
+    "areaHectares": 0.0
   }
 ]
